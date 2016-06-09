@@ -19,6 +19,28 @@ Yaf、Yar、Yac、Yaconf等框架或C扩展之PhpStrom代码自动补全（屏�
 
 4、Yar
 
+5、RedisCluster（目前还有一些命令没有补全：包括：
+sAddArray
+bitPos
+pfcount
+pfadd
+pfmerge
+zrangebylex
+zrevrangebylex
+zlexcount
+zremrangebylex
+zunionstore
+zinterstore
+unsubscribe
+punsubscribe
+getmode
+_serialize
+_masters
+_redir
+command
+rawcommand
+cluster）
+
 ##使用说明
 
 1、下载源文件并解压，将src文件夹下面的内容放到任意一个位置(我习惯将它放到我的phpstorm安装路径下的plugins\php\lib下面，然后建立一个vendor文件夹，如C:\Program Files (x86)\JetBrains\PhpStorm 9.0.2\plugins\php\lib\vendor)
