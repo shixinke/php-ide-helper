@@ -9,6 +9,16 @@ Yaf、Yar、Yac、Yaconf等框架或C扩展之PhpStrom代码自动补全（屏�
 
 项目中先包含写好的相关的框架的PHP类文件(因为ya*系列都是PHP扩展，通过PHP将其定义出来引用)，编译器即可在使用这些类的时候自动定位其定义的用法
 
+##目前支持的框架或扩展
+
+1、Yaf
+
+2、Yac
+
+3、Yaconf
+
+4、Yar
+
 ##使用说明
 
 1、下载源文件并解压，将src文件夹下面的内容放到任意一个位置(我习惯将它放到我的phpstorm安装路径下的plugins\php\lib下面，然后建立一个vendor文件夹，如C:\Program Files (x86)\JetBrains\PhpStorm 9.0.2\plugins\php\lib\vendor)
