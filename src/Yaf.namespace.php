@@ -1,28 +1,16 @@
 <?php
 /**
- * Yaf Develop Auto Complete
+ * Yaf Develop Auto Complete(命名空间版)
  *
- * Yaf框架之PhpStorm代码自动补全（屏蔽IDE undefined，全命名空间，中文详细文档，比手册更详细）
- *
- * 本文件使用方式：
- *
- * Yaf开发，在IDE中打开/导入本文件即可
- * 如果IDE自带 Include Path 功能(如：PhpStorm)，设置该文件路径即可.
- *
- * PhpStorm 另一种方法:
- * WinRAR打开 <Phpstorm_Dir>/plugins/php/lib/php.jar 文件
- * 复制 Yaf.namespace.php 到路径：com/jetbrains/php/lang/psi/stubs/data/
- * 保存文件，重启Phpstorm.
- *
- * PS:替换前请备份php.jar 若发生错误便于恢复 如有勘误，请联系Phpboy! :)
- *
- * @auther xudianyang<120343758@qq.com>
- * @copyright Copyright (c) 2014 (http://www.phpboy.net)
+ * Yaf框架之PhpStorm代码自动补全（屏蔽IDE undefined，中文详细文档，比手册更详细,基于Yaf3.0.2）
+ * @author shixinke(http://www.shixinke.com)
+ * @modified 2016/06/09
  */
 
 namespace
 {
-    define('YAF\VERSION',                   '2.2.9');
+    define('YAF\VERSION',               '3.0.2');
+    define('YAF\ENVIRON',                 'dev');
     define('YAF\ERR\STARTUP\FAILED',        512);
     define('YAF\ERR\ROUTE\FAILED',          513);
     define('YAF\ERR\DISPATCH\FAILED',       514);
