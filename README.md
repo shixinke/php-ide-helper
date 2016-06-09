@@ -25,11 +25,17 @@ Yaf、Yar、Yac、Yaconf等框架或C扩展之PhpStrom代码自动补全（屏�
 
 2、打开phpstorm,选择File->Settings，打开setting控制面板
 
+![phpstorm设置第一步](https://github.com/shixinke/phpstorm-for-php-framework/blob/master/static/images/step1.png)
+
+
 3、在setting控制面板中，选择Languages & Frameworks->PHP,点击PHP面板右侧的加号按钮，将第1步放置的类文件包含进来即可
+
+![phpstorm设置第二步](https://github.com/shixinke/phpstorm-for-php-framework/blob/master/static/images/step2.png)
 
 
 ##示例
 
+![phpstorm自动补全效果](https://github.com/shixinke/phpstorm-for-php-framework/blob/master/static/images/yaf.auto.complete.png)
 
 
 ##作者
