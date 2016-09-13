@@ -2,7 +2,7 @@
 
 php framework Auto Compelete
 
-Yaf、Yar、Yac、Yaconf等框架或C扩展之PhpStrom代码自动补全（屏蔽IDE undefined，全命名空间，中文详细文档，比手册更详细）
+Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自动补全（屏蔽IDE undefined，全命名空间，中文详细文档，比手册更详细）
 这个想法fork自phpboy（https://github.com/xudianyang/yaf.auto.complete）
 
 ##原理
@@ -40,6 +40,8 @@ _redir
 command
 rawcommand
 cluster）
+
+6、swoole扩展
 
 ##使用说明
 
