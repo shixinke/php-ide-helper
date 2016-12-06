@@ -2,6 +2,8 @@
 class YarDoc
 {
     const CLASS_NAME = 'Yar';
+    const DICT_FILE = './dict/Yar.json';
+    const DOC_FILE = './doc/Yar.php';
 
     public static function getClassNames()
     {
@@ -15,8 +17,31 @@ class YarDoc
         return $arr;
     }
 
+    public static function getConstants()
+    {
+        $constants = get_defined_constants();
+        $arr = array();
+        foreach($constants as $k=>$v)
+        {
+            if (substr($k, 0, 4) == strtoupper(self::CLASS_NAME).'_') {
+                $arr[$k] = $v;
+            }
+
+        }
+        return $arr;
+    }
+
     public static function createDict()
     {
+        $constants = self::getConstants();
+        $arr = array();
+        foreach($constants as $k=>$v) {
+            $arr['constants'][$k] = array(
+                'comment'=>''
+            );
+        }
+        $content = json_encode($arr);
+        file_put_contents(self::DICT_FILE, $content);
         $classNames = self::getClassNames();
         foreach($classNames as $className) {
             $obj = new YarClassDoc($className);
@@ -24,13 +49,35 @@ class YarDoc
         }
     }
 
+    public static function getDict()
+    {
+        $content = file_get_contents(self::DICT_FILE);
+        return json_decode($content, true);
+    }
+
     public static function create()
     {
+        $dict = self::getDict();
+        $constants = self::getConstants();
+        $content = "<?php\n/**\n* ".self::CLASS_NAME."自动补全类(基于最新的1.0.3版本)\n* @author shixinke(http://www.shixinke.com)\n* @modified ".date("Y/m/d")."\n*/\n";
+
+        foreach($constants as $k=>$v){
+            if (!is_numeric($v)) {
+                $v = "'$v'";
+            }
+            if (isset($dict['constants'][$k])) {
+                $content .= '//'.$dict['constants'][$k]['comment']."\n";
+            }
+            $content .= "define('".$k."', ".$v.");\n";
+        }
+
+        file_put_contents(self::DOC_FILE, $content);
         $classNames = self::getClassNames();
         foreach($classNames as $className) {
             $obj = new YarClassDoc($className);
-            $obj->create();
+            $res = $obj->create();
         }
+        return $res;
     }
 }
 class YarClassDoc
@@ -115,6 +162,7 @@ class YarClassDoc
     {
         $arr = array();
         $properties =  $this->obj->getProperties();
+        $defaultProperties = $this->obj->getDefaultProperties();
         foreach($properties as $property) {
             $name = $property->getName();
             if($property->isPrivate()) {
@@ -125,12 +173,12 @@ class YarClassDoc
                 $arr[$name]['access'] = 'public';
             }
             $arr[$name]['isStatic'] = $property->isStatic();
-            if ($property->isPublic()) {
-                $arr[$name]['value'] = $property->getValue();
+            if (isset($defaultProperties[$name])) {
+                $arr[$name]['value'] = $defaultProperties[$name];
             } else {
-                $reflectionProperty = $this->obj->getProperty($name);
-                $reflectionProperty->setAccessible(true);
-                $arr[$name]['value'] = $reflectionProperty->getValue();
+                if ($arr[$name]['isStatic'] && $property->isPublic() ) {
+                    $arr[$name]['value'] = $property->getValue();
+                }
             }
         }
         return $arr;
@@ -154,7 +202,13 @@ class YarClassDoc
             }
             $content .= "define('".$k."', ".$v.");\n";
         }
-        $content .= "\nclass ".$this->className."\n{\n";
+        $content .= "\nclass ".$this->className;
+        $parentClass = $this->obj->getParentClass();
+        if ($parentClass) {
+            $parentClassName = $parentClass->getName();
+            $content .= " extends ".$parentClassName;
+        }
+        $content .= "\n{\n";
         foreach($consts as $const=>$val) {
             if (isset($dict['properties'][$const])) {
                 $content .= '    //'.$dict['properties'][$const]['comment']."\n";
@@ -170,9 +224,9 @@ class YarClassDoc
                 $content .= ' static ';
             }
             $content .= " $".$p;
-            if (!is_null($pv['value'])) {
-                if ($pv['value'] == '') {
-                    $pv['value'] = '""';
+            if (isset($pv['value']) && !is_null($pv['value'])) {
+                if (!is_numeric($pv['value'])) {
+                    $pv['value'] = '"'.$pv['value'].'"';
                 }
                 $content .= '    =    '.$pv['value'];
             }
@@ -303,11 +357,8 @@ class YarClassDoc
 
     public function getDict()
     {
-        if (empty(self::$_dict)) {
-            $content = file_get_contents($this->dictFile);
-            self::$_dict = json_decode($content, true);
-        }
-        return self::$_dict;
+        $content = file_get_contents($this->dictFile);
+        return json_decode($content, true);
     }
 
     public function updateDict()
@@ -387,4 +438,4 @@ class YarClassDoc
 
 }
 
-var_dump(YarDoc::createDict());
+var_dump(YarDoc::create());

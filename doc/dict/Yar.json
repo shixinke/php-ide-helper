@@ -1,0 +1,55 @@
+{
+  "constants": {
+    "YAR_VERSION": {
+      "comment": "YAR的版本"
+    },
+    "YAR_OPT_PACKAGER": {
+      "comment": "YAR打包方式"
+    },
+    "YAR_OPT_PERSISTENT": {
+      "comment": "是否持久化连接"
+    },
+    "YAR_OPT_TIMEOUT": {
+      "comment": "超时时间"
+    },
+    "YAR_OPT_CONNECT_TIMEOUT": {
+      "comment": "连接超时时间"
+    },
+    "YAR_CLIENT_PROTOCOL_HTTP": {
+      "comment": "HTTP协议"
+    },
+    "YAR_CLIENT_PROTOCOL_TCP": {
+      "comment": "TCP协议"
+    },
+    "YAR_CLIENT_PROTOCOL_UNIX": {
+      "comment": "UNIX协议"
+    },
+    "YAR_PACKAGER_PHP": {
+      "comment": "PHP打包"
+    },
+    "YAR_PACKAGER_JSON": {
+      "comment": "JSON打包"
+    },
+    "YAR_ERR_OKEY": {
+      "comment": "YAR未出错"
+    },
+    "YAR_ERR_OUTPUT": {
+      "comment": "YAR输出错误"
+    },
+    "YAR_ERR_TRANSPORT": {
+      "comment": "YAR传输错误"
+    },
+    "YAR_ERR_REQUEST": {
+      "comment": "YAR请求错误"
+    },
+    "YAR_ERR_PROTOCOL": {
+      "comment": "YAR协议错误"
+    },
+    "YAR_ERR_PACKAGER": {
+      "comment": "YAR打包错误"
+    },
+    "YAR_ERR_EXCEPTION": {
+      "comment": "YAR异常错误"
+    }
+  }
+}

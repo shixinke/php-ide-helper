@@ -1,0 +1,374 @@
+{
+  "comment":"\nYaf_Dispatcher实现了MVC中的C分发，它由Yaf_Application负责初始化，然后由Yaf_Application::run启动，它协调路由来的请求，并分发和执行发现的动作.\n并收集动作产生的响应，输出响应给请求者，并在整个过程完成以后返回响应.",
+  "properties": {
+    "_router": {
+      "comment": ""
+    },
+    "_view": {
+      "comment": ""
+    },
+    "_request": {
+      "comment": ""
+    },
+    "_plugins": {
+      "comment": ""
+    },
+    "_instance": {
+      "comment": ""
+    },
+    "_auto_render": {
+      "comment": ""
+    },
+    "_return_response": {
+      "comment": ""
+    },
+    "_instantly_flush": {
+      "comment": ""
+    },
+    "_default_module": {
+      "comment": ""
+    },
+    "_default_controller": {
+      "comment": ""
+    },
+    "_default_action": {
+      "comment": ""
+    }
+  },
+  "methods": {
+    "__construct": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "__clone": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "__sleep": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "__wakeup": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "enableView": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "disableView": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "initView": {
+      "comment": "",
+      "parameters": {
+        "templates_dir": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        },
+        "options": {
+          "comment": "",
+          "type": {},
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "setView": {
+      "comment": "",
+      "parameters": {
+        "view": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "setRequest": {
+      "comment": "",
+      "parameters": {
+        "request": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "getApplication": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "getRouter": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "getRequest": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "setErrorHandler": {
+      "comment": "",
+      "parameters": {
+        "callback": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        },
+        "error_types": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "setDefaultModule": {
+      "comment": "",
+      "parameters": {
+        "module": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "setDefaultController": {
+      "comment": "",
+      "parameters": {
+        "controller": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "setDefaultAction": {
+      "comment": "",
+      "parameters": {
+        "action": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "returnResponse": {
+      "comment": "",
+      "parameters": {
+        "flag": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "autoRender": {
+      "comment": "",
+      "parameters": {
+        "flag": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "flushInstantly": {
+      "comment": "",
+      "parameters": {
+        "flag": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "getInstance": {
+      "comment": "",
+      "parameters": [],
+      "example": "",
+      "return": ""
+    },
+    "dispatch": {
+      "comment": "",
+      "parameters": {
+        "request": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "throwException": {
+      "comment": "",
+      "parameters": {
+        "flag": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "catchException": {
+      "comment": "",
+      "parameters": {
+        "flag": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    },
+    "registerPlugin": {
+      "comment": "",
+      "parameters": {
+        "plugin": {
+          "comment": "",
+          "type": "unknown",
+          "options": [
+            {
+              "value": "",
+              "comment": ""
+            }
+          ],
+          "extra": ""
+        }
+      },
+      "example": "",
+      "return": ""
+    }
+  }
+}

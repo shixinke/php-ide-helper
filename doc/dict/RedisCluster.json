@@ -1,0 +1,873 @@
+{
+  "object": {
+    "name": "RedisCluster"
+  },
+  "comment": false,
+  "namespace": "",
+  "consts": null,
+  "properties": [],
+  "methods": {
+    "__construct": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "close": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "get": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "set": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "mget": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "mset": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "msetnx": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "del": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "setex": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "psetex": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "setnx": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "getset": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "exists": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "keys": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "type": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "lpop": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "rpop": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "lset": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "spop": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "lpush": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "rpush": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "blpop": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "brpop": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "rpushx": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "lpushx": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "linsert": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "lindex": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "lrem": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "brpoplpush": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "rpoplpush": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "llen": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "scard": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "smembers": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "sismember": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "sadd": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "saddarray": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "srem": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "sunion": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "sunionstore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "sinter": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "sinterstore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "sdiff": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "sdiffstore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "srandmember": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "strlen": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "persist": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "ttl": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "pttl": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zcard": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zcount": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zremrangebyscore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zscore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zadd": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zincrby": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hlen": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hkeys": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hvals": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hget": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hgetall": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hexists": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hincrby": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hset": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hsetnx": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hmget": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hmset": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hdel": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "hincrbyfloat": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "dump": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zrank": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zrevrank": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "incr": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "decr": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "incrby": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "decrby": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "incrbyfloat": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "expire": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "pexpire": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "expireat": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "pexpireat": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "append": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "getbit": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "setbit": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "bitop": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "bitpos": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "bitcount": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "lget": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "getrange": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "ltrim": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "lrange": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zremrangebyrank": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "publish": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "rename": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "renamenx": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "pfcount": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "pfadd": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "pfmerge": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "setrange": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "restore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "smove": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zrange": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zrevrange": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zrangebyscore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zrevrangebyscore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zrangebylex": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zrevrangebylex": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zlexcount": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zremrangebylex": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zunionstore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zinterstore": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "zrem": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "sort": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "object": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "subscribe": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "psubscribe": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "unsubscribe": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "punsubscribe": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "eval": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "evalsha": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "scan": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false,
+      "parameters": {
+        "i_iterator": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "str_node": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "str_pattern": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "i_count": {
+          "comment": "",
+          "type": "unknown"
+        }
+      }
+    },
+    "sscan": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false,
+      "parameters": {
+        "str_key": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "i_iterator": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "str_pattern": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "i_count": {
+          "comment": "",
+          "type": "unknown"
+        }
+      }
+    },
+    "zscan": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false,
+      "parameters": {
+        "str_key": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "i_iterator": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "str_pattern": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "i_count": {
+          "comment": "",
+          "type": "unknown"
+        }
+      }
+    },
+    "hscan": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false,
+      "parameters": {
+        "str_key": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "i_iterator": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "str_pattern": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "i_count": {
+          "comment": "",
+          "type": "unknown"
+        }
+      }
+    },
+    "getmode": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "getlasterror": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "clearlasterror": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "getoption": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "setoption": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_prefix": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_serialize": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_unserialize": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_masters": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_redir": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "multi": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "exec": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "discard": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "watch": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "unwatch": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "save": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "bgsave": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "flushdb": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "flushall": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "dbsize": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "bgrewriteaof": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "lastsave": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "info": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "role": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "time": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "randomkey": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "ping": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "echo": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "command": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "rawcommand": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "cluster": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "client": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "config": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "pubsub": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "script": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "slowlog": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    }
+  }
+}

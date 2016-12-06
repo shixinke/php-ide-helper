@@ -1,0 +1,1 @@
+{"object":{"name":"Swoole\\Server\\Port"},"comment":false,"namespace":"Swoole\\Server","consts":null,"properties":[],"methods":{"__construct":{"access":"private","comment":false,"isStatic":false},"__destruct":{"access":"public","comment":false,"isStatic":false},"set":{"access":"public","comment":false,"isStatic":false},"on":{"access":"public","comment":false,"isStatic":false}}}

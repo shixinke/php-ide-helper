@@ -1,7 +1,7 @@
 <?php
 class YaconfDoc
 {
-    const DICT_FILE = './dict/yaconf.json';
+    const DICT_FILE = './dict/Yaconf.json';
     const DOC_FILE = './doc/Yaconf.php';
     const CLASS_NAME = 'Yaconf';
     private static $_dict = array();
@@ -76,6 +76,7 @@ class YaconfDoc
     {
         $arr = array();
         $properties =  $this->obj->getProperties();
+        $defaultProperties = $this->obj->getDefaultProperties();
         foreach($properties as $property) {
             $name = $property->getName();
             if($property->isPrivate()) {
@@ -86,13 +87,12 @@ class YaconfDoc
                 $arr[$name]['access'] = 'public';
             }
             $arr[$name]['isStatic'] = $property->isStatic();
-            if ($property->isPublic()) {
-                $arr[$name]['value'] = $property->getValue();
+            if (isset($defaultProperties[$name])) {
+                $arr[$name]['value'] = $defaultProperties[$name];
             } else {
-                $reflectionProperty = $this->obj->getProperty($name);
-                $reflectionProperty->setAccessible(true);
-                $className = self::CLASS_NAME;
-                $arr[$name]['value'] = $reflectionProperty->getValue(new $className);
+                if ($arr[$name]['isStatic'] && $property->isPublic()) {
+                    $arr[$name]['value'] = $property->getValue();
+                }
             }
         }
         return $arr;

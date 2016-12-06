@@ -1,0 +1,156 @@
+{
+  "object": {
+    "name": "RedisArray"
+  },
+  "comment": false,
+  "namespace": "",
+  "consts": null,
+  "properties": [],
+  "methods": {
+    "__construct": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "__call": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false,
+      "parameters": {
+        "function_name": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "arguments": {
+          "comment": "",
+          "type": "unknown"
+        }
+      }
+    },
+    "_hosts": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_target": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_instance": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_function": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_distributor": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "_rehash": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "select": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "info": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "ping": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "flushdb": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "flushall": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "mget": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "mset": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "del": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "getOption": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "setOption": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "keys": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "save": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "bgsave": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "multi": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "exec": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "discard": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "unwatch": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "delete": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "getMultiple": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    }
+  }
+}

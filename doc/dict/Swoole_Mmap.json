@@ -1,0 +1,1 @@
+{"object":{"name":"Swoole\\Mmap"},"comment":false,"namespace":"Swoole","consts":null,"properties":[],"methods":{"open":{"access":"public","comment":false,"isStatic":true,"parameters":{"filename":{"comment":"","type":"unknown"},"size":{"comment":"","type":"unknown"},"offset":{"comment":"","type":"unknown"}}}}}

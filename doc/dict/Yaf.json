@@ -1,0 +1,41 @@
+{
+  "comment":"YAF是一款使用C语言开发的轻量级PHP WEB开发框架",
+  "constants": {
+    "YAF_VERSION": {
+      "comment": "YAF版本"
+    },
+    "YAF_ENVIRON": {
+      "comment": "YAF应用的环境(开发、测试或生产环境，根据配置而来)"
+    },
+    "YAF_ERR_STARTUP_FAILED": {
+      "comment": "启动失败错误"
+    },
+    "YAF_ERR_ROUTE_FAILED": {
+      "comment": "路由失败错误"
+    },
+    "YAF_ERR_DISPATCH_FAILED": {
+      "comment": "分发失败错误"
+    },
+    "YAF_ERR_AUTOLOAD_FAILED": {
+      "comment": "自动加载错误"
+    },
+    "YAF_ERR_NOTFOUND_MODULE": {
+      "comment": "模块未找到错误"
+    },
+    "YAF_ERR_NOTFOUND_CONTROLLER": {
+      "comment": "控制器未找到错误"
+    },
+    "YAF_ERR_NOTFOUND_ACTION": {
+      "comment": "方法未找到错误"
+    },
+    "YAF_ERR_NOTFOUND_VIEW": {
+      "comment": "模板未找到错误"
+    },
+    "YAF_ERR_CALL_FAILED": {
+      "comment": "调用方法错误"
+    },
+    "YAF_ERR_TYPE_ERROR": {
+      "comment": "类型错误"
+    }
+  }
+}

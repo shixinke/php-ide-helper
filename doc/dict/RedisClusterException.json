@@ -1,0 +1,112 @@
+{
+  "object": {
+    "name": "RedisClusterException"
+  },
+  "comment": false,
+  "namespace": "",
+  "extends": "RuntimeException",
+  "consts": null,
+  "properties": {
+    "message": {
+      "access": "protected",
+      "comment": false,
+      "isStatic": false,
+      "value": ""
+    },
+    "code": {
+      "access": "protected",
+      "comment": false,
+      "isStatic": false,
+      "value": 0
+    },
+    "file": {
+      "access": "protected",
+      "comment": false,
+      "isStatic": false
+    },
+    "line": {
+      "access": "protected",
+      "comment": false,
+      "isStatic": false
+    }
+  },
+  "methods": {
+    "__clone": {
+      "access": "private",
+      "isFinal": 1,
+      "comment": false,
+      "isStatic": false
+    },
+    "__construct": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false,
+      "parameters": {
+        "message": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "code": {
+          "comment": "",
+          "type": "unknown"
+        },
+        "previous": {
+          "comment": "",
+          "type": "unknown"
+        }
+      }
+    },
+    "__wakeup": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    },
+    "getMessage": {
+      "access": "public",
+      "isFinal": 1,
+      "comment": false,
+      "isStatic": false
+    },
+    "getCode": {
+      "access": "public",
+      "isFinal": 1,
+      "comment": false,
+      "isStatic": false
+    },
+    "getFile": {
+      "access": "public",
+      "isFinal": 1,
+      "comment": false,
+      "isStatic": false
+    },
+    "getLine": {
+      "access": "public",
+      "isFinal": 1,
+      "comment": false,
+      "isStatic": false
+    },
+    "getTrace": {
+      "access": "public",
+      "isFinal": 1,
+      "comment": false,
+      "isStatic": false
+    },
+    "getPrevious": {
+      "access": "public",
+      "isFinal": 1,
+      "comment": false,
+      "isStatic": false
+    },
+    "getTraceAsString": {
+      "access": "public",
+      "isFinal": 1,
+      "comment": false,
+      "isStatic": false
+    },
+    "__toString": {
+      "access": "public",
+      "comment": false,
+      "isStatic": false
+    }
+  }
+}

@@ -1,7 +1,7 @@
 <?php
 class YacDoc
 {
-    const DICT_FILE = './dict/yac.json';
+    const DICT_FILE = './dict/Yac.json';
     const DOC_FILE = './doc/Yac.php';
     private static $_dict = array();
     private $obj;
@@ -75,6 +75,7 @@ class YacDoc
     {
         $arr = array();
         $properties =  $this->obj->getProperties();
+        $defaultProperties = $this->obj->getDefaultProperties();
         foreach($properties as $property) {
             $name = $property->getName();
             if($property->isPrivate()) {
@@ -85,12 +86,12 @@ class YacDoc
                 $arr[$name]['access'] = 'public';
             }
             $arr[$name]['isStatic'] = $property->isStatic();
-            if ($property->isPublic()) {
-                $arr[$name]['value'] = $property->getValue();
+            if (isset($defaultProperties[$name])) {
+                $arr[$name]['value'] = $defaultProperties[$name];
             } else {
-                $reflectionProperty = $this->obj->getProperty($name);
-                $reflectionProperty->setAccessible(true);
-                $arr[$name]['value'] = $reflectionProperty->getValue(new Yac());
+                if ($arr[$name]['isStatic'] && $property->isPublic()) {
+                    $arr[$name]['value'] = $property->getValue();
+                }
             }
         }
         return $arr;
