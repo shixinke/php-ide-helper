@@ -1,1 +1,0 @@
-{"object":{"name":"Swoole\\Http\\Request"},"comment":false,"namespace":"Swoole\\Http","consts":null,"properties":[],"methods":{"rawcontent":{"access":"public","comment":false,"isStatic":false},"__destruct":{"access":"public","comment":false,"isStatic":false}}}

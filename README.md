@@ -19,27 +19,7 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 4、Yar
 
-5、RedisCluster（目前还有一些命令没有补全：包括：
-sAddArray
-bitPos
-pfcount
-pfadd
-pfmerge
-zrangebylex
-zrevrangebylex
-zlexcount
-zremrangebylex
-zunionstore
-zinterstore
-unsubscribe
-punsubscribe
-getmode
-_serialize
-_masters
-_redir
-command
-rawcommand
-cluster）
+5、RedisCluster
 
 6、swoole扩展
 
@@ -61,7 +41,9 @@ cluster）
 
 ![phpstorm自动补全效果](https://github.com/shixinke/phpstorm-for-php-framework/blob/master/static/images/yaf.auto.complete.png)
 
+## 其他说明
 
+此次php源码文档由[phpDocumentCreator](http://github.com/shixinke/phpDocumentCreator) 生成，它可以生成任何PHP扩展的源码文档
 ##作者
 
 shixinke
