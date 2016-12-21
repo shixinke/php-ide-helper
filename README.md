@@ -7,7 +7,7 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 ##原理
 
-项目中先包含写好的相关的框架的PHP类文件(因为ya*系列都是PHP扩展，通过PHP将其定义出来引用)，编译器即可在使用这些类的时候自动定位其定义的用法
+项目中先包含写好的相关的框架的PHP类文件(相当于本地类，因为ya*系列都是使用C语言写的PHP扩展，通过PHP将其定义出来引用)，编辑器即可在使用这些类的时候自动定位其定义的用法
 
 ##目前支持的框架或扩展
 
@@ -43,7 +43,7 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 ## 其他说明
 
-此次php源码文档由[phpDocumentCreator](http://github.com/shixinke/phpDocumentCreator) 生成，它可以生成任何PHP扩展的源码文档
+此次php源码文档由[php-document-creator](http://github.com/shixinke/php-document-creator) 生成，它可以生成任何PHP扩展的源码文档
 ##作者
 
 shixinke
