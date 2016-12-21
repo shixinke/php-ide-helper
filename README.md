@@ -1,6 +1,6 @@
 #phpstorm-for-php-framework
 
-php framework Auto Compelete
+php framework and php extension Auto Compelete for phpstorm
 
 Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自动补全（屏蔽IDE undefined，全命名空间，中文详细文档，比手册更详细）
 这个想法fork自phpboy（https://github.com/xudianyang/yaf.auto.complete）
