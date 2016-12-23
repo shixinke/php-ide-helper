@@ -2,184 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb6b97e6-d409-4491-8c38-bcc826d8ef74" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/RedisArray.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/RedisCluster.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/RedisClusterException.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/RedisException.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Async.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Atomic.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Buffer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Channel.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Client.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Connection_Iterator.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Event.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Exception.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Http_Client.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Http_Request.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Http_Response.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Http_Server.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Lock.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Mmap.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Module.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_MySQL.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_MySQL_Exception.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Process.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Redis_Server.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Server.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Server_Port.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Table.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_Timer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_WebSocket_Frame.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/Swoole_WebSocket_Server.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/dict/swoole.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tool/test.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/RedisArray.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/RedisCluster.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/RedisClusterException.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/RedisException.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Async.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Atomic.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Buffer.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Channel.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Client.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Connection_Iterator.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Event.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Exception.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Http_Client.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Http_Request.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Http_Response.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Http_Server.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Lock.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Mmap.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Module.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_MySQL.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_MySQL_Exception.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Process.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Redis_Server.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Server.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Server_Port.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Table.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_Timer.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_WebSocket_Frame.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/Swoole_WebSocket_Server.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/dict/swoole.json" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Redis.json" afterPath="$PROJECT_DIR$/tool/dict/Redis.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yac.json" afterPath="$PROJECT_DIR$/tool/dict/Yac.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaconf.json" afterPath="$PROJECT_DIR$/tool/dict/Yaconf.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Action_Abstract.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Action_Abstract.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Application.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Application.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Bootstrap_Abstract.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Bootstrap_Abstract.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Config_Abstract.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Config_Abstract.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Config_Ini.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Config_Ini.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Config_Simple.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Config_Simple.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Controller_Abstract.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Controller_Abstract.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Dispatcher.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Dispatcher.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception_DispatchFailed.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception_DispatchFailed.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception_LoadFailed.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception_LoadFailed.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception_LoadFailed_Action.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception_LoadFailed_Action.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception_LoadFailed_Controller.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception_LoadFailed_Controller.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception_LoadFailed_Module.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception_LoadFailed_Module.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception_LoadFailed_View.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception_LoadFailed_View.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception_RouterFailed.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception_RouterFailed.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception_StartupError.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception_StartupError.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Exception_TypeError.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Exception_TypeError.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Loader.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Loader.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Plugin_Abstract.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Plugin_Abstract.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Registry.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Registry.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Request_Abstract.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Request_Abstract.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Request_Http.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Request_Http.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Request_Simple.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Request_Simple.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Response_Abstract.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Response_Abstract.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Response_Cli.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Response_Cli.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Response_Http.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Response_Http.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Route_Map.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Route_Map.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Route_Regex.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Route_Regex.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Route_Rewrite.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Route_Rewrite.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Route_Simple.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Route_Simple.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Route_Static.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Route_Static.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Route_Supervar.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Route_Supervar.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Router.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Router.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_Session.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_Session.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yaf_View_Simple.json" afterPath="$PROJECT_DIR$/tool/dict/Yaf_View_Simple.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar.json" afterPath="$PROJECT_DIR$/tool/dict/Yar.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Client.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Client.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Client_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Client_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Client_Packager_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Client_Packager_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Client_Protocol_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Client_Protocol_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Client_Transport_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Client_Transport_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Concurrent_Client.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Concurrent_Client.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Server.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Server.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Server_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Server_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Server_Output_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Server_Output_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Server_Packager_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Server_Packager_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Server_Protocol_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Server_Protocol_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/dict/Yar_Server_Request_Exception.json" afterPath="$PROJECT_DIR$/tool/dict/Yar_Server_Request_Exception.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc.php" afterPath="$PROJECT_DIR$/tool/doc.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yac.php" afterPath="$PROJECT_DIR$/tool/doc/Yac.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaconf.php" afterPath="$PROJECT_DIR$/tool/doc/Yaconf.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Action_Abstract.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Action_Abstract.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Application.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Application.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Bootstrap_Abstract.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Bootstrap_Abstract.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Config_Abstract.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Config_Abstract.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Config_Ini.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Config_Ini.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Config_Simple.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Config_Simple.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Controller_Abstract.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Controller_Abstract.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Dispatcher.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Dispatcher.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception_DispatchFailed.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception_DispatchFailed.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception_LoadFailed.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception_LoadFailed.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception_LoadFailed_Action.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception_LoadFailed_Action.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception_LoadFailed_Controller.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception_LoadFailed_Controller.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception_LoadFailed_Module.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception_LoadFailed_Module.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception_LoadFailed_View.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception_LoadFailed_View.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception_RouterFailed.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception_RouterFailed.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception_StartupError.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception_StartupError.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Exception_TypeError.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Exception_TypeError.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Loader.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Loader.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Plugin_Abstract.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Plugin_Abstract.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Registry.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Registry.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Request_Abstract.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Request_Abstract.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Request_Http.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Request_Http.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Request_Simple.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Request_Simple.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Response_Abstract.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Response_Abstract.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Response_Cli.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Response_Cli.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Response_Http.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Response_Http.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Route_Map.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Route_Map.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Route_Regex.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Route_Regex.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Route_Rewrite.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Route_Rewrite.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Route_Simple.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Route_Simple.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Route_Static.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Route_Static.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Route_Supervar.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Route_Supervar.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Router.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Router.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_Session.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_Session.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yaf_View_Simple.php" afterPath="$PROJECT_DIR$/tool/doc/Yaf_View_Simple.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar.php" afterPath="$PROJECT_DIR$/tool/doc/Yar.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Client.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Client.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Client_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Client_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Client_Packager_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Client_Packager_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Client_Protocol_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Client_Protocol_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Client_Transport_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Client_Transport_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Concurrent_Client.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Concurrent_Client.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Server.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Server.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Server_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Server_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Server_Output_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Server_Output_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Server_Packager_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Server_Packager_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Server_Protocol_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Server_Protocol_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/doc/Yar_Server_Request_Exception.php" afterPath="$PROJECT_DIR$/tool/doc/Yar_Server_Request_Exception.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/notes/redis.php" afterPath="$PROJECT_DIR$/tool/notes/redis.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/notes/swoole.php" afterPath="$PROJECT_DIR$/tool/notes/swoole.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/notes/yaf.php" afterPath="$PROJECT_DIR$/tool/notes/yaf.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/tool.php" afterPath="$PROJECT_DIR$/tool/tool.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/transform.php" afterPath="$PROJECT_DIR$/tool/transform.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/yac.php" afterPath="$PROJECT_DIR$/tool/yac.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/yaconf.php" afterPath="$PROJECT_DIR$/tool/yaconf.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/yaf.php" afterPath="$PROJECT_DIR$/tool/yaf.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/yar.php" afterPath="$PROJECT_DIR$/tool/yar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Yac.php" afterPath="$PROJECT_DIR$/src/Yac.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/swoole.namespace.php" afterPath="$PROJECT_DIR$/src/swoole.namespace.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/composerJson.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/phpstorm-for-php-framework.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -197,67 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tool.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/tool.php">
+      <file leaf-file-name="Yac.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Yac/Yac.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="5" column="18" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+            <state relative-caret-position="-3527">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="transform.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/transform.php">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="10" column="9" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-              <folding>
-                <element signature="e#221#244#0#PHP" expanded="true" />
-                <element signature="e#2418#2630#0#PHP" expanded="false" />
-                <element signature="e#2647#2987#0#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="doc.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/doc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="404" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="autoload.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tool/vendor/autoload.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="48" lean-forward="false" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/vendor/parser.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-              <folding>
-                <element signature="e#6#693#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            <state relative-caret-position="26">
+              <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -304,7 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/doc/doc/Yaconf.php" />
         <option value="$PROJECT_DIR$/doc/dict/yar.json" />
         <option value="$PROJECT_DIR$/doc/doc/Yar_Client.php" />
         <option value="$PROJECT_DIR$/doc/dict/Yar_Server.json" />
@@ -355,6 +137,7 @@
         <option value="$PROJECT_DIR$/tool/transform.php" />
         <option value="$PROJECT_DIR$/tool/doc.php" />
         <option value="$PROJECT_DIR$/tool/autoloader.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -407,7 +190,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tool" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -421,89 +204,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tool" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phpstorm-for-php-framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phpstorm-for-php-framework" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tool" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="smarty" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="smarty" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phpstorm-for-php-framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phpstorm-for-php-framework" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tool" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="smarty" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="smarty" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phpstorm-for-php-framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phpstorm-for-php-framework" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tool" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="composer" />
+              <option name="myItemId" value="Yac" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -591,15 +296,16 @@
       <workItem from="1480906600627" duration="1532000" />
       <workItem from="1480908145263" duration="67301000" />
       <workItem from="1481084359013" duration="19843000" />
+      <workItem from="1482402335201" duration="648000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88676000" />
+    <option name="totallyTimeSpent" value="89324000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1037" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -607,10 +313,9 @@
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3834901" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3834901" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -618,6 +323,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -641,53 +347,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/swoole.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/yac.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="263" column="0" lean-forward="true" selection-start-line="99" selection-start-column="4" selection-end-line="346" selection-end-column="5" />
-          <folding>
-            <element signature="n#create#0;n#YacDoc#0;n#!!top" expanded="false" />
-            <element signature="n#createDict#0;n#YacDoc#0;n#!!top" expanded="false" />
-            <element signature="n#getDict#0;n#YacDoc#0;n#!!top" expanded="false" />
-            <element signature="n#updateDict#0;n#YacDoc#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/yaf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-813">
-          <caret line="376" column="20" lean-forward="false" selection-start-line="376" selection-start-column="20" selection-end-line="376" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Yaf.namespace.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Yaf.underline.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13338">
-          <caret line="522" column="7" lean-forward="false" selection-start-line="522" selection-start-column="7" selection-end-line="522" selection-end-column="7" />
-          <folding>
-            <element signature="e#6#180#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/yaf.php" />
+    <entry file="file://$PROJECT_DIR$/src/Yaf.namespace.php" />
+    <entry file="file://$PROJECT_DIR$/src/Yaf.underline.php" />
     <entry file="file://$PROJECT_DIR$/../../../web/www/meizu.com/store/app/controllers/member/repurchase_receipt.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
@@ -695,367 +357,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Swoole_Table.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Swoole_WebSocket_Server.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf_Application.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf_Action_Abstract.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="225" column="22" lean-forward="false" selection-start-line="225" selection-start-column="22" selection-end-line="225" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/RedisException.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/RedisClusterException.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/RedisCluster.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2236">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/RedisArray.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3372">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf_Exception.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-596">
-          <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf_Config_Ini.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Yac.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/swoole.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Swoole_Http_Server.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/dict/Swoole_Table.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/Swoole_WebSocket_Server.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf_Application.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf_Action_Abstract.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/RedisException.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/RedisClusterException.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/RedisCluster.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/RedisArray.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf_Exception.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/Yaf_Config_Ini.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/Yac.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/swoole.json" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/Swoole_Http_Server.json" />
     <entry file="file://$PROJECT_DIR$/../../../web/www/meizu.com/store/app/views/member/returned/detail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1898">
           <caret line="73" column="47" lean-forward="false" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/output/RedisArray.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/output/RedisCluster.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="1231" column="20" lean-forward="false" selection-start-line="1231" selection-start-column="20" selection-end-line="1231" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/output/swoole.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43359">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/output/RedisException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RedisCluster.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/output/RedisClusterException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2721">
-          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding>
-            <element signature="e#6#106#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/output/Redis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-335">
-          <caret line="112" column="20" lean-forward="false" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/dict/Redis.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="41" column="14" lean-forward="true" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/下载/Doqumentor-master/doqumentor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1294083970000" expanded="true" signature="11540:11580" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/vendor/doqumentor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="257" column="23" lean-forward="false" selection-start-line="257" selection-start-column="23" selection-end-line="257" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/下载/Doqumentor-master/parser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="55" column="21" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/output/RedisArray.php" />
+    <entry file="file://$PROJECT_DIR$/tool/output/RedisCluster.php" />
+    <entry file="file://$PROJECT_DIR$/doc/output/swoole.php" />
+    <entry file="file://$PROJECT_DIR$/tool/output/RedisException.php" />
+    <entry file="file://$PROJECT_DIR$/src/RedisCluster.php" />
+    <entry file="file://$PROJECT_DIR$/tool/output/RedisClusterException.php" />
+    <entry file="file://$PROJECT_DIR$/tool/output/Redis.php" />
+    <entry file="file://$PROJECT_DIR$/tool/dict/Redis.json" />
+    <entry file="file://$USER_HOME$/下载/Doqumentor-master/doqumentor.php" />
+    <entry file="file://$PROJECT_DIR$/tool/vendor/doqumentor.php" />
+    <entry file="file://$USER_HOME$/下载/Doqumentor-master/parser.php" />
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="551" column="9" lean-forward="false" selection-start-line="551" selection-start-column="9" selection-end-line="551" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/yar.php">
+    <entry file="file://$PROJECT_DIR$/tool/yar.php" />
+    <entry file="file://$PROJECT_DIR$/tool/redis.php" />
+    <entry file="file://$PROJECT_DIR$/tool/notes/redis.php" />
+    <entry file="file://$PROJECT_DIR$/tool/notes/swoole.php" />
+    <entry file="file://$PROJECT_DIR$/tool/notes/yaf.php" />
+    <entry file="file://$PROJECT_DIR$/tool/test.php" />
+    <entry file="file://$PROJECT_DIR$/tool/autoloader.php" />
+    <entry file="file://$PROJECT_DIR$/tool/composer.json" />
+    <entry file="file://$PROJECT_DIR$/tool/tool.php" />
+    <entry file="file://$PROJECT_DIR$/tool/vendor/composer/autoload_namespaces.php" />
+    <entry file="file://$PROJECT_DIR$/tool/vendor/composer/autoload_psr4.php" />
+    <entry file="file://$PROJECT_DIR$/tool/vendor/composer/ClassLoader.php" />
+    <entry file="file://$PROJECT_DIR$/tool/vendor/smarty/smarty/libs/Autoloader.php" />
+    <entry file="file://$PROJECT_DIR$/tool/transform.php" />
+    <entry file="file://$PROJECT_DIR$/tool/doc.php" />
+    <entry file="file://$PROJECT_DIR$/tool/vendor/parser.php" />
+    <entry file="file://$PROJECT_DIR$/tool/vendor/composer/autoload_real.php" />
+    <entry file="file://$PROJECT_DIR$/tool/vendor/autoload.php" />
+    <entry file="file://$PROJECT_DIR$/src/Yac/Yac.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-468">
+        <state relative-caret-position="-3527">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/redis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="44" lean-forward="false" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/notes/redis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="5954" column="24" lean-forward="false" selection-start-line="5954" selection-start-column="11" selection-end-line="5954" selection-end-column="24" />
-          <folding>
-            <element signature="n#RedisXArray#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/notes/swoole.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="54" column="6" lean-forward="false" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/notes/yaf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/autoloader.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/tool.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/vendor/composer/autoload_namespaces.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/vendor/composer/autoload_psr4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/vendor/composer/ClassLoader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="218" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="413" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/vendor/smarty/smarty/libs/Autoloader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2319">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/transform.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="10" column="9" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-          <folding>
-            <element signature="e#221#244#0#PHP" expanded="true" />
-            <element signature="e#2418#2630#0#PHP" expanded="false" />
-            <element signature="e#2647#2987#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/doc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="404" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/vendor/parser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-          <folding>
-            <element signature="e#6#693#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/vendor/composer/autoload_real.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-728">
-          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/vendor/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="48" lean-forward="false" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
           <folding />
         </state>
       </provider>
