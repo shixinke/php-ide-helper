@@ -23,6 +23,10 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 6、swoole扩展
 
+7、SeasLog
+
+8、MsgPack(beta)
+
 ##使用说明
 
 1、下载源文件并解压，将src文件夹下面的内容放到任意一个位置(我习惯将它放到我的phpstorm安装路径下的plugins\php\lib下面，然后建立一个vendor文件夹，如C:\Program Files (x86)\JetBrains\PhpStorm 9.0.2\plugins\php\lib\vendor)
