@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
@@ -35,27 +35,39 @@ class Client
      * @var unknown $errCode 
      * 
      * @access public
+     */
     public $errCode    =    0;
 
     /**
      * @var unknown $sock 
      * 
      * @access public
+     */
     public $sock    =    0;
 
     /**
      * @var unknown $reuse 
      * 
      * @access public
+     */
     public $reuse    =    '';
 
     /**
+     * @var unknown $reuseCount 
      * 
-     *创建tcp客户端对象
+     * @access public
+     */
+    public $reuseCount    =    0;
+
+    /**
+     * 
+     *
      * @example 
+     * @param  mixed $type 
+     * @param  mixed $async 
      * @return 
      */
-    public function __construct()
+    public function __construct($type, $async)
     {
     }
 
@@ -71,41 +83,86 @@ class Client
 
     /**
      * 
-     *设置客户端参数
+     *
      * @example 
+     * @param array $settings 
      * @return 
      */
-    public function set()
+    public function set(Array $settings)
     {
     }
 
     /**
      * 
-     *连接远程服务器
+     *
      * @example 
+     * @param  mixed $host 
+     * @param  mixed $port 
+     * @param  mixed $timeout 
+     * @param  mixed $sock_flag 
      * @return 
      */
-    public function connect()
+    public function connect($host, $port, $timeout, $sock_flag)
     {
     }
 
     /**
      * 
-     *从服务器端接收数据
+     *
      * @example 
+     * @param  mixed $size 
+     * @param  mixed $flag 
      * @return 
      */
-    public function recv()
+    public function recv($size, $flag)
     {
     }
 
     /**
      * 
-     *发送数据到远程服务器
+     *
      * @example 
+     * @param  mixed $data 
+     * @param  mixed $flag 
      * @return 
      */
-    public function send()
+    public function send($data, $flag)
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @param  mixed $dst_socket 
+     * @return 
+     */
+    public function pipe($dst_socket)
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @param  mixed $filename 
+     * @param  mixed $offset 
+     * @return 
+     */
+    public function sendfile($filename, $offset)
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @param  mixed $ip 
+     * @param  mixed $port 
+     * @param  mixed $data 
+     * @return 
+     */
+    public function sendto($ip, $port, $data)
     {
     }
 
@@ -115,43 +172,13 @@ class Client
      * @example 
      * @return 
      */
-    public function pipe()
-    {
-    }
-
-    /**
-     * 
-     *向服务器发送文件
-     * @example 
-     * @return 
-     */
-    public function sendfile()
-    {
-    }
-
-    /**
-     * 
-     *向任意主机发送UDP数据包
-     * @example 
-     * @return 
-     */
-    public function sendto()
-    {
-    }
-
-    /**
-     * 
-     *调用此方法会从事件循环中移除当前socket的可读监听，停止接收数据
-     * @example 
-     * @return 
-     */
     public function sleep()
     {
     }
 
     /**
      * 
-     *调用此方法会重新监听可读事件，将socket连接从睡眠中唤醒
+     *
      * @example 
      * @return 
      */
@@ -181,7 +208,7 @@ class Client
 
     /**
      * 
-     *返回swoole_client的连接状态
+     *
      * @example 
      * @return 
      */
@@ -191,7 +218,7 @@ class Client
 
     /**
      * 
-     *用于获取客户端socket的本地host:port，必须在连接之后才可以使用
+     *
      * @example 
      * @return 
      */
@@ -201,7 +228,7 @@ class Client
 
     /**
      * 
-     *获取对端socket的IP地址和端口
+     *
      * @example 
      * @return 
      */
@@ -211,21 +238,24 @@ class Client
 
     /**
      * 
-     *关闭连接
+     *
      * @example 
+     * @param  mixed $force 
      * @return 
      */
-    public function close()
+    public function close($force)
     {
     }
 
     /**
      * 
-     *绑定事件(为事件注册函数)
+     *
      * @example 
+     * @param  mixed $event_name 
+     * @param  mixed $callback 
      * @return 
      */
-    public function on()
+    public function on($event_name, $callback)
     {
     }
 

@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
@@ -16,10 +16,12 @@ class Event
      *
      * @example 
      * @param  mixed $fd 
-     * @param  mixed $cb 
+     * @param  mixed $read_callback 
+     * @param  mixed $write_callback 
+     * @param  mixed $events 
      * @return 
      */
-    public static  function add($fd, $cb)
+    public static  function add($fd, $read_callback, $write_callback, $events)
     {
     }
 
@@ -38,9 +40,13 @@ class Event
      * 
      *
      * @example 
+     * @param  mixed $fd 
+     * @param  mixed $read_callback 
+     * @param  mixed $write_callback 
+     * @param  mixed $events 
      * @return 
      */
-    public static  function set()
+    public static  function set($fd, $read_callback, $write_callback, $events)
     {
     }
 

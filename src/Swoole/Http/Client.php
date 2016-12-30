@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
@@ -15,21 +15,26 @@ class Client
      * @var unknown $errCode 
      * 
      * @access public
+     */
     public $errCode    =    0;
 
     /**
      * @var unknown $sock 
      * 
      * @access public
+     */
     public $sock    =    0;
 
     /**
      * 
      *
      * @example 
+     * @param  mixed $host 
+     * @param  mixed $port 
+     * @param  mixed $ssl 
      * @return 
      */
-    public function __construct()
+    public function __construct($host, $port, $ssl)
     {
     }
 
@@ -47,9 +52,10 @@ class Client
      * 
      *
      * @example 
+     * @param array $settings 
      * @return 
      */
-    public function set()
+    public function set(Array $settings)
     {
     }
 
@@ -57,9 +63,10 @@ class Client
      * 
      *
      * @example 
+     * @param  mixed $method 
      * @return 
      */
-    public function setMethod()
+    public function setMethod($method)
     {
     }
 
@@ -67,9 +74,10 @@ class Client
      * 
      *
      * @example 
+     * @param array $headers 
      * @return 
      */
-    public function setHeaders()
+    public function setHeaders(Array $headers)
     {
     }
 
@@ -77,9 +85,10 @@ class Client
      * 
      *
      * @example 
+     * @param array $cookies 
      * @return 
      */
-    public function setCookies()
+    public function setCookies(Array $cookies)
     {
     }
 
@@ -87,9 +96,10 @@ class Client
      * 
      *
      * @example 
+     * @param  mixed $data 
      * @return 
      */
-    public function setData()
+    public function setData($data)
     {
     }
 
@@ -97,9 +107,14 @@ class Client
      * 
      *
      * @example 
+     * @param  mixed $path 
+     * @param  mixed $name 
+     * @param  mixed $type 
+     * @param  mixed $filename 
+     * @param  mixed $offset 
      * @return 
      */
-    public function addFile()
+    public function addFile($path, $name, $type, $filename, $offset)
     {
     }
 
@@ -107,9 +122,11 @@ class Client
      * 
      *
      * @example 
+     * @param  mixed $path 
+     * @param  mixed $callback 
      * @return 
      */
-    public function execute()
+    public function execute($path, $callback)
     {
     }
 
@@ -117,9 +134,12 @@ class Client
      * 
      *
      * @example 
+     * @param  mixed $data 
+     * @param  mixed $opcode 
+     * @param  mixed $finish 
      * @return 
      */
-    public function push()
+    public function push($data, $opcode, $finish)
     {
     }
 
@@ -127,9 +147,11 @@ class Client
      * 
      *
      * @example 
+     * @param  mixed $path 
+     * @param  mixed $callback 
      * @return 
      */
-    public function get()
+    public function get($path, $callback)
     {
     }
 
@@ -137,9 +159,12 @@ class Client
      * 
      *
      * @example 
+     * @param  mixed $path 
+     * @param  mixed $data 
+     * @param  mixed $callback 
      * @return 
      */
-    public function post()
+    public function post($path, $data, $callback)
     {
     }
 
@@ -147,9 +172,25 @@ class Client
      * 
      *
      * @example 
+     * @param  mixed $path 
+     * @param  mixed $callback 
      * @return 
      */
-    public function upgrade()
+    public function upgrade($path, $callback)
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @param  mixed $path 
+     * @param  mixed $file 
+     * @param  mixed $callback 
+     * @param  mixed $offset 
+     * @return 
+     */
+    public function download($path, $file, $callback, $offset)
     {
     }
 
@@ -177,9 +218,11 @@ class Client
      * 
      *
      * @example 
+     * @param  mixed $event_name 
+     * @param  mixed $callback 
      * @return 
      */
-    public function on()
+    public function on($event_name, $callback)
     {
     }
 

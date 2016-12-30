@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
@@ -35,9 +35,10 @@ class Port
      * 
      *
      * @example 
+     * @param array $settings 
      * @return 
      */
-    public function set()
+    public function set(Array $settings)
     {
     }
 
@@ -45,9 +46,11 @@ class Port
      * 
      *
      * @example 
+     * @param  mixed $event_name 
+     * @param  mixed $callback 
      * @return 
      */
-    public function on()
+    public function on($event_name, $callback)
     {
     }
 

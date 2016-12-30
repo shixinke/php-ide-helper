@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
@@ -126,11 +126,11 @@ class Server extends \Swoole\Server
      * 
      *
      * @example 
-     * @param  mixed $name 
-     * @param  mixed $cb 
+     * @param  mixed $event_name 
+     * @param  mixed $callback 
      * @return 
      */
-    public function on($name, $cb)
+    public function on($event_name, $callback)
     {
     }
 
@@ -138,10 +138,10 @@ class Server extends \Swoole\Server
      * 
      *
      * @example 
-     * @param  mixed $zset 
+     * @param array $settings 
      * @return 
      */
-    public function set($zset)
+    public function set(Array $settings)
     {
     }
 
@@ -165,9 +165,10 @@ class Server extends \Swoole\Server
      * @param  mixed $ip 
      * @param  mixed $port 
      * @param  mixed $send_data 
+     * @param  mixed $server_socket 
      * @return 
      */
-    public function sendto($ip, $port, $send_data)
+    public function sendto($ip, $port, $send_data, $server_socket)
     {
     }
 
@@ -212,9 +213,10 @@ class Server extends \Swoole\Server
      * @example 
      * @param  mixed $conn_fd 
      * @param  mixed $filename 
+     * @param  mixed $offset 
      * @return 
      */
-    public function sendfile($conn_fd, $filename)
+    public function sendfile($conn_fd, $filename, $offset)
     {
     }
 
@@ -223,9 +225,10 @@ class Server extends \Swoole\Server
      *
      * @example 
      * @param  mixed $fd 
+     * @param  mixed $reset 
      * @return 
      */
-    public function close($fd)
+    public function close($fd, $reset)
     {
     }
 
@@ -268,9 +271,10 @@ class Server extends \Swoole\Server
      * @example 
      * @param  mixed $data 
      * @param  mixed $worker_id 
+     * @param  mixed $finish_callback 
      * @return 
      */
-    public function task($data, $worker_id)
+    public function task($data, $worker_id, $finish_callback)
     {
     }
 
@@ -291,11 +295,11 @@ class Server extends \Swoole\Server
      * 
      *
      * @example 
-     * @param  mixed $tasks 
+     * @param array $tasks 
      * @param  mixed $timeout 
      * @return 
      */
-    public function taskWaitMulti($tasks, $timeout)
+    public function taskWaitMulti(Array $tasks, $timeout)
     {
     }
 
@@ -334,9 +338,10 @@ class Server extends \Swoole\Server
      * 
      *
      * @example 
+     * @param  mixed $worker_id 
      * @return 
      */
-    public function stop()
+    public function stop($worker_id)
     {
     }
 
@@ -460,9 +465,11 @@ class Server extends \Swoole\Server
      * 
      *
      * @example 
+     * @param  mixed $dst_worker_id 
+     * @param  mixed $data 
      * @return 
      */
-    public function sendMessage()
+    public function sendMessage($dst_worker_id, $data)
     {
     }
 
@@ -470,9 +477,10 @@ class Server extends \Swoole\Server
      * 
      *
      * @example 
+     * @param swoole_process $process 
      * @return 
      */
-    public function addProcess()
+    public function addProcess($process)
     {
     }
 

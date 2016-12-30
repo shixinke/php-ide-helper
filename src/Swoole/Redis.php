@@ -1,18 +1,19 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
 *
 */
-class swoole_lock
+namespace Swoole;
+class Redis
 {
     /**
      * 
-     *创建锁
+     *
      * @example 
      * @return 
      */
@@ -32,51 +33,48 @@ class swoole_lock
 
     /**
      * 
-     *加锁操作
+     *
      * @example 
+     * @param  mixed $event_name 
+     * @param  mixed $callback 
      * @return 
      */
-    public function lock()
+    public function on($event_name, $callback)
     {
     }
 
     /**
      * 
-     *非阻塞的加锁操作
+     *
      * @example 
+     * @param  mixed $host 
+     * @param  mixed $port 
+     * @param  mixed $callback 
      * @return 
      */
-    public function trylock()
+    public function connect($host, $port, $callback)
     {
     }
 
     /**
      * 
-     *锁定读
+     *
      * @example 
      * @return 
      */
-    public function lock_read()
+    public function close()
     {
     }
 
     /**
      * 
-     *非阻塞式锁定读
+     *
      * @example 
+     * @param  mixed $command 
+     * @param  mixed $params 
      * @return 
      */
-    public function trylock_read()
-    {
-    }
-
-    /**
-     * 
-     *释放锁操作
-     * @example 
-     * @return 
-     */
-    public function unlock()
+    public function __call($command, $params)
     {
     }
 

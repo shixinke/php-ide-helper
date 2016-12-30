@@ -1,65 +1,49 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
 *
 */
-class swoole_mysql_exception extends Exception
+namespace Swoole\Coroutine;
+class Client
 {
-    /**
-     * @var unknown $message 
-     * 
-     * @access protected
-     */
-    protected $message    =    '';
+    /**     
+    *
+    */
+    const MSG_OOB    =    1;
+
+    /**     
+    *
+    */
+    const MSG_PEEK    =    2;
+
+    /**     
+    *
+    */
+    const MSG_DONTWAIT    =    64;
+
+    /**     
+    *
+    */
+    const MSG_WAITALL    =    256;
 
     /**
-     * @var unknown $code 
+     * @var unknown $errCode 
      * 
-     * @access protected
+     * @access public
      */
-    protected $code    =    0;
+    public $errCode    =    0;
 
     /**
-     * @var unknown $file 
+     * @var unknown $sock 
      * 
-     * @access protected
+     * @access public
      */
-    protected $file;
-
-    /**
-     * @var unknown $line 
-     * 
-     * @access protected
-     */
-    protected $line;
-
-    /**
-     * 
-     *
-     * @example 
-     * @return 
-     */
-    private final  function __clone()
-    {
-    }
-
-    /**
-     * 
-     *
-     * @example 
-     * @param  mixed $message 
-     * @param  mixed $code 
-     * @param  mixed $previous 
-     * @return 
-     */
-    public function __construct($message, $code, $previous)
-    {
-    }
+    public $sock    =    0;
 
     /**
      * 
@@ -67,7 +51,7 @@ class swoole_mysql_exception extends Exception
      * @example 
      * @return 
      */
-    public function __wakeup()
+    public function __construct()
     {
     }
 
@@ -77,7 +61,7 @@ class swoole_mysql_exception extends Exception
      * @example 
      * @return 
      */
-    public final  function getMessage()
+    public function __destruct()
     {
     }
 
@@ -87,7 +71,7 @@ class swoole_mysql_exception extends Exception
      * @example 
      * @return 
      */
-    public final  function getCode()
+    public function set()
     {
     }
 
@@ -97,7 +81,7 @@ class swoole_mysql_exception extends Exception
      * @example 
      * @return 
      */
-    public final  function getFile()
+    public function connect()
     {
     }
 
@@ -107,7 +91,7 @@ class swoole_mysql_exception extends Exception
      * @example 
      * @return 
      */
-    public final  function getLine()
+    public function recv()
     {
     }
 
@@ -117,7 +101,7 @@ class swoole_mysql_exception extends Exception
      * @example 
      * @return 
      */
-    public final  function getTrace()
+    public function send()
     {
     }
 
@@ -127,7 +111,7 @@ class swoole_mysql_exception extends Exception
      * @example 
      * @return 
      */
-    public final  function getPrevious()
+    public function sendfile()
     {
     }
 
@@ -137,7 +121,7 @@ class swoole_mysql_exception extends Exception
      * @example 
      * @return 
      */
-    public final  function getTraceAsString()
+    public function sendto()
     {
     }
 
@@ -147,7 +131,37 @@ class swoole_mysql_exception extends Exception
      * @example 
      * @return 
      */
-    public function __toString()
+    public function isConnected()
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @return 
+     */
+    public function getsockname()
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @return 
+     */
+    public function getpeername()
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @return 
+     */
+    public function close()
     {
     }
 

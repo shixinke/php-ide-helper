@@ -1,12 +1,31 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
 *
+*/
+/**
+ * php.ini配置选项: 
+
+ * 
+ * swoole.aio_thread_num=2
+
+ * 
+ * swoole.display_errors=On
+
+ * 
+ * swoole.use_namespace=1
+
+ * 
+ * swoole.message_queue_key=0
+
+ * 
+ * swoole.unixsock_buffer_size=8388608
+
 */
 /**
 
@@ -111,7 +130,39 @@ define('SWOOLE_EVENT_WRITE', 1024);
 /**
 
 */
-define('SWOOLE_VERSION', '2.0.1');
+define('SWOOLE_VERSION', '2.0.4');
+/**
+
+*/
+define('SWOOLE_REDIS_MODE_MULTI', 0);
+/**
+
+*/
+define('SWOOLE_REDIS_MODE_PIPELINE', 1);
+/**
+
+*/
+define('SWOOLE_REDIS_TYPE_NOT_FOUND', 0);
+/**
+
+*/
+define('SWOOLE_REDIS_TYPE_STRING', 1);
+/**
+
+*/
+define('SWOOLE_REDIS_TYPE_SET', 2);
+/**
+
+*/
+define('SWOOLE_REDIS_TYPE_LIST', 3);
+/**
+
+*/
+define('SWOOLE_REDIS_TYPE_ZSET', 4);
+/**
+
+*/
+define('SWOOLE_REDIS_TYPE_HASH', 5);
 /**
 
 */
@@ -151,6 +202,10 @@ define('WEBSOCKET_OPCODE_BINARY', 2);
 /**
 
 */
+define('WEBSOCKET_OPCODE_PING', 9);
+/**
+
+*/
 define('WEBSOCKET_STATUS_CONNECTION', 1);
 /**
 
@@ -168,6 +223,7 @@ define('WEBSOCKET_STATUS_ACTIVE', 3);
 * 
 *
 * @example 
+* 
 * @return 
 */
 function swoole_version()
@@ -178,6 +234,7 @@ function swoole_version()
 * 
 *
 * @example 
+* 
 * @return 
 */
 function swoole_cpu_num()
@@ -188,6 +245,7 @@ function swoole_cpu_num()
 * 
 *
 * @example 
+* 
 * @return 
 */
 function swoole_clear_dns_cache()
@@ -198,11 +256,25 @@ function swoole_clear_dns_cache()
 * 
 *
 * @example 
+* 
+* @return 
+*/
+function swoole_last_error()
+{
+}
+
+/**
+* 
+*
+* @example 
+* 
 * @param  $fd
-* @param  $cb
+* @param  $read_callback
+* @param  $write_callback
+* @param  $events
 * @return 
 */
-function swoole_event_add($fd, $cb)
+function swoole_event_add($fd, $read_callback, $write_callback, $events)
 {
 }
 
@@ -210,9 +282,14 @@ function swoole_event_add($fd, $cb)
 * 
 *
 * @example 
+* 
+* @param  $fd
+* @param  $read_callback
+* @param  $write_callback
+* @param  $events
 * @return 
 */
-function swoole_event_set()
+function swoole_event_set($fd, $read_callback, $write_callback, $events)
 {
 }
 
@@ -220,6 +297,7 @@ function swoole_event_set()
 * 
 *
 * @example 
+* 
 * @param  $fd
 * @return 
 */
@@ -231,6 +309,7 @@ function swoole_event_del($fd)
 * 
 *
 * @example 
+* 
 * @return 
 */
 function swoole_event_exit()
@@ -241,6 +320,7 @@ function swoole_event_exit()
 * 
 *
 * @example 
+* 
 * @return 
 */
 function swoole_event_wait()
@@ -251,6 +331,7 @@ function swoole_event_wait()
 * 
 *
 * @example 
+* 
 * @param  $fd
 * @param  $data
 * @return 
@@ -263,6 +344,7 @@ function swoole_event_write($fd, $data)
 * 
 *
 * @example 
+* 
 * @param  $callback
 * @return 
 */
@@ -274,6 +356,7 @@ function swoole_event_defer($callback)
 * 
 *
 * @example 
+* 
 * @param  $ms
 * @param  $callback
 * @param  $param
@@ -287,6 +370,7 @@ function swoole_timer_after($ms, $callback, $param)
 * 
 *
 * @example 
+* 
 * @param  $ms
 * @param  $callback
 * @return 
@@ -299,6 +383,7 @@ function swoole_timer_tick($ms, $callback)
 * 
 *
 * @example 
+* 
 * @param  $timer_id
 * @return 
 */
@@ -310,6 +395,7 @@ function swoole_timer_exists($timer_id)
 * 
 *
 * @example 
+* 
 * @param  $timer_id
 * @return 
 */
@@ -321,10 +407,11 @@ function swoole_timer_clear($timer_id)
 * 
 *
 * @example 
-* @param  $settings
+* 
+* @param array $settings
 * @return 
 */
-function swoole_async_set($settings)
+function swoole_async_set(Array $settings)
 {
 }
 
@@ -332,6 +419,7 @@ function swoole_async_set($settings)
 * 
 *
 * @example 
+* 
 * @param  $filename
 * @param  $callback
 * @param  $chunk_size
@@ -346,6 +434,7 @@ function swoole_async_read($filename, $callback, $chunk_size, $offset)
 * 
 *
 * @example 
+* 
 * @param  $filename
 * @param  $content
 * @param  $offset
@@ -360,6 +449,7 @@ function swoole_async_write($filename, $content, $offset, $callback)
 * 
 *
 * @example 
+* 
 * @param  $filename
 * @param  $callback
 * @return 
@@ -372,12 +462,14 @@ function swoole_async_readfile($filename, $callback)
 * 
 *
 * @example 
+* 
 * @param  $filename
 * @param  $content
 * @param  $callback
+* @param  $flags
 * @return 
 */
-function swoole_async_writefile($filename, $content, $callback)
+function swoole_async_writefile($filename, $content, $callback, $flags)
 {
 }
 
@@ -385,6 +477,7 @@ function swoole_async_writefile($filename, $content, $callback)
 * 
 *
 * @example 
+* 
 * @param  $domain_name
 * @param  $content
 * @return 
@@ -397,6 +490,7 @@ function swoole_async_dns_lookup($domain_name, $content)
 * 
 *
 * @example 
+* 
 * @param  $read_array
 * @param  $write_array
 * @param  $error_array
@@ -411,6 +505,7 @@ function swoole_client_select($read_array, $write_array, $error_array, $timeout)
 * 
 *
 * @example 
+* 
 * @param  $read_array
 * @param  $write_array
 * @param  $error_array
@@ -425,6 +520,7 @@ function swoole_select($read_array, $write_array, $error_array, $timeout)
 * 
 *
 * @example 
+* 
 * @param  $process_name
 * @return 
 */
@@ -436,6 +532,7 @@ function swoole_set_process_name($process_name)
 * 
 *
 * @example 
+* 
 * @return 
 */
 function swoole_get_local_ip()
@@ -446,6 +543,7 @@ function swoole_get_local_ip()
 * 
 *
 * @example 
+* 
 * @param  $errno
 * @return 
 */
@@ -457,6 +555,7 @@ function swoole_strerror($errno)
 * 
 *
 * @example 
+* 
 * @return 
 */
 function swoole_errno()
@@ -467,6 +566,7 @@ function swoole_errno()
 * 
 *
 * @example 
+* 
 * @return 
 */
 function swoole_load_module()

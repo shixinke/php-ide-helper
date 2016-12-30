@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
@@ -58,9 +58,10 @@ class Async
      * @param  mixed $filename 
      * @param  mixed $content 
      * @param  mixed $callback 
+     * @param  mixed $flags 
      * @return 
      */
-    public static  function writeFile($filename, $content, $callback)
+    public static  function writeFile($filename, $content, $callback, $flags)
     {
     }
 
@@ -80,10 +81,10 @@ class Async
      * 
      *
      * @example 
-     * @param  mixed $settings 
+     * @param array $settings 
      * @return 
      */
-    public static  function set($settings)
+    public static  function set(Array $settings)
     {
     }
 

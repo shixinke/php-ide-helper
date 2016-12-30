@@ -1,14 +1,15 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
 *
 */
-class swoole_http_client
+namespace Swoole\Coroutine\Http;
+class Client
 {
     /**
      * @var unknown $errCode 
@@ -100,27 +101,7 @@ class swoole_http_client
      * @example 
      * @return 
      */
-    public function addFile()
-    {
-    }
-
-    /**
-     * 
-     *
-     * @example 
-     * @return 
-     */
     public function execute()
-    {
-    }
-
-    /**
-     * 
-     *
-     * @example 
-     * @return 
-     */
-    public function push()
     {
     }
 
@@ -150,7 +131,7 @@ class swoole_http_client
      * @example 
      * @return 
      */
-    public function upgrade()
+    public function addFile()
     {
     }
 
@@ -180,7 +161,27 @@ class swoole_http_client
      * @example 
      * @return 
      */
-    public function on()
+    public function setDefer()
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @return 
+     */
+    public function getDefer()
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @return 
+     */
+    public function recv()
     {
     }
 

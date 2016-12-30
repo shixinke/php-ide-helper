@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.1版本)
+* Swoole自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2016/12/30
 */
 
 /**
@@ -13,11 +13,13 @@ class Lock
 {
     /**
      * 
-     *创建锁
+     *
      * @example 
+     * @param  mixed $type 
+     * @param  mixed $filename 
      * @return 
      */
-    public function __construct()
+    public function __construct($type, $filename)
     {
     }
 
@@ -33,7 +35,7 @@ class Lock
 
     /**
      * 
-     *加锁操作
+     *
      * @example 
      * @return 
      */
@@ -43,7 +45,7 @@ class Lock
 
     /**
      * 
-     *非阻塞的加锁操作
+     *
      * @example 
      * @return 
      */
@@ -53,7 +55,7 @@ class Lock
 
     /**
      * 
-     *锁定读
+     *
      * @example 
      * @return 
      */
@@ -63,7 +65,7 @@ class Lock
 
     /**
      * 
-     *非阻塞式锁定读
+     *
      * @example 
      * @return 
      */
@@ -73,7 +75,7 @@ class Lock
 
     /**
      * 
-     *释放锁操作
+     *
      * @example 
      * @return 
      */
