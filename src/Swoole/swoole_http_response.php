@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole\Http;
-class Response
+class swoole_http_response
 {
     /**
      * 

@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole\Http;
-class Server extends \Swoole\Server
+class swoole_http_server extends swoole_server
 {
     /**
      * @var unknown $global 

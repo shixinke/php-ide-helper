@@ -8,37 +8,74 @@
 /**
 *
 */
-namespace Swoole\Http;
-class Server extends \Swoole\Server
+class swoole_server
 {
     /**
-     * @var unknown $global 
      * 
-     * @access private
+     * @var $setting array:
+     * @description:通过swoole_server:set()设置的参数会保存到setting属性上
+     * @access public
+     * @example 
+     * 
+     * $serv = new swoole_server('127.0.0.1', 9501);
+     * $serv->set(array('worker_num' => 4));
+     * echo $serv->setting['worker_num'];
      */
-    private $global    =    0;
+    public $setting    =     array() ;
 
     /**
      * 
-     *绑定事件(为事件注册函数)
+     * @var int $master_pid：主进程ID
+     * @access public
      * @example 
-     * @param  mixed $event_name 
-     * @param  mixed $callback 
-     * @return 
+     * 
      */
-    public function on($event_name, $callback)
-    {
-    }
+    public $master_pid;
 
     /**
      * 
-     *启动server
+     * @var int $manager_pid:管理进程ID
+     * @access public
      * @example 
-     * @return 
+     * 
      */
-    public function start()
-    {
-    }
+    public $manager_pid;
+
+    /**
+     * 
+     * @var int $worker_pid:当前工作进程ID(操作系统进程)
+     * @access public
+     * @example 
+     * 
+     */
+    public $worker_pid;
+
+    /**
+     * 
+     * @var int $worker_id：当前工作进程(包括worker进程和task进程)编号
+     * @access public
+     * @example 
+     * 
+     */
+    public $worker_id;
+
+    /**
+     * 
+     * @var boolean $taskworker:当前进程是否是task工作进程
+     * @access public
+     * @example 
+     * 
+     */
+    public $taskworker;
+
+    /**
+     * 
+     * @var iterator $connections：TCP连接抚抚今迭代器
+     * @access public
+     * @example 
+     * 
+     */
+    public $connections;
 
     /**
      * 
@@ -82,12 +119,34 @@ class Server extends \Swoole\Server
 
     /**
      * 
+     *绑定事件(为事件注册函数)
+     * @example 
+     * @param  mixed $event_name 
+     * @param  mixed $callback 
+     * @return 
+     */
+    public function on($event_name, $callback)
+    {
+    }
+
+    /**
+     * 
      *设置swoole_server运行时的参数
      * @example 
      * @param array $settings 
      * @return 
      */
     public function set(Array $settings)
+    {
+    }
+
+    /**
+     * 
+     *启动server
+     * @example 
+     * @return 
+     */
+    public function start()
     {
     }
 

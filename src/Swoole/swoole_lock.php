@@ -8,16 +8,17 @@
 /**
 *
 */
-namespace Swoole;
-class Redis
+class swoole_lock
 {
     /**
      * 
-     *
+     *创建锁
      * @example 
+     * @param  mixed $type 
+     * @param  mixed $filename 
      * @return 
      */
-    public function __construct()
+    public function __construct($type, $filename)
     {
     }
 
@@ -33,48 +34,51 @@ class Redis
 
     /**
      * 
-     *注册事件回调函数
+     *加锁操作
      * @example 
-     * @param  mixed $event_name 
-     * @param  mixed $callback 
      * @return 
      */
-    public function on($event_name, $callback)
+    public function lock()
     {
     }
 
     /**
      * 
-     *连接redis服务器
+     *非阻塞的加锁操作
      * @example 
-     * @param  mixed $host 
-     * @param  mixed $port 
-     * @param  mixed $callback 
      * @return 
      */
-    public function connect($host, $port, $callback)
+    public function trylock()
     {
     }
 
     /**
      * 
-     *关闭redis连接
+     *锁定读
      * @example 
      * @return 
      */
-    public function close()
+    public function lock_read()
     {
     }
 
     /**
      * 
-     *执行redis命令
+     *非阻塞式锁定读
      * @example 
-     * @param  mixed $command 
-     * @param  mixed $params 
      * @return 
      */
-    public function __call($command, $params)
+    public function trylock_read()
+    {
+    }
+
+    /**
+     * 
+     *释放锁操作
+     * @example 
+     * @return 
+     */
+    public function unlock()
     {
     }
 

@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole;
-class Async
+class swoole_async
 {
     /**
      * 

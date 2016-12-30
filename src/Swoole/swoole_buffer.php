@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole;
-class Buffer
+class swoole_buffer
 {
     /**
      * 

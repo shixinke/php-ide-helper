@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole;
-class Timer
+class swoole_timer
 {
     /**
      * 

@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole;
-class Atomic
+class swoole_atomic
 {
     /**
      * 

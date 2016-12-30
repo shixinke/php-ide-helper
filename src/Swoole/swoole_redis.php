@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole;
-class Redis
+class swoole_redis
 {
     /**
      * 

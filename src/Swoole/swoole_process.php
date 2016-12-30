@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole;
-class Process
+class swoole_process
 {
     /**     
     *

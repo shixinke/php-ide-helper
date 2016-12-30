@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole;
-class Table
+class swoole_table
 {
     /**     
     *

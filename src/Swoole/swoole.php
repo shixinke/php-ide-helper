@@ -18,7 +18,7 @@
  * swoole.display_errors=On
 
  * 
- * swoole.use_namespace=1
+ * swoole.use_namespace=0
 
  * 
  * swoole.message_queue_key=0

@@ -8,15 +8,74 @@
 /**
 *
 */
-namespace Swoole\Http;
-class Server extends \Swoole\Server
+class swoole_websocket_server extends swoole_http_server
 {
     /**
-     * @var unknown $global 
      * 
-     * @access private
+     * @var $setting array:
+     * @description:通过swoole_server:set()设置的参数会保存到setting属性上
+     * @access public
+     * @example 
+     * 
+     * $serv = new swoole_server('127.0.0.1', 9501);
+     * $serv->set(array('worker_num' => 4));
+     * echo $serv->setting['worker_num'];
      */
-    private $global    =    0;
+    public $setting    =     array() ;
+
+    /**
+     * 
+     * @var int $master_pid：主进程ID
+     * @access public
+     * @example 
+     * 
+     */
+    public $master_pid;
+
+    /**
+     * 
+     * @var int $manager_pid:管理进程ID
+     * @access public
+     * @example 
+     * 
+     */
+    public $manager_pid;
+
+    /**
+     * 
+     * @var int $worker_pid:当前工作进程ID(操作系统进程)
+     * @access public
+     * @example 
+     * 
+     */
+    public $worker_pid;
+
+    /**
+     * 
+     * @var int $worker_id：当前工作进程(包括worker进程和task进程)编号
+     * @access public
+     * @example 
+     * 
+     */
+    public $worker_id;
+
+    /**
+     * 
+     * @var boolean $taskworker:当前进程是否是task工作进程
+     * @access public
+     * @example 
+     * 
+     */
+    public $taskworker;
+
+    /**
+     * 
+     * @var iterator $connections：TCP连接抚抚今迭代器
+     * @access public
+     * @example 
+     * 
+     */
+    public $connections;
 
     /**
      * 
@@ -32,6 +91,56 @@ class Server extends \Swoole\Server
 
     /**
      * 
+     *
+     * @example 
+     * @param  mixed $fd 
+     * @param  mixed $data 
+     * @param  mixed $opcode 
+     * @param  mixed $finish 
+     * @return 
+     */
+    public function push($fd, $data, $opcode, $finish)
+    {
+    }
+
+    /**
+     * 
+     *
+     * @example 
+     * @param  mixed $fd 
+     * @return 
+     */
+    public function exist($fd)
+    {
+    }
+
+    /**
+     * 
+     *打包数据
+     * @example 
+     * @param  mixed $data 
+     * @param  mixed $opcode 
+     * @param  mixed $finish 
+     * @param  mixed $mask 
+     * @return 
+     */
+    public static  function pack($data, $opcode, $finish, $mask)
+    {
+    }
+
+    /**
+     * 
+     *参数据进行解包
+     * @example 
+     * @param  mixed $data 
+     * @return 
+     */
+    public static  function unpack($data)
+    {
+    }
+
+    /**
+     * 
      *启动server
      * @example 
      * @return 
@@ -42,7 +151,7 @@ class Server extends \Swoole\Server
 
     /**
      * 
-     *swoole_server初始化方法
+     *
      * @example 
      * @param  mixed $host 
      * @param  mixed $port 
@@ -127,17 +236,6 @@ class Server extends \Swoole\Server
      * @return 
      */
     public function sendwait($conn_fd, $send_data)
-    {
-    }
-
-    /**
-     * 
-     *
-     * @example 
-     * @param  mixed $fd 
-     * @return 
-     */
-    public function exist($fd)
     {
     }
 

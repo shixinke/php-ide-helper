@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole;
-class MySQL
+class swoole_mysql
 {
     /**
      * 

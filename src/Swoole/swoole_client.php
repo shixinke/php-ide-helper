@@ -8,8 +8,7 @@
 /**
 *
 */
-namespace Swoole;
-class Client
+class swoole_client
 {
     /**     
     *
