@@ -13,7 +13,7 @@ class Response
 {
     /**
      * 
-     *设置cookie
+     *
      * @example 
      * @param  mixed $name 
      * @param  mixed $value 
@@ -30,7 +30,7 @@ class Response
 
     /**
      * 
-     *设置最原始的cookie信息
+     *
      * @example 
      * @param  mixed $name 
      * @param  mixed $value 
@@ -47,7 +47,7 @@ class Response
 
     /**
      * 
-     *设置http状态码
+     *
      * @example 
      * @param  mixed $http_code 
      * @return 
@@ -58,7 +58,7 @@ class Response
 
     /**
      * 
-     *启用gzip压缩
+     *
      * @example 
      * @param  mixed $compress_level 
      * @return 
@@ -69,7 +69,7 @@ class Response
 
     /**
      * 
-     *设置响应头信息
+     *
      * @example 
      * @param  mixed $key 
      * @param  mixed $value 
@@ -82,7 +82,7 @@ class Response
 
     /**
      * 
-     *启用Http Chunk分段向浏览器发送相应内容
+     *
      * @example 
      * @param  mixed $content 
      * @return 
@@ -93,7 +93,7 @@ class Response
 
     /**
      * 
-     *发送响应体，并结束当前请求
+     *
      * @example 
      * @param  mixed $content 
      * @return 
@@ -104,7 +104,7 @@ class Response
 
     /**
      * 
-     *发送文件给浏览器
+     *
      * @example 
      * @param  mixed $filename 
      * @param  mixed $offset 

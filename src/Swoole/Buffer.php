@@ -13,7 +13,7 @@ class Buffer
 {
     /**
      * 
-     *buffer初始化
+     *
      * @example 
      * @param  mixed $size 
      * @return 
@@ -44,7 +44,7 @@ class Buffer
 
     /**
      * 
-     *从缓冲区取出内容
+     *
      * @example 
      * @param  mixed $offset 
      * @param  mixed $length 
@@ -57,7 +57,7 @@ class Buffer
 
     /**
      * 
-     *往缓冲区中写入内容
+     *
      * @example 
      * @param  mixed $offset 
      * @param  mixed $data 
@@ -69,7 +69,7 @@ class Buffer
 
     /**
      * 
-     *从缓冲区读内容
+     *
      * @example 
      * @param  mixed $offset 
      * @param  mixed $length 
@@ -81,7 +81,7 @@ class Buffer
 
     /**
      * 
-     *将数据添加到缓冲区末尾
+     *
      * @example 
      * @param  mixed $data 
      * @return 
@@ -92,7 +92,7 @@ class Buffer
 
     /**
      * 
-     *给缓冲区扩容
+     *
      * @example 
      * @param  mixed $size 
      * @return 
@@ -103,7 +103,7 @@ class Buffer
 
     /**
      * 
-     *清理缓冲区数据
+     *
      * @example 
      * @return 
      */

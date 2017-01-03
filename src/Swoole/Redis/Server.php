@@ -295,11 +295,11 @@ class Server extends \Swoole\Server
      * 
      *
      * @example 
-     * @param  mixed $tasks 
+     * @param array $tasks 
      * @param  mixed $timeout 
      * @return 
      */
-    public function taskWaitMulti($tasks, $timeout)
+    public function taskWaitMulti(Array $tasks, $timeout)
     {
     }
 

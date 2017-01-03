@@ -81,10 +81,10 @@ class Async
      * 
      *
      * @example 
-     * @param  mixed $settings 
+     * @param array $settings 
      * @return 
      */
-    public static  function set($settings)
+    public static  function set(Array $settings)
     {
     }
 

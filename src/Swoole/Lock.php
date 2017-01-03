@@ -13,7 +13,7 @@ class Lock
 {
     /**
      * 
-     *创建锁
+     *
      * @example 
      * @param  mixed $type 
      * @param  mixed $filename 
@@ -35,7 +35,7 @@ class Lock
 
     /**
      * 
-     *加锁操作
+     *
      * @example 
      * @return 
      */
@@ -45,7 +45,7 @@ class Lock
 
     /**
      * 
-     *非阻塞的加锁操作
+     *
      * @example 
      * @return 
      */
@@ -55,7 +55,7 @@ class Lock
 
     /**
      * 
-     *锁定读
+     *
      * @example 
      * @return 
      */
@@ -65,7 +65,7 @@ class Lock
 
     /**
      * 
-     *非阻塞式锁定读
+     *
      * @example 
      * @return 
      */
@@ -75,7 +75,7 @@ class Lock
 
     /**
      * 
-     *释放锁操作
+     *
      * @example 
      * @return 
      */

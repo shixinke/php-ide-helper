@@ -408,10 +408,10 @@ function swoole_timer_clear($timer_id)
 *
 * @example 
 * 
-* @param  $settings
+* @param array $settings
 * @return 
 */
-function swoole_async_set($settings)
+function swoole_async_set(Array $settings)
 {
 }
 

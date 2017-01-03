@@ -33,7 +33,7 @@ class Redis
 
     /**
      * 
-     *注册事件回调函数
+     *
      * @example 
      * @param  mixed $event_name 
      * @param  mixed $callback 
@@ -45,7 +45,7 @@ class Redis
 
     /**
      * 
-     *连接redis服务器
+     *
      * @example 
      * @param  mixed $host 
      * @param  mixed $port 
@@ -58,7 +58,7 @@ class Redis
 
     /**
      * 
-     *关闭redis连接
+     *
      * @example 
      * @return 
      */
@@ -68,7 +68,7 @@ class Redis
 
     /**
      * 
-     *执行redis命令
+     *
      * @example 
      * @param  mixed $command 
      * @param  mixed $params 

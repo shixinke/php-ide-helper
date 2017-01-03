@@ -13,7 +13,7 @@ class Timer
 {
     /**
      * 
-     *设置一个间隔定时器
+     *
      * @example 
      * @param  mixed $ms 
      * @param  mixed $callback 
@@ -26,7 +26,7 @@ class Timer
 
     /**
      * 
-     *在指定的时间后执行函数
+     *
      * @example 
      * @param  mixed $ms 
      * @param  mixed $callback 
@@ -38,7 +38,7 @@ class Timer
 
     /**
      * 
-     *检查某个定时器是否存在
+     *
      * @example 
      * @param  mixed $timer_id 
      * @return 
@@ -49,7 +49,7 @@ class Timer
 
     /**
      * 
-     *删除指定的定时器
+     *
      * @example 
      * @param  mixed $timer_id 
      * @return 

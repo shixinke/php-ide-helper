@@ -18,7 +18,7 @@ class Process
 
     /**
      * 
-     *创建子进程
+     *
      * @example 
      * @param  mixed $callback 
      * @param  mixed $redirect_stdin_and_stdout 
@@ -41,7 +41,7 @@ class Process
 
     /**
      * 
-     *回收结束运行的子进程。
+     *
      * @example 
      * @param  mixed $blocking 
      * @return 
@@ -52,7 +52,7 @@ class Process
 
     /**
      * 
-     *设置异步信号监听
+     *
      * @example 
      * @param  mixed $signal_no 
      * @param  mixed $callback 
@@ -75,7 +75,7 @@ class Process
 
     /**
      * 
-     *向子进程发送信号
+     *
      * @example 
      * @param  mixed $pid 
      * @param  mixed $signal_no 
@@ -87,7 +87,7 @@ class Process
 
     /**
      * 
-     *使当前进程脱变为一个守护进程
+     *
      * @example 
      * @param  mixed $nochdir 
      * @param  mixed $noclose 
@@ -99,7 +99,7 @@ class Process
 
     /**
      * 
-     *设置CPU亲和性，可以将进程绑定到特定的CPU核上
+     *
      * @example 
      * @param array $cpu_settings 
      * @return 
@@ -110,7 +110,7 @@ class Process
 
     /**
      * 
-     *启用消息队列作为进程间通信
+     *
      * @example 
      * @param  mixed $key 
      * @param  mixed $mode 
@@ -122,9 +122,7 @@ class Process
 
     /**
      * 
-     *查看消息队列状态
-     *返回字段：
-     *queue_num 队列中的任务数量
+     *
      * @example 
      * @return 
      */
@@ -134,7 +132,7 @@ class Process
 
     /**
      * 
-     *删除队列
+     *
      * @example 
      * @return 
      */
@@ -144,7 +142,7 @@ class Process
 
     /**
      * 
-     *执行fork系统调用，启动进程
+     *
      * @example 
      * @return 
      */
@@ -154,7 +152,7 @@ class Process
 
     /**
      * 
-     *向管道内写入数据
+     *
      * @example 
      * @param  mixed $data 
      * @return 
@@ -165,7 +163,7 @@ class Process
 
     /**
      * 
-     *用于关闭创建的好的管道
+     *
      * @example 
      * @return 
      */
@@ -175,7 +173,7 @@ class Process
 
     /**
      * 
-     *从管道中读取数据
+     *
      * @example 
      * @param  mixed $size 
      * @return 
@@ -186,7 +184,7 @@ class Process
 
     /**
      * 
-     *向消息队列推送数据
+     *
      * @example 
      * @param  mixed $data 
      * @return 
@@ -197,7 +195,7 @@ class Process
 
     /**
      * 
-     *从消息队列中获取数据
+     *
      * @example 
      * @param  mixed $size 
      * @return 
@@ -208,7 +206,7 @@ class Process
 
     /**
      * 
-     *退出子进程
+     *
      * @example 
      * @param  mixed $exit_code 
      * @return 
@@ -219,7 +217,7 @@ class Process
 
     /**
      * 
-     *执行一个外部程序，此函数是exec系统调用的封装
+     *
      * @example 
      * @param  mixed $exec_file 
      * @param  mixed $args 
@@ -231,7 +229,7 @@ class Process
 
     /**
      * 
-     *修改进程名称
+     *
      * @example 
      * @param  mixed $process_name 
      * @return 
