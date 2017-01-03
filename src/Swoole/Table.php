@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.4版本)
+* Swoole自动补全类(基于最新的2.0.5版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/30
+* @modified 2017/01/03
 */
 
 /**
@@ -28,7 +28,7 @@ class Table
 
     /**
      * 
-     *
+     *创建内在表
      * @example 
      * @param  mixed $table_size 
      * @return 
@@ -39,7 +39,7 @@ class Table
 
     /**
      * 
-     *
+     *内存表增加一列
      * @example 
      * @param  mixed $name 
      * @param  mixed $type 
@@ -52,7 +52,7 @@ class Table
 
     /**
      * 
-     *
+     *创建内存表(在使用column创建内存表结构时执行)
      * @example 
      * @return 
      */
@@ -72,7 +72,7 @@ class Table
 
     /**
      * 
-     *
+     *设置行的数据
      * @example 
      * @param  mixed $key 
      * @param array $value 
@@ -84,7 +84,7 @@ class Table
 
     /**
      * 
-     *
+     *获取一行数据
      * @example 
      * @param  mixed $key 
      * @return 
@@ -105,7 +105,7 @@ class Table
 
     /**
      * 
-     *
+     *删除数据
      * @example 
      * @param  mixed $key 
      * @return 
@@ -116,7 +116,7 @@ class Table
 
     /**
      * 
-     *
+     *检查table中是否存在某一个key
      * @example 
      * @param  mixed $key 
      * @return 
@@ -127,7 +127,7 @@ class Table
 
     /**
      * 
-     *
+     *原子自增操作
      * @example 
      * @param  mixed $key 
      * @param  mixed $column 
@@ -140,7 +140,7 @@ class Table
 
     /**
      * 
-     *
+     *原子自减操作
      * @example 
      * @param  mixed $key 
      * @param  mixed $column 

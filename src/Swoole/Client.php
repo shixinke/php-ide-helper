@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.4版本)
+* Swoole自动补全类(基于最新的2.0.5版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/30
+* @modified 2017/01/03
 */
 
 /**
@@ -61,7 +61,7 @@ class Client
 
     /**
      * 
-     *
+     *创建tcp客户端对象
      * @example 
      * @param  mixed $type 
      * @param  mixed $async 
@@ -83,7 +83,7 @@ class Client
 
     /**
      * 
-     *
+     *设置客户端参数
      * @example 
      * @param array $settings 
      * @return 
@@ -94,7 +94,7 @@ class Client
 
     /**
      * 
-     *
+     *连接远程服务器
      * @example 
      * @param  mixed $host 
      * @param  mixed $port 
@@ -108,7 +108,7 @@ class Client
 
     /**
      * 
-     *
+     *从服务器端接收数据
      * @example 
      * @param  mixed $size 
      * @param  mixed $flag 
@@ -120,7 +120,7 @@ class Client
 
     /**
      * 
-     *
+     *发送数据到远程服务器
      * @example 
      * @param  mixed $data 
      * @param  mixed $flag 
@@ -143,7 +143,7 @@ class Client
 
     /**
      * 
-     *
+     *向服务器发送文件
      * @example 
      * @param  mixed $filename 
      * @param  mixed $offset 
@@ -155,7 +155,7 @@ class Client
 
     /**
      * 
-     *
+     *向任意主机发送UDP数据包
      * @example 
      * @param  mixed $ip 
      * @param  mixed $port 
@@ -168,7 +168,7 @@ class Client
 
     /**
      * 
-     *
+     *调用此方法会从事件循环中移除当前socket的可读监听，停止接收数据
      * @example 
      * @return 
      */
@@ -178,7 +178,7 @@ class Client
 
     /**
      * 
-     *
+     *调用此方法会重新监听可读事件，将socket连接从睡眠中唤醒
      * @example 
      * @return 
      */
@@ -208,7 +208,7 @@ class Client
 
     /**
      * 
-     *
+     *返回swoole_client的连接状态
      * @example 
      * @return 
      */
@@ -218,7 +218,7 @@ class Client
 
     /**
      * 
-     *
+     *用于获取客户端socket的本地host:port，必须在连接之后才可以使用
      * @example 
      * @return 
      */
@@ -228,7 +228,7 @@ class Client
 
     /**
      * 
-     *
+     *获取对端socket的IP地址和端口
      * @example 
      * @return 
      */
@@ -238,7 +238,7 @@ class Client
 
     /**
      * 
-     *
+     *关闭连接
      * @example 
      * @param  mixed $force 
      * @return 
@@ -249,7 +249,7 @@ class Client
 
     /**
      * 
-     *
+     *绑定事件(为事件注册函数)
      * @example 
      * @param  mixed $event_name 
      * @param  mixed $callback 

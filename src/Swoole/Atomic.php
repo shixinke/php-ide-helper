@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.4版本)
+* Swoole自动补全类(基于最新的2.0.5版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/30
+* @modified 2017/01/03
 */
 
 /**
@@ -13,7 +13,7 @@ class Atomic
 {
     /**
      * 
-     *
+     *初始化一个计数器对象
      * @example 
      * @param  mixed $value 
      * @return 
@@ -24,7 +24,7 @@ class Atomic
 
     /**
      * 
-     *
+     *增加计数
      * @example 
      * @param  mixed $add_value 
      * @return 
@@ -35,7 +35,7 @@ class Atomic
 
     /**
      * 
-     *
+     *减少计数
      * @example 
      * @param  mixed $sub_value 
      * @return 
@@ -46,7 +46,7 @@ class Atomic
 
     /**
      * 
-     *
+     *获取当前计数的值
      * @example 
      * @return 
      */
@@ -56,7 +56,7 @@ class Atomic
 
     /**
      * 
-     *
+     *将当前值设置为指定的数字
      * @example 
      * @param  mixed $value 
      * @return 
@@ -67,7 +67,7 @@ class Atomic
 
     /**
      * 
-     *
+     *如果当前计数器的值与比较的值的相等，则设置它为新的值
      * @example 
      * @param  mixed $cmp_value 
      * @param  mixed $new_value 

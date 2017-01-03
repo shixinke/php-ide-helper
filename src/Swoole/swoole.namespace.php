@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.4版本)
+* Swoole自动补全类(基于最新的2.0.5版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/30
+* @modified 2017/01/03
 */
 
 /**
@@ -130,7 +130,7 @@ define('SWOOLE_EVENT_WRITE', 1024);
 /**
 
 */
-define('SWOOLE_VERSION', '2.0.4');
+define('SWOOLE_VERSION', '2.0.5');
 /**
 
 */
@@ -408,10 +408,10 @@ function swoole_timer_clear($timer_id)
 *
 * @example 
 * 
-* @param array $settings
+* @param  $settings
 * @return 
 */
-function swoole_async_set(Array $settings)
+function swoole_async_set($settings)
 {
 }
 
