@@ -1,46 +1,46 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
-*
+*swoole定时器
 */
 namespace Swoole;
 class Timer
 {
     /**
      * 
-     *设置一个间隔定时器
+     *创建一个指定时间为循环时间间隔的定时器
      * @example 
-     * @param  mixed $ms 
-     * @param  mixed $callback 
-     * @param  mixed $param 
-     * @return 
+     * @param int $ms 创建一个指定时间为循环时间间隔的定时器
+     * @param callable $callback 创建一个指定时间为循环时间间隔的定时器
+     * @param array $param 创建一个指定时间为循环时间间隔的定时器
+     * @return int
      */
-    public static  function tick($ms, $callback, $param)
+    public static  function tick($ms, Callable $callback, Array $param)
     {
     }
 
     /**
      * 
-     *在指定的时间后执行函数
+     *创建一个在指定时间后执行某个函数的定时器
      * @example 
-     * @param  mixed $ms 
-     * @param  mixed $callback 
-     * @return 
+     * @param int $ms 创建一个在指定时间后执行某个函数的定时器
+     * @param callable $callback 创建一个在指定时间后执行某个函数的定时器
+     * @return int
      */
-    public static  function after($ms, $callback)
+    public static  function after($ms, Callable $callback)
     {
     }
 
     /**
      * 
-     *检查某个定时器是否存在
+     *判断某个定时器是否存在
      * @example 
-     * @param  mixed $timer_id 
+     * @param int $timer_id 判断某个定时器是否存在
      * @return 
      */
     public static  function exists($timer_id)
@@ -49,9 +49,9 @@ class Timer
 
     /**
      * 
-     *删除指定的定时器
+     *清除某个定时器
      * @example 
-     * @param  mixed $timer_id 
+     * @param int $timer_id 清除某个定时器
      * @return 
      */
     public static  function clear($timer_id)

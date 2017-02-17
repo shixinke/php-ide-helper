@@ -1,21 +1,21 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
-*
+*缓冲类。提供了一个swoole_buffer类，让PHP开发者可以像C一样直接读写内存，提升程序的性能，又不用担心内存越界
 */
 namespace Swoole;
 class Buffer
 {
     /**
      * 
-     *buffer初始化
+     *创建内存对象
      * @example 
-     * @param  mixed $size 
+     * @param int $size 创建内存对象
      * @return 
      */
     public function __construct($size)
@@ -24,7 +24,7 @@ class Buffer
 
     /**
      * 
-     *
+     *析构函数
      * @example 
      * @return 
      */
@@ -34,7 +34,7 @@ class Buffer
 
     /**
      * 
-     *
+     *将对象转化为字符串
      * @example 
      * @return 
      */
@@ -44,11 +44,11 @@ class Buffer
 
     /**
      * 
-     *从缓冲区取出内容
+     *从缓冲区中取出内容
      * @example 
-     * @param  mixed $offset 
-     * @param  mixed $length 
-     * @param  mixed $seek 
+     * @param int $offset 从缓冲区中取出内容
+     * @param int $length 从缓冲区中取出内容
+     * @param bool $seek 从缓冲区中取出内容
      * @return 
      */
     public function substr($offset, $length, $seek)
@@ -57,10 +57,10 @@ class Buffer
 
     /**
      * 
-     *往缓冲区中写入内容
+     *向缓存区的任意内存位置写数据。read/write函数可以直接读写内存。所以使用务必要谨慎，否则可能会破坏现有数据
      * @example 
-     * @param  mixed $offset 
-     * @param  mixed $data 
+     * @param int $offset 向缓存区的任意内存位置写数据。read/write函数可以直接读写内存。所以使用务必要谨慎，否则可能会破坏现有数据
+     * @param string $data 向缓存区的任意内存位置写数据。read/write函数可以直接读写内存。所以使用务必要谨慎，否则可能会破坏现有数据
      * @return 
      */
     public function write($offset, $data)
@@ -69,10 +69,10 @@ class Buffer
 
     /**
      * 
-     *从缓冲区读内容
+     *读取缓存区任意位置的内存(此接口是一个底层接口，可直接操作内存)
      * @example 
-     * @param  mixed $offset 
-     * @param  mixed $length 
+     * @param int $offset 读取缓存区任意位置的内存(此接口是一个底层接口，可直接操作内存)
+     * @param int $length 读取缓存区任意位置的内存(此接口是一个底层接口，可直接操作内存)
      * @return 
      */
     public function read($offset, $length)
@@ -81,9 +81,9 @@ class Buffer
 
     /**
      * 
-     *将数据添加到缓冲区末尾
+     *将一个字符串数据追加到缓存区末尾
      * @example 
-     * @param  mixed $data 
+     * @param string $data 将一个字符串数据追加到缓存区末尾
      * @return 
      */
     public function append($data)
@@ -92,9 +92,9 @@ class Buffer
 
     /**
      * 
-     *给缓冲区扩容
+     *为缓存区扩容
      * @example 
-     * @param  mixed $size 
+     * @param int $size 为缓存区扩容
      * @return 
      */
     public function expand($size)
@@ -103,7 +103,17 @@ class Buffer
 
     /**
      * 
-     *清理缓冲区数据
+     *回收缓冲中已经废弃的内存
+     * @example 
+     * @return 
+     */
+    public function recycle()
+    {
+    }
+
+    /**
+     * 
+     *清理缓存区数据(行此操作后，缓存区将重置。swoole_buffer对象就可以用来处理新的请求了)
      * @example 
      * @return 
      */

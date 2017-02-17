@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
@@ -12,63 +12,63 @@ namespace Swoole\Coroutine;
 class MySQL
 {
     /**
-     * @var unknown $serverInfo 
-     * 
+     * @var array $serverInfo 
+     * 连接信息，保存的是传递给构造函数的数组
      * @access private
      */
     private $serverInfo    =    '';
 
     /**
-     * @var unknown $sock 
-     * 
+     * @var int $sock 
+     * 连接使用的文件描述符
      * @access public
      */
     public $sock    =    0;
 
     /**
-     * @var unknown $connected 
-     * 
+     * @var bool $connected 
+     * 是否连接上了MySQL服务器
      * @access public
      */
     public $connected    =    '';
 
     /**
-     * @var unknown $connect_error 
-     * 
+     * @var string $connect_error 
+     * 发生在sock上的连接错误信息
      * @access public
      */
     public $connect_error    =    '';
 
     /**
-     * @var unknown $connect_errno 
-     * 
+     * @var int $connect_errno 
+     * MySQL服务器返回的错误信息
      * @access public
      */
     public $connect_errno    =    0;
 
     /**
-     * @var unknown $affected_rows 
-     * 
+     * @var int $affected_rows 
+     * 影响的行数
      * @access public
      */
     public $affected_rows    =    0;
 
     /**
-     * @var unknown $insert_id 
-     * 
+     * @var int $insert_id 
+     * 最后一个插入的记录id
      * @access public
      */
     public $insert_id    =    0;
 
     /**
-     * @var unknown $error 
-     * 
+     * @var string $error 
+     * 错误信息
      * @access public
      */
     public $error    =    '';
 
     /**
-     * @var unknown $errno 
+     * @var int $errno 
      * 
      * @access public
      */
@@ -76,7 +76,7 @@ class MySQL
 
     /**
      * 
-     *
+     *初始化方法
      * @example 
      * @return 
      */
@@ -86,7 +86,7 @@ class MySQL
 
     /**
      * 
-     *
+     *析构函数
      * @example 
      * @return 
      */
@@ -96,9 +96,9 @@ class MySQL
 
     /**
      * 
-     *
+     *建立mysql连接
      * @example 
-     * @return 
+     * @return bool
      */
     public function connect()
     {
@@ -106,9 +106,9 @@ class MySQL
 
     /**
      * 
-     *
+     *执行mysql查询
      * @example 
-     * @return 
+     * @return array
      */
     public function query()
     {
@@ -146,7 +146,7 @@ class MySQL
 
     /**
      * 
-     *
+     *关闭连接
      * @example 
      * @return 
      */

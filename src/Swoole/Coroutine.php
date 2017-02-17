@@ -1,19 +1,19 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
-*
+*swoole协程类
 */
 namespace Swoole;
 class Coroutine
 {
     /**
      * 
-     *
+     *挂起某个协程
      * @example 
      * @return 
      */
@@ -23,7 +23,7 @@ class Coroutine
 
     /**
      * 
-     *
+     *使协程从挂起变为运行
      * @example 
      * @return 
      */
@@ -33,7 +33,7 @@ class Coroutine
 
     /**
      * 
-     *
+     *获取当前协程的ID
      * @example 
      * @return 
      */

@@ -1,27 +1,27 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
-*
+*swoole http响应对象
 */
 namespace Swoole\Http;
 class Response
 {
     /**
      * 
-     *设置cookie
+     *设置HTTP响应的cookie信息。此方法参数与PHP的setcookie完全一致
      * @example 
-     * @param  mixed $name 
-     * @param  mixed $value 
-     * @param  mixed $expires 
-     * @param  mixed $path 
-     * @param  mixed $domain 
-     * @param  mixed $secure 
-     * @param  mixed $httponly 
+     * @param string $name 设置HTTP响应的cookie信息。此方法参数与PHP的setcookie完全一致
+     * @param string $value 设置HTTP响应的cookie信息。此方法参数与PHP的setcookie完全一致
+     * @param int $expires 设置HTTP响应的cookie信息。此方法参数与PHP的setcookie完全一致
+     * @param string $path 设置HTTP响应的cookie信息。此方法参数与PHP的setcookie完全一致
+     * @param string $domain 设置HTTP响应的cookie信息。此方法参数与PHP的setcookie完全一致
+     * @param bool $secure 设置HTTP响应的cookie信息。此方法参数与PHP的setcookie完全一致
+     * @param bool $httponly 设置HTTP响应的cookie信息。此方法参数与PHP的setcookie完全一致
      * @return 
      */
     public function cookie($name, $value, $expires, $path, $domain, $secure, $httponly)
@@ -30,15 +30,15 @@ class Response
 
     /**
      * 
-     *设置最原始的cookie信息
+     *设置原始cookie(对URL不进行转码)
      * @example 
-     * @param  mixed $name 
-     * @param  mixed $value 
-     * @param  mixed $expires 
-     * @param  mixed $path 
-     * @param  mixed $domain 
-     * @param  mixed $secure 
-     * @param  mixed $httponly 
+     * @param string $name 设置原始cookie(对URL不进行转码)
+     * @param string $value 设置原始cookie(对URL不进行转码)
+     * @param int $expires 设置原始cookie(对URL不进行转码)
+     * @param string $path 设置原始cookie(对URL不进行转码)
+     * @param string $domain 设置原始cookie(对URL不进行转码)
+     * @param bool $secure 设置原始cookie(对URL不进行转码)
+     * @param bool $httponly 设置原始cookie(对URL不进行转码)
      * @return 
      */
     public function rawcookie($name, $value, $expires, $path, $domain, $secure, $httponly)
@@ -47,9 +47,9 @@ class Response
 
     /**
      * 
-     *设置http状态码
+     *发送Http状态码
      * @example 
-     * @param  mixed $http_code 
+     * @param int $http_code 发送Http状态码
      * @return 
      */
     public function status($http_code)
@@ -58,9 +58,9 @@ class Response
 
     /**
      * 
-     *启用gzip压缩
+     *启用Http GZIP压缩。压缩可以减小HTML内容的尺寸，有效节省网络带宽，提高响应时间。必须在write/end发送内容之前执行gzip，否则会抛出错误
      * @example 
-     * @param  mixed $compress_level 
+     * @param int $compress_level 启用Http GZIP压缩。压缩可以减小HTML内容的尺寸，有效节省网络带宽，提高响应时间。必须在write/end发送内容之前执行gzip，否则会抛出错误
      * @return 
      */
     public function gzip($compress_level)
@@ -69,11 +69,11 @@ class Response
 
     /**
      * 
-     *设置响应头信息
+     *设置HTTP响应的Header信息
      * @example 
-     * @param  mixed $key 
-     * @param  mixed $value 
-     * @param  mixed $ucwords 
+     * @param string $key 设置HTTP响应的Header信息
+     * @param string $value 设置HTTP响应的Header信息
+     * @param bool $ucwords 设置HTTP响应的Header信息
      * @return 
      */
     public function header($key, $value, $ucwords)
@@ -84,7 +84,7 @@ class Response
      * 
      *启用Http Chunk分段向浏览器发送相应内容
      * @example 
-     * @param  mixed $content 
+     * @param string $content 启用Http Chunk分段向浏览器发送相应内容
      * @return 
      */
     public function write($content)
@@ -93,9 +93,9 @@ class Response
 
     /**
      * 
-     *发送响应体，并结束当前请求
+     *发送Http响应体，并结束请求处理(end操作后将向客户端浏览器发送HTML内容，并销毁$request/$response对象)
      * @example 
-     * @param  mixed $content 
+     * @param string $content 发送Http响应体，并结束请求处理(end操作后将向客户端浏览器发送HTML内容，并销毁$request/$response对象)
      * @return 
      */
     public function end($content)
@@ -104,10 +104,10 @@ class Response
 
     /**
      * 
-     *发送文件给浏览器
+     *发送文件到浏览器
      * @example 
-     * @param  mixed $filename 
-     * @param  mixed $offset 
+     * @param string $filename 发送文件到浏览器
+     * @param int $offset 发送文件到浏览器
      * @return 
      */
     public function sendfile($filename, $offset)
@@ -116,7 +116,7 @@ class Response
 
     /**
      * 
-     *
+     *析构函数
      * @example 
      * @return 
      */

@@ -1,33 +1,33 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
-*
+*swoole http协程客户端
 */
 namespace Swoole\Coroutine\Http;
 class Client
 {
     /**
-     * @var unknown $errCode 
-     * 
+     * @var int $errCode 
+     * 错误码。errCode的值等于Linux errno。可使用socket_strerror将错误码转为错误信息
      * @access public
      */
     public $errCode    =    0;
 
     /**
-     * @var unknown $sock 
-     * 
+     * @var int $sock 
+     * sock属性是此socket的文件描述符
      * @access public
      */
     public $sock    =    0;
 
     /**
      * 
-     *
+     *创建http客户端
      * @example 
      * @return 
      */
@@ -37,7 +37,7 @@ class Client
 
     /**
      * 
-     *
+     *析构函数
      * @example 
      * @return 
      */
@@ -47,7 +47,7 @@ class Client
 
     /**
      * 
-     *
+     *设置客户端参数
      * @example 
      * @return 
      */
@@ -57,7 +57,7 @@ class Client
 
     /**
      * 
-     *
+     *设置请求方式
      * @example 
      * @return 
      */
@@ -67,7 +67,7 @@ class Client
 
     /**
      * 
-     *
+     *设置请求头
      * @example 
      * @return 
      */
@@ -77,7 +77,7 @@ class Client
 
     /**
      * 
-     *
+     *设置cookie
      * @example 
      * @return 
      */
@@ -87,7 +87,7 @@ class Client
 
     /**
      * 
-     *
+     *设置请求体数据
      * @example 
      * @return 
      */
@@ -97,7 +97,7 @@ class Client
 
     /**
      * 
-     *
+     *执行请求
      * @example 
      * @return 
      */
@@ -107,7 +107,7 @@ class Client
 
     /**
      * 
-     *
+     *执行get请求
      * @example 
      * @return 
      */
@@ -117,7 +117,7 @@ class Client
 
     /**
      * 
-     *
+     *执行post请求
      * @example 
      * @return 
      */
@@ -137,9 +137,9 @@ class Client
 
     /**
      * 
-     *
+     *判断是否已经连接
      * @example 
-     * @return 
+     * @return bool
      */
     public function isConnected()
     {
@@ -147,7 +147,7 @@ class Client
 
     /**
      * 
-     *
+     *关闭连接
      * @example 
      * @return 
      */
@@ -157,9 +157,9 @@ class Client
 
     /**
      * 
-     *
+     *设置defer
      * @example 
-     * @return 
+     * @return bool
      */
     public function setDefer()
     {
@@ -167,9 +167,9 @@ class Client
 
     /**
      * 
-     *
+     *返回当前设置的defer
      * @example 
-     * @return 
+     * @return bool
      */
     public function getDefer()
     {
@@ -177,9 +177,9 @@ class Client
 
     /**
      * 
-     *
+     *获取延迟收包的结果，当没有进行延迟收包或者收包超时
      * @example 
-     * @return 
+     * @return mixed
      */
     public function recv()
     {

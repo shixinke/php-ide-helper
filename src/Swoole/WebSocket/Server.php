@@ -1,103 +1,36 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
-*
+*swoole websocket服务器
 */
 namespace Swoole\WebSocket;
 class Server extends \Swoole\Http\Server
 {
     /**
      * 
-     * @var $setting array:
-     * @description:通过swoole_server:set()设置的参数会保存到setting属性上
-     * @access public
+     *为事件绑定某个函数
      * @example 
-     * 
-     * $serv = new swoole_server('127.0.0.1', 9501);
-     * $serv->set(array('worker_num' => 4));
-     * echo $serv->setting['worker_num'];
-     */
-    public $setting    =     array() ;
-
-    /**
-     * 
-     * @var int $master_pid：主进程ID
-     * @access public
-     * @example 
-     * 
-     */
-    public $master_pid;
-
-    /**
-     * 
-     * @var int $manager_pid:管理进程ID
-     * @access public
-     * @example 
-     * 
-     */
-    public $manager_pid;
-
-    /**
-     * 
-     * @var int $worker_pid:当前工作进程ID(操作系统进程)
-     * @access public
-     * @example 
-     * 
-     */
-    public $worker_pid;
-
-    /**
-     * 
-     * @var int $worker_id：当前工作进程(包括worker进程和task进程)编号
-     * @access public
-     * @example 
-     * 
-     */
-    public $worker_id;
-
-    /**
-     * 
-     * @var boolean $taskworker:当前进程是否是task工作进程
-     * @access public
-     * @example 
-     * 
-     */
-    public $taskworker;
-
-    /**
-     * 
-     * @var iterator $connections：TCP连接抚抚今迭代器
-     * @access public
-     * @example 
-     * 
-     */
-    public $connections;
-
-    /**
-     * 
-     *绑定事件(为事件注册函数)
-     * @example 
-     * @param  mixed $event_name 
-     * @param  mixed $callback 
+     * @param string $event_name 为事件绑定某个函数
+     * @param callable $callback 为事件绑定某个函数
      * @return 
      */
-    public function on($event_name, $callback)
+    public function on($event_name, Callable $callback)
     {
     }
 
     /**
      * 
-     *
+     *向websocket客户端连接推送数据，长度最大不得超过2M
      * @example 
-     * @param  mixed $fd 
-     * @param  mixed $data 
-     * @param  mixed $opcode 
-     * @param  mixed $finish 
+     * @param int $fd 向websocket客户端连接推送数据，长度最大不得超过2M
+     * @param string $data 向websocket客户端连接推送数据，长度最大不得超过2M
+     * @param int $opcode 向websocket客户端连接推送数据，长度最大不得超过2M
+     * @param boolean $finish 向websocket客户端连接推送数据，长度最大不得超过2M
      * @return 
      */
     public function push($fd, $data, $opcode, $finish)
@@ -106,10 +39,10 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *
+     *检测fd对应的连接是否存在
      * @example 
-     * @param  mixed $fd 
-     * @return 
+     * @param int $fd 检测fd对应的连接是否存在
+     * @return bool
      */
     public function exist($fd)
     {
@@ -117,9 +50,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *打包数据
+     *打包websocket数据帧
      * @example 
-     * @param  mixed $data 
+     * @param string $data 打包websocket数据帧
      * @param  mixed $opcode 
      * @param  mixed $finish 
      * @param  mixed $mask 
@@ -131,9 +64,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *参数据进行解包
+     *解包websocket数据帧
      * @example 
-     * @param  mixed $data 
+     * @param string $data 解包websocket数据帧
      * @return 
      */
     public static  function unpack($data)
@@ -142,9 +75,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *启动server
+     *启动websocket server
      * @example 
-     * @return 
+     * @return bool
      */
     public function start()
     {
@@ -152,12 +85,12 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *
+     *创建一个swoole tcp/udp server对象
      * @example 
-     * @param  mixed $host 
-     * @param  mixed $port 
-     * @param  mixed $mode 
-     * @param  mixed $sock_type 
+     * @param string $host 创建一个swoole tcp/udp server对象
+     * @param int $port 创建一个swoole tcp/udp server对象
+     * @param int $mode 创建一个swoole tcp/udp server对象
+     * @param int $sock_type 创建一个swoole tcp/udp server对象
      * @return 
      */
     public function __construct($host, $port, $mode, $sock_type)
@@ -166,11 +99,11 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *添加监听端口(是addlistener的别名)
+     *监听一个新的Server端口，此方法是addlistener的别名
      * @example 
-     * @param  mixed $host 
-     * @param  mixed $port 
-     * @param  mixed $sock_type 
+     * @param string $host 监听一个新的Server端口，此方法是addlistener的别名
+     * @param int $port 监听一个新的Server端口，此方法是addlistener的别名
+     * @param int $sock_type 监听一个新的Server端口，此方法是addlistener的别名
      * @return 
      */
     public function listen($host, $port, $sock_type)
@@ -179,11 +112,11 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *添加监听端口
+     *监听一个新的Server端口，此方法是addlistener的别名
      * @example 
-     * @param  mixed $host 
-     * @param  mixed $port 
-     * @param  mixed $sock_type 
+     * @param string $host 监听一个新的Server端口，此方法是addlistener的别名
+     * @param int $port 监听一个新的Server端口，此方法是addlistener的别名
+     * @param int $sock_type 监听一个新的Server端口，此方法是addlistener的别名
      * @return 
      */
     public function addlistener($host, $port, $sock_type)
@@ -192,9 +125,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *设置swoole_server运行时的参数
+     *设置选项
      * @example 
-     * @param array $settings 
+     * @param array $settings 设置选项
      * @return 
      */
     public function set(Array $settings)
@@ -205,10 +138,10 @@ class Server extends \Swoole\Http\Server
      * 
      *向客户端发送数据
      * @example 
-     * @param  mixed $fd 
-     * @param  mixed $send_data 
-     * @param  mixed $reactor_id 
-     * @return 
+     * @param int $fd 向客户端发送数据
+     * @param string $send_data 向客户端发送数据
+     * @param int $reactor_id 向客户端发送数据
+     * @return bool
      */
     public function send($fd, $send_data, $reactor_id)
     {
@@ -216,13 +149,13 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *向任意客户端发送UDP数据包
+     *向任意的客户端IP:PORT发送UDP数据包
      * @example 
-     * @param  mixed $ip 
-     * @param  mixed $port 
-     * @param  mixed $send_data 
-     * @param  mixed $server_socket 
-     * @return 
+     * @param string $ip 向任意的客户端IP:PORT发送UDP数据包
+     * @param int $port 向任意的客户端IP:PORT发送UDP数据包
+     * @param string $send_data 向任意的客户端IP:PORT发送UDP数据包
+     * @param int $server_socket 向任意的客户端IP:PORT发送UDP数据包
+     * @return bool
      */
     public function sendto($ip, $port, $send_data, $server_socket)
     {
@@ -230,11 +163,11 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *阻塞的向客户端发送数据
+     *阻塞地向客户端发送数据
      * @example 
-     * @param  mixed $conn_fd 
-     * @param  mixed $send_data 
-     * @return 
+     * @param int $conn_fd 阻塞地向客户端发送数据
+     * @param string $send_data 阻塞地向客户端发送数据
+     * @return bool
      */
     public function sendwait($conn_fd, $send_data)
     {
@@ -242,10 +175,10 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *
+     *用于保护某些连接不被心跳线程切断
      * @example 
-     * @param  mixed $fd 
-     * @param  mixed $is_protected 
+     * @param int $fd 用于保护某些连接不被心跳线程切断
+     * @param bool $is_protected 用于保护某些连接不被心跳线程切断
      * @return 
      */
     public function protect($fd, $is_protected)
@@ -254,12 +187,12 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *向客户端发送文件
+     *发送文件到TCP客户端连接
      * @example 
-     * @param  mixed $conn_fd 
-     * @param  mixed $filename 
-     * @param  mixed $offset 
-     * @return 
+     * @param int $conn_fd 发送文件到TCP客户端连接
+     * @param string $filename 发送文件到TCP客户端连接
+     * @param int $offset 发送文件到TCP客户端连接
+     * @return bool
      */
     public function sendfile($conn_fd, $filename, $offset)
     {
@@ -269,8 +202,8 @@ class Server extends \Swoole\Http\Server
      * 
      *关闭客户端连接
      * @example 
-     * @param  mixed $fd 
-     * @param  mixed $reset 
+     * @param int $fd 关闭客户端连接
+     * @param bool $reset 关闭客户端连接
      * @return 
      */
     public function close($fd, $reset)
@@ -279,9 +212,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *
+     *连接确认
      * @example 
-     * @param  mixed $fd 
+     * @param int $fd 连接确认
      * @return 
      */
     public function confirm($fd)
@@ -290,9 +223,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *
+     *停止接收数据
      * @example 
-     * @param  mixed $fd 
+     * @param int $fd 停止接收数据
      * @return 
      */
     public function pause($fd)
@@ -301,9 +234,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *
+     *恢复数据接收
      * @example 
-     * @param  mixed $fd 
+     * @param int $fd 恢复数据接收
      * @return 
      */
     public function resume($fd)
@@ -312,24 +245,24 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *投递一个任务到task_worker连接池中
+     *投递一个异步任务到task_worker池中。此函数是非阻塞的，执行完毕会立即返回
      * @example 
-     * @param  mixed $data 
-     * @param  mixed $worker_id 
-     * @param  mixed $finish_callback 
+     * @param mixed $data 投递一个异步任务到task_worker池中。此函数是非阻塞的，执行完毕会立即返回
+     * @param int $worker_id 投递一个异步任务到task_worker池中。此函数是非阻塞的，执行完毕会立即返回
+     * @param callable $finish_callback 投递一个异步任务到task_worker池中。此函数是非阻塞的，执行完毕会立即返回
      * @return 
      */
-    public function task($data, $worker_id, $finish_callback)
+    public function task($data, $worker_id, Callable $finish_callback)
     {
     }
 
     /**
      * 
-     *以阻塞的形式投递一个任务到task_worker连接池中
+     *用于投递一个异步的任务到task进程池去执行。与task不同的是taskwait是阻塞等待的，直到任务完成或者超时返回。
      * @example 
-     * @param  mixed $data 
-     * @param  mixed $timeout 
-     * @param  mixed $worker_id 
+     * @param mixed $data 用于投递一个异步的任务到task进程池去执行。与task不同的是taskwait是阻塞等待的，直到任务完成或者超时返回。
+     * @param float $timeout 用于投递一个异步的任务到task进程池去执行。与task不同的是taskwait是阻塞等待的，直到任务完成或者超时返回。
+     * @param int $worker_id 用于投递一个异步的任务到task进程池去执行。与task不同的是taskwait是阻塞等待的，直到任务完成或者超时返回。
      * @return 
      */
     public function taskwait($data, $timeout, $worker_id)
@@ -338,10 +271,10 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *
+     *并发执行多个Task
      * @example 
-     * @param array $tasks 
-     * @param  mixed $timeout 
+     * @param array $tasks 并发执行多个Task
+     * @param double $timeout 并发执行多个Task
      * @return 
      */
     public function taskWaitMulti(Array $tasks, $timeout)
@@ -350,9 +283,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *用于在task进程中通知worker进程任务已完成
+     *此函数用于在task进程中通知worker进程，投递的任务已完成。此函数可以传递结果数据给worker进程
      * @example 
-     * @param  mixed $data 
+     * @param string $data 此函数用于在task进程中通知worker进程，投递的任务已完成。此函数可以传递结果数据给worker进程
      * @return 
      */
     public function finish($data)
@@ -361,7 +294,7 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *重启所有工作进程
+     *重启所有worker进程
      * @example 
      * @return 
      */
@@ -381,9 +314,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *停止当前worker进程
+     *使当前worker进程停止运行，并立即触发onWorkerStop回调函数
      * @example 
-     * @param  mixed $worker_id 
+     * @param int $worker_id 使当前worker进程停止运行，并立即触发onWorkerStop回调函数
      * @return 
      */
     public function stop($worker_id)
@@ -392,11 +325,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *获取最近一次操作错误的错误码
-     *返回的错误码：
-     *1001 连接已经被Server端关闭了，出现这个错误一般是代码中已经执行了$serv->close()关闭了某个连接，但仍然调用$serv->send()向这个连接发送数据
+     *获取最近一次操作错误的错误码。业务代码中可以根据错误码类型执行不同的逻辑。
      * @example 
-     * @return 
+     * @return int
      */
     public function getLastError()
     {
@@ -404,7 +335,7 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *检测所有服务器连接，并找出已经超时的连接
+     *检测服务器所有连接，并找出已经超过约定时间的连接。如果指定if_close_connection，则自动关闭超时的连接。未指定仅返回连接的fd数组。
      * @example 
      * @param  mixed $reactor_id 
      * @return 
@@ -415,11 +346,11 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *获取客户端连接信息
+     *获取连接的信息
      * @example 
-     * @param  mixed $fd 
-     * @param  mixed $reactor_id 
-     * @return from_id
+     * @param int $fd 获取连接的信息
+     * @param int $reactor_id 获取连接的信息
+     * @return 
      */
     public function connection_info($fd, $reactor_id)
     {
@@ -427,10 +358,10 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *用来遍历所有客户端连接
+     *用来遍历当前Server所有的客户端连接
      * @example 
-     * @param  mixed $start_fd 
-     * @param  mixed $find_count 
+     * @param int $start_fd 用来遍历当前Server所有的客户端连接
+     * @param int $find_count 用来遍历当前Server所有的客户端连接
      * @return 
      */
     public function connection_list($start_fd, $find_count)
@@ -439,10 +370,10 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *
+     *获取连接的信息
      * @example 
-     * @param  mixed $fd 
-     * @param  mixed $reactor_id 
+     * @param int $fd 获取连接的信息
+     * @param int $reactor_id 获取连接的信息
      * @return 
      */
     public function getClientInfo($fd, $reactor_id)
@@ -451,10 +382,10 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *
+     *用来遍历当前Server所有的客户端连接
      * @example 
-     * @param  mixed $start_fd 
-     * @param  mixed $find_count 
+     * @param int $start_fd 用来遍历当前Server所有的客户端连接
+     * @param int $find_count 用来遍历当前Server所有的客户端连接
      * @return 
      */
     public function getClientList($start_fd, $find_count)
@@ -463,34 +394,34 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *在指定时间后执行某个回调函数
+     *在指定的时间后执行函数
      * @example 
-     * @param  mixed $ms 
-     * @param  mixed $callback 
-     * @param  mixed $param 
+     * @param int $ms 在指定的时间后执行函数
+     * @param callable $callback 在指定的时间后执行函数
+     * @param array $param 在指定的时间后执行函数
      * @return 
      */
-    public function after($ms, $callback, $param)
+    public function after($ms, Callable $callback, Array $param)
     {
     }
 
     /**
      * 
-     *添加定时器
+     *ick定时器，可以自定义回调函数
      * @example 
-     * @param  mixed $ms 
-     * @param  mixed $callback 
+     * @param int $ms ick定时器，可以自定义回调函数
+     * @param callable $callback ick定时器，可以自定义回调函数
      * @return 
      */
-    public function tick($ms, $callback)
+    public function tick($ms, Callable $callback)
     {
     }
 
     /**
      * 
-     *清除定时器
+     *清除tick/after定时器，此函数是swoole_timer_clear的别名
      * @example 
-     * @param  mixed $timer_id 
+     * @param int $timer_id 清除tick/after定时器，此函数是swoole_timer_clear的别名
      * @return 
      */
     public function clearTimer($timer_id)
@@ -499,21 +430,21 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *延迟执行一个PHP函数
+     *延后执行一个PHP函数。Swoole底层会在EventLoop循环完成后执行此函数。此函数的目的是为了让一些PHP代码延后执行，程序优先处理IO事件
      * @example 
-     * @param  mixed $callback 
+     * @param callable $callback 延后执行一个PHP函数。Swoole底层会在EventLoop循环完成后执行此函数。此函数的目的是为了让一些PHP代码延后执行，程序优先处理IO事件
      * @return 
      */
-    public function defer($callback)
+    public function defer(Callable $callback)
     {
     }
 
     /**
      * 
-     *向任意worker进程或task进程发送消息
+     *此函数可以向任意worker进程或者task进程发送消息。在非主进程和管理进程中可调用。收到消息的进程会触发onPipeMessage事件。
      * @example 
-     * @param  mixed $dst_worker_id 
-     * @param  mixed $data 
+     * @param int $dst_worker_id 此函数可以向任意worker进程或者task进程发送消息。在非主进程和管理进程中可调用。收到消息的进程会触发onPipeMessage事件。
+     * @param string $data 此函数可以向任意worker进程或者task进程发送消息。在非主进程和管理进程中可调用。收到消息的进程会触发onPipeMessage事件。
      * @return 
      */
     public function sendMessage($dst_worker_id, $data)
@@ -522,9 +453,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *添加一个自定义的工作进程
+     *添加一个用户自定义的工作进程
      * @example 
-     * @param  mixed $process 
+     * @param object $process 添加一个用户自定义的工作进程
      * @return 
      */
     public function addProcess($process)
@@ -533,10 +464,9 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *得到当前server的活动TCP连接数
-     *array (
+     *得到当前Server的活动TCP连接数，启动时间，accpet/close的总次数等信息
      * @example 
-     * @return 
+     * @return array
      */
     public function stats()
     {
@@ -544,10 +474,10 @@ class Server extends \Swoole\Http\Server
 
     /**
      * 
-     *将连接绑定到某个用户定义的ID
+     *将连接绑定一个用户定义的ID，可以设置dispatch_mode=5设置已此ID值进行hash固定分配。可以保证某一个UID的连接全部会分配到同一个Worker进程
      * @example 
-     * @param  mixed $fd 
-     * @param  mixed $uid 
+     * @param int $fd 将连接绑定一个用户定义的ID，可以设置dispatch_mode=5设置已此ID值进行hash固定分配。可以保证某一个UID的连接全部会分配到同一个Worker进程
+     * @param int $uid 将连接绑定一个用户定义的ID，可以设置dispatch_mode=5设置已此ID值进行hash固定分配。可以保证某一个UID的连接全部会分配到同一个Worker进程
      * @return 
      */
     public function bind($fd, $uid)

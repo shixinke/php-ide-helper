@@ -1,47 +1,47 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
-*
+*mysql协程异常类
 */
 namespace Swoole\Coroutine\MySQL;
 class Exception extends \Exception
 {
     /**
-     * @var unknown $message 
-     * 
+     * @var string $message 
+     * 异常提示信息
      * @access protected
      */
     protected $message    =    '';
 
     /**
-     * @var unknown $code 
-     * 
+     * @var int $code 
+     * 异常错误码
      * @access protected
      */
     protected $code    =    0;
 
     /**
-     * @var unknown $file 
-     * 
+     * @var string $file 
+     * 异常所在文件
      * @access protected
      */
     protected $file;
 
     /**
-     * @var unknown $line 
-     * 
+     * @var int $line 
+     * 异常所在行
      * @access protected
      */
     protected $line;
 
     /**
      * 
-     *
+     *克隆方法
      * @example 
      * @return 
      */
@@ -51,11 +51,11 @@ class Exception extends \Exception
 
     /**
      * 
-     *
+     *初始化方法
      * @example 
-     * @param  mixed $message 
-     * @param  mixed $code 
-     * @param  mixed $previous 
+     * @param string $message 初始化方法
+     * @param int $code 初始化方法
+     * @param Exception $previous 初始化方法
      * @return 
      */
     public function __construct($message, $code, $previous)
@@ -64,7 +64,7 @@ class Exception extends \Exception
 
     /**
      * 
-     *
+     *unserialize()会检查是否存在一个__wakeup方法。如果存在，则会先调用 __wakeup方法，预先准备对象数据
      * @example 
      * @return 
      */
@@ -74,9 +74,9 @@ class Exception extends \Exception
 
     /**
      * 
-     *
+     *获取异常信息
      * @example 
-     * @return 
+     * @return string
      */
     public final  function getMessage()
     {
@@ -84,9 +84,9 @@ class Exception extends \Exception
 
     /**
      * 
-     *
+     *获取异常码
      * @example 
-     * @return 
+     * @return int
      */
     public final  function getCode()
     {
@@ -94,9 +94,9 @@ class Exception extends \Exception
 
     /**
      * 
-     *
+     *获取异常所在文件
      * @example 
-     * @return 
+     * @return string
      */
     public final  function getFile()
     {
@@ -104,9 +104,9 @@ class Exception extends \Exception
 
     /**
      * 
-     *
+     *获取异常所在行
      * @example 
-     * @return 
+     * @return int
      */
     public final  function getLine()
     {
@@ -114,9 +114,9 @@ class Exception extends \Exception
 
     /**
      * 
-     *
+     *获取异常追踪信息
      * @example 
-     * @return 
+     * @return array
      */
     public final  function getTrace()
     {
@@ -124,9 +124,9 @@ class Exception extends \Exception
 
     /**
      * 
-     *
+     *获取异常链上的前一个异常对象
      * @example 
-     * @return 
+     * @return Exception
      */
     public final  function getPrevious()
     {
@@ -134,9 +134,9 @@ class Exception extends \Exception
 
     /**
      * 
-     *
+     *获取字符串类型的异常追踪信息
      * @example 
-     * @return 
+     * @return string
      */
     public final  function getTraceAsString()
     {

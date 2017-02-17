@@ -1,82 +1,63 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
-*
+*swoole http请求对象
 */
 namespace Swoole\Http;
 class Request
 {
     /**
-     * 
+     * @var array $header 
      * 请求头
-     * @var array header
-     * 每个key都是小写
      * @access public
-     * @example 
-     * 
      */
-    public $header    =     array() ;
+    public $header    =    'array()';
+
+    /**
+     * @var array $server 
+     * Http请求相关的服务器信息
+     * @access public
+     */
+    public $server    =    'array()';
+
+    /**
+     * @var array $get 
+     * Http请求的GET参数
+     * @access public
+     */
+    public $get    =    'array';
+
+    /**
+     * @var array $post 
+     * HTTP POST参数，格式为数组
+     * @access public
+     */
+    public $post    =    'array';
+
+    /**
+     * @var array $cookie 
+     * HTTP请求携带的COOKIE信息，与PHP的$_COOKIE相同，格式为数组
+     * @access public
+     */
+    public $cookie    =    'array';
+
+    /**
+     * @var array $files 
+     * 文件上传信息。类型为以form名称为key的二维数组。与PHP的$_FILES相同。
+     * @access public
+     */
+    public $files    =    'array';
 
     /**
      * 
-     * 请求相当的服务器信息
-     * @var array $server：相当于$_SERVER
-     * @access public
+     *获取原始的POST包体，用于非application/x-www-form-urlencoded格式的Http POST请求
      * @example 
-     * 
-     */
-    public $server    =     array() ;
-
-    /**
-     * 
-     * get请求参数
-     * @var array get
-     * @access public
-     * @example 
-     * 
-     */
-    public $get    =     array() ;
-
-    /**
-     * 
-     * post请求数据
-     * @var array post
-     * @access public
-     * @example 
-     * 
-     */
-    public $post    =     array() ;
-
-    /**
-     * 
-     * @var array $files:请求中的文件上传信息
-     * name 浏览器上传时传入的文件名称
-     * @access public
-     * @example 
-     * 
-     */
-    public $files    =     array() ;
-
-    /**
-     * 
-     * 请求中的cookie数据
-     * @var array cookie
-     * @access public
-     * @example 
-     * 
-     */
-    public $cookie    =     array() ;
-
-    /**
-     * 
-     *获取请求的原始数据
-     * @example 
-     * @return 
+     * @return string
      */
     public function rawcontent()
     {
@@ -84,7 +65,7 @@ class Request
 
     /**
      * 
-     *
+     *析构函数
      * @example 
      * @return 
      */

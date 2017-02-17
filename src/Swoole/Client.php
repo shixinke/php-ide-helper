@@ -1,59 +1,59 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.5版本)
+* Swoole自动补全类(基于最新的2.0.6版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/01/03
+* @modified 2017/02/17
 */
 
 /**
-*
+*tcp/udp socket的客户端
 */
 namespace Swoole;
 class Client
 {
     /**     
-    *
+    *读取带外数据
     */
     const MSG_OOB    =    1;
 
     /**     
-    *
+    *窥视socket缓存区中的数据。设置MSG_PEEK参数后，recv读取数据不会修改指针，因此下一次调用recv仍然会从上一次的位置起返回数据
     */
     const MSG_PEEK    =    2;
 
     /**     
-    *
+    *非阻塞接收数据，无论是否有数据都会立即返回
     */
     const MSG_DONTWAIT    =    64;
 
     /**     
-    *
+    *用于swoole_client->recv方法的第二个参数，阻塞等待直到收到指定长度的数据后返回
     */
     const MSG_WAITALL    =    256;
 
     /**
-     * @var unknown $errCode 
-     * 
+     * @var int $errCode 
+     * 错误码。errCode的值等于Linux errno。可使用socket_strerror将错误码转为错误信息
      * @access public
      */
     public $errCode    =    0;
 
     /**
-     * @var unknown $sock 
-     * 
+     * @var int $sock 
+     * sock属性是此socket的文件描述符
      * @access public
      */
     public $sock    =    0;
 
     /**
-     * @var unknown $reuse 
-     * 
+     * @var bool $reuse 
+     * 表示此连接是新创建的还是复用已存在的。与SWOOLE_KEEP配合使用
      * @access public
      */
     public $reuse    =    '';
 
     /**
-     * @var unknown $reuseCount 
+     * @var int $reuseCount 
      * 
      * @access public
      */
@@ -61,10 +61,10 @@ class Client
 
     /**
      * 
-     *创建tcp客户端对象
+     *创建tcp/udp客户端
      * @example 
-     * @param  mixed $type 
-     * @param  mixed $async 
+     * @param int $type 创建tcp/udp客户端
+     * @param int $async 创建tcp/udp客户端
      * @return 
      */
     public function __construct($type, $async)
@@ -73,7 +73,7 @@ class Client
 
     /**
      * 
-     *
+     *析构函数
      * @example 
      * @return 
      */
@@ -85,7 +85,7 @@ class Client
      * 
      *设置客户端参数
      * @example 
-     * @param array $settings 
+     * @param array $settings 设置客户端参数
      * @return 
      */
     public function set(Array $settings)
@@ -94,13 +94,13 @@ class Client
 
     /**
      * 
-     *连接远程服务器
+     *连接到远程服务器
      * @example 
-     * @param  mixed $host 
-     * @param  mixed $port 
-     * @param  mixed $timeout 
-     * @param  mixed $sock_flag 
-     * @return 
+     * @param string $host 连接到远程服务器
+     * @param int $port 连接到远程服务器
+     * @param float $timeout 连接到远程服务器
+     * @param int $sock_flag 连接到远程服务器
+     * @return bool
      */
     public function connect($host, $port, $timeout, $sock_flag)
     {
@@ -108,11 +108,11 @@ class Client
 
     /**
      * 
-     *从服务器端接收数据
+     *用于从服务器端接收数据
      * @example 
-     * @param  mixed $size 
-     * @param  mixed $flag 
-     * @return 
+     * @param int $size 用于从服务器端接收数据
+     * @param int $flag 用于从服务器端接收数据
+     * @return string
      */
     public function recv($size, $flag)
     {
@@ -120,11 +120,11 @@ class Client
 
     /**
      * 
-     *发送数据到远程服务器
+     *发送数据到远程服务器，必须在建立连接后，才可向Server发送数据
      * @example 
-     * @param  mixed $data 
+     * @param string $data 发送数据到远程服务器，必须在建立连接后，才可向Server发送数据
      * @param  mixed $flag 
-     * @return 
+     * @return int
      */
     public function send($data, $flag)
     {
@@ -132,9 +132,9 @@ class Client
 
     /**
      * 
-     *
+     *使用管道发送数据
      * @example 
-     * @param  mixed $dst_socket 
+     * @param int $dst_socket 使用管道发送数据
      * @return 
      */
     public function pipe($dst_socket)
@@ -143,11 +143,11 @@ class Client
 
     /**
      * 
-     *向服务器发送文件
+     *发送文件到服务器，本函数是基于sendfile操作系统调用的
      * @example 
-     * @param  mixed $filename 
-     * @param  mixed $offset 
-     * @return 
+     * @param string $filename 发送文件到服务器，本函数是基于sendfile操作系统调用的
+     * @param int $offset 发送文件到服务器，本函数是基于sendfile操作系统调用的
+     * @return bool
      */
     public function sendfile($filename, $offset)
     {
@@ -155,12 +155,12 @@ class Client
 
     /**
      * 
-     *向任意主机发送UDP数据包
+     *向任意IP:PORT的主机发送UDP数据包，仅支持SWOOLE_SOCK_UDP/SWOOLE_SOCK_UDP6类型的swoole_client对象。
      * @example 
-     * @param  mixed $ip 
-     * @param  mixed $port 
-     * @param  mixed $data 
-     * @return 
+     * @param string $ip 向任意IP:PORT的主机发送UDP数据包，仅支持SWOOLE_SOCK_UDP/SWOOLE_SOCK_UDP6类型的swoole_client对象。
+     * @param int $port 向任意IP:PORT的主机发送UDP数据包，仅支持SWOOLE_SOCK_UDP/SWOOLE_SOCK_UDP6类型的swoole_client对象。
+     * @param string $data 向任意IP:PORT的主机发送UDP数据包，仅支持SWOOLE_SOCK_UDP/SWOOLE_SOCK_UDP6类型的swoole_client对象。
+     * @return bool
      */
     public function sendto($ip, $port, $data)
     {
@@ -178,7 +178,7 @@ class Client
 
     /**
      * 
-     *调用此方法会重新监听可读事件，将socket连接从睡眠中唤醒
+     *调用此方法会重新监听可读事件，将socket连接从睡眠中唤醒(如果socket并未进入sleep模式，wakeup操作没有任何作用)
      * @example 
      * @return 
      */
@@ -188,7 +188,7 @@ class Client
 
     /**
      * 
-     *
+     *暂停数据接收
      * @example 
      * @return 
      */
@@ -198,7 +198,7 @@ class Client
 
     /**
      * 
-     *
+     *恢复数据接收
      * @example 
      * @return 
      */
@@ -210,7 +210,7 @@ class Client
      * 
      *返回swoole_client的连接状态
      * @example 
-     * @return 
+     * @return bool
      */
     public function isConnected()
     {
@@ -220,7 +220,7 @@ class Client
      * 
      *用于获取客户端socket的本地host:port，必须在连接之后才可以使用
      * @example 
-     * @return 
+     * @return array
      */
     public function getsockname()
     {
@@ -228,9 +228,9 @@ class Client
 
     /**
      * 
-     *获取对端socket的IP地址和端口
+     *获取对端socket的IP地址和端口，仅支持SWOOLE_SOCK_UDP/SWOOLE_SOCK_UDP6类型的swoole_client对象(此函数必须在$client->recv() 之后调用)
      * @example 
-     * @return 
+     * @return bool
      */
     public function getpeername()
     {
@@ -240,8 +240,8 @@ class Client
      * 
      *关闭连接
      * @example 
-     * @param  mixed $force 
-     * @return 
+     * @param bool $force 关闭连接
+     * @return bool
      */
     public function close($force)
     {
@@ -249,11 +249,11 @@ class Client
 
     /**
      * 
-     *绑定事件(为事件注册函数)
+     *注册异步事件回调函数，调用on方法会使当前的socket变成非阻塞的
      * @example 
-     * @param  mixed $event_name 
-     * @param  mixed $callback 
-     * @return 
+     * @param string $event_name 注册异步事件回调函数，调用on方法会使当前的socket变成非阻塞的
+     * @param string $callback 注册异步事件回调函数，调用on方法会使当前的socket变成非阻塞的
+     * @return int
      */
     public function on($event_name, $callback)
     {
