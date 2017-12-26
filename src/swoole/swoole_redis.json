@@ -1,0 +1,97 @@
+{
+  "object": {
+    "name": "Swoole\\Redis"
+  },
+  "comment": "异步redis客户端",
+  "namespace": "Swoole",
+  "consts": [],
+  "properties": [],
+  "methods": {
+    "__construct": {
+      "access": "public",
+      "comment": "初始化函数",
+      "isStatic": false,
+      "return": "",
+      "example": "",
+      "parameters": []
+    },
+    "__destruct": {
+      "access": "public",
+      "comment": "析构函数",
+      "isStatic": false,
+      "return": "",
+      "example": "",
+      "parameters": []
+    },
+    "on": {
+      "access": "public",
+      "comment": "注册事件回调函数",
+      "isStatic": false,
+      "return": "",
+      "example": "",
+      "parameters": {
+        "event_name": {
+          "comment": "事件类型，目前只支持close和message",
+          "type": "string",
+          "options": []
+        },
+        "callback": {
+          "comment": "事件回调函数",
+          "type": "callable",
+          "options": []
+        }
+      }
+    },
+    "connect": {
+      "access": "public",
+      "comment": "连接redis服务器",
+      "isStatic": false,
+      "return": "",
+      "example": "",
+      "parameters": {
+        "host": {
+          "comment": "主机",
+          "type": "string",
+          "options": []
+        },
+        "port": {
+          "comment": "端口",
+          "type": "int",
+          "options": []
+        },
+        "callback": {
+          "comment": "连接回调函数",
+          "type": "callable",
+          "options": []
+        }
+      }
+    },
+    "close": {
+      "access": "public",
+      "comment": "关闭redis连接",
+      "isStatic": false,
+      "return": "",
+      "example": "",
+      "parameters": []
+    },
+    "__call": {
+      "access": "public",
+      "comment": "执行redis命令",
+      "isStatic": false,
+      "return": "",
+      "example": "",
+      "parameters": {
+        "command": {
+          "comment": "redis指令",
+          "type": "string",
+          "options": []
+        },
+        "params": {
+          "comment": "参数",
+          "type": "array",
+          "options": []
+        }
+      }
+    }
+  }
+}
