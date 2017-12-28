@@ -2,114 +2,145 @@
 /**
 * Redis自动补全类(基于最新的3.0.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2017/12/28
 */
 
 /**
-*
+*php操作Redis客户端
+*/
+/**
+ * php.ini配置选项: 
+
+ * 
+ * redis.arrays.names=
+
+ * 
+ * redis.arrays.hosts=
+
+ * 
+ * redis.arrays.previous=
+
+ * 
+ * redis.arrays.functions=
+
+ * 
+ * redis.arrays.index=
+
+ * 
+ * redis.arrays.autorehash=
+
+ * 
+ * redis.clusters.seeds=
+
+ * 
+ * redis.clusters.timeout=
+
+ * 
+ * redis.clusters.read_timeout=
+
 */
 class Redis
 {
     /**     
-    *
+    *未知类型
     */
     const REDIS_NOT_FOUND    =    0;
 
     /**     
-    *
+    *字符串类型
     */
     const REDIS_STRING    =    1;
 
     /**     
-    *
+    *集合类型
     */
     const REDIS_SET    =    2;
 
     /**     
-    *
+    *列表类型
     */
     const REDIS_LIST    =    3;
 
     /**     
-    *
+    *有序集合类型
     */
     const REDIS_ZSET    =    4;
 
     /**     
-    *
+    *字典类型
     */
     const REDIS_HASH    =    5;
 
     /**     
-    *
+    *管道模式
     */
     const PIPELINE    =    2;
 
     /**     
-    *
+    *原子操作模式
     */
     const ATOMIC    =    0;
 
     /**     
-    *
+    *事务模式
     */
     const MULTI    =    1;
 
     /**     
-    *
+    *序列化选项
     */
     const OPT_SERIALIZER    =    1;
 
     /**     
-    *
+    *前缀选项
     */
     const OPT_PREFIX    =    2;
 
     /**     
-    *
+    *读操作超时选项
     */
     const OPT_READ_TIMEOUT    =    3;
 
     /**     
-    *
+    *不实行序列化
     */
     const SERIALIZER_NONE    =    0;
 
     /**     
-    *
+    *PHP序列化
     */
     const SERIALIZER_PHP    =    1;
 
     /**     
-    *
+    *扫描选项
     */
     const OPT_SCAN    =    4;
 
     /**     
-    *
+    *重新扫描
     */
     const SCAN_RETRY    =    1;
 
     /**     
-    *
+    *不重新扫描
     */
     const SCAN_NORETRY    =    0;
 
     /**     
-    *
+    *后面位置
     */
     const AFTER    =    'after';
 
     /**     
-    *
+    *前面位置
     */
     const BEFORE    =    'before';
 
     /**
      * 
-     *Creates a Redis client
+     *创建一个redis客户端
      * @example $redis = new Redis();
-     * @return 
+     * @return Object
      */
     public function __construct()
     {
@@ -117,7 +148,7 @@ class Redis
 
     /**
      * 
-     *
+     *析构方法
      * @example 
      * @return 
      */
@@ -127,7 +158,7 @@ class Redis
 
     /**
      * 
-     *Connects to a Redis instance.
+     *连接redis服务器
      * @example 
      * <pre>
      * $redis->connect('127.0.0.1', 6379);
@@ -135,31 +166,43 @@ class Redis
      * $redis->connect('127.0.0.1', 6379, 2.5); // 2.5 sec timeout.
      * $redis->connect('/tmp/redis.sock');      // unix domain socket.
      * </pre>
+     * @param string $host 主机IP
+     * @param int $port 端口
+     * @param float $timeout 连接超时时间(以秒为单位)
+     * @param mixed $reserved 当使用retry_interval时该值为NULL
+     * @param int $retry_interval 重试间隔
+     * @param float $read_timeout 读操作超时时间
      * @return bool
      */
-    public function connect()
+    public function connect($host, $port, $timeout, $reserved, $retry_interval, $read_timeout)
     {
     }
 
     /**
      * 
-     *Connects to a Redis instance or reuse a connection already established with pconnect/popen.
+     *连接redis(长连接)，与connect用法一致
      * @example 
      * <pre>
-     * $redis->connect('127.0.0.1', 6379);
-     * $redis->connect('127.0.0.1');            // port 6379 by default
+     * $redis->pconnect('127.0.0.1', 6379);
+     * $redis->pconnect('127.0.0.1');            // port 6379 by default
      * $redis->connect('127.0.0.1', 6379, 2.5); // 2.5 sec timeout.
      * $redis->connect('/tmp/redis.sock');      // unix domain socket.
      * </pre>
+     * @param string $host 主机IP
+     * @param int $port 端口
+     * @param float $timeout 连接超时时间(以秒为单位)
+     * @param mixed $reserved 当使用retry_interval时该值为NULL
+     * @param int $retry_interval 重试间隔
+     * @param float $read_timeout 读操作超时时间
      * @return bool
      */
-    public function pconnect()
+    public function pconnect($host, $port, $timeout, $reserved, $retry_interval, $read_timeout)
     {
     }
 
     /**
      * 
-     *Disconnects from the Redis instance, except when pconnect is used.
+     *关闭redis连接(长连接除外)
      * @example 
      * @return 
      */
@@ -169,7 +212,7 @@ class Redis
 
     /**
      * 
-     *Check the current connection status
+     *检查当前redis连接状态(成功时返回PONG)
      * @example 
      * @return string
      */
@@ -179,19 +222,20 @@ class Redis
 
     /**
      * 
-     *
+     *向redis发送一个字符串，而且redis服务器将返回一个相同的字符串
      * @example 
-     * @return 
+     * @param string $str 发送的字符串
+     * @return string
      */
-    public function echo()
+    public function echo($str)
     {
     }
 
     /**
      * 
-     *Get the value related to the specified key
+     *获取指定的key的值
      * @example $redis->get('key');
-     * @return string|bool:
+     * @return string|bool
      */
     public function get()
     {
@@ -199,72 +243,91 @@ class Redis
 
     /**
      * 
-     *Set the string value in argument as value of the key.
-     * @example 
+     *给指定的键设置值
+     * @example 直接设置：
+     *  $redis->set('key', 'value');
+     * 带有效期的设置:
+     * $redis->set('key','value', 10);
+     * 当键不存在时，设置期有效期为10秒:
+     * $redis->set('key', 'value', Array('nx', 'ex'=>10));
+     * 当键存在时，设置期有效期为1000毫秒:
+     * $redis->set('key', 'value', Array('xx', 'px'=>1000));
+     * 
+     * @param string $key 设置的缓存键
+     * @param string $value 设置的缓存值
+     * @param int|array $options 附加项，可以是超时时间或者一个选项数组
      * @return bool
      */
-    public function set()
+    public function set($key, $value, $options)
     {
     }
 
     /**
      * 
-     *Set the string value in argument as value of the key, with a time to live.
-     * @example $redis->setex('key', 3600, 'value'); // sets key → value, with 1h TTL.
-     * @return bool:
+     *设置键值并设置有效期
+     * @example $redis->setex('key', 3600, 'value');
+     * @param string $key 设置的缓存键
+     * @param string $value 设置的缓存值
+     * @param int $ttl 有效期
+     * @return bool
      */
-    public function setex()
+    public function setex($key, $value, $ttl)
     {
     }
 
     /**
      * 
-     *
+     *设置键值并设置有效期(毫秒为单位)
      * @example 
+     * @param string $key 设置的缓存键
+     * @param string $value 设置的缓存值
+     * @param int $ttl 有效期(毫秒为单位)
      * @return 
      */
-    public function psetex()
+    public function psetex($key, $value, $ttl)
     {
     }
 
     /**
      * 
-     *Set the string value in argument as value of the key if the key doesn't already exist in the database.
+     *当键不存在时设置其值
      * @example 
-     * <pre>
-     * $redis->setnx('key', 'value');   // return TRUE
-     * $redis->setnx('key', 'value');   // return FALSE
-     * </pre>
+     * $redis->setnx('key', 'value');
+     * 
+     * @param string $key 设置的缓存键
+     * @param string $value 设置的缓存值
      * @return bool:
      */
-    public function setnx()
+    public function setnx($key, $value)
     {
     }
 
     /**
      * 
-     *Sets a value and returns the previous entry at that key.
+     *设置键的值，并返回它的旧的缓存值
      * @example 
      * <pre>
      * $redis->set('x', '42');
      * $exValue = $redis->getSet('x', 'lol');   // return '42', replaces x by 'lol'
      * $newValue = $redis->get('x')'            // return 'lol'
      * </pre>
+     * @param string $key 设置的缓存键
+     * @param string $value 设置的缓存值
      * @return string
      */
-    public function getSet()
+    public function getSet($key, $value)
     {
     }
 
     /**
      * 
-     *Returns a random key.
+     *返回一个随机的键
      * @example 
      * <pre>
      * $key = $redis->randomKey();
      * $surprise = $redis->get($key);  // who knows what's in there.
      * </pre>
-     * @return string:
+     * @return string
      */
     public function randomKey()
     {
@@ -272,34 +335,31 @@ class Redis
 
     /**
      * 
-     *
+     *给键重命名
      * @example 
-     * @return 
+     * @param string $srcKey 旧键名
+     * @param string $dstKey 新键名
+     * @return boolean
      */
-    public function renameKey()
+    public function renameKey($srcKey, $dstKey)
     {
     }
 
     /**
      * 
-     *Renames a key.
+     *当目标键名不存在时，给键重命名
      * @example 
-     * <pre>
-     * $redis->set('x', '42');
-     * $redis->rename('x', 'y');
-     * $redis->get('y');   // → 42
-     * $redis->get('x');   // → `FALSE`
-     * </pre>
-     * @return bool:
+     * @param string $srcKey 旧键名
+     * @param string $dstKey 新键名
+     * @return boolean
      */
-    public function renameNx()
+    public function renameNx($srcKey, $dstKey)
     {
     }
 
     /**
      * 
-     *Get the values of all the specified keys. If one or more keys dont exist, the array will contain FALSE at the
-     *position of the key.
+     *批量获取键值
      * @example 
      * <pre>
      * $redis->set('key1', 'value1');
@@ -308,40 +368,44 @@ class Redis
      * $redis->getMultiple(array('key1', 'key2', 'key3')); // array('value1', 'value2', 'value3');
      * $redis->getMultiple(array('key0', 'key1', 'key5')); // array(`FALSE`, 'value2', `FALSE`);
      * </pre>
+     * @param array $keys 键名数组
      * @return array
      */
-    public function getMultiple()
+    public function getMultiple(Array $keys)
     {
     }
 
     /**
      * 
-     *Verify if the specified key exists.
+     *判断键是否存在
      * @example 
      * <pre>
      * $redis->set('key', 'value');
      * $redis->exists('key');               //  TRUE
      * $redis->exists('NonExistingKey');    // FALSE
      * </pre>
-     * @return bool:
+     * @param string $key 键名
+     * @return bool
      */
-    public function exists()
+    public function exists($key)
     {
     }
 
     /**
      * 
-     *
-     * @example 
+     *删除一个或多个键
+     * @example $redis->delete('key1', 'key2'); 
+     * $redis->delete(array('key3', 'key4')); 
+     * @param array|string $keys 键名
      * @return int
      */
-    public function delete()
+    public function delete($keys)
     {
     }
 
     /**
      * 
-     *Increment the number stored at key by one.
+     *键值自增
      * @example 
      * <pre>
      * $redis->incr('key1'); // key1 didn't exists, set to 0 before the increment and now has the value 1
@@ -349,16 +413,16 @@ class Redis
      * $redis->incr('key1'); // 3
      * $redis->incr('key1'); // 4
      * </pre>
+     * @param string $key 键名
      * @return int
      */
-    public function incr()
+    public function incr($key)
     {
     }
 
     /**
      * 
-     *Increment the number stored at key by one. If the second argument is filled, it will be used as the integer
-     *value of the increment.
+     *按指定步长自增
      * @example 
      * <pre>
      * $redis->incr('key1');        // key1 didn't exists, set to 0 before the increment and now has the value 1
@@ -367,15 +431,17 @@ class Redis
      * $redis->incr('key1');        // 4
      * $redis->incrBy('key1', 10);  // 14
      * </pre>
+     * @param string $key 键名
+     * @param int $step 自增步长
      * @return int
      */
-    public function incrBy()
+    public function incrBy($key, $step)
     {
     }
 
     /**
      * 
-     *Increment the float value of a key by the given amount
+     *按指定步长自增
      * @example 
      * <pre>
      * $redis = new Redis();
@@ -385,31 +451,33 @@ class Redis
      * // ! SIC
      * var_dump( $redis->get('x') );                // string(3) "4.5"
      * </pre>
-     * @return 
+     * @param string $key 键名
+     * @param float $step 自增步长
+     * @return float
      */
-    public function incrByFloat()
+    public function incrByFloat($key, $step)
     {
     }
 
     /**
      * 
-     *Decrement the number stored at key by one.
+     *键值自减
      * @example 
      * <pre>
      * $redis->decr('key1'); // key1 didn't exists, set to 0 before the increment and now has the value -1
      * $redis->decr('key1'); // -2
      * $redis->decr('key1'); // -3
      * </pre>
+     * @param string $key 键名
      * @return int
      */
-    public function decr()
+    public function decr($key)
     {
     }
 
     /**
      * 
-     *Decrement the number stored at key by one. If the second argument is filled, it will be used as the integer
-     *value of the decrement.
+     *按指定步长自减
      * @example 
      * <pre>
      * $redis->decr('key1');        // key1 didn't exists, set to 0 before the increment and now has the value -1
@@ -417,85 +485,98 @@ class Redis
      * $redis->decr('key1');        // -3
      * $redis->decrBy('key1', 10);  // -13
      * </pre>
+     * @param string $key 键名
+     * @param float $step 自减步长
      * @return int
      */
-    public function decrBy()
+    public function decrBy($key, $step)
     {
     }
 
     /**
      * 
-     *Returns the type of data pointed by a given key.
+     *获取指定键的数据类型(需要根据常量匹配)
      * @example $redis->type('key');
-     * @return -
+     * @param string $key 键名
+     * @return int
      */
-    public function type()
+    public function type($key)
     {
     }
 
     /**
      * 
-     *Append specified string to the string stored in specified key.
+     *将字符串追加到键值后(返回值的长度)
      * @example 
      * <pre>
      * $redis->set('key', 'value1');
      * $redis->append('key', 'value2'); // 12
      * $redis->get('key');              // 'value1value2'
      * </pre>
-     * @return int:
+     * @param string $key 键名
+     * @param string $value 追加的值
+     * @return int
      */
-    public function append()
+    public function append($key, $value)
     {
     }
 
     /**
      * 
-     *Return a substring of a larger string
+     *获取一个键值的子字符串
      * @example 
      * <pre>
      * $redis->set('key', 'string value');
      * $redis->getRange('key', 0, 5);   // 'string'
      * $redis->getRange('key', -5, -1); // 'value'
      * </pre>
+     * @param string $key 键名
+     * @param int $start 开始位置
+     * @param int $end 结束位置
      * @return string:
      */
-    public function getRange()
+    public function getRange($key, $start, $end)
     {
     }
 
     /**
      * 
-     *Changes a substring of a larger string.
+     *修改某个键的某个位置的值
      * @example 
      * <pre>
      * $redis->set('key', 'Hello world');
      * $redis->setRange('key', 6, "redis"); // returns 11
      * $redis->get('key');                  // "Hello redis"
      * </pre>
-     * @return string:
+     * @param string $key 键名
+     * @param int $offset 开始位置
+     * @param string $value 被替换的子串的值
+     * @return string
      */
-    public function setRange()
+    public function setRange($key, $offset, $value)
     {
     }
 
     /**
      * 
-     *Return a single bit out of a larger string
+     *获取某个键的某个位置的位值
      * @example 
      * <pre>
      * $redis->set('key', "\x7f");  // this is 0111 1111
      * $redis->getBit('key', 0);    // 0
      * $redis->getBit('key', 1);    // 1
      * </pre>
-     * @return int:
+     * @param string $key 键名
+     * @param int $offset 所在位置
+     * @return int
      */
-    public function getBit()
+    public function getBit($key, $offset)
     {
     }
 
     /**
      * 
-     *Changes a single bit of a string.
+     *修改某个键的某个位置的位值
      * @example 
      * <pre>
      * $redis->set('key', "*");     // ord("*") = 42 = 0x2f = "0010 1010"
@@ -503,39 +584,46 @@ class Redis
      * $redis->setBit('key', 7, 1); // returns 0
      * $redis->get('key');          // chr(0x2f) = "/" = b("0010 1111")
      * </pre>
+     * @param string $key 键名
+     * @param int $offset 开始位置
+     * @param boolean|int $value 新值
      * @return int:
      */
-    public function setBit()
+    public function setBit($key, $offset, $value)
     {
     }
 
     /**
      * 
-     *Get the length of a string value.
+     *获取键值的长度
      * @example 
      * <pre>
      * $redis->set('key', 'value');
      * $redis->strlen('key'); // 5
      * </pre>
-     * @return 
+     * @param string $key 键名
+     * @return int
      */
-    public function strlen()
+    public function strlen($key)
     {
     }
 
     /**
      * 
-     *
+     *根据匹配模式获取键名(如*)
      * @example 
-     * @return 
+     * $allKeys = $redis->keys('*');
+     * $keyWithUserPrefix = $redis->keys('user*');
+     * @param string $pattern 匹配模式
+     * @return array
      */
-    public function getKeys()
+    public function getKeys($pattern)
     {
     }
 
     /**
      * 
-     *Sort
+     *给列表、集合或有序集合的元素排序
      * @example 
      * <pre>
      * $redis->delete('s');
@@ -548,56 +636,61 @@ class Redis
      * var_dump($redis->sort('s', array('sort' => 'desc'))); // 5,4,3,2,1
      * var_dump($redis->sort('s', array('sort' => 'desc', 'store' => 'out'))); // (int)5
      * </pre>
+     * @param string $key 键名
+     * @param array $options 排序参数,如：array('sort' => 'desc')
      * @return An
      */
-    public function sort()
+    public function sort($key, Array $options)
     {
     }
 
     /**
      * 
-     *
+     *给列表、集合或有序集合的元素排序(自小到大顺序)
      * @example 
+     * @param string $key 键名
      * @return 
      */
-    public function sortAsc()
+    public function sortAsc($key)
     {
     }
 
     /**
      * 
-     *
+     *给列表、集合或有序集合的元素排序(按字母顺序)
      * @example 
+     * @param string $key 键名
      * @return 
      */
-    public function sortAscAlpha()
+    public function sortAscAlpha($key)
     {
     }
 
     /**
      * 
-     *
+     *给列表、集合或有序集合的元素排序(自大到小顺序)
      * @example 
+     * @param string $key 键名
      * @return 
      */
-    public function sortDesc()
+    public function sortDesc($key)
     {
     }
 
     /**
      * 
-     *
+     *给列表、集合或有序集合的元素排序(按字母顺序倒序)
      * @example 
+     * @param string $key 键名
      * @return 
      */
-    public function sortDescAlpha()
+    public function sortDescAlpha($key)
     {
     }
 
     /**
      * 
-     *Adds the string values to the head (left) of the list. Creates the list if the key didn't exist.
-     *If the key exists and is not a list, FALSE is returned.
+     *从左侧(头部)向列表插入元素
      * @example 
      * <pre>
      * $redis->lPush('l', 'v1', 'v2', 'v3', 'v4')   // int(4)
@@ -610,16 +703,17 @@ class Redis
      * //   [3]=> string(2) "v1"
      * // }
      * </pre>
+     * @param string $key 键名
+     * @param string $value 元素值
      * @return int
      */
-    public function lPush()
+    public function lPush($key, $value)
     {
     }
 
     /**
      * 
-     *Adds the string values to the tail (right) of the list. Creates the list if the key didn't exist.
-     *If the key exists and is not a list, FALSE is returned.
+     *从右侧(尾部)向列表插入元素
      * @example 
      * <pre>
      * $redis->rPush('l', 'v1', 'v2', 'v3', 'v4');    // int(4)
@@ -632,15 +726,17 @@ class Redis
      * //   [3]=> string(2) "v4"
      * // }
      * </pre>
+     * @param string $key 键名
+     * @param string $value 元素值
      * @return int
      */
-    public function rPush()
+    public function rPush($key, $value)
     {
     }
 
     /**
      * 
-     *Adds the string value to the head (left) of the list if the list exists.
+     *如果列表存在，从左侧(头部)向列表插入元素
      * @example 
      * <pre>
      * $redis->delete('key1');
@@ -650,15 +746,17 @@ class Redis
      * $redis->lPushx('key1', 'C');     // returns 3
      * // key1 now points to the following list: [ 'A', 'B', 'C' ]
      * </pre>
+     * @param string $key 键名
+     * @param string $value 元素值
      * @return int
      */
-    public function lPushx()
+    public function lPushx($key, $value)
     {
     }
 
     /**
      * 
-     *Adds the string value to the tail (right) of the list if the ist exists. FALSE in case of Failure.
+     *如果列表存在，从右侧(尾部)向列表插入元素
      * @example 
      * <pre>
      * $redis->delete('key1');
@@ -668,15 +766,17 @@ class Redis
      * $redis->rPushx('key1', 'C'); // returns 3
      * // key1 now points to the following list: [ 'A', 'B', 'C' ]
      * </pre>
+     * @param string $key 键名
+     * @param string $value 元素值
      * @return int
      */
-    public function rPushx()
+    public function rPushx($key, $value)
     {
     }
 
     /**
      * 
-     *Returns and removes the first element of the list.
+     *从列表左侧删除一个元素
      * @example 
      * <pre>
      * $redis->rPush('key1', 'A');
@@ -684,15 +784,16 @@ class Redis
      * $redis->rPush('key1', 'C');  // key1 => [ 'A', 'B', 'C' ]
      * $redis->lPop('key1');        // key1 => [ 'B', 'C' ]
      * </pre>
+     * @param string $key 键名
      * @return string
      */
-    public function lPop()
+    public function lPop($key)
     {
     }
 
     /**
      * 
-     *Returns and removes the last element of the list.
+     *从列表右侧删除一个元素
      * @example 
      * <pre>
      * $redis->rPush('key1', 'A');
@@ -700,18 +801,16 @@ class Redis
      * $redis->rPush('key1', 'C');  // key1 => [ 'A', 'B', 'C' ]
      * $redis->rPop('key1');        // key1 => [ 'A', 'B' ]
      * </pre>
+     * @param string $key 键名
      * @return string
      */
-    public function rPop()
+    public function rPop($key)
     {
     }
 
     /**
      * 
-     *Is a blocking lPop primitive. If at least one of the lists contains at least one element,
-     *the element will be popped from the head of the list and returned to the caller.
-     *Il all the list identified by the keys passed in arguments are empty, blPop will block
-     *during the specified timeout until an element is pushed to one of those lists. This element will be popped.
+     *是一个阻塞lPop原语。 如果至少有一个列表包含至少一个元素，则该元素将从列表头部弹出并返回给调用者。 如果所有通过参数传递的键标识的列表都是空的，blPop将在指定的超时期间阻塞，直到元素被推送到其中一个列表。 这个元素将被弹出。
      * @example 
      * <pre>
      * // Non blocking feature
@@ -733,19 +832,17 @@ class Redis
      * // process 1
      * // array('key1', 'A') is returned
      * </pre>
+     * @param string|...|array $key 键名
+     * @param int $timeout 超时时间
      * @return array
      */
-    public function blPop()
+    public function blPop($key, $timeout)
     {
     }
 
     /**
      * 
-     *Is a blocking rPop primitive. If at least one of the lists contains at least one element,
-     *the element will be popped from the head of the list and returned to the caller.
-     *Il all the list identified by the keys passed in arguments are empty, brPop will
-     *block during the specified timeout until an element is pushed to one of those lists. T
-     *his element will be popped.
+     *是一个阻塞rPop原语。 如果至少有一个列表包含至少一个元素，则该元素将从列表尾部弹出并返回给调用者。 如果所有通过参数传递的键标识的列表都是空的，brPop将在指定的超时期间阻塞，直到元素被推送到其中一个列表。 这个元素将被弹出。
      * @example 
      * <pre>
      * // Non blocking feature
@@ -767,65 +864,79 @@ class Redis
      * // process 1
      * // array('key1', 'A') is returned
      * </pre>
+     * @param string|...|array $key 键名
+     * @param int $timeout 超时时间
      * @return array
      */
-    public function brPop()
+    public function brPop($key, $timeout)
     {
     }
 
     /**
      * 
-     *
+     *返回列表的长度
      * @example 
-     * @return 
+     * @param string|...|array $key 键名
+     * @return long | bool
      */
-    public function lSize()
+    public function lSize($key)
     {
     }
 
     /**
      * 
-     *
+     *从列表中删除指定值的元素。 如果count为零，则删除所有匹配的元素。 如果计数是负数，则元素从尾部移到头部。
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param string $value 元素值
+     * @param int $count 删除的个数
+     * @return long | bool
      */
-    public function lRemove()
+    public function lRemove($key, $value, $count)
     {
     }
 
     /**
      * 
-     *
+     *删除指定范围外的其他元素
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param int $start 开始索引
+     * @param int $end 结束索引
+     * @return array | boolean
      */
-    public function listTrim()
+    public function listTrim($key, $start, $end)
     {
     }
 
     /**
      * 
-     *
+     *获取列表中指定索引的值
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param int $index 索引值
+     * @return string | boolean
      */
-    public function lGet()
+    public function lGet($key, $index)
     {
     }
 
     /**
      * 
-     *
+     *获取列表指定范围的值
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param int $start 索引开始值
+     * @param int $end 索引结束值
+     * @return array
      */
-    public function lGetRange()
+    public function lGetRange($key, $start, $end)
     {
     }
 
     /**
      * 
-     *Set the list at index with the new value.
+     *给列表指定位置设置新值
      * @example 
      * <pre>
      * $redis->rPush('key1', 'A');
@@ -835,17 +946,18 @@ class Redis
      * $redis->lSet('key1', 0, 'X');
      * $redis->lGet('key1', 0);     // 'X'
      * </pre>
-     * @return is
+     * @param string $key 键名
+     * @param int $index 索引值
+     * @param string $value 新值
+     * @return boolean
      */
-    public function lSet()
+    public function lSet($key, $index, $value)
     {
     }
 
     /**
      * 
-     *Insert value in the list before or after the pivot value. the parameter options
-     *specify the position of the insert (before or after). If the list didn't exists,
-     *or the pivot didn't exists, the value is not inserted.
+     *在列表中，在某个元素的前面或后面插入一个新值
      * @example 
      * <pre>
      * $redis->delete('key1');
@@ -859,60 +971,70 @@ class Redis
      * $redis->lRange('key1', 0, -1);                       // array('A', 'B', 'X', 'C', 'Y')
      * $redis->lInsert('key1', Redis::AFTER, 'W', 'value'); // -1
      * </pre>
+     * @param string $key 键名
+     * @param string $position 位置(前面或后面,使用Redis::BEFORE | Redis::AFTER)
+     * @param string $element 元素
+     * @param string $value 新值
      * @return int
      */
-    public function lInsert()
+    public function lInsert($key, $position, $element, $value)
     {
     }
 
     /**
      * 
-     *Adds a values to the set value stored at key.
-     *If this value is already in the set, FALSE is returned.
+     *给集合添加元素
      * @example 
      * <pre>
      * $redis->sAdd('k', 'v1');                // int(1)
      * $redis->sAdd('k', 'v1', 'v2', 'v3');    // int(2)
      * </pre>
+     * @param string $key 键名
+     * @param string $value 元素值
      * @return int
      */
-    public function sAdd()
+    public function sAdd($key, $value)
     {
     }
 
     /**
      * 
-     *
+     *给集合批量添加元素
      * @example 
+     * @param string $key 键名
+     * @param array $value 元素值
      * @return 
      */
-    public function sAddArray()
+    public function sAddArray($key, Array $value)
     {
     }
 
     /**
      * 
-     *
+     *返回集合的元素个数
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @return long
      */
-    public function sSize()
+    public function sSize($key)
     {
     }
 
     /**
      * 
-     *
+     *删除集合元素
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param string|... $member 成员
+     * @return long
      */
-    public function sRemove()
+    public function sRemove($key, $member)
     {
     }
 
     /**
      * 
-     *Moves the specified member from the set at srcKey to the set at dstKey.
+     *将某个集合中的元素移动到另外一个集合中
      * @example 
      * <pre>
      * $redis->sAdd('key1' , 'set11');
@@ -923,15 +1045,18 @@ class Redis
      * $redis->sMove('key1', 'key2', 'set13');  // 'key1' =>  {'set11', 'set12'}
      * // 'key2' =>  {'set21', 'set22', 'set13'}
      * </pre>
-     * @return If
+     * @param string $srcKey 原集合键名
+     * @param string $dstKey 目标集合键名
+     * @param string $member 成员
+     * @return bool
      */
-    public function sMove()
+    public function sMove($srcKey, $dstKey, $member)
     {
     }
 
     /**
      * 
-     *Removes and returns a random element from the set value at Key.
+     *随机删除元素的某个或某些成员，并返回这个删除的成员.
      * @example 
      * <pre>
      * $redis->sAdd('key1' , 'set1');
@@ -940,15 +1065,17 @@ class Redis
      * $redis->sPop('key1');            // 'set1', 'key1' => {'set3', 'set2'}
      * $redis->sPop('key1');            // 'set3', 'key1' => {'set2'}
      * </pre>
-     * @return bool
+     * @param string $key 键名
+     * @param int $count 删除个数
+     * @return string | bool
      */
-    public function sPop()
+    public function sPop($key, $count)
     {
     }
 
     /**
      * 
-     *Returns a random element(s) from the set value at Key, without removing it.
+     *随机返回一个集合的元素(不会删除它)
      * @example 
      * <pre>
      * $redis->sAdd('key1' , 'one');
@@ -962,25 +1089,28 @@ class Redis
      * //   [1]=> string(2) "three"
      * // }
      * </pre>
-     * @return bool
+     * @param string $key 键名
+     * @return string | bool
      */
-    public function sRandMember()
+    public function sRandMember($key)
     {
     }
 
     /**
      * 
-     *
+     *是否包含某个成员
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param string $member 成员值
+     * @return boolean
      */
-    public function sContains()
+    public function sContains($key, $member)
     {
     }
 
     /**
      * 
-     *Returns the contents of a set.
+     *返回集合的所有成员
      * @example 
      * <pre>
      * $redis->delete('s');
@@ -999,17 +1129,16 @@ class Redis
      * //}
      * // The order is random and corresponds to redis' own internal representation of the set structure.
      * </pre>
+     * @param string $key 键名
      * @return array
      */
-    public function sMembers()
+    public function sMembers($key)
     {
     }
 
     /**
      * 
-     *Returns the members of a set resulting from the intersection of all the sets
-     *held at the specified keys. If just a single key is specified, then this command
-     *produces the members of this set. If one of the keys is missing, FALSE is returned.
+     *获取两个集合的交集
      * @example 
      * <pre>
      * $redis->sAdd('key1', 'val1');
@@ -1028,15 +1157,17 @@ class Redis
      * //  string(4) "val3"
      * //}
      * </pre>
-     * @return If
+     * @param string $key1 键名1
+     * @param string $key2 键名2
+     * @return array | boolean
      */
-    public function sInter()
+    public function sInter($key1, $key2)
     {
     }
 
     /**
      * 
-     *Performs a sInter command and stores the result in a new set.
+     *获取多个集合的交集，并将结果存入到另外一个集合中
      * @example 
      * <pre>
      * $redis->sAdd('key1', 'val1');
@@ -1058,15 +1189,19 @@ class Redis
      * //  string(4) "val3"
      * //}
      * </pre>
-     * @return int:
+     * @param string $dstKey 目标键，存放结果的键
+     * @param string $key1 键名1
+     * @param string $key2 键名2
+     * @param string|... $keyN 键名n
+     * @return int
      */
-    public function sInterStore()
+    public function sInterStore($dstKey, $key1, $key2, $keyN)
     {
     }
 
     /**
      * 
-     *Performs the union between N sets and returns it.
+     *获取集合的并集
      * @example 
      * <pre>
      * $redis->delete('s0', 's1', 's2');
@@ -1088,15 +1223,17 @@ class Redis
      * //  string(1) "2"
      * //}
      * </pre>
+     * @param string $key1 键名1
+     * @param string|... $key2 键名2
      * @return array
      */
-    public function sUnion()
+    public function sUnion($key1, $key2)
     {
     }
 
     /**
      * 
-     *Performs the same action as sUnion, but stores the result in the first key
+     *获取多个集合的并集，并将结果存入到另外一个集合中
      * @example 
      * <pre>
      * $redis->delete('s0', 's1', 's2');
@@ -1120,15 +1257,19 @@ class Redis
      * //  string(1) "2"
      * //}
      * </pre>
+     * @param string $dstKey 目标键，存放结果的键
+     * @param string $key1 键名1
+     * @param string $key2 键名2
+     * @param string|... $keyN 键名n
      * @return int
      */
-    public function sUnionStore()
+    public function sUnionStore($dstKey, $key1, $key2, $keyN)
     {
     }
 
     /**
      * 
-     *Performs the difference between N sets and returns it.
+     *获取多个集合的差集
      * @example 
      * <pre>
      * $redis->delete('s0', 's1', 's2');
@@ -1146,15 +1287,17 @@ class Redis
      * //  string(1) "2"
      * //}
      * </pre>
+     * @param string $key1 键名1
+     * @param string|... $key2 键名2
      * @return array
      */
-    public function sDiff()
+    public function sDiff($key1, $key2)
     {
     }
 
     /**
      * 
-     *Performs the same action as sDiff, but stores the result in the first key
+     *获取多个集合的差集，并将结果存入到一个新的集合中
      * @example 
      * <pre>
      * $redis->delete('s0', 's1', 's2');
@@ -1174,27 +1317,33 @@ class Redis
      * //  string(1) "2"
      * //}
      * </pre>
+     * @param string $dstKey 目标键，存放结果的键
+     * @param string $key1 键名1
+     * @param string $key2 键名2
+     * @param string|... $keyN 键名n
      * @return int:
      */
-    public function sDiffStore()
+    public function sDiffStore($dstKey, $key1, $key2, $keyN)
     {
     }
 
     /**
      * 
-     *
+     *设置键的有效期
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param int $ttl 有效期(秒数)
+     * @return boolean
      */
-    public function setTimeout()
+    public function setTimeout($key, $ttl)
     {
     }
 
     /**
      * 
-     *Performs a synchronous save.
+     *将数据同步到硬盘上
      * @example $redis->save();
-     * @return If
+     * @return boolean
      */
     public function save()
     {
@@ -1202,7 +1351,7 @@ class Redis
 
     /**
      * 
-     *
+     *将数据存入到硬盘上(异步操作)
      * @example 
      * @return 
      */
@@ -1212,9 +1361,9 @@ class Redis
 
     /**
      * 
-     *Returns the timestamp of the last disk save.
+     *获取上次数据同步到硬盘的时间
      * @example $redis->lastSave();
-     * @return int:
+     * @return int
      */
     public function lastSave()
     {
@@ -1222,9 +1371,9 @@ class Redis
 
     /**
      * 
-     *Removes all entries from the current database.
+     *删除当前数据库的所有键
      * @example $redis->flushDB();
-     * @return bool:
+     * @return bool
      */
     public function flushDB()
     {
@@ -1232,9 +1381,9 @@ class Redis
 
     /**
      * 
-     *Removes all entries from all databases.
+     *删除当前实例的所有键
      * @example $redis->flushAll();
-     * @return bool:
+     * @return bool
      */
     public function flushAll()
     {
@@ -1242,13 +1391,13 @@ class Redis
 
     /**
      * 
-     *Returns the current database's size.
+     *获取当前数据库的键的个数
      * @example 
      * <pre>
      * $count = $redis->dbSize();
      * echo "Redis has $count keys\n";
      * </pre>
-     * @return int:
+     * @return int
      */
     public function dbSize()
     {
@@ -1256,48 +1405,51 @@ class Redis
 
     /**
      * 
-     *Authenticate the connection using a password.
-     *Warning: The password is sent in plain-text over the network.
+     *设置连接的认证密码
      * @example $redis->auth('foobared');
+     * @param string $password 认证密码
      * @return bool:
      */
-    public function auth()
+    public function auth($password)
     {
     }
 
     /**
      * 
-     *Returns the time to live left for a given key, in seconds. If the key doesn't exist, FALSE is returned.
+     *返回指定键的有效时间(秒)
      * @example $redis->ttl('key');
-     * @return int,
+     * @param string $key 键名
+     * @return long
      */
-    public function ttl()
+    public function ttl($key)
     {
     }
 
     /**
      * 
-     *Returns a time to live left for a given key, in milliseconds.
+     *返回指定键的有效时间(毫秒)
      * @example $redis->pttl('key');
-     * @return int
+     * @param string $key 键名
+     * @return long
      */
-    public function pttl()
+    public function pttl($key)
     {
     }
 
     /**
      * 
-     *Remove the expiration timer from a key.
+     *移除指定键的有效期，让它永久有效
      * @example $redis->persist('key');
+     * @param string $key 键名
      * @return bool:
      */
-    public function persist()
+    public function persist($key)
     {
     }
 
     /**
      * 
-     *Returns an associative array of strings and integers
+     *获取Redis服务器的信息和统计数据
      * @example 
      * <pre>
      * $redis->info();
@@ -1305,7 +1457,7 @@ class Redis
      * $redis->info("COMMANDSTATS"); //Information on the commands that have been run (>=2.6 only)
      * $redis->info("CPU"); // just CPU information from Redis INFO
      * </pre>
-     * @return 
+     * @return array
      */
     public function info()
     {
@@ -1313,7 +1465,7 @@ class Redis
 
     /**
      * 
-     *Switches to a given database.
+     *切换数据库
      * @example 
      * <pre>
      * $redis->select(0);       // switch to DB 0
@@ -1322,15 +1474,16 @@ class Redis
      * $redis->select(1);       // switch to DB 1
      * $redis->get('x');        // will return 42
      * </pre>
+     * @param int $dbIndex 数据库编号
      * @return bool
      */
-    public function select()
+    public function select($dbIndex)
     {
     }
 
     /**
      * 
-     *Moves a key to a different database.
+     *将某个键移动到其他数据库中
      * @example 
      * <pre>
      * $redis->select(0);       // switch to DB 0
@@ -1339,17 +1492,19 @@ class Redis
      * $redis->select(1);       // switch to DB 1
      * $redis->get('x');        // will return 42
      * </pre>
-     * @return bool:
+     * @param string $key 键名
+     * @param int $dbIndex 数据库编号
+     * @return bool
      */
-    public function move()
+    public function move($key, $dbIndex)
     {
     }
 
     /**
      * 
-     *Starts the background rewrite of AOF (Append-Only File)
+     *开启后台写AOF日志操作
      * @example $redis->bgrewriteaof();
-     * @return bool:
+     * @return bool
      */
     public function bgrewriteaof()
     {
@@ -1357,65 +1512,67 @@ class Redis
 
     /**
      * 
-     *Changes the slave status
-     *Either host and port, or no parameter to stop being a slave.
+     *修改从服务状态(参数为空时，表示停止当前从属关系)
      * @example 
      * <pre>
      * $redis->slaveof('10.0.1.7', 6379);
      * // ...
      * $redis->slaveof();
      * </pre>
+     * @param string $host 服务器
+     * @param int $port 端口号
      * @return bool:
      */
-    public function slaveof()
+    public function slaveof($host, $port)
     {
     }
 
     /**
      * 
-     *Describes the object pointed to by a key.
-     *The information to retrieve (string) and the key (string).
-     *Info can be one of the following:
-     *- "encoding"
-     *- "refcount"
-     *- "idletime"
+     *获取某个键的对象信息
      * @example 
      * <pre>
      * $redis->object("encoding", "l"); // → ziplist
      * $redis->object("refcount", "l"); // → 1
      * $redis->object("idletime", "l"); // → 400 (in seconds, with a precision of 10 seconds).
      * </pre>
+     * @param string $info 获取的信息指标名称(有 encoding、refcount 、idletime 3种可选择)
+     * @param string $key 键名
      * @return string
      */
-    public function object()
+    public function object($info, $key)
     {
     }
 
     /**
      * 
-     *
+     *多个键的位操作，并将结果存入到指定的键中
      * @example 
-     * @return 
+     * @param string $operation 操作(有 AND, OR, NOT, XOR 4种可选择)
+     * @param string $dstKey 目标键
+     * @param string $key1 键名1
+     * @param string $key2 键名2
+     * @param string|... $keyN 键名N
+     * @return long
      */
-    public function bitop()
+    public function bitop($operation, $dstKey, $key1, $key2, $keyN)
     {
     }
 
     /**
      * 
-     *
+     *统计字符串的位数
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @return long
      */
-    public function bitcount()
+    public function bitcount($key)
     {
     }
 
     /**
      * 
-     *Return the position of the first bit set to 1 or 0 in a string. The position is returned, thinking of the
-     *string as an array of bits from left to right, where the first byte's most significant bit is at position 0,
-     *the second byte's most significant bit is at position 8, and so forth.
+     *获取指定位置的位值
      * @example 
      * <pre>
      * $redis->set('key', '\xff\xff');
@@ -1426,16 +1583,19 @@ class Redis
      * $redis->bitpos('key', 0, 1); // int(16)
      * $redis->bitpos('key', 0, 1, 5); // int(-1)
      * </pre>
+     * @param string $key 键名
+     * @param int $bit 位值
+     * @param int $start 开始位置
+     * @param int $end 结束位置
      * @return function
      */
-    public function bitpos()
+    public function bitpos($key, $bit, $start, $end)
     {
     }
 
     /**
      * 
-     *Sets multiple key-value pairs in one atomic command.
-     *MSETNX only returns TRUE if all the keys were set (see SETNX).
+     *批量设置值
      * @example 
      * <pre>
      * $redis->mset(array('key0' => 'value0', 'key1' => 'value1'));
@@ -1445,26 +1605,35 @@ class Redis
      * // string(6) "value0"
      * // string(6) "value1"
      * </pre>
+     * @param array $values 要设置的键值对
      * @return bool
      */
-    public function mset()
+    public function mset(Array $values)
     {
     }
 
     /**
      * 
-     *
+     *批量设置值(当不存在时设置)
      * @example 
-     * @return int
+     * <pre>
+     * $redis->mset(array('key0' => 'value0', 'key1' => 'value1'));
+     * var_dump($redis->get('key0'));
+     * var_dump($redis->get('key1'));
+     * // Output:
+     * // string(6) "value0"
+     * // string(6) "value1"
+     * </pre>
+     * @param array $values 要设置的键值对
+     * @return bool
      */
-    public function msetnx()
+    public function msetnx(Array $values)
     {
     }
 
     /**
      * 
-     *Pops a value from the tail of a list, and pushes it to the front of another list.
-     *Also return this value.
+     *从一个队列的队尾删除一个元素，并将该元素插入到另一个队列的头部
      * @example 
      * <pre>
      * $redis->delete('x', 'y');
@@ -1492,25 +1661,29 @@ class Redis
      * //  string(3) "123"
      * //}
      * </pre>
+     * @param string $srcKey 要删除元素的队列键名
+     * @param string $dstKey 要插入元素的队列的键名
      * @return string
      */
-    public function rpoplpush()
+    public function rpoplpush($srcKey, $dstKey)
     {
     }
 
     /**
      * 
-     *A blocking version of rpoplpush, with an integral timeout in the third parameter.
+     *阻塞执行rpoplpush
      * @example 
+     * @param string $srcKey 要删除元素的队列键名
+     * @param string $dstKey 要插入元素的队列的键名
      * @return string
      */
-    public function brpoplpush()
+    public function brpoplpush($srcKey, $dstKey)
     {
     }
 
     /**
      * 
-     *Adds the specified member with a given score to the sorted set stored at key.
+     *向有序集合插入元素
      * @example 
      * <pre>
      * <pre>
@@ -1524,30 +1697,30 @@ class Redis
      * // }
      * </pre>
      * </pre>
+     * @param string $key 集合键名
+     * @param double $score 排序值
+     * @param string $value 元素值
      * @return int
      */
-    public function zAdd()
+    public function zAdd($key, $score, $value)
     {
     }
 
     /**
      * 
-     *
+     *删除有序集合中的某个成员
      * @example 
+     * @param string $key 集合键名
+     * @param string $member 成员值
      * @return int
      */
-    public function zDelete()
+    public function zDelete($key, $member)
     {
     }
 
     /**
      * 
-     *Returns a range of elements from the ordered set stored at the specified key,
-     *with values in the range [start, end]. start and stop are interpreted as zero-based indices:
-     *0 the first element,
-     *1 the second ...
-     *-1 the last element,
-     *-2 the penultimate ...
+     *获取有序集合中指定范围的成员
      * @example 
      * <pre>
      * $redis->zAdd('key1', 0, 'val0');
@@ -1557,20 +1730,19 @@ class Redis
      * // with scores
      * $redis->zRange('key1', 0, -1, true); // array('val0' => 0, 'val2' => 2, 'val10' => 10)
      * </pre>
+     * @param string $key 集合键名
+     * @param long $start 索引开始值
+     * @param long $end 索引结束值
+     * @param boolean $withScores 是否返回成员的排序值
      * @return array
      */
-    public function zRange()
+    public function zRange($key, $start, $end, $withScores)
     {
     }
 
     /**
      * 
-     *Returns the elements of the sorted set stored at the specified key in the range [start, end]
-     *in reverse order. start and stop are interpretated as zero-based indices:
-     *0 the first element,
-     *1 the second ...
-     *-1 the last element,
-     *-2 the penultimate ...
+     *获取有序集合中指定范围的成员(倒序排列)
      * @example 
      * <pre>
      * $redis->zAdd('key', 0, 'val0');
@@ -1580,17 +1752,19 @@ class Redis
      * // with scores
      * $redis->zRevRange('key', 0, -1, true); // array('val10' => 10, 'val2' => 2, 'val0' => 0)
      * </pre>
+     * @param string $key 集合键名
+     * @param long $start 索引开始值
+     * @param long $end 索引结束值
+     * @param boolean $withScores 是否返回成员的排序值
      * @return array
      */
-    public function zRevRange()
+    public function zRevRange($key, $start, $end, $withScores)
     {
     }
 
     /**
      * 
-     *Returns the elements of the sorted set stored at the specified key which have scores in the
-     *range [start,end]. Adding a parenthesis before start or end excludes it from the range.
-     *+inf and -inf are also valid limits.
+     *获取有序集合中指定范围的成员(按排序值排列)
      * @example 
      * <pre>
      * $redis->zAdd('key', 0, 'val0');
@@ -1602,28 +1776,43 @@ class Redis
      * $redis->zRangeByScore('key', 0, 3, array('limit' => array(1, 1));                        // array('val2')
      * $redis->zRangeByScore('key', 0, 3, array('withscores' => TRUE, 'limit' => array(1, 1));  // array('val2' => 2)
      * </pre>
+     * @param string $key 集合键名
+     * @param long $start 索引开始值
+     * @param long $end 索引结束值
+     * @param array $options 附加选项(可以是：withscores => TRUE, and limit => array($offset, $count))
      * @return array
      */
-    public function zRangeByScore()
+    public function zRangeByScore($key, $start, $end, Array $options)
     {
     }
 
     /**
      * 
-     *
+     *获取有序集合中指定范围的成员(按排序值倒序排列)
      * @example 
-     * @return 
+     * <pre>
+     * $redis->zAdd('key', 0, 'val0');
+     * $redis->zAdd('key', 2, 'val2');
+     * $redis->zAdd('key', 10, 'val10');
+     * $redis->zRangeByScore('key', 0, 3);                                          // array('val0', 'val2')
+     * $redis->zRangeByScore('key', 0, 3, array('withscores' => TRUE);              // array('val0' => 0, 'val2' => 2)
+     * $redis->zRangeByScore('key', 0, 3, array('limit' => array(1, 1));                        // array('val2' => 2)
+     * $redis->zRangeByScore('key', 0, 3, array('limit' => array(1, 1));                        // array('val2')
+     * $redis->zRangeByScore('key', 0, 3, array('withscores' => TRUE, 'limit' => array(1, 1));  // array('val2' => 2)
+     * </pre>
+     * @param string $key 集合键名
+     * @param long $start 索引开始值
+     * @param long $end 索引结束值
+     * @param array $options 附加选项(可以是：withscores => TRUE, and limit => array($offset, $count))
+     * @return array
      */
-    public function zRevRangeByScore()
+    public function zRevRangeByScore($key, $start, $end, Array $options)
     {
     }
 
     /**
      * 
-     *Returns a lexigraphical range of members in a sorted set, assuming the members have the same score. The
-     *min and max values are required to start with '(' (exclusive), '[' (inclusive), or be exactly the values
-     *'-' (negative inf) or '+' (positive inf).  The command must be called with either three *or* five
-     *arguments or will return FALSE.
+     *按字母字典的顺序返回成员
      * @example 
      * <pre>
      * foreach (array('a', 'b', 'c', 'd', 'e', 'f', 'g') as $char) {
@@ -1633,47 +1822,61 @@ class Redis
      * $redis->zRangeByLex('key', '-', '(c'); // array('a', 'b')
      * $redis->zRangeByLex('key', '-', '[c'); // array('b', 'c')
      * </pre>
+     * @param string $key 集合键名
+     * @param long $min 最小的字母
+     * @param long $max 最大的字母
+     * @param long $offset 索引开始值
+     * @param long $limit 成员数
      * @return array
      */
-    public function zRangeByLex()
+    public function zRangeByLex($key, $min, $max, $offset, $limit)
     {
     }
 
     /**
      * 
-     *
+     *按字母字典的顺序返回成员（倒序排序）
      * @example 
+     * @param string $key 集合键名
+     * @param long $min 最小的字母
+     * @param long $max 最大的字母
+     * @param long $offset 索引开始值
+     * @param long $limit 成员数
      * @return 
      */
-    public function zRevRangeByLex()
+    public function zRevRangeByLex($key, $min, $max, $offset, $limit)
     {
     }
 
     /**
      * 
-     *
+     *获取指定字母范围的成员数
      * @example 
-     * @return 
+     * @param string $key 集合键名
+     * @param long $min 最小的字母
+     * @param long $max 最大的字母
+     * @return int
      */
-    public function zLexCount()
+    public function zLexCount($key, $min, $max)
     {
     }
 
     /**
      * 
-     *
+     *删除指定字母范围的成员
      * @example 
-     * @return 
+     * @param string $key 集合键名
+     * @param long $min 最小的字母
+     * @param long $max 最大的字母
+     * @return long
      */
-    public function zRemRangeByLex()
+    public function zRemRangeByLex($key, $min, $max)
     {
     }
 
     /**
      * 
-     *Returns the number of elements of the sorted set stored at the specified key which have
-     *scores in the range [start,end]. Adding a parenthesis before start or end excludes it
-     *from the range. +inf and -inf are also valid limits.
+     *获取指定排序范围的成员数.
      * @example 
      * <pre>
      * $redis->zAdd('key', 0, 'val0');
@@ -1681,35 +1884,51 @@ class Redis
      * $redis->zAdd('key', 10, 'val10');
      * $redis->zCount('key', 0, 3); // 2, corresponding to array('val0', 'val2')
      * </pre>
+     * @param string $key 集合键名
+     * @param double $start 开始排序值
+     * @param double $end 结束排序值
      * @return int
      */
-    public function zCount()
+    public function zCount($key, $start, $end)
     {
     }
 
     /**
      * 
-     *
+     *根据排序值范围来删除成员
      * @example 
-     * @return 
+     * @param string $key 集合键名
+     * @param double $start 开始排序值
+     * @param double $end 结束排序值
+     * @return long
      */
-    public function zDeleteRangeByScore()
+    public function zDeleteRangeByScore($key, $start, $end)
     {
     }
 
     /**
      * 
-     *
+     *根据排序范围删除成员
      * @example 
-     * @return 
+     * <pre>
+     * $redis->zAdd('key', 1, 'one');
+     * $redis->zAdd('key', 2, 'two');
+     * $redis->zAdd('key', 3, 'three');
+     * $redis->zRemRangeByRank('key', 0, 1); // 2
+     * $redis->zRange('key', 0, -1, array('withscores' => TRUE)); // array('three' => 3)
+     * </pre>
+     * @param string $key 集合键名
+     * @param double $start 开始排序值
+     * @param double $end 结束排序值
+     * @return int
      */
-    public function zDeleteRangeByRank()
+    public function zDeleteRangeByRank($key, $start, $end)
     {
     }
 
     /**
      * 
-     *Returns the cardinality of an ordered set.
+     *获取有序集合的成员数
      * @example 
      * <pre>
      * $redis->zAdd('key', 0, 'val0');
@@ -1717,30 +1936,32 @@ class Redis
      * $redis->zAdd('key', 10, 'val10');
      * $redis->zCard('key');            // 3
      * </pre>
+     * @param string $key 集合键名
      * @return int
      */
-    public function zCard()
+    public function zCard($key)
     {
     }
 
     /**
      * 
-     *Returns the score of a given member in the specified sorted set.
+     *获取指定成员的排序值(分数)
      * @example 
      * <pre>
      * $redis->zAdd('key', 2.5, 'val2');
      * $redis->zScore('key', 'val2'); // 2.5
      * </pre>
-     * @return 
+     * @param string $key 集合键名
+     * @param string $member 成员值
+     * @return double
      */
-    public function zScore()
+    public function zScore($key, $member)
     {
     }
 
     /**
      * 
-     *Returns the rank of a given member in the specified sorted set, starting at 0 for the item
-     *with the smallest score. zRevRank starts at 0 for the item with the largest score.
+     *获取成员的排序值
      * @example 
      * <pre>
      * $redis->delete('z');
@@ -1751,30 +1972,29 @@ class Redis
      * $redis->zRevRank('key', 'one');  // 1
      * $redis->zRevRank('key', 'two');  // 0
      * </pre>
+     * @param string $key 集合键名
+     * @param string $member 成员值
      * @return int
      */
-    public function zRank()
+    public function zRank($key, $member)
     {
     }
 
     /**
      * 
-     *
+     *获取成员的排位值(倒数)
      * @example 
+     * @param string $key 集合键名
+     * @param string $member 成员值
      * @return int
      */
-    public function zRevRank()
+    public function zRevRank($key, $member)
     {
     }
 
     /**
      * 
-     *Creates an intersection of sorted sets given in second argument.
-     *The result of the union will be stored in the sorted set defined by the first argument.
-     *The third optional argument defines weights to apply to the sorted sets in input.
-     *In this case, the weights will be multiplied by the score of each element in the sorted set
-     *before applying the aggregation. The forth argument defines the AGGREGATE option which
-     *specify how the results of the union are aggregated.
+     *将两个有序集合的交集存入到一个指定的键中
      * @example 
      * <pre>
      * $redis->delete('k1');
@@ -1795,20 +2015,19 @@ class Redis
      * $redis->zInter('ko3', array('k1', 'k2'), array(1, 5), 'min'); // 2, 'ko3' => array('val1', 'val3')
      * $redis->zInter('ko4', array('k1', 'k2'), array(1, 5), 'max'); // 2, 'ko4' => array('val3', 'val1')
      * </pre>
+     * @param string $dstKey 目标集合键名
+     * @param array $zsetKeys 集合键名
+     * @param array $zsetKeysWeight 集合键对应的权重
+     * @param string $aggregateFunction 合并使用的函数(SUM, MIN, 或 MAX)
      * @return int
      */
-    public function zInter()
+    public function zInter($dstKey, Array $zsetKeys, Array $zsetKeysWeight, $aggregateFunction)
     {
     }
 
     /**
      * 
-     *Creates an union of sorted sets given in second argument.
-     *The result of the union will be stored in the sorted set defined by the first argument.
-     *The third optionnel argument defines weights to apply to the sorted sets in input.
-     *In this case, the weights will be multiplied by the score of each element in the sorted set
-     *before applying the aggregation. The forth argument defines the AGGREGATE option which
-     *specify how the results of the union are aggregated.
+     *将两个有序集合的并集存入到一个指定的键中
      * @example 
      * <pre>
      * $redis->delete('k1');
@@ -1826,15 +2045,19 @@ class Redis
      * $redis->zUnion('ko2', array('k1', 'k2'), array(1, 1)); // 4, 'ko2' => array('val0', 'val1', 'val2', 'val3')
      * $redis->zUnion('ko3', array('k1', 'k2'), array(5, 1)); // 4, 'ko3' => array('val0', 'val2', 'val3', 'val1')
      * </pre>
+     * @param string $dstKey 目标集合键名
+     * @param array $zsetKeys 集合键名
+     * @param array $zsetKeysWeight 集合键对应的权重
+     * @param string $aggregateFunction 合并使用的函数(SUM, MIN, 或 MAX)
      * @return int
      */
-    public function zUnion()
+    public function zUnion($dstKey, Array $zsetKeys, Array $zsetKeysWeight, $aggregateFunction)
     {
     }
 
     /**
      * 
-     *Increments the score of a member from a sorted set by a given amount.
+     *给有序集合成员增加排序值
      * @example 
      * <pre>
      * $redis->delete('key');
@@ -1842,15 +2065,18 @@ class Redis
      * // before the increment and now has the value 2.5
      * $redis->zIncrBy('key', 1, 'member1');    // 3.5
      * </pre>
+     * @param string $key 目标集合键名
+     * @param double $step 增加的步长
+     * @param string $member 成员
      * @return float
      */
-    public function zIncrBy()
+    public function zIncrBy($key, $step, $member)
     {
     }
 
     /**
      * 
-     *Sets an expiration date (a timestamp) on an item.
+     *为某个键设置有效期为某个时间点
      * @example 
      * <pre>
      * $redis->set('x', '42');
@@ -1859,46 +2085,60 @@ class Redis
      * sleep(5);                        // wait 5 seconds
      * $redis->get('x');                // will return `FALSE`, as 'x' has expired.
      * </pre>
+     * @param string $key 键名
+     * @param int $expireTime 到期时间
      * @return bool:
      */
-    public function expireAt()
+    public function expireAt($key, $expireTime)
     {
     }
 
     /**
      * 
-     *
+     *设置键的有效期(毫秒为单位)
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param int $ttl 有效期(毫秒数)
+     * @return boolean
      */
-    public function pexpire()
+    public function pexpire($key, $ttl)
     {
     }
 
     /**
      * 
-     *
+     *为某个键设置有效期为某个时间点(精确到毫秒)
      * @example 
-     * @return 
+     * <pre>
+     * $redis->set('x', '42');
+     * $now = time(NULL);               // current timestamp
+     * $redis->expireAt('x', $now + 3); // x will disappear in 3 seconds.
+     * sleep(5);                        // wait 5 seconds
+     * $redis->get('x');                // will return `FALSE`, as 'x' has expired.
+     * </pre>
+     * @param string $key 键名
+     * @param int $expireTime 到期时间
+     * @return bool:
      */
-    public function pexpireAt()
+    public function pexpireAt($key, $expireTime)
     {
     }
 
     /**
      * 
-     *Gets a value from the hash stored at key.
-     *If the hash table doesn't exist, or the key doesn't exist, FALSE is returned.
+     *获取字典的某个字段的值
      * @example 
+     * @param string $key 键名
+     * @param string $field 字段名
      * @return string
      */
-    public function hGet()
+    public function hGet($key, $field)
     {
     }
 
     /**
      * 
-     *Adds a value to the hash stored at key. If this value is already in the hash, FALSE is returned.
+     *为字典的字段设置值
      * @example 
      * <pre>
      * $redis->delete('h')
@@ -1907,15 +2147,18 @@ class Redis
      * $redis->hSet('h', 'key1', 'plop');   // 0, value was replaced.
      * $redis->hGet('h', 'key1');           // returns "plop"
      * </pre>
-     * @return 0
+     * @param string $key 键名
+     * @param string $field 字段名
+     * @param string $value 字段值
+     * @return long
      */
-    public function hSet()
+    public function hSet($key, $field, $value)
     {
     }
 
     /**
      * 
-     *Adds a value to the hash stored at key only if this field isn't already in the hash.
+     *当字典的字段不存在时，为其设置值
      * @example 
      * <pre>
      * $redis->delete('h')
@@ -1923,16 +2166,18 @@ class Redis
      * $redis->hSetNx('h', 'key1', 'world'); // FALSE, 'key1' => 'hello' in the hash at "h". No change since the field
      * wasn't replaced.
      * </pre>
+     * @param string $key 键名
+     * @param string $field 字段名
+     * @param string $value 字段值
      * @return bool
      */
-    public function hSetNx()
+    public function hSetNx($key, $field, $value)
     {
     }
 
     /**
      * 
-     *Removes a values from the hash stored at key.
-     *If the hash table doesn't exist, or the key doesn't exist, FALSE is returned.
+     *删除字典的某个或某些字段
      * @example 
      * <pre>
      * $redis->hMSet('h',
@@ -1951,15 +2196,17 @@ class Redis
      * //    ["f4"]=> string(2) "v4"
      * //  }
      * </pre>
+     * @param string $key 键名
+     * @param string|array $fields 字段名
      * @return int
      */
-    public function hDel()
+    public function hDel($key, $fields)
     {
     }
 
     /**
      * 
-     *Returns the length of a hash, in number of items
+     *获取字典的字段个数
      * @example 
      * <pre>
      * $redis->delete('h')
@@ -1967,15 +2214,16 @@ class Redis
      * $redis->hSet('h', 'key2', 'plop');
      * $redis->hLen('h'); // returns 2
      * </pre>
+     * @param string $key 键名
      * @return int
      */
-    public function hLen()
+    public function hLen($key)
     {
     }
 
     /**
      * 
-     *Returns the keys in a hash, as an array of strings.
+     *获取字典的字段名称列表.
      * @example 
      * <pre>
      * $redis->delete('h');
@@ -1997,15 +2245,16 @@ class Redis
      * // }
      * // The order is random and corresponds to redis' own internal representation of the set structure.
      * </pre>
+     * @param string $key 键名
      * @return array
      */
-    public function hKeys()
+    public function hKeys($key)
     {
     }
 
     /**
      * 
-     *Returns the values in a hash, as an array of strings.
+     *获取字典的字段值列表
      * @example 
      * <pre>
      * $redis->delete('h');
@@ -2027,15 +2276,16 @@ class Redis
      * // }
      * // The order is random and corresponds to redis' own internal representation of the set structure.
      * </pre>
+     * @param string $key 键名
      * @return array
      */
-    public function hVals()
+    public function hVals($key)
     {
     }
 
     /**
      * 
-     *Returns the whole hash, as an array of strings indexed by strings.
+     *获取字典所有字段键值对
      * @example 
      * <pre>
      * $redis->delete('h');
@@ -2057,45 +2307,51 @@ class Redis
      * // }
      * // The order is random and corresponds to redis' own internal representation of the set structure.
      * </pre>
+     * @param string $key 键名
      * @return array
      */
-    public function hGetAll()
+    public function hGetAll($key)
     {
     }
 
     /**
      * 
-     *Verify if the specified member exists in a key.
+     *判断字典的某个字段是否存在.
      * @example 
      * <pre>
      * $redis->hSet('h', 'a', 'x');
      * $redis->hExists('h', 'a');               //  TRUE
      * $redis->hExists('h', 'NonExistingKey');  // FALSE
      * </pre>
-     * @return bool:
+     * @param string $key 键名
+     * @param string $field 字段名
+     * @return bool
      */
-    public function hExists()
+    public function hExists($key, $field)
     {
     }
 
     /**
      * 
-     *Increments the value of a member from a hash by a given amount.
+     *为指定字段增加指定的值.
      * @example 
      * <pre>
      * $redis->delete('h');
      * $redis->hIncrBy('h', 'x', 2); // returns 2: h[x] = 2 now.
      * $redis->hIncrBy('h', 'x', 1); // h[x] ← 2 + 1. Returns 3
      * </pre>
+     * @param string $key 键名
+     * @param string $field 字段名
+     * @param int $step 自增步长
      * @return int
      */
-    public function hIncrBy()
+    public function hIncrBy($key, $field, $step)
     {
     }
 
     /**
      * 
-     *Increment the float value of a hash field by the given amount
+     *为指定字段增加指定的值
      * @example 
      * <pre>
      * $redis = new Redis();
@@ -2112,41 +2368,47 @@ class Redis
      * string(1) "3"
      * }
      * </pre>
+     * @param string $key 键名
+     * @param string $field 字段名
+     * @param double $step 自增步长
      * @return 
      */
-    public function hIncrByFloat()
+    public function hIncrByFloat($key, $field, $step)
     {
     }
 
     /**
      * 
-     *Fills in a whole hash. Non-string values are converted to string, using the standard (string) cast.
-     *NULL values are stored as empty strings
+     *批量设置字典字段的值
      * @example 
      * <pre>
      * $redis->delete('user:1');
      * $redis->hMset('user:1', array('name' => 'Joe', 'salary' => 2000));
      * $redis->hIncrBy('user:1', 'salary', 100); // Joe earns 100 more now.
      * </pre>
-     * @return 
+     * @param string $key 键名
+     * @param array $fields 字段键值对
+     * @return boolean
      */
-    public function hMset()
+    public function hMset($key, Array $fields)
     {
     }
 
     /**
      * 
-     *
+     *批量获取字典的字段值
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param array $fields 字段名列表
+     * @return array
      */
-    public function hMget()
+    public function hMget($key, Array $fields)
     {
     }
 
     /**
      * 
-     *Enter and exit transactional mode.
+     *开始一个事务.
      * @example 
      * <pre>
      * $ret = $redis->multi()
@@ -2161,7 +2423,7 @@ class Redis
      * //    2 => TRUE,
      * //    3 => 'val2');
      * </pre>
-     * @return Once
+     * @return 
      */
     public function multi()
     {
@@ -2169,7 +2431,7 @@ class Redis
 
     /**
      * 
-     *
+     *取消事务
      * @example 
      * @return 
      */
@@ -2179,7 +2441,7 @@ class Redis
 
     /**
      * 
-     *
+     *执行事务
      * @example 
      * @return 
      */
@@ -2189,7 +2451,7 @@ class Redis
 
     /**
      * 
-     *
+     *开启一个管道
      * @example 
      * @return 
      */
@@ -2199,8 +2461,7 @@ class Redis
 
     /**
      * 
-     *Watches a key for modifications by another client. If the key is modified between WATCH and EXEC,
-     *the MULTI/EXEC transaction will fail (return FALSE). unwatch cancels all the watching of all keys by this client.
+     *观察某个键在其他客户端的变化情况.
      * @example 
      * <pre>
      * $redis->watch('x');
@@ -2210,35 +2471,39 @@ class Redis
      * ->exec();
      * // $ret = FALSE if x has been modified between the call to WATCH and the call to EXEC.
      * </pre>
+     * @param string|array $keys 键名
      * @return 
      */
-    public function watch()
+    public function watch($keys)
     {
     }
 
     /**
      * 
-     *
+     *取消观察某个键在其他客户端的变化情况
      * @example 
+     * @param string|array $keys 键名
      * @return 
      */
-    public function unwatch()
+    public function unwatch($keys)
     {
     }
 
     /**
      * 
-     *Publish messages to channels. Warning: this function will probably change in the future.
+     *将消息发布到消息通道(队列).
      * @example $redis->publish('chan-1', 'hello, world!'); // send message.
+     * @param string $channel 消息频道
+     * @param string $message 消息
      * @return int
      */
-    public function publish()
+    public function publish($channel, $message)
     {
     }
 
     /**
      * 
-     *Subscribe to channels. Warning: this function will probably change in the future.
+     *订阅消息
      * @example 
      * <pre>
      * function f($redis, $chan, $msg) {
@@ -2256,15 +2521,18 @@ class Redis
      * }
      * $redis->subscribe(array('chan-1', 'chan-2', 'chan-3'), 'f'); // subscribe to 3 chans
      * </pre>
+     * @param array $channels 订阅的消息频道
+     * @param string|array $callback 回调函数名称
+     * @param mixed $value 返回值
      * @return mixed
      */
-    public function subscribe()
+    public function subscribe(Array $channels, $callback, $value)
     {
     }
 
     /**
      * 
-     *Subscribe to channels by pattern
+     *通过匹配模式来订阅这些匹配的消息频道
      * @example 
      * <pre>
      * function psubscribe($redis, $pattern, $chan, $msg) {
@@ -2273,35 +2541,40 @@ class Redis
      * echo "Payload: $msg\n";
      * }
      * </pre>
+     * @param array $patterns 匹配模式
+     * @param string|array $callback 回调函数名称
+     * @param mixed $value 返回值
      * @return 
      */
-    public function psubscribe()
+    public function psubscribe(Array $patterns, $callback, $value)
     {
     }
 
     /**
      * 
-     *
+     *取消订阅
      * @example 
+     * @param array $channels 订阅的消息频道
      * @return 
      */
-    public function unsubscribe()
+    public function unsubscribe(Array $channels)
     {
     }
 
     /**
      * 
-     *
+     *通过匹配模式来取消订阅这些匹配的消息频道
      * @example 
+     * @param array $patterns 匹配模式
      * @return 
      */
-    public function punsubscribe()
+    public function punsubscribe(Array $patterns)
     {
     }
 
     /**
      * 
-     *Return the current Redis server time.
+     *返回当前redis服务器时间.
      * @example 
      * <pre>
      * var_dump( $redis->time() );
@@ -2310,7 +2583,7 @@ class Redis
      * //   [1] => string(6) "253002"
      * // }
      * </pre>
-     * @return unix
+     * @return int
      */
     public function time()
     {
@@ -2318,9 +2591,9 @@ class Redis
 
     /**
      * 
-     *
+     *返回当前连接的服务器的角色，如master、alone、slave、sentinel
      * @example 
-     * @return 
+     * @return string
      */
     public function role()
     {
@@ -2328,27 +2601,7 @@ class Redis
 
     /**
      * 
-     *
-     * @example 
-     * @return 
-     */
-    public function eval()
-    {
-    }
-
-    /**
-     * 
-     *
-     * @example 
-     * @return 
-     */
-    public function evalsha()
-    {
-    }
-
-    /**
-     * 
-     *Execute the Redis SCRIPT command to perform various operations on the scripting subsystem.
+     *在脚本子系统上执行redis命令
      * @example 
      * <pre>
      * $redis->script('load', $script);
@@ -2360,15 +2613,17 @@ class Redis
      * SCRIPT FLUSH should always return TRUE
      * SCRIPT KILL will return true if a script was able to be killed and false if not
      * SCRIPT EXISTS will return an array with TRUE or FALSE for each passed script
+     * @param string $command redis命令
+     * @param string|... $script 脚本
      * @return 
      */
-    public function script()
+    public function script($command, $script)
     {
     }
 
     /**
      * 
-     *
+     *调试命令(不建议使用)
      * @example 
      * @return 
      */
@@ -2378,50 +2633,60 @@ class Redis
 
     /**
      * 
-     *Dump a key out of a redis database, the value of which can later be passed into redis using the RESTORE command.
-     *The data that comes out of DUMP is a binary representation of the key as Redis stores it.
+     *将某个键导出为一个二进制数据.
      * @example 
      * <pre>
      * $redis->set('foo', 'bar');
      * $val = $redis->dump('foo'); // $val will be the Redis encoded key value
      * </pre>
+     * @param string $key 键名
      * @return string
      */
-    public function dump()
+    public function dump($key)
     {
     }
 
     /**
      * 
-     *Restore a key from the result of a DUMP operation.
+     *将dump导出的二进制数据恢复到可读的字符串.
      * @example 
      * <pre>
      * $redis->set('foo', 'bar');
      * $val = $redis->dump('foo');
      * $redis->restore('bar', 0, $val); // The key 'bar', will now be equal to the key 'foo'
      * </pre>
+     * @param string $key 键名
+     * @param int $ttl 有效期
+     * @param string $value dump导出的二进制数据
      * @return 
      */
-    public function restore()
+    public function restore($key, $ttl, $value)
     {
     }
 
     /**
      * 
-     *Migrates a key to a different Redis instance.
+     *将某个键迁移到其他的Redis实例中
      * @example 
      * <pre>
      * $redis->migrate('backup', 6379, 'foo', 0, 3600);
      * </pre>
+     * @param string $host 目标主机
+     * @param int $port 目标主机端口
+     * @param string|array $keys 迁移的键
+     * @param int $database 目标数据库
+     * @param int $timeout 超时时间
+     * @param boolean $copy 是否复制
+     * @param boolean $replace 是否替换
      * @return 
      */
-    public function migrate()
+    public function migrate($host, $port, $keys, $database, $timeout, $copy, $replace)
     {
     }
 
     /**
      * 
-     *The last error message (if any)
+     *获取上次错误信息
      * @example 
      * <pre>
      * $redis->eval('this-is-not-lua');
@@ -2436,7 +2701,7 @@ class Redis
 
     /**
      * 
-     *Clear the last error message
+     *清除上次错误信息
      * @example 
      * <pre>
      * $redis->set('x', 'a');
@@ -2455,24 +2720,22 @@ class Redis
 
     /**
      * 
-     *A utility method to prefix the value with the prefix setting for phpredis.
+     *设置键前缀
      * @example 
      * <pre>
      * $redis->setOption(Redis::OPT_PREFIX, 'my-prefix:');
      * $redis->_prefix('my-value'); // Will return 'my-prefix:my-value'
      * </pre>
+     * @param string $prefix 前缀
      * @return string
      */
-    public function _prefix()
+    public function _prefix($prefix)
     {
     }
 
     /**
      * 
-     *A utility method to serialize values manually. This method allows you to serialize a value with whatever
-     *serializer is configured, manually. This can be useful for serialization/unserialization of data going in
-     *and out of EVAL commands as phpredis can't automatically do this itself.  Note that if no serializer is
-     *set, phpredis will change Array values to 'Array', and Objects to 'Object'.
+     *用于手动序列化.
      * @example 
      * <pre>
      * $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_NONE);
@@ -2482,44 +2745,49 @@ class Redis
      * $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
      * $redis->_serialize("foo"); // Returns 's:3:"foo";'
      * </pre>
+     * @param string $value 被序列化的值
      * @return 
      */
-    public function _serialize()
+    public function _serialize($value)
     {
     }
 
     /**
      * 
-     *A utility method to unserialize data with whatever serializer is set up.  If there is no serializer set, the
-     *value will be returned unchanged.  If there is a serializer set up, and the data passed in is malformed, an
-     *exception will be thrown. This can be useful if phpredis is serializing values, and you return something from
-     *redis in a LUA script that is serialized.
+     *反序列化方法.
      * @example 
      * <pre>
      * $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
      * $redis->_unserialize('a:3:{i:0;i:1;i:1;i:2;i:2;i:3;}'); // Will return Array(1,2,3)
      * </pre>
+     * @param string $value 被反序列化的值
      * @return 
      */
-    public function _unserialize()
+    public function _unserialize($value)
     {
     }
 
     /**
      * 
-     *
+     *获取客户端相关参数或进行相关操作
      * @example 
+     * @param string $command 命令(CLIENT LIST
+CLIENT GETNAME
+CLIENT SETNAME [name]
+CLIENT KILL [ip:port]
+)
+     * @param string $args 参数
      * @return 
      */
-    public function client()
+    public function client($command, $args)
     {
     }
 
     /**
      * 
-     *
+     *获取所有命令列表
      * @example 
-     * @return 
+     * @return array
      */
     public function command()
     {
@@ -2527,7 +2795,7 @@ class Redis
 
     /**
      * 
-     *Scan the keyspace for keys.
+     *扫描键空间.
      * @example 
      * <pre>
      * $iterator = null;
@@ -2537,9 +2805,9 @@ class Redis
      * }
      * }
      * </pre>
-     * @param  mixed $i_iterator 
-     * @param  mixed $str_pattern 
-     * @param  mixed $i_count 
+     * @param Long|NULL $i_iterator 迭代器
+     * @param string $str_pattern 匹配的模式
+     * @param int $i_count 每次迭代的长度
      * @return array
      */
     public function scan($i_iterator, $str_pattern, $i_count)
@@ -2548,12 +2816,12 @@ class Redis
 
     /**
      * 
-     *
+     *扫描hash的键
      * @example 
-     * @param  mixed $str_key 
-     * @param  mixed $i_iterator 
-     * @param  mixed $str_pattern 
-     * @param  mixed $i_count 
+     * @param string $str_key 键值
+     * @param Long|NULL $i_iterator 迭代器
+     * @param string $str_pattern 匹配的模式
+     * @param int $i_count 每次迭代的长度
      * @return 
      */
     public function hscan($str_key, $i_iterator, $str_pattern, $i_count)
@@ -2562,12 +2830,12 @@ class Redis
 
     /**
      * 
-     *
+     *扫描有序集合的键
      * @example 
-     * @param  mixed $str_key 
-     * @param  mixed $i_iterator 
-     * @param  mixed $str_pattern 
-     * @param  mixed $i_count 
+     * @param string $str_key 键值
+     * @param Long|NULL $i_iterator 迭代器
+     * @param string $str_pattern 匹配的模式
+     * @param int $i_count 每次迭代的长度
      * @return 
      */
     public function zscan($str_key, $i_iterator, $str_pattern, $i_count)
@@ -2576,12 +2844,12 @@ class Redis
 
     /**
      * 
-     *
+     *扫描集合的键
      * @example 
-     * @param  mixed $str_key 
-     * @param  mixed $i_iterator 
-     * @param  mixed $str_pattern 
-     * @param  mixed $i_count 
+     * @param string $str_key 键值
+     * @param Long|NULL $i_iterator 迭代器
+     * @param string $str_pattern 匹配的模式
+     * @param int $i_count 每次迭代的长度
      * @return 
      */
     public function sscan($str_key, $i_iterator, $str_pattern, $i_count)
@@ -2590,49 +2858,55 @@ class Redis
 
     /**
      * 
-     *
+     *将所有元素参数添加到 HyperLogLog 数据结构中
      * @example 
+     * @param string $key 键名
+     * @param string|array|... $element 元素
      * @return 
      */
-    public function pfadd()
+    public function pfadd($key, $element)
     {
     }
 
     /**
      * 
-     *
+     *返回给定 HyperLogLog 的基数估算值
      * @example 
+     * @param string|array $keys 键名
      * @return 
      */
-    public function pfcount()
+    public function pfcount($keys)
     {
     }
 
     /**
      * 
-     *
+     *将多个 HyperLogLog 合并为一个 HyperLogLog ，合并后的 HyperLogLog 的基数估算值是通过对所有 给定 HyperLogLog 进行并集计算得出的
      * @example 
+     * @param string|array $dstKey 目标键名
+     * @param string|array $sourceKeys 源键名
      * @return 
      */
-    public function pfmerge()
+    public function pfmerge($dstKey, $sourceKeys)
     {
     }
 
     /**
      * 
-     *Get client option
+     *获取客户端选项
      * @example 
      * // return Redis::SERIALIZER_NONE, Redis::SERIALIZER_PHP, or Redis::SERIALIZER_IGBINARY.
      * $redis->getOption(Redis::OPT_SERIALIZER);
+     * @param string $optionName 选项名
      * @return int
      */
-    public function getOption()
+    public function getOption($optionName)
     {
     }
 
     /**
      * 
-     *Set client option.
+     *设置客户端选项.
      * @example 
      * <pre>
      * $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_NONE);        // don't serialize data
@@ -2640,49 +2914,58 @@ class Redis
      * $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_IGBINARY);    // use igBinary serialize/unserialize
      * $redis->setOption(Redis::OPT_PREFIX, 'myAppName:');                      // use custom prefix on all keys
      * </pre>
+     * @param string $optionName 选项名
+     * @param string $optionValue 选项值
      * @return bool:
      */
-    public function setOption()
+    public function setOption($optionName, $optionValue)
     {
     }
 
     /**
      * 
-     *Get or Set the redis config keys.
+     *获取或设置配置项.
      * @example 
      * <pre>
      * $redis->config("GET", "*max-*-entries*");
      * $redis->config("SET", "dir", "/var/run/redis/dumps/");
      * </pre>
+     * @param string $operation 操作(SET或GET)
+     * @param string $key 配置项或配置项匹配模式
+     * @param string $value 配置值
      * @return array
      */
-    public function config()
+    public function config($operation, $key, $value)
     {
     }
 
     /**
      * 
-     *
+     *获取慢操作日志
      * @example 
+     * @param string $command 执行的命令
+     * @param int $length 获取条目数
      * @return 
      */
-    public function slowlog()
+    public function slowlog($command, $length)
     {
     }
 
     /**
      * 
-     *
+     *在redis服务器上执行命令
      * @example 
+     * @param string $command 执行的命令
+     * @param string|array $args 参数
      * @return 
      */
-    public function rawcommand()
+    public function rawcommand($command, $args)
     {
     }
 
     /**
      * 
-     *
+     *获取当前连接HOST
      * @example 
      * @return 
      */
@@ -2692,7 +2975,7 @@ class Redis
 
     /**
      * 
-     *
+     *获取当前连接的端口
      * @example 
      * @return 
      */
@@ -2702,7 +2985,7 @@ class Redis
 
     /**
      * 
-     *
+     *获取数据库的数量
      * @example 
      * @return 
      */
@@ -2712,7 +2995,7 @@ class Redis
 
     /**
      * 
-     *
+     *获取连接超时时间
      * @example 
      * @return 
      */
@@ -2722,7 +3005,7 @@ class Redis
 
     /**
      * 
-     *
+     *获取读操作超时暗
      * @example 
      * @return 
      */
@@ -2732,7 +3015,7 @@ class Redis
 
     /**
      * 
-     *
+     *获取当前正在使用的持久化操作的ID
      * @example 
      * @return 
      */
@@ -2742,9 +3025,9 @@ class Redis
 
     /**
      * 
-     *
+     *获取验证的字符串
      * @example 
-     * @return 
+     * @return string
      */
     public function getAuth()
     {
@@ -2752,7 +3035,7 @@ class Redis
 
     /**
      * 
-     *A method to determine if a phpredis object thinks it's connected to a server
+     *是否连接成功
      * @example 
      * @return bool
      */
@@ -2762,7 +3045,7 @@ class Redis
 
     /**
      * 
-     *Detect whether we're in ATOMIC/MULTI/PIPELINE mode.
+     *获取运行模式，如 ATOMIC/MULTI/PIPELINE
      * @example $redis->getMode();
      * @return int
      */
@@ -2772,18 +3055,19 @@ class Redis
 
     /**
      * 
-     *Blocks the current client until all the previous write commands are successfully transferred and
-     *acknowledged by at least the specified number of slaves.
+     *该命令将阻止当前客户端，直到所有先前的写入命令成功传输并至少由指定数量的从节点进行确认
      * @example $redis->wait(2, 1000);
+     * @param int $count 从节点数量
+     * @param int $timeout 超时时间
      * @return context
      */
-    public function wait()
+    public function wait($count, $timeout)
     {
     }
 
     /**
      * 
-     *A command allowing you to get information on the Redis pub/sub system.
+     *查看订阅与发布系统状态，它由数个不同格式的子命令组成.
      * @example 
      * <pre>
      * $redis->pubsub('channels'); // All channels
@@ -2791,64 +3075,88 @@ class Redis
      * $redis->pubsub('numsub', array('chan1', 'chan2')); // Get subscriber counts for 'chan1' and 'chan2'
      * $redis->pubsub('numpat'); // Get the number of pattern subscribers
      * </pre>
-     * @return -
+     * @param string $subcommand 子命令(可以是channels, numsub, numpat)
+     * @param string|array $args 参数
+     * @return array|int
      */
-    public function pubsub()
+    public function pubsub($subcommand, $args)
     {
     }
 
     /**
      * 
-     *
+     *连接redis服务器或打开一个已经连接的redis服务器
      * @example 
+     * @param string $host 主机IP
+     * @param int $port 端口
+     * @param float $timeout 连接超时时间(以秒为单位)
+     * @param mixed $reserved 当使用retry_interval时该值为NULL
+     * @param int $retry_interval 重试间隔
+     * @param float $read_timeout 读操作超时时间
      * @return 
      */
-    public function open()
+    public function open($host, $port, $timeout, $reserved, $retry_interval, $read_timeout)
     {
     }
 
     /**
      * 
-     *
+     *连接redis服务器或打开一个已经连接的redis服务器(长连接)
      * @example 
+     * @param string $host 主机IP
+     * @param int $port 端口
+     * @param float $timeout 连接超时时间(以秒为单位)
+     * @param mixed $reserved 当使用retry_interval时该值为NULL
+     * @param int $retry_interval 重试间隔
+     * @param float $read_timeout 读操作超时时间
      * @return 
      */
-    public function popen()
+    public function popen($host, $port, $timeout, $reserved, $retry_interval, $read_timeout)
     {
     }
 
     /**
      * 
-     *Returns the size of a list identified by Key. If the list didn't exist or is empty,
-     *the command returns 0. If the data type identified by Key is not a list, the command return FALSE.
+     *返回列表的长度
+     * @example 
+     * @param string|...|array $key 键名
+     * @return long | bool
+     */
+    public function lLen($key)
+    {
+    }
+
+    /**
+     * 
+     *返回集合的所有成员
      * @example 
      * <pre>
-     * $redis->rPush('key1', 'A');
-     * $redis->rPush('key1', 'B');
-     * $redis->rPush('key1', 'C');  // key1 => [ 'A', 'B', 'C' ]
-     * $redis->lLen('key1');       // 3
-     * $redis->rPop('key1');
-     * $redis->lLen('key1');       // 2
+     * $redis->delete('s');
+     * $redis->sAdd('s', 'a');
+     * $redis->sAdd('s', 'b');
+     * $redis->sAdd('s', 'a');
+     * $redis->sAdd('s', 'c');
+     * var_dump($redis->sMembers('s'));
+     * //array(3) {
+     * //  [0]=>
+     * //  string(1) "c"
+     * //  [1]=>
+     * //  string(1) "a"
+     * //  [2]=>
+     * //  string(1) "b"
+     * //}
+     * // The order is random and corresponds to redis' own internal representation of the set structure.
      * </pre>
-     * @return bool
-     */
-    public function lLen()
-    {
-    }
-
-    /**
-     * 
-     *
-     * @example 
+     * @param string $key 键名
      * @return array
      */
-    public function sGetMembers()
+    public function sGetMembers($key)
     {
     }
 
     /**
      * 
-     *Returns the values of all specified keys.
+     *批量获取键名
      * @example 
      * <pre>
      * $redis->delete('x', 'y', 'z', 'h');	// remove x y z
@@ -2867,107 +3175,141 @@ class Redis
      * // bool(false)
      * // }
      * </pre>
+     * @param array $keys 键名数组
      * @return 
      */
-    public function mget()
+    public function mget(Array $keys)
     {
     }
 
     /**
      * 
-     *Sets an expiration date (a timeout) on an item.
+     *设置键的有效期
+     * @example 
+     * @param string $key 键名
+     * @param int $ttl 有效期(秒数)
+     * @return boolean
+     */
+    public function expire($key, $ttl)
+    {
+    }
+
+    /**
+     * 
+     *将两个有序集合的并集存入到一个指定的键中
      * @example 
      * <pre>
-     * $redis->set('x', '42');
-     * $redis->setTimeout('x', 3);  // x will disappear in 3 seconds.
-     * sleep(5);                    // wait 5 seconds
-     * $redis->get('x');            // will return `FALSE`, as 'x' has expired.
+     * $redis->delete('k1');
+     * $redis->delete('k2');
+     * $redis->delete('k3');
+     * $redis->delete('ko1');
+     * $redis->delete('ko2');
+     * $redis->delete('ko3');
+     * $redis->zAdd('k1', 0, 'val0');
+     * $redis->zAdd('k1', 1, 'val1');
+     * $redis->zAdd('k2', 2, 'val2');
+     * $redis->zAdd('k2', 3, 'val3');
+     * $redis->zUnion('ko1', array('k1', 'k2')); // 4, 'ko1' => array('val0', 'val1', 'val2', 'val3')
+     * // Weighted zUnion
+     * $redis->zUnion('ko2', array('k1', 'k2'), array(1, 1)); // 4, 'ko2' => array('val0', 'val1', 'val2', 'val3')
+     * $redis->zUnion('ko3', array('k1', 'k2'), array(5, 1)); // 4, 'ko3' => array('val0', 'val2', 'val3', 'val1')
      * </pre>
-     * @return bool:
-     */
-    public function expire()
-    {
-    }
-
-    /**
-     * 
-     *
-     * @example 
-     * @return 
-     */
-    public function zunionstore()
-    {
-    }
-
-    /**
-     * 
-     *
-     * @example 
-     * @return 
-     */
-    public function zinterstore()
-    {
-    }
-
-    /**
-     * 
-     *
-     * @example 
-     * @return 
-     */
-    public function zRemove()
-    {
-    }
-
-    /**
-     * 
-     *Deletes a specified member from the ordered set.
-     * @example 
-     * <pre>
-     * $redis->zAdd('z', 1, 'v2', 2, 'v2', 3, 'v3', 4, 'v4' );  // int(2)
-     * $redis->zRem('z', 'v2', 'v3');                           // int(2)
-     * var_dump( $redis->zRange('z', 0, -1) );
-     * //// Output:
-     * // array(2) {
-     * //   [0]=> string(2) "v1"
-     * //   [1]=> string(2) "v4"
-     * // }
-     * </pre>
+     * @param string $dstKey 目标集合键名
+     * @param array $zsetKeys 集合键名
+     * @param array $zsetKeysWeight 集合键对应的权重
+     * @param string $aggregateFunction 合并使用的函数(SUM, MIN, 或 MAX)
      * @return int
      */
-    public function zRem()
+    public function zunionstore($dstKey, Array $zsetKeys, Array $zsetKeysWeight, $aggregateFunction)
     {
     }
 
     /**
      * 
-     *
-     * @example 
-     * @return 
-     */
-    public function zRemoveRangeByScore()
-    {
-    }
-
-    /**
-     * 
-     *Deletes the elements of the sorted set stored at the specified key which have scores in the range [start,end].
+     *将两个有序集合的交集存入到一个指定的键中
      * @example 
      * <pre>
-     * $redis->zAdd('key', 0, 'val0');
-     * $redis->zAdd('key', 2, 'val2');
-     * $redis->zAdd('key', 10, 'val10');
-     * $redis->zRemRangeByScore('key', 0, 3); // 2
+     * $redis->delete('k1');
+     * $redis->delete('k2');
+     * $redis->delete('k3');
+     * $redis->delete('ko1');
+     * $redis->delete('ko2');
+     * $redis->delete('ko3');
+     * $redis->delete('ko4');
+     * $redis->zAdd('k1', 0, 'val0');
+     * $redis->zAdd('k1', 1, 'val1');
+     * $redis->zAdd('k1', 3, 'val3');
+     * $redis->zAdd('k2', 2, 'val1');
+     * $redis->zAdd('k2', 3, 'val3');
+     * $redis->zInter('ko1', array('k1', 'k2'));               // 2, 'ko1' => array('val1', 'val3')
+     * $redis->zInter('ko2', array('k1', 'k2'), array(1, 1));  // 2, 'ko2' => array('val1', 'val3')
+     * // Weighted zInter
+     * $redis->zInter('ko3', array('k1', 'k2'), array(1, 5), 'min'); // 2, 'ko3' => array('val1', 'val3')
+     * $redis->zInter('ko4', array('k1', 'k2'), array(1, 5), 'max'); // 2, 'ko4' => array('val3', 'val1')
      * </pre>
+     * @param string $dstKey 目标集合键名
+     * @param array $zsetKeys 集合键名
+     * @param array $zsetKeysWeight 集合键对应的权重
+     * @param string $aggregateFunction 合并使用的函数(SUM, MIN, 或 MAX)
      * @return int
      */
-    public function zRemRangeByScore()
+    public function zinterstore($dstKey, Array $zsetKeys, Array $zsetKeysWeight, $aggregateFunction)
     {
     }
 
     /**
      * 
-     *Deletes the elements of the sorted set stored at the specified key which have rank in the range [start,end].
+     *删除有序集合中的某个成员
+     * @example 
+     * @param string $key 集合键名
+     * @param string $member 成员值
+     * @return int
+     */
+    public function zRemove($key, $member)
+    {
+    }
+
+    /**
+     * 
+     *删除有序集合中的某个成员
+     * @example 
+     * @param string $key 集合键名
+     * @param string $member 成员值
+     * @return int
+     */
+    public function zRem($key, $member)
+    {
+    }
+
+    /**
+     * 
+     *根据排序值范围来删除成员
+     * @example 
+     * @param string $key 集合键名
+     * @param double $start 开始排序值
+     * @param double $end 结束排序值
+     * @return long
+     */
+    public function zRemoveRangeByScore($key, $start, $end)
+    {
+    }
+
+    /**
+     * 
+     *根据排序值范围来删除成员
+     * @example 
+     * @param string $key 集合键名
+     * @param double $start 开始排序值
+     * @param double $end 结束排序值
+     * @return long
+     */
+    public function zRemRangeByScore($key, $start, $end)
+    {
+    }
+
+    /**
+     * 
+     *根据排序范围删除成员
      * @example 
      * <pre>
      * $redis->zAdd('key', 1, 'one');
@@ -2976,187 +3318,259 @@ class Redis
      * $redis->zRemRangeByRank('key', 0, 1); // 2
      * $redis->zRange('key', 0, -1, array('withscores' => TRUE)); // array('three' => 3)
      * </pre>
+     * @param string $key 集合键名
+     * @param double $start 开始排序值
+     * @param double $end 结束排序值
      * @return int
      */
-    public function zRemRangeByRank()
+    public function zRemRangeByRank($key, $start, $end)
     {
     }
 
     /**
      * 
-     *
-     * @example 
-     * @return 
-     */
-    public function zSize()
-    {
-    }
-
-    /**
-     * 
-     *Return a substring of a larger string
-     * @example 
-     * @return 
-     */
-    public function substr()
-    {
-    }
-
-    /**
-     * 
-     *Renames a key.
+     *获取有序集合的成员数
      * @example 
      * <pre>
-     * $redis->set('x', '42');
-     * $redis->rename('x', 'y');
-     * $redis->get('y');   // → 42
-     * $redis->get('x');   // → `FALSE`
+     * $redis->zAdd('key', 0, 'val0');
+     * $redis->zAdd('key', 2, 'val2');
+     * $redis->zAdd('key', 10, 'val10');
+     * $redis->zCard('key');            // 3
      * </pre>
-     * @return bool:
-     */
-    public function rename()
-    {
-    }
-
-    /**
-     * 
-     *Remove specified keys.
-     * @example 
-     * <pre>
-     * $redis->set('key1', 'val1');
-     * $redis->set('key2', 'val2');
-     * $redis->set('key3', 'val3');
-     * $redis->set('key4', 'val4');
-     * $redis->delete('key1', 'key2');          // return 2
-     * $redis->delete(array('key3', 'key4'));   // return 2
-     * </pre>
+     * @param string $key 集合键名
      * @return int
      */
-    public function del()
+    public function zSize($key)
     {
     }
 
     /**
      * 
-     *Returns the keys that match a certain pattern.
+     *获取一个键值的子字符串
      * @example 
      * <pre>
-     * $allKeys = $redis->keys('*');   // all keys will match this.
+     * $redis->set('key', 'string value');
+     * $redis->getRange('key', 0, 5);   // 'string'
+     * $redis->getRange('key', -5, -1); // 'value'
+     * </pre>
+     * @param string $key 键名
+     * @param int $start 开始位置
+     * @param int $end 结束位置
+     * @return string:
+     */
+    public function substr($key, $start, $end)
+    {
+    }
+
+    /**
+     * 
+     *给键重命名
+     * @example 
+     * @param string $srcKey 旧键名
+     * @param string $dstKey 新键名
+     * @return boolean
+     */
+    public function rename($srcKey, $dstKey)
+    {
+    }
+
+    /**
+     * 
+     *删除一个或多个键
+     * @example $redis->delete('key1', 'key2'); 
+     * $redis->delete(array('key3', 'key4')); 
+     * @param array|string $keys 键名
+     * @return int
+     */
+    public function del($keys)
+    {
+    }
+
+    /**
+     * 
+     *根据匹配模式获取键名(如*)
+     * @example 
+     * $allKeys = $redis->keys('*');
      * $keyWithUserPrefix = $redis->keys('user*');
-     * </pre>
+     * @param string $pattern 匹配模式
      * @return array
      */
-    public function keys()
+    public function keys($pattern)
     {
     }
 
     /**
      * 
-     *
+     *从列表中删除指定值的元素。 如果count为零，则删除所有匹配的元素。 如果计数是负数，则元素从尾部移到头部。
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param string $value 元素值
+     * @param int $count 删除的个数
+     * @return long | bool
      */
-    public function lrem()
+    public function lrem($key, $value, $count)
     {
     }
 
     /**
      * 
-     *
+     *删除指定范围外的其他元素
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param int $start 开始索引
+     * @param int $end 结束索引
+     * @return array | boolean
      */
-    public function ltrim()
+    public function ltrim($key, $start, $end)
     {
     }
 
     /**
      * 
-     *
+     *获取列表中指定索引的值
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param int $index 索引值
+     * @return string | boolean
      */
-    public function lindex()
+    public function lindex($key, $index)
     {
     }
 
     /**
      * 
-     *
+     *获取列表指定范围的值
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param int $start 索引开始值
+     * @param int $end 索引结束值
+     * @return array
      */
-    public function lrange()
+    public function lrange($key, $start, $end)
     {
     }
 
     /**
      * 
-     *
+     *返回集合的元素个数
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @return long
      */
-    public function scard()
+    public function scard($key)
     {
     }
 
     /**
      * 
-     *
+     *删除集合元素
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param string|... $member 成员
+     * @return long
      */
-    public function srem()
+    public function srem($key, $member)
     {
     }
 
     /**
      * 
-     *
+     *是否包含某个成员
      * @example 
-     * @return 
+     * @param string $key 键名
+     * @param string $member 成员值
+     * @return boolean
      */
-    public function sismember()
+    public function sismember($key, $member)
     {
     }
 
     /**
      * 
-     *
+     *获取有序集合中指定范围的成员(倒序排列)
      * @example 
-     * @return 
+     * <pre>
+     * $redis->zAdd('key', 0, 'val0');
+     * $redis->zAdd('key', 2, 'val2');
+     * $redis->zAdd('key', 10, 'val10');
+     * $redis->zRevRange('key', 0, -1); // array('val10', 'val2', 'val0')
+     * // with scores
+     * $redis->zRevRange('key', 0, -1, true); // array('val10' => 10, 'val2' => 2, 'val0' => 0)
+     * </pre>
+     * @param string $key 集合键名
+     * @param long $start 索引开始值
+     * @param long $end 索引结束值
+     * @param boolean $withScores 是否返回成员的排序值
+     * @return array
      */
-    public function zReverseRange()
+    public function zReverseRange($key, $start, $end, $withScores)
     {
     }
 
     /**
      * 
-     *
+     *向redis发送一个字符串，而且redis服务器将返回一个相同的字符串
      * @example 
-     * @return 
+     * @param string $str 发送的字符串
+     * @return string
      */
-    public function sendEcho()
+    public function sendEcho($str)
     {
     }
 
     /**
      * 
-     *
+     *执行lua脚本
      * @example 
+     * @param string $script 脚本
+     * @param array $args 脚本参数
+     * @param int $num_keys 应该进入KEYS数组的参数个数
      * @return mixed
      */
-    public function evaluate()
+    public function evaluate($script, Array $args, $num_keys)
     {
     }
 
     /**
      * 
-     *
+     *执行lua脚本
      * @example 
+     * @param string $script 脚本
+     * @param array $args 脚本参数
+     * @param int $num_keys 应该进入KEYS数组的参数个数
+     * @return mixed
+     */
+    public function eval($script, Array $args, $num_keys)
+    {
+    }
+
+    /**
+     * 
+     *从脚本的SHA1散列而不是脚本本身执行LUA脚本
+     * @example $script = 'return 1';
+     * $sha = $redis->script('load', $script);
+     * $redis->evalSha($sha); // Returns 1
+     * @param string $script_sha 脚本的散列值
+     * @param array $args 脚本参数
+     * @param int $num_keys 应该进入KEYS数组的参数个数
      * @return 
      */
-    public function evaluateSha()
+    public function evaluateSha($script_sha, Array $args, $num_keys)
+    {
+    }
+
+    /**
+     * 
+     *从脚本的SHA1散列而不是脚本本身执行LUA脚本
+     * @example $script = 'return 1';
+     * $sha = $redis->script('load', $script);
+     * $redis->evalSha($sha); // Returns 1
+     * @param string $script_sha 脚本的散列值
+     * @param array $args 脚本参数
+     * @param int $num_keys 应该进入KEYS数组的参数个数
+     * @return 
+     */
+    public function evalSha($script_sha, Array $args, $num_keys)
     {
     }
 

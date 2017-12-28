@@ -6,9 +6,9 @@
 */
 
 /**
-*提供了tcp/udp socket的客户端的封装代码
+*异步HTTP2.0客户端
 */
-class swoole_client
+class swoole_http2_client extends swoole_client
 {
     /**     
     *读取带外数据
@@ -129,24 +129,165 @@ class swoole_client
     public $onSSLReady;
 
     /**
+     * @var array $requestHeaders 
+     * 请求头
+     * @access public
+     */
+    public $requestHeaders;
+
+    /**
+     * @var array $cookies 
+     * 请求响应的cookie
+     * @access public
+     */
+    public $cookies;
+
+    /**
      * 
-     *创建tcp客户端对象
+     *客户端连接初始化
      * @example 
-     * @param int $type 表示socket的类型，如TCP/UDP(使用常量)
-     * @param boolean $async 表示同步阻塞还是异步非阻塞，默认为同步阻塞
+     * @param string $host 连接的主机IP
+     * @param int $port 连接的主机端口
+     * @param boolean $ssl 是否开启TLS/SSL隧道加密，https网站必须设置为true
      * @return 
      */
-    public function __construct($type, $async)
+    public function __construct($host, $port, $ssl)
     {
     }
 
     /**
      * 
-     *析构方法
+     *析构函数
      * @example 
      * @return 
      */
     public function __destruct()
+    {
+    }
+
+    /**
+     * 
+     *设置请求头
+     * @example 
+     * @param array $headers 请求头
+     * @return 
+     */
+    public function setHeaders(Array $headers)
+    {
+    }
+
+    /**
+     * 
+     *设置cookie
+     * @example 
+     * @param array $cookies cookie数组
+     * @return 
+     */
+    public function setCookies(Array $cookies)
+    {
+    }
+
+    /**
+     * 
+     *发起GET请求
+     * @example 
+     * @param string $path 请求路径
+     * @param callable $callback 请求成功后的回调函数
+     * @return 
+     */
+    public function get($path, Callable $callback)
+    {
+    }
+
+    /**
+     * 
+     *发送POST请求
+     * @example 
+     * @param string $path 请求地址
+     * @param mixed $data 求的包体数据，如果$data为数组底层自动会打包为x-www-form-urlencoded格式的POST内容，并设置Content-Type为application/x-www-form-urlencoded
+     * @param callable $callback 请求成功后的回调
+     * @return 
+     */
+    public function post($path, $data, Callable $callback)
+    {
+    }
+
+    /**
+     * 
+     *连接成功后回调函数
+     * @example 
+     * @param callable $callback 连接成功后的回调
+     * @return 
+     */
+    public function onConnect(Callable $callback)
+    {
+    }
+
+    /**
+     * 
+     *发生错误时的回调函数
+     * @example 
+     * @param callable $callback 连接成功后的回调
+     * @return 
+     */
+    public function onError(Callable $callback)
+    {
+    }
+
+    /**
+     * 
+     *接收到数据时的回调函数
+     * @example 
+     * @param callable $callback 连接成功后的回调
+     * @return 
+     */
+    public function onReceive(Callable $callback)
+    {
+    }
+
+    /**
+     * 
+     *关闭连接时的回调函数
+     * @example 
+     * @param callable $callback 连接成功后的回调
+     * @return 
+     */
+    public function onClose(Callable $callback)
+    {
+    }
+
+    /**
+     * 
+     *打开数据流时的回调函数
+     * @example 
+     * @param callable $callback 连接成功后的回调
+     * @return 
+     */
+    public function openStream(Callable $callback)
+    {
+    }
+
+    /**
+     * 
+     *向WebSocket服务器发送数据
+     * @example 
+     * @param string $data 要发送的数据内容，默认为UTF-8文本格式，如果为其他格式编码或二进制数据，请使用WEBSOCKET_OPCODE_BINARY
+     * @param int $opcode 操作类型，默认为WEBSOCKET_OPCODE_TEXT_FRAME表示发送文本
+     * @param boolean $finish 发送成功后是否结束
+     * @return 
+     */
+    public function push($data, $opcode, $finish)
+    {
+    }
+
+    /**
+     * 
+     *关闭数据流时的回调函数
+     * @example 
+     * @param callable $callback 连接成功后的回调
+     * @return 
+     */
+    public function closeStream(Callable $callback)
     {
     }
 
@@ -309,9 +450,9 @@ class swoole_client
 
     /**
      * 
-     *返回swoole_client的连接状态
+     *连接是否成功
      * @example 
-     * @return 
+     * @return boolean
      */
     public function isConnected()
     {
@@ -350,10 +491,10 @@ class swoole_client
 
     /**
      * 
-     *绑定事件(为事件注册函数)
+     *绑定事件
      * @example 
-     * @param string $event_name 事件类型，支持connect/error/receive/close 4种
-     * @param callable $callback 回调函数，可以是函数名字符串、匿名函数、类静态方法、对象方法
+     * @param string $event_name 事件名称
+     * @param callable $callback 事件对应的回调函数
      * @return 
      */
     public function on($event_name, Callable $callback)

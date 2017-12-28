@@ -2,7 +2,7 @@
 /**
 * Swoole自动补全类(基于最新的2.0.10版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/26
+* @modified 2017/12/28
 */
 
 /**
@@ -120,6 +120,82 @@ define('SWOOLE_ASYNC', 1024);
 */
 define('SWOOLE_KEEP', 4096);
 /**
+使用SSL
+*/
+define('SWOOLE_SSL', 512);
+/**
+SSLv3 加密方法
+*/
+define('SWOOLE_SSLv3_METHOD', 1);
+/**
+SSLv3 服务端加密方法
+*/
+define('SWOOLE_SSLv3_SERVER_METHOD', 2);
+/**
+SSLv3 客户端加密方法
+*/
+define('SWOOLE_SSLv3_CLIENT_METHOD', 3);
+/**
+SSLv2.3 加密方法
+*/
+define('SWOOLE_SSLv23_METHOD', 0);
+/**
+SSLv2.3 服务端加密方法
+*/
+define('SWOOLE_SSLv23_SERVER_METHOD', 4);
+/**
+SSLv2.3 客户端加密方法
+*/
+define('SWOOLE_SSLv23_CLIENT_METHOD', 5);
+/**
+TLSv1.0 加密方法
+*/
+define('SWOOLE_TLSv1_METHOD', 6);
+/**
+TLSv1.0 服务端加密方法
+*/
+define('SWOOLE_TLSv1_SERVER_METHOD', 7);
+/**
+TLSv1.0 客户端加密方法
+*/
+define('SWOOLE_TLSv1_CLIENT_METHOD', 8);
+/**
+TLSv1.1 加密方法
+*/
+define('SWOOLE_TLSv1_1_METHOD', 9);
+/**
+TLSv1.1 服务端加密方法
+*/
+define('SWOOLE_TLSv1_1_SERVER_METHOD', 10);
+/**
+TLSv1.1 客户端加密方法
+*/
+define('SWOOLE_TLSv1_1_CLIENT_METHOD', 11);
+/**
+TLSv1.2 加密方法
+*/
+define('SWOOLE_TLSv1_2_METHOD', 12);
+/**
+TLSv1.2 服务端加密方法
+*/
+define('SWOOLE_TLSv1_2_SERVER_METHOD', 13);
+/**
+TLSv1.2 客户端加密方法
+*/
+define('SWOOLE_TLSv1_2_CLIENT_METHOD', 14);
+/**
+DTLSv1加密方法
+*/
+define('SWOOLE_DTLSv1_METHOD', 15);
+/**
+DTLSv1服务端加密方法
+*/
+define('SWOOLE_DTLSv1_SERVER_METHOD', 16);
+/**
+DTLSv1客户端加密方法
+*/
+define('SWOOLE_DTLSv1_CLIENT_METHOD', 17);
+/**
 swoole读事件
 */
 define('SWOOLE_EVENT_READ', 512);
@@ -131,6 +207,38 @@ define('SWOOLE_EVENT_WRITE', 1024);
 swoole 版本号
 */
 define('SWOOLE_VERSION', '2.0.10');
+/**
+swoole redis 客户端多条命令同时执行模式(类似于事务)
+*/
+define('SWOOLE_REDIS_MODE_MULTI', 0);
+/**
+swoole redis 客户端管道模式
+*/
+define('SWOOLE_REDIS_MODE_PIPELINE', 1);
+/**
+swoole redis 未知类型
+*/
+define('SWOOLE_REDIS_TYPE_NOT_FOUND', 0);
+/**
+swoole redis 字符串类型
+*/
+define('SWOOLE_REDIS_TYPE_STRING', 1);
+/**
+swoole redis 集合类型
+*/
+define('SWOOLE_REDIS_TYPE_SET', 2);
+/**
+swoole redis 列表类型
+*/
+define('SWOOLE_REDIS_TYPE_LIST', 3);
+/**
+swoole redis 有序集合类型
+*/
+define('SWOOLE_REDIS_TYPE_ZSET', 4);
+/**
+swoole redis 字典类型
+*/
+define('SWOOLE_REDIS_TYPE_HASH', 5);
 /**
 使用类似于Node.js的线程池同步阻塞模拟异步
 */
@@ -512,16 +620,16 @@ function swoole_client_select(Array $read_array, Array $write_array, Array $erro
 
 /**
 * 
-*swoole的并行处理中用了select来做IO事件循环
+*swoole的并行处理中用了select来做IO事件循环(是swoole_client_select的别名)
 * @example 
 * 
-* @param  $read_array: 
-* @param  $write_array: 
-* @param  $error_array: 
-* @param  $timeout: 
+* @param array $read_array:可读文件描述符 
+* @param array $write_array:可写文件描述符 
+* @param array $error_array:错误文件描述符 
+* @param float $timeout:超时时间 
 * @return 
 */
-function swoole_select($read_array, $write_array, $error_array, $timeout)
+function swoole_select(Array $read_array, Array $write_array, Array $error_array, $timeout)
 {
 }
 

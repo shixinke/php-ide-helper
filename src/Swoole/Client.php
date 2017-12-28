@@ -2,7 +2,7 @@
 /**
 * Swoole自动补全类(基于最新的2.0.10版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/26
+* @modified 2017/12/28
 */
 
 /**
@@ -60,67 +60,74 @@ class Client
     public $reuseCount    =    0;
 
     /**
-     * @var unknown $type 
-     * 
+     * @var int $type 
+     * 连接的类型
      * @access public
      */
     public $type    =    0;
 
     /**
-     * @var unknown $id 
-     * 
+     * @var int $id 
+     * 客户端连接ID
      * @access public
      */
     public $id    =    0;
 
     /**
-     * @var unknown $setting 
-     * 
+     * @var array $setting 
+     * 配置选项
      * @access public
      */
     public $setting;
 
     /**
-     * @var unknown $onConnect 
-     * 
+     * @var callable $onConnect 
+     * 连接的回调函数
      * @access public
      */
     public $onConnect;
 
     /**
-     * @var unknown $onError 
-     * 
+     * @var callable $onError 
+     * 发生错误时的回调函数
      * @access public
      */
     public $onError;
 
     /**
-     * @var unknown $onReceive 
-     * 
+     * @var callable $onReceive 
+     * 客户端收到来自于服务器端的数据时会回调此函数
      * @access public
      */
     public $onReceive;
 
     /**
-     * @var unknown $onClose 
-     * 
+     * @var callable $onClose 
+     * 连接被关闭时回调此函数
      * @access public
      */
     public $onClose;
 
     /**
-     * @var unknown $onBufferFull 
-     * 
+     * @var callable $onBufferFull 
+     * 当缓存区达到最高水位时触发此事件
      * @access public
      */
     public $onBufferFull;
 
     /**
-     * @var unknown $onBufferEmpty 
-     * 
+     * @var callable $onBufferEmpty 
+     * 当缓存区低于最低水位线时触发此事件
      * @access public
      */
     public $onBufferEmpty;
+
+    /**
+     * @var callable $onSSLReady 
+     * 当SSL连接就绪时的回调函数
+     * @access public
+     */
+    public $onSSLReady;
 
     /**
      * 
@@ -195,9 +202,9 @@ class Client
 
     /**
      * 
-     *
+     *将客户端收到的数据重定向到另外一个文件描述符，可以是服务器的连接fd、stream资源、sockets资源、其他Swoole_Client、Swoole_Process的管道
      * @example 
-     * @param  mixed $dst_socket 
+     * @param int $dst_socket 目标文件描述符
      * @return 
      */
     public function pipe($dst_socket)
@@ -267,6 +274,37 @@ class Client
      * @return 
      */
     public function resume()
+    {
+    }
+
+    /**
+     * 
+     *动态开启SSL隧道加密。客户端在建立连接时使用明文通信，中途希望改为SSL隧道加密通信，可以使用enableSSL方法来实现
+     * @example 
+     * @param callable $callback 启用后的回调函数
+     * @return 
+     */
+    public function enableSSL(Callable $callback)
+    {
+    }
+
+    /**
+     * 
+     *获取服务器端证书信息
+     * @example 
+     * @return string | bool
+     */
+    public function getPeerCert()
+    {
+    }
+
+    /**
+     * 
+     *验证服务端证书信息
+     * @example 
+     * @return 
+     */
+    public function verifyPeerCert()
     {
     }
 
