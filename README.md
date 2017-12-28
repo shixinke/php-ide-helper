@@ -21,7 +21,7 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 5、Redis(包括RedisCluster)
 
-6、swoole扩展
+6、swoole扩展(支持swoole 2.0.10)
 
 7、SeasLog
 
