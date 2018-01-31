@@ -29,7 +29,7 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 9、Xhprof
 
-10、FastDFS
+10、FastDFS(FastDFS 1.00)
 
 ## 使用说明
 
