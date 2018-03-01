@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.10版本)
+* Swoole自动补全类(基于最新的2.1.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/28
+* @modified 2018/03/01
 */
 
 /**
@@ -13,19 +13,31 @@ class Coroutine
 {
     /**
      * 
-     *创建协程
+     *创建一个新的协程，并立即执行
      * @example 
-     * @return 
+     * @param callable $func 协程执行的代码
+     * @return bool
      */
-    public static  function create()
+    public static  function create(Callable $func)
     {
     }
 
     /**
      * 
-     *
+     *设置选项
      * @example 
+     * @param array $options 选项
      * @return 
+     */
+    public static  function set(Array $options)
+    {
+    }
+
+    /**
+     * 
+     *获取等待的协程数量
+     * @example 
+     * @return int
      */
     public static  function cli_wait()
     {
@@ -35,9 +47,10 @@ class Coroutine
      * 
      *挂起当前协程
      * @example 
+     * @param string $uid 要挂起协程的ID
      * @return 
      */
-    public static  function suspend()
+    public static  function suspend($uid)
     {
     }
 
@@ -45,15 +58,16 @@ class Coroutine
      * 
      *恢复某个协程，使其继续运行
      * @example 
+     * @param string $uid 为要恢复的协程ID，在协程内可以使用getuid获取到协程的ID
      * @return 
      */
-    public static  function resume()
+    public static  function resume($uid)
     {
     }
 
     /**
      * 
-     *获取当前协程的ID
+     *获取当前协程的唯一ID
      * @example 
      * @return int
      */
@@ -74,11 +88,53 @@ class Coroutine
 
     /**
      * 
-     *协程版反射调用函数
+     *协程读取文件
      * @example 
+     * @param resource $handle 文件句柄(文件流)
+     * @param int $length 读取的长度
      * @return 
      */
-    public static  function call_user_func()
+    public static  function fread($handle, $length)
+    {
+    }
+
+    /**
+     * 
+     *协程写入文件
+     * @example 
+     * @param resource $handle 文件句柄
+     * @param string $string 写入的数据
+     * @param int $length 写入的数据长度
+     * @return 
+     */
+    public static  function fwrite($handle, $string, $length)
+    {
+    }
+
+    /**
+     * 
+     *将域名解析为IP，基于同步的线程池模拟实现。底层自动进行协程调度
+     * @example 
+     * @param string $domain_name 域名或IP
+     * @param int $family 使用的协议族
+     * @return 
+     */
+    public static  function gethostbyname($domain_name, $family)
+    {
+    }
+
+    /**
+     * 
+     *进行DNS解析，查询域名对应的IP地址，与gethostbyname不同，getaddrinfo支持更多参数设置，而且会返回多个IP结果。
+     * @example 
+     * @param string $hostname 主机名
+     * @param int $family 协议族
+     * @param int $socktype socket类型
+     * @param int $protocol 使用的协议
+     * @param string $service 服务
+     * @return array | bool
+     */
+    public static  function getaddrinfo($hostname, $family, $socktype, $protocol, $service)
     {
     }
 
@@ -86,9 +142,23 @@ class Coroutine
      * 
      *协程版反射调用函数
      * @example 
+     * @param callable $func 调用函数
+     * @param mixed $parameters 调用函数的参数(可空变量)
      * @return 
      */
-    public static  function call_user_func_array()
+    public static  function call_user_func(Callable $func, $parameters)
+    {
+    }
+
+    /**
+     * 
+     *协程版反射调用函数
+     * @example 
+     * @param callable $func 调用函数
+     * @param array $parameters 调用函数的参数列表
+     * @return 
+     */
+    public static  function call_user_func_array(Callable $func, Array $parameters)
     {
     }
 

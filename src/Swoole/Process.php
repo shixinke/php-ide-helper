@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.10版本)
+* Swoole自动补全类(基于最新的2.1.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/28
+* @modified 2018/03/01
 */
 
 /**
@@ -16,44 +16,64 @@ class Process
     */
     const IPC_NOWAIT    =    256;
 
+    /**     
+    *master管道
+    */
+    const PIPE_MASTER    =    1;
+
+    /**     
+    *worker管道
+    */
+    const PIPE_WORKER    =    2;
+
+    /**     
+    *读管道
+    */
+    const PIPE_READ    =    3;
+
+    /**     
+    *写管道
+    */
+    const PIPE_WRITE    =    4;
+
     /**
      * @var unknown $pipe 
-     * 
+     * 进程管道
      * @access public
      */
     public $pipe;
 
     /**
-     * @var unknown $callback 
-     * 
+     * @var callable $callback 
+     * 回调函数
      * @access public
      */
     public $callback;
 
     /**
-     * @var unknown $msgQueueId 
-     * 
+     * @var int $msgQueueId 
+     * 消息队列ID
      * @access public
      */
     public $msgQueueId;
 
     /**
-     * @var unknown $msgQueueKey 
-     * 
+     * @var string $msgQueueKey 
+     * 消息队列键
      * @access public
      */
     public $msgQueueKey;
 
     /**
-     * @var unknown $pid 
-     * 
+     * @var int $pid 
+     * 父进程ID
      * @access public
      */
     public $pid;
 
     /**
-     * @var unknown $id 
-     * 
+     * @var int $id 
+     * 进程ID
      * @access public
      */
     public $id;

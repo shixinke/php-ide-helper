@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.10版本)
+* Swoole自动补全类(基于最新的2.1.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/28
+* @modified 2018/03/01
 */
 
 /**
@@ -11,6 +11,13 @@
 namespace Swoole\Http2;
 class Response
 {
+    /**
+     * @var int $errCode 
+     * 错误码
+     * @access public
+     */
+    public $errCode    =    0;
+
     /**
      * @var int $statusCode 
      * 状态码

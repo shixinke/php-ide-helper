@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.10版本)
+* Swoole自动补全类(基于最新的2.1.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/28
+* @modified 2018/03/01
 */
 
 /**
@@ -18,10 +18,13 @@
  * swoole.display_errors=On
 
  * 是否启用命名空间
- * swoole.use_namespace=1
+ * swoole.use_namespace=On
+
+ * 是否启用短命名
+ * swoole.use_shortname=On
 
  * 是否开启对异步任务数据进行序列化功能(开启使用On)
- * swoole.fast_serialize=1
+ * swoole.fast_serialize=Off
 
  * unix域连接的缓冲区大小
  * swoole.unixsock_buffer_size=8388608
@@ -207,6 +210,202 @@ define('SWOOLE_EVENT_WRITE', 1024);
 swoole 版本号
 */
 define('SWOOLE_VERSION', '2.0.10');
+/**
+内存分配失败错误
+*/
+define('SWOOLE_ERROR_MALLOC_FAIL', 501);
+/**
+系统调用失败错误
+*/
+define('SWOOLE_ERROR_SYSTEM_CALL_FAIL', 502);
+/**
+PHP严重错误
+*/
+define('SWOOLE_ERROR_PHP_FATAL_ERROR', 503);
+/**
+名称过长错误
+*/
+define('SWOOLE_ERROR_NAME_TOO_LONG', 504);
+/**
+非法参数错误
+*/
+define('SWOOLE_ERROR_INVALID_PARAMS', 505);
+/**
+文件不存在错误
+*/
+define('SWOOLE_ERROR_FILE_NOT_EXIST', 700);
+/**
+文件过大错误
+*/
+define('SWOOLE_ERROR_FILE_TOO_LARGE', 701);
+/**
+文件为空错误
+*/
+define('SWOOLE_ERROR_FILE_EMPTY', 702);
+/**
+重复DNS查找请求错误
+*/
+define('SWOOLE_ERROR_DNSLOOKUP_DUPLICATE_REQUEST', 703);
+/**
+DNS查找失败错误
+*/
+define('SWOOLE_ERROR_DNSLOOKUP_RESOLVE_FAILED', 704);
+/**
+会话被服务端关闭错误
+*/
+define('SWOOLE_ERROR_SESSION_CLOSED_BY_SERVER', 1001);
+/**
+会话被客户端关闭错误
+*/
+define('SWOOLE_ERROR_SESSION_CLOSED_BY_CLIENT', 1002);
+/**
+会话关闭中错误
+*/
+define('SWOOLE_ERROR_SESSION_CLOSING', 1003);
+/**
+会话已关闭错误
+*/
+define('SWOOLE_ERROR_SESSION_CLOSED', 1004);
+/**
+会话不存在错误
+*/
+define('SWOOLE_ERROR_SESSION_NOT_EXIST', 1005);
+/**
+非法会话ID错误
+*/
+define('SWOOLE_ERROR_SESSION_INVALID_ID', 1006);
+/**
+会话丢弃超时数据错误
+*/
+define('SWOOLE_ERROR_SESSION_DISCARD_TIMEOUT_DATA', 1007);
+/**
+输出缓冲区溢出错误
+*/
+define('SWOOLE_ERROR_OUTPUT_BUFFER_OVERFLOW', 1008);
+/**
+SSL连接未就绪错误
+*/
+define('SWOOLE_ERROR_SSL_NOT_READY', 1009);
+/**
+SSL连接不能使用sendfile错误
+*/
+define('SWOOLE_ERROR_SSL_CANNOT_USE_SENFILE', 1010);
+/**
+SSL证书为空错误
+*/
+define('SWOOLE_ERROR_SSL_EMPTY_PEER_CERTIFICATE', 1011);
+/**
+SSL证书验证失败错误
+*/
+define('SWOOLE_ERROR_SSL_VEFIRY_FAILED', 1012);
+/**
+客户端非法错误
+*/
+define('SWOOLE_ERROR_SSL_BAD_CLIENT', 1013);
+/**
+非法SSL协议错误
+*/
+define('SWOOLE_ERROR_SSL_BAD_PROTOCOL', 1014);
+/**
+包长度过大错误
+*/
+define('SWOOLE_ERROR_PACKAGE_LENGTH_TOO_LARGE', 1201);
+/**
+数据长度过大错误
+*/
+define('SWOOLE_ERROR_DATA_LENGTH_TOO_LARGE', 1202);
+/**
+任务包过大错误
+*/
+define('SWOOLE_ERROR_TASK_PACKAGE_TOO_BIG', 2001);
+/**
+任务分发失败错误
+*/
+define('SWOOLE_ERROR_TASK_DISPATCH_FAIL', 2002);
+/**
+http2流ID过大错误
+*/
+define('SWOOLE_ERROR_HTTP2_STREAM_ID_TOO_BIG', 3001);
+/**
+http2缺少header错误
+*/
+define('SWOOLE_ERROR_HTTP2_STREAM_NO_HEADER', 3002);
+/**
+不支持的socket版本错误
+*/
+define('SWOOLE_ERROR_SOCKS5_UNSUPPORT_VERSION', 7001);
+/**
+不支持的请求方式错误
+*/
+define('SWOOLE_ERROR_SOCKS5_UNSUPPORT_METHOD', 7002);
+/**
+socket验证失败错误
+*/
+define('SWOOLE_ERROR_SOCKS5_AUTH_FAILED', 7003);
+/**
+socket服务端错误
+*/
+define('SWOOLE_ERROR_SOCKS5_SERVER_ERROR', 7004);
+/**
+http代理握手错误
+*/
+define('SWOOLE_ERROR_HTTP_PROXY_HANDSHAKE_ERROR', 8001);
+/**
+http非法协议
+*/
+define('SWOOLE_ERROR_HTTP_INVALID_PROTOCOL', 8002);
+/**
+websocket非法客户端
+*/
+define('SWOOLE_ERROR_WEBSOCKET_BAD_CLIENT', 8501);
+/**
+websocket非法操作码
+*/
+define('SWOOLE_ERROR_WEBSOCKET_BAD_OPCODE', 8502);
+/**
+websocket未连接
+*/
+define('SWOOLE_ERROR_WEBSOCKET_UNCONNECTED', 8503);
+/**
+websocket握手失败
+*/
+define('SWOOLE_ERROR_WEBSOCKET_HANDSHAKE_FAILED', 8504);
+/**
+服务端连接必须先于客户端创建
+*/
+define('SWOOLE_ERROR_SERVER_MUST_CREATED_BEFORE_CLIENT', 9001);
+/**
+socket连接过多
+*/
+define('SWOOLE_ERROR_SERVER_TOO_MANY_SOCKET', 9002);
+/**
+服务端中止
+*/
+define('SWOOLE_ERROR_SERVER_WORKER_TERMINATED', 9003);
+/**
+非法的监听端口
+*/
+define('SWOOLE_ERROR_SERVER_INVALID_LISTEN_PORT', 9004);
+/**
+监听端口过多
+*/
+define('SWOOLE_ERROR_SERVER_TOO_MANY_LISTEN_PORT', 9005);
+/**
+缓冲区已满
+*/
+define('SWOOLE_ERROR_SERVER_PIPE_BUFFER_FULL', 9006);
+/**
+没有空闲的工作进程
+*/
+define('SWOOLE_ERROR_SERVER_NO_IDLE_WORKER', 9007);
+/**
+服务器只能启动一个
+*/
+define('SWOOLE_ERROR_SERVER_ONLY_START_ONE', 9008);
+/**
+工作进程退出超时
+*/
+define('SWOOLE_ERROR_SERVER_WORKER_EXIT_TIMEOUT', 9009);
 /**
 swoole redis 客户端多条命令同时执行模式(类似于事务)
 */
@@ -605,6 +804,30 @@ function swoole_async_dns_lookup_coro($domain_name)
 
 /**
 * 
+*创建一个协程
+* @example 
+* 
+* @param callable $func:执行的函数 
+* @return 
+*/
+function swoole_coroutine_create(Callable $func)
+{
+}
+
+/**
+* 
+*开启一个协程
+* @example 
+* 
+* @param callable | string | array $func:要执行的函数 
+* @return 
+*/
+function go($func)
+{
+}
+
+/**
+* 
 *swoole_client的并行处理中用了select来做IO事件循环
 * @example 
 * 
@@ -687,6 +910,19 @@ function swoole_strerror($errno)
 * @return int
 */
 function swoole_errno()
+{
+}
+
+/**
+* 
+*获取指定的数据的哈希码
+* @example 
+* 
+* @param string $data:指定的数据 
+* @param int $type:类型 
+* @return 
+*/
+function swoole_hashcode($data, $type)
 {
 }
 
