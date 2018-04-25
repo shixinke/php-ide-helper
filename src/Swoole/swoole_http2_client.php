@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.10版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/28
+* @modified 2018/04/25
 */
 
 /**
@@ -29,6 +29,21 @@ class swoole_http2_client extends swoole_client
     *阻塞等待直到收到指定长度的数据后返回
     */
     const MSG_WAITALL    =    256;
+
+    /**     
+    *读写中断
+    */
+    const SHUT_RDWR    =    2;
+
+    /**     
+    *读中断
+    */
+    const SHUT_RD    =    0;
+
+    /**     
+    *写中断
+    */
+    const SHUT_WR    =    1;
 
     /**
      * @var int $errCode 
@@ -70,7 +85,7 @@ class swoole_http2_client extends swoole_client
      * 客户端连接ID
      * @access public
      */
-    public $id    =    0;
+    public $id;
 
     /**
      * @var array $setting 

@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.0版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/03/01
+* @modified 2018/04/25
 */
 
 /**
@@ -12,6 +12,34 @@ namespace Swoole\Coroutine\Http;
 class Client
 {
     /**
+     * @var int $errCode 
+     * 错误码
+     * @access public
+     */
+    public $errCode    =    0;
+
+    /**
+     * @var unknown $sock 
+     * 
+     * @access public
+     */
+    public $sock    =    0;
+
+    /**
+     * @var unknown $reuse 
+     * 
+     * @access public
+     */
+    public $reuse    =    '';
+
+    /**
+     * @var unknown $reuseCount 
+     * 
+     * @access public
+     */
+    public $reuseCount    =    0;
+
+    /**
      * @var int $type 
      * socket类型
      * @access public
@@ -19,11 +47,18 @@ class Client
     public $type    =    0;
 
     /**
-     * @var int $errCode 
-     * 错误码
+     * @var unknown $setting 
+     * 
      * @access public
      */
-    public $errCode    =    0;
+    public $setting;
+
+    /**
+     * @var unknown $connected 
+     * 
+     * @access public
+     */
+    public $connected    =    '';
 
     /**
      * @var int $statusCode 

@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.0版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/03/01
+* @modified 2018/04/25
 */
 
 /**
@@ -323,6 +323,14 @@ define('SWOOLE_ERROR_TASK_PACKAGE_TOO_BIG', 2001);
 */
 define('SWOOLE_ERROR_TASK_DISPATCH_FAIL', 2002);
 /**
+异步IO请求类型错误
+*/
+define('SWOOLE_ERROR_AIO_BAD_REQUEST', 4001);
+/**
+客户端没有连接错误
+*/
+define('SWOOLE_ERROR_CLIENT_NO_CONNECTION', 5001);
+/**
 http2流ID过大错误
 */
 define('SWOOLE_ERROR_HTTP2_STREAM_ID_TOO_BIG', 3001);
@@ -407,6 +415,114 @@ define('SWOOLE_ERROR_SERVER_ONLY_START_ONE', 9008);
 */
 define('SWOOLE_ERROR_SERVER_WORKER_EXIT_TIMEOUT', 9009);
 /**
+服务端调试
+*/
+define('SWOOLE_TRACE_SERVER', 2);
+/**
+客户端调试
+*/
+define('SWOOLE_TRACE_CLIENT', 4);
+/**
+缓冲区调试
+*/
+define('SWOOLE_TRACE_BUFFER', 8);
+/**
+连接调试
+*/
+define('SWOOLE_TRACE_CONN', 16);
+/**
+事件调试
+*/
+define('SWOOLE_TRACE_EVENT', 32);
+/**
+工作进程调试
+*/
+define('SWOOLE_TRACE_WORKER', 64);
+/**
+线程调试
+*/
+define('SWOOLE_TRACE_REACTOR', 256);
+/**
+PHP调试
+*/
+define('SWOOLE_TRACE_PHP', 512);
+/**
+http2调试
+*/
+define('SWOOLE_TRACE_HTTP2', 1024);
+/**
+协议尾调试
+*/
+define('SWOOLE_TRACE_EOF_PROTOCOL', 2048);
+/**
+协议长度调试
+*/
+define('SWOOLE_TRACE_LENGTH_PROTOCOL', 4096);
+/**
+协议关闭调试
+*/
+define('SWOOLE_TRACE_CLOSE', 8192);
+/**
+http客户端调试
+*/
+define('SWOOLE_TRACE_HTTP_CLIENT', 16384);
+/**
+协程调试
+*/
+define('SWOOLE_TRACE_COROUTINE', 32768);
+/**
+redis客户端调试
+*/
+define('SWOOLE_TRACE_REDIS_CLIENT', 65536);
+/**
+mysql客户端调试
+*/
+define('SWOOLE_TRACE_MYSQL_CLIENT', 131072);
+/**
+异步IO调试
+*/
+define('SWOOLE_TRACE_AIO', 262144);
+/**
+所有的调试
+*/
+define('SWOOLE_TRACE_ALL', 4294967295);
+/**
+调试日志
+*/
+define('SWOOLE_LOG_DEBUG', 0);
+/**
+trace跟踪日志
+*/
+define('SWOOLE_LOG_TRACE', 1);
+/**
+
+*/
+define('SWOOLE_LOG_INFO', 2);
+/**
+通告日志
+*/
+define('SWOOLE_LOG_NOTICE', 3);
+/**
+警告日志
+*/
+define('SWOOLE_LOG_WARNING', 4);
+/**
+错误日志
+*/
+define('SWOOLE_LOG_ERROR', 5);
+/**
+无进程间通信
+*/
+define('SWOOLE_IPC_NONE', 0);
+/**
+unix的socket进程通信
+*/
+define('SWOOLE_IPC_UNIXSOCK', 1);
+/**
+socket进程通信
+*/
+define('SWOOLE_IPC_SOCKET', 3);
+/**
 swoole redis 客户端多条命令同时执行模式(类似于事务)
 */
 define('SWOOLE_REDIS_MODE_MULTI', 0);
@@ -438,6 +554,18 @@ define('SWOOLE_REDIS_TYPE_ZSET', 4);
 swoole redis 字典类型
 */
 define('SWOOLE_REDIS_TYPE_HASH', 5);
+/**
+关联数组
+*/
+define('SW_PGSQL_ASSOC', 1);
+/**
+数字
+*/
+define('SW_PGSQL_NUM', 2);
+/**
+两种格式都返回
+*/
+define('SW_PGSQL_BOTH', 3);
 /**
 使用类似于Node.js的线程池同步阻塞模拟异步
 */
@@ -642,6 +770,30 @@ function swoole_event_cycle(Callable $callback)
 
 /**
 * 
+*事件派发(仅执行一次reactor->wait操作，在Linux平台下相当手工调用一次epoll_wait。与swoole_event_wait不同的是，swoole_event_wait在底层内部维持了循环)
+* @example 
+* 
+* @return 
+*/
+function swoole_event_dispatch()
+{
+}
+
+/**
+* 
+*检测传入的$fd是否已加入了事件监听
+* @example 
+* 
+* @param int $fd:任意的socket文件描述符，参考 swoole_event_add 文档 
+* @param int $events:检测的事件类型(SWOOLE_EVENT_READ：是否监听了可读事件SWOOLE_EVENT_WRITE：是否监听了可写事件;;SWOOLE_EVENT_READ | SWOOLE_EVENT_WRITE：监听可读或可写事件) 
+* @return 
+*/
+function swoole_event_isset($fd, $events)
+{
+}
+
+/**
+* 
 *添加一个在指定的时间后执行某个函数的定时器(执行成功返回定时器ID)
 * @example 
 * 
@@ -811,6 +963,18 @@ function swoole_async_dns_lookup_coro($domain_name)
 * @return 
 */
 function swoole_coroutine_create(Callable $func)
+{
+}
+
+/**
+* 
+*协程执行一个命令
+* @example 
+* 
+* @param string $command:执行的命令(如shell命令) 
+* @return 
+*/
+function swoole_coroutine_exec($command)
 {
 }
 

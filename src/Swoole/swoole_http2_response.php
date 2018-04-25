@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.10版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/28
+* @modified 2018/04/25
 */
 
 /**
@@ -10,6 +10,13 @@
 */
 class swoole_http2_response
 {
+    /**
+     * @var int $errCode 
+     * 错误码
+     * @access public
+     */
+    public $errCode    =    0;
+
     /**
      * @var int $statusCode 
      * 状态码

@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.0版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/03/01
+* @modified 2018/04/25
 */
 
 /**
@@ -12,39 +12,11 @@ namespace Co\Http2;
 class Client
 {
     /**
-     * @var int $type 
-     * socket类型
-     * @access public
-     */
-    public $type    =    0;
-
-    /**
      * @var int $errCode 
      * 错误码
      * @access public
      */
     public $errCode    =    0;
-
-    /**
-     * @var int $statusCode 
-     * 状态码
-     * @access public
-     */
-    public $statusCode    =    0;
-
-    /**
-     * @var string $host 
-     * 请求的服务器地址
-     * @access public
-     */
-    public $host;
-
-    /**
-     * @var int $port 
-     * 请求的服务器端口
-     * @access public
-     */
-    public $port    =    0;
 
     /**
      * @var int $sock 
@@ -68,11 +40,39 @@ class Client
     public $reuseCount    =    0;
 
     /**
+     * @var int $type 
+     * socket类型
+     * @access public
+     */
+    public $type    =    0;
+
+    /**
      * @var array $setting 
      * 配置选项
      * @access public
      */
     public $setting;
+
+    /**
+     * @var unknown $connected 
+     * 
+     * @access public
+     */
+    public $connected    =    '';
+
+    /**
+     * @var string $host 
+     * 请求的服务器地址
+     * @access public
+     */
+    public $host;
+
+    /**
+     * @var int $port 
+     * 请求的服务器端口
+     * @access public
+     */
+    public $port    =    0;
 
     /**
      * 

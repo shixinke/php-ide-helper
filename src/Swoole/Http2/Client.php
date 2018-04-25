@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.0版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/03/01
+* @modified 2018/04/25
 */
 
 /**
@@ -86,7 +86,7 @@ class Client extends \Swoole\Client
      * 客户端连接ID
      * @access public
      */
-    public $id    =    0;
+    public $id;
 
     /**
      * @var array $setting 

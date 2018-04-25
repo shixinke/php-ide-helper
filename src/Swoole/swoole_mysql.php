@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.0.10版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/28
+* @modified 2018/04/25
 */
 
 /**
@@ -33,12 +33,12 @@ class swoole_mysql
     /**     
     *读完成状态
     */
-    const STATE_READ_END    =    4;
+    const STATE_READ_END    =    5;
 
     /**     
     *关闭状态
     */
-    const STATE_CLOSED    =    5;
+    const STATE_CLOSED    =    6;
 
     /**
      * @var array $serverInfo 

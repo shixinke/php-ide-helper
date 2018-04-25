@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.0版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/03/01
+* @modified 2018/04/25
 */
 
 /**
@@ -88,6 +88,17 @@ class Coroutine
 
     /**
      * 
+     *协程方式按行读取文件内容
+     * @example 
+     * @param resource $handle 文件句柄(文件流)
+     * @return 
+     */
+    public static  function fgets($handle)
+    {
+    }
+
+    /**
+     * 
      *协程读取文件
      * @example 
      * @param resource $handle 文件句柄(文件流)
@@ -95,6 +106,17 @@ class Coroutine
      * @return 
      */
     public static  function fread($handle, $length)
+    {
+    }
+
+    /**
+     * 
+     *协程读取文件
+     * @example 
+     * @param string $filename 文件名称
+     * @return 
+     */
+    public static  function readFile($filename)
     {
     }
 
@@ -108,6 +130,19 @@ class Coroutine
      * @return 
      */
     public static  function fwrite($handle, $string, $length)
+    {
+    }
+
+    /**
+     * 
+     *协程写入文件
+     * @example 
+     * @param string $filename 文件名
+     * @param string $content 写入的数据
+     * @param int $flags 为写入的选项，可以使用FILE_APPEND表示追加到文件末尾，默认会清空当前文件内容
+     * @return bool
+     */
+    public static  function writeFile($filename, $content, $flags)
     {
     }
 
@@ -159,6 +194,17 @@ class Coroutine
      * @return 
      */
     public static  function call_user_func_array(Callable $func, Array $parameters)
+    {
+    }
+
+    /**
+     * 
+     *执行一条shell指令。底层自动进行协程调度
+     * @example 
+     * @param string $cmd 要执行的shell指令
+     * @return array
+     */
+    public static  function exec($cmd)
     {
     }
 

@@ -8,8 +8,7 @@
 /**
 *swoole 环形队列
 */
-namespace Swoole;
-class RingQueue
+class swoole_ringqueue
 {
     /**
      * 

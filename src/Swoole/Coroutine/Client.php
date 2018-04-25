@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.0版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/03/01
+* @modified 2018/04/25
 */
 
 /**
@@ -46,6 +46,20 @@ class Client
     public $sock    =    0;
 
     /**
+     * @var unknown $reuse 
+     * 
+     * @access public
+     */
+    public $reuse    =    '';
+
+    /**
+     * @var unknown $reuseCount 
+     * 
+     * @access public
+     */
+    public $reuseCount    =    0;
+
+    /**
      * @var int $type 
      * socket 类型
      * @access public
@@ -53,11 +67,25 @@ class Client
     public $type    =    0;
 
     /**
+     * @var unknown $id 
+     * 
+     * @access public
+     */
+    public $id;
+
+    /**
      * @var array $setting 
      * 设置参数
      * @access public
      */
     public $setting;
+
+    /**
+     * @var unknown $connected 
+     * 
+     * @access public
+     */
+    public $connected    =    '';
 
     /**
      * 

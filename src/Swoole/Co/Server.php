@@ -1,14 +1,13 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.0版本)
+* Swoole自动补全类(基于最新的2.1.3版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/03/01
+* @modified 2018/04/25
 */
 
 /**
 *swoole TCP/UDP服务器
 */
-namespace Co;
 class Server
 {
     /**
@@ -198,7 +197,7 @@ class Server
      * 当前工作进程(包括worker进程和task进程)编号
      * @access public
      */
-    public $worker_id    =    0;
+    public $worker_id    =    -1;
 
     /**
      * @var boolean $taskworker 
