@@ -17,7 +17,7 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 3、Yaconf(1.0.8-dev)
 
-4、Yar
+4、Yar(2.0.4)
 
 5、Redis(包括RedisCluster)
 

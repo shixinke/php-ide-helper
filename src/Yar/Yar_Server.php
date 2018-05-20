@@ -1,17 +1,17 @@
 <?php
 /**
-* Yar自动补全类(基于最新的2.0.1版本)
+* Yar自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2018/05/20
 */
 
 /**
-*
+*yar服务端
 */
 class Yar_Server
 {
     /**
-     * @var unknown $_executor 
+     * @var Object $_executor 
      * 
      * @access protected
      */
@@ -21,22 +21,23 @@ class Yar_Server
      * 
      *
      * @example 
-     * @param  mixed $obj 
-     * @param  mixed $protocol 
+     * @param Object $obj 接口对象
      * @return 
      */
-    public final  function __construct($obj, $protocol)
+    public final  function __construct(Object $obj)
     {
+    
     }
 
     /**
      * 
-     *
+     *执行
      * @example 
-     * @return 
+     * @return bool
      */
-    public function handle()
+    public function handle(): bool
     {
+    
     }
 
 }

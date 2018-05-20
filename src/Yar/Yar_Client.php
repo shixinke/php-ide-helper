@@ -1,100 +1,105 @@
 <?php
 /**
-* Yar自动补全类(基于最新的2.0.1版本)
+* Yar自动补全类(基于最新的2.0.4版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2018/05/20
 */
 
 /**
-*
+*yar客户端
 */
 class Yar_Client
 {
     /**
-     * @var unknown $_protocol 
-     * 
+     * @var int $_protocol 
+     * 使用的协议
      * @access protected
      */
     protected $_protocol    =    1;
 
     /**
-     * @var unknown $_uri 
-     * 
+     * @var string $_uri 
+     * 请求的uri
      * @access protected
      */
     protected $_uri;
 
     /**
-     * @var unknown $_options 
-     * 
+     * @var array $_options 
+     * 配置选项
      * @access protected
      */
-    protected $_options;
+    protected $_options    =    array();
 
     /**
-     * @var unknown $_running 
-     * 
+     * @var bool $_running 
+     * 是否正在运行
      * @access protected
      */
     protected $_running;
 
     /**
      * 
-     *
+     *初始化客户端
      * @example 
-     * @param  mixed $url 
-     * @param  mixed $async 
+     * @param string $url 服务端地址
+     * @param array $options 配置选项
      * @return 
      */
-    public final  function __construct($url, $async)
+    public final  function __construct(string $url, Array $options)
     {
+    
     }
 
     /**
      * 
-     *
+     *发起请求
      * @example 
-     * @param  mixed $method 
-     * @param  mixed $parameters 
-     * @return 
+     * @param string $method 请求方法
+     * @param array $parameters 请求参数
+     * @return int|bool
      */
-    public function call($method, $parameters)
+    public function call(string $method, Array $parameters): ?int
     {
+    
     }
 
     /**
      * 
-     *
+     *发起请求
      * @example 
-     * @param  mixed $method 
-     * @param  mixed $parameters 
-     * @return 
+     * @param string $method 请求方法
+     * @param array $parameters 请求参数
+     * @return int|bool
      */
-    public function __call($method, $parameters)
+    public function __call(string $method, Array $parameters): ?int
     {
+    
     }
 
     /**
      * 
-     *
+     *获取配置选项
      * @example 
-     * @param  mixed $type 
-     * @return 
+     * @param int $type 配置选项(使用常量)
+     * @return mixed
      */
-    public function getOpt($type)
+    public function getOpt(int $type)
     {
+    
     }
 
     /**
      * 
-     *
+     *设置选项
      * @example 
-     * @param  mixed $type 
-     * @param  mixed $value 
+     * @param int $type 选项名称(使用常量)
+     * @param mixed $value 选项值
      * @return 
      */
-    public function setOpt($type, $value)
+    public function setOpt(int $type, $value)
     {
+    
     }
 
 }
