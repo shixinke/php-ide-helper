@@ -1,116 +1,91 @@
 <?php
 /**
-* Yaf自动补全类(基于最新的3.0.4版本)
+* Yaf自动补全类(基于最新的3.0.7版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2018/05/20
 */
 
 /**
-*(Yaf >= 3.0.2)
-*Class yaf_Plugin_Abstract
+*插件抽象类
 */
 abstract class Yaf_Plugin_Abstract
 {
     /**
      * 
-     *(Yaf >= 3.0.2)
      *在路由之前触发
      * @example 
-     * @param YafX_Request_Abstract $request (Yaf >= 3.0.2)
-在路由之前触发
-     * @param YafX_Response_Abstract $response (Yaf >= 3.0.2)
-在路由之前触发
+     * @param Yaf_Request_Abstract $request 当前请求对象
+     * @param Yaf_Response_Abstract $response 当前响应对象
      * @return 
      */
-    public function routerStartup($request, $response)
+    public function routerStartup(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response)
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *路由结束之后触发
      * @example 
-     * @param YafX_Request_Abstract $request (Yaf >= 3.0.2)
-路由结束之后触发
-     * @param YafX_Response_Abstract $response (Yaf >= 3.0.2)
-路由结束之后触发
+     * @param Yaf_Request_Abstract $request 当前请求对象
+     * @param Yaf_Response_Abstract $response 当前响应对象
      * @return 
      */
-    public function routerShutdown($request, $response)
+    public function routerShutdown(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response)
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *分发循环开始之前被触发
      * @example 
-     * @param YafX_Request_Abstract $request (Yaf >= 3.0.2)
-分发循环开始之前被触发
-     * @param YafX_Response_Abstract $response (Yaf >= 3.0.2)
-分发循环开始之前被触发
+     * @param YafX_Request_Abstract $request 当前请求对象
+     * @param Yaf_Response_Abstract $response 当前响应对象
      * @return 
      */
-    public function dispatchLoopStartup($request, $response)
+    public function dispatchLoopStartup(YafX_Request_Abstract $request, Yaf_Response_Abstract $response)
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
-     *dispatchLoopShutdown
-     * @example 
-     * @param YafX_Request_Abstract $request (Yaf >= 3.0.2)
-dispatchLoopShutdown
-     * @param YafX_Response_Abstract $response (Yaf >= 3.0.2)
-dispatchLoopShutdown
-     * @return 
-     */
-    public function dispatchLoopShutdown($request, $response)
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
      *分发之前触发
      * @example 
-     * @param YafX_Request_Abstract $request (Yaf >= 3.0.2)
-分发之前触发
-     * @param YafX_Response_Abstract $response (Yaf >= 3.0.2)
-分发之前触发
+     * @param Yaf_Request_Abstract $request 当前请求对象
+     * @param Yaf_Response_Abstract $response 当前响应对象
      * @return 
      */
-    public function preDispatch($request, $response)
+    public function preDispatch(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response)
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *分发结束之后触发
      * @example 
-     * @param YafX_Request_Abstract $request (Yaf >= 3.0.2)
-分发结束之后触发
-     * @param YafX_Response_Abstract $response (Yaf >= 3.0.2)
-分发结束之后触发
+     * @param Yaf_Request_Abstract $request 当前请求对象
+     * @param Yaf_Response_Abstract $response 当前响应对象
      * @return 
      */
-    public function postDispatch($request, $response)
+    public function postDispatch(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response)
     {
+    
     }
 
     /**
      * 
-     *
+     *分发循环结束
      * @example 
-     * @param Yaf_Request_Abstract $request 
-     * @param Yaf_Response_Abstract $response 
+     * @param Yaf_Request_Abstract $request 当前请求对象
+     * @param Yaf_Response_Abstract $response 当前响应对象
      * @return 
      */
-    public function preResponse($request, $response)
+    public function dispatchLoopShutdown(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response)
     {
+    
     }
 
 }

@@ -11,7 +11,7 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 ## 目前支持的框架或扩展
 
-1、Yaf
+1、Yaf(3.0.7)
 
 2、Yac
 

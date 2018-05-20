@@ -1,278 +1,274 @@
 <?php
 /**
-* Yaf自动补全类(基于最新的3.0.4版本)
+* Yaf自动补全类(基于最新的3.0.7版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2018/05/20
 */
 
 /**
-*(Yaf >= 3.0.2)
-*Class yaf_Application
+*为应用提供引导和依赖性检查的引导类
 */
 final class Yaf_Application
 {
     /**
-     * @var unknown $config 
-     * (Yaf >= 3.0.2)
+     * @var Yaf_Config_Abstract $config 
      * 全局配置实例
      * @access protected
+     */
     protected $config;
 
     /**
-     * @var unknown $dispatcher 
-     * (Yaf >= 3.0.2)
+     * @var Yaf_Dispatcher $dispatcher 
      * yaf_Dispatcher实例,即分发器.
      * @access protected
+     */
     protected $dispatcher;
 
     /**
-     * @var unknown $_app 
-     * (Yaf >= 3.0.2)
+     * @var Yaf_Application $_app 
      * 过特殊的方式实现了单例模式, 此属性保存当前实例.
      * @access protected
+     */
     protected static  $_app;
 
     /**
-     * @var unknown $_modules 
-     * (Yaf >= 3.0.2)
+     * @var array $_modules 
      * 存在的模块名, 从配置文件中ap.modules读取.
      * @access protected
-    protected $_modules;
+     */
+    protected $_modules    =    array();
 
     /**
-     * @var unknown $_running 
-     * (Yaf >= 3.0.2)
+     * @var bool $_running 
      * 指明当前的yaf_Application是否已经运行.
      * @access protected
-    protected $_running    =    '';
+     */
+    protected $_running    =    false;
 
     /**
-     * @var unknown $_environ 
-     * (Yaf >= 3.0.2)
-     * 前的环境名, 也就是yaf_Application在读取配置的时候, 获取的配置节名字.
+     * @var string $_environ 
+     * 当前的环境名, 也就是yaf_Application在读取配置的时候, 获取的配置节名字.
      * 注：此值只能在Yaf扩展级的配置文件.ini里面进行修改，默认为product.
      * @access protected
-    protected $_environ    =    'dev';
+     */
+    protected $_environ    =    'product';
 
     /**
-     * @var unknown $_err_no 
-     * (Yaf >= 3.0.2)
+     * @var int $_err_no 
      * 最近一次发生的错误代码.
      * @access protected
+     */
     protected $_err_no    =    0;
 
     /**
-     * @var unknown $_err_msg 
-     * (Yaf >= 3.0.2)
+     * @var string $_err_msg 
      * 最近一次产生的错误信息.
      * @access protected
+     */
     protected $_err_msg    =    '';
 
     /**
      * 
-     *(Yaf >= 3.0.2)
-     *构造函数，根据配置初始化yaf_Application
+     *获取当前的yaf_Application实例.
      * @example 
-     * @param mixed $config (Yaf >= 3.0.2)
-构造函数，根据配置初始化yaf_Application
-     * @param  mixed $environ 
-     * @return 
+     * @return Yaf_Application|null
      */
-    public function __construct($config, $environ)
+    public static  function app(): ?Yaf_Application
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
+     *调用bootstrap
+     * @example 
+     * @param Yaf_Bootstrap_Abstract $bootstrap 引导类
+     * @return void
+     */
+    public function bootstrap(Yaf_Bootstrap_Abstract $bootstrap)
+    {
+    
+    }
+
+    /**
+     * 
      *运行yaf_Application
      * @example 
-     * @return 
+     * @return void
      */
     public function run()
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
-     *运行回调函数，一般在命令行模式下运行.
-     * @example 
-     * @param callable $entry (Yaf >= 3.0.2)
-运行回调函数，一般在命令行模式下运行.
-     * @param  mixed $... 
-     * @return 
-     */
-    public function execute(Callable $entry, $...)
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *获取当前的yaf_Application实例.
-     * @example 
-     * @return 
-     */
-    public static  function app()
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *获取当前yaf_Application的环境名,它被定义在yaf.environ，默认值为"product".
-     * @example 
-     * @return 
-     */
-    public function environ()
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *调用bootstrap
-     * @example 
-     * @param  mixed $bootstrap 
-     * @return 
-     */
-    public function bootstrap($bootstrap)
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *获取全局配置实例,即$this->config
-     * @example 
-     * @return 
-     */
-    public function getConfig()
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *获取在配置文件中声明的模块，如果没有声明，它的默认值将是"Index".
-     * @example 
-     * @return 
-     */
-    public function getModules()
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *获取当前请求的分发器yaf_Dispatcher的实例
-     * @example 
-     * @return 
-     */
-    public function getDispatcher()
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *设置应用的主目录
-     * @example 
-     * @param String $directory (Yaf >= 3.0.2)
-设置应用的主目录
-     * @return 
-     */
-    public function setAppDirectory($directory)
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *获取当前应用的主目录
-     * @example 
-     * @return 
-     */
-    public function getAppDirectory()
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *获取最近产生的错误代码.
-     * @example 
-     * @return 
-     */
-    public function getLastErrorNo()
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
-     *获取最近产生的错误信息.
-     * @example 
-     * @return 
-     */
-    public function getLastErrorMsg()
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
      *清除最近的错误信息，将设置$this->_err_no=0,$this->_err_msg=''.
      * @example 
-     * @return 
+     * @return Yaf_Application
      */
-    public function clearLastError()
+    public function clearLastError(): Yaf_Application
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
-     *重置__destruct魔术方法.
+     *构造函数，根据配置初始化yaf_Application
      * @example 
+     * @param mixed $config 关联数组的配置, 或者一个指向ini格式的配置文件的路径的字符串.
+     * @param string $section 加载的配置节点，使用该节点的配置初始化应用.
      * @return 
      */
-    public function __destruct()
+    public function __construct($config, string $section = 'product')
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
+     *运行回调函数，一般在命令行模式下运行.
+     * @example 
+     * @param callable $entry 回调函数
+     * @param mixed $parameter 零个或者多个回调函数参数
+     * @return void
+     */
+    public function execute(Callable $entry, $parameter)
+    {
+    
+    }
+
+    /**
+     * 
+     *获取当前yaf_Application的环境名,它被定义在yaf.environ，默认值为"product".
+     * @example 
+     * @return string
+     */
+    public function environ(): string
+    {
+    
+    }
+
+    /**
+     * 
+     *获取当前应用的主目录
+     * @example 
+     * @return string
+     */
+    public function getAppDirectory(): string
+    {
+    
+    }
+
+    /**
+     * 
+     *获取全局配置实例,即$this->config
+     * @example 
+     * @return Yaf_Config_Abstract
+     */
+    public function getConfig(): Yaf_Config_Abstract
+    {
+    
+    }
+
+    /**
+     * 
+     *获取当前请求的分发器yaf_Dispatcher的实例
+     * @example 
+     * @return Yaf_Dispatcher
+     */
+    public function getDispatcher(): Yaf_Dispatcher
+    {
+    
+    }
+
+    /**
+     * 
+     *获取最近产生的错误信息.
+     * @example 
+     * @return string
+     */
+    public function getLastErrorMsg(): string
+    {
+    
+    }
+
+    /**
+     * 
+     *获取最近产生的错误代码.
+     * @example 
+     * @return int
+     */
+    public function getLastErrorNo(): int
+    {
+    
+    }
+
+    /**
+     * 
+     *获取在配置文件中声明的模块，如果没有声明，它的默认值将是"Index".
+     * @example 
+     * @return array
+     */
+    public function getModules(): array
+    {
+    
+    }
+
+    /**
+     * 
+     *设置应用的主目录
+     * @example 
+     * @param String $directory 目录路径.
+     * @return Yaf_Application
+     */
+    public function setAppDirectory(String $directory): Yaf_Application
+    {
+    
+    }
+
+    /**
+     * 
      *重置__clone魔术方法，防止克隆yaf_Application（因为是单例模式）.
      * @example 
      * @return 
      */
     private function __clone()
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
+     *重置__destruct魔术方法.
+     * @example 
+     * @return 
+     */
+    public function __destruct()
+    {
+    
+    }
+
+    /**
+     * 
      *重置__sleep魔术方法.
      * @example 
      * @return 
      */
     private function __sleep()
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *重置__wakeup魔术方法.
      * @example 
      * @return 
      */
     private function __wakeup()
     {
+    
     }
 
 }

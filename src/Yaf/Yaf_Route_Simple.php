@@ -1,74 +1,73 @@
 <?php
 /**
-* Yaf自动补全类(基于最新的3.0.4版本)
+* Yaf自动补全类(基于最新的3.0.7版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2018/05/20
 */
 
 /**
-*(Yaf >= 3.0.2)
-*Class yaf_Route_Simple
+*简单路由
 */
-final class Yaf_Route_Simple
+final class Yaf_Route_Simple implements Yaf_Route_Interface
 {
     /**
-     * @var unknown $controller 
-     * (Yaf >= 3.0.2)
+     * @var string $controller 
      * 控制器名
      * @access protected
+     */
     protected $controller;
 
     /**
-     * @var unknown $module 
-     * (Yaf >= 3.0.2)
+     * @var string $module 
      * 模块名
      * @access protected
+     */
     protected $module;
 
     /**
-     * @var unknown $action 
-     * (Yaf >= 3.0.2)
+     * @var string $action 
      * 动作名
      * @access protected
+     */
     protected $action;
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *构造方法
      * @example 
-     * @param  mixed $module_name 
-     * @param  mixed $controller_name 
-     * @param  mixed $action_name 
+     * @param string $module 模块名
+     * @param string $controller 控制器名
+     * @param string $action 动作名
      * @return 
      */
-    public function __construct($module_name, $controller_name, $action_name)
+    public function __construct(string $module, string $controller, string $action)
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *路由请求
      * @example 
-     * @param  mixed $request 
-     * @return 
+     * @param Yaf_Request_Abstract $request 请求对象
+     * @return bool
      */
-    public function route($request)
+    public function route(Yaf_Request_Abstract $request): bool
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 2.3.2)
-     *组合uri，路由解析的逆操作
+     *组装请求
      * @example 
-     * @param  mixed $info 
-     * @param  mixed $query 
-     * @return 
+     * @param array $info 路径信息
+     * @param array $query 查询字符串
+     * @return string
      */
-    public function assemble($info, $query)
+    public function assemble(Array $info, Array $query): string
     {
+    
     }
 
 }

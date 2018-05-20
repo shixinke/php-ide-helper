@@ -1,193 +1,193 @@
 <?php
 /**
-* Yaf自动补全类(基于最新的3.0.4版本)
+* Yaf自动补全类(基于最新的3.0.7版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2018/05/20
 */
 
 /**
-*(Yaf >= 3.0.2)
-*Class yaf_Controller_Abstract
+*控制器抽象类
 */
 abstract class Yaf_Controller_Abstract
 {
     /**
-     * @var unknown $actions 
-     * (Yaf >= 3.0.2)
+     * @var array $actions 
      * 动作名与动作类文件路径映射数组
      * @access public
-    public $actions;
+     */
+    public $actions    =    array();
 
     /**
-     * @var unknown $_module 
-     * (Yaf >= 3.0.2)
+     * @var string $_module 
      * 当前请求的模块名
      * @access protected
+     */
     protected $_module;
 
     /**
-     * @var unknown $_name 
-     * (Yaf >= 3.0.2)
+     * @var string $_name 
      * 当前请求的控制器名
      * @access protected
+     */
     protected $_name;
 
     /**
-     * @var unknown $_request 
-     * (Yaf >= 3.0.2)
-     * 当前请求对象，包括请求的所有相关信息
+     * @var Yaf_Request_Abstract $_request 
+     * 当前请求对象
      * @access protected
+     */
     protected $_request;
 
     /**
-     * @var unknown $_response 
-     * (Yaf >= 3.0.2)
-     * 当前响应对象，保存响应的所有相关信息
+     * @var Yaf_Response_Abstract $_response 
+     * 当前响应对象
      * @access protected
+     */
     protected $_response;
 
     /**
-     * @var unknown $_invoke_args 
-     * (Yaf >= 3.0.2)
-     * 储存调用参数
+     * @var array $_invoke_args 
+     * 调用参数列表
      * @access protected
-    protected $_invoke_args;
+     */
+    protected $_invoke_args    =    array();
 
     /**
-     * @var unknown $_view 
-     * (Yaf >= 3.0.2)
-     * 视图对象
+     * @var Yaf_View_Interface $_view 
+     * 当前视图对象
      * @access protected
+     */
     protected $_view;
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *渲染动作对应的模板，并返回结果
      * @example 
-     * @param  mixed $tpl 
-     * @param array $parameters 
-     * @return 
+     * @param string $action_name 模板名称
+     * @param array $var_array 模板变量数组
+     * @return Yaf_Controller_Abstract
      */
-    protected function render($tpl, Array $parameters)
+    protected function render(string $action_name, Array $var_array = []): Yaf_Controller_Abstract
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *渲染动作对应的模板，并直接输出结果
      * @example 
-     * @param  mixed $tpl 
-     * @param array $parameters 
-     * @return 
+     * @param string $action_name 模板名称
+     * @param array $var_array 模板变量数组
+     * @return Yaf_Controller_Abstract
      */
-    protected function display($tpl, Array $parameters)
+    protected function display(string $action_name, Array $var_array = []): Yaf_Controller_Abstract
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *获取请求对象
      * @example 
-     * @return 
+     * @return Yaf_Request_Abstract 
      */
-    public function getRequest()
+    public function getRequest(): Yaf_Request_Abstract 
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *获取响应对象
      * @example 
-     * @return 
+     * @return Yaf_Response_Abstract 
      */
-    public function getResponse()
+    public function getResponse(): Yaf_Response_Abstract 
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *获取当前模块名
      * @example 
-     * @return 
+     * @return string
      */
-    public function getModuleName()
+    public function getModuleName(): string
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
-     *返回视图对象
-     * @example 
-     * @return 
-     */
-    public function getView()
-    {
-    }
-
-    /**
-     * 
-     *(Yaf >= 3.0.2)
      *初始化视图对象
      * @example 
-     * @param array $options 
-     * @return 
+     * @return void
      */
-    public function initView(Array $options)
+    public function initView()
     {
+    
     }
 
     /**
      * 
-     *
+     *返回视图对象
      * @example 
-     * @param  mixed $view_directory 
-     * @return 
+     * @return Yaf_View_Interface
      */
-    public function setViewpath($view_directory)
+    public function getView(): Yaf_View_Interface
     {
+    
     }
 
     /**
      * 
-     *
+     *设置模板文件目录
      * @example 
-     * @return 
+     * @param string $path 模板目录
+     * @return void
      */
-    public function getViewpath()
+    public function setViewPath(string $path)
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
+     *获取模板文件目录
+     * @example 
+     * @return string
+     */
+    public function getViewPath(): string
+    {
+    
+    }
+
+    /**
+     * 
      *将当前的请求转交给另外的Action（对用户来说是透明的，相当于Web服务器的代理）.
      * @example 
-     * @param  mixed $module 
-     * @param  mixed $controller 
-     * @param  mixed $action 
-     * @param  mixed $parameters 
-     * @return 
+     * @param string $module 模块名
+     * @param string $controller 控制器名称
+     * @param string $action 操作名称
+     * @param array $parameters 参数列表数组
+     * @return void
      */
-    public function forward($module, $controller, $action, $parameters)
+    public function forward(string $module, string $controller, string $action, Array $parameters = [])
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *将当前请求重定向到指定的URL（内部实现是通过发送Location报头实现，如：header("Location:http//www.phpboy.net/"））
      * @example 
-     * @param  mixed $url 
+     * @param string $url 跳转的地址
      * @return 
      */
-    public function redirect($url)
+    public function redirect(string $url)
     {
+    
     }
 
     /**
@@ -199,40 +199,41 @@ abstract class Yaf_Controller_Abstract
      */
     public function getInvokeArgs()
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
      *获取指定调用参数名的值
      * @example 
-     * @param  mixed $name 
+     * @param string $name 参数名称
      * @return 
      */
-    public function getInvokeArg($name)
+    public function getInvokeArg(string $name)
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
-     *屏蔽构造方法
+     *构造方法
      * @example 
      * @return 
      */
     public final  function __construct()
     {
+    
     }
 
     /**
      * 
-     *(Yaf >= 3.0.2)
-     *屏蔽克隆的魔术方法
+     *克隆的魔术方法
      * @example 
      * @return 
      */
-    private final  function __clone()
+    public final  function __clone()
     {
+    
     }
 
 }

@@ -1,61 +1,61 @@
 <?php
 /**
-* Yaf自动补全类(基于最新的3.0.4版本)
+* Yaf自动补全类(基于最新的3.0.7版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2016/12/08
+* @modified 2018/05/20
 */
 
 /**
-*
+*视图接口
 */
 interface Yaf_View_Interface
 {
     /**
      * 
-     *
+     *传递变量到模板
      * @example 
-     * @param  mixed $name 
-     * @param  mixed $value 
+     * @param string $name 变量名
+     * @param string $value 变量值
      * @return 
      */
-    public abstract  function assign($name, $value);
+    public function assign(string $name, string $value);
 
     /**
      * 
-     *
+     *渲染模板并直接输出
      * @example 
-     * @param  mixed $tpl 
-     * @param  mixed $tpl_vars 
+     * @param string $tpl 模板文件名
+     * @param array $var_array 模板变量数组
      * @return 
      */
-    public abstract  function display($tpl, $tpl_vars);
+    public function display(string $tpl, Array $var_array = []);
 
     /**
      * 
-     *
+     *渲染模板并返回结果
      * @example 
-     * @param  mixed $tpl 
-     * @param  mixed $tpl_vars 
+     * @param string $tpl 模板文件名
+     * @param array $var_array 模板变量数组
      * @return 
      */
-    public abstract  function render($tpl, $tpl_vars);
+    public function render(string $tpl, Array $var_array = []);
 
     /**
      * 
-     *
+     *设置模板文件目录
      * @example 
-     * @param  mixed $template_dir 
+     * @param string $tpl_dir 模板文件目录
      * @return 
      */
-    public abstract  function setScriptPath($template_dir);
+    public function setScriptPath(string $tpl_dir);
 
     /**
      * 
-     *
+     *获取模板目录文件
      * @example 
-     * @return 
+     * @return string
      */
-    public abstract  function getScriptPath();
+    public function getScriptPath(): string;
 
 }
 
