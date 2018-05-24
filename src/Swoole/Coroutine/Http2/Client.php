@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -51,14 +51,14 @@ class Client
      * 配置选项
      * @access public
      */
-    public $setting;
+    public $setting    =    array();
 
     /**
-     * @var unknown $connected 
-     * 
+     * @var bool $connected 
+     * 是否已连接
      * @access public
      */
-    public $connected    =    '';
+    public $connected    =    false;
 
     /**
      * @var string $host 
@@ -83,8 +83,9 @@ class Client
      * @param bool $ssl 是否开启TLS/SSL隧道加密，https网站必须设置为true
      * @return 
      */
-    public function __construct($host, $port, $ssl)
+    public function __construct(string $host, int $port, bool $ssl)
     {
+    
     }
 
     /**
@@ -95,6 +96,7 @@ class Client
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -106,6 +108,7 @@ class Client
      */
     public function set(Array $settings)
     {
+    
     }
 
     /**
@@ -114,8 +117,9 @@ class Client
      * @example 
      * @return bool
      */
-    public function connect()
+    public function connect(): bool
     {
+    
     }
 
     /**
@@ -125,8 +129,9 @@ class Client
      * @param Object $request 接受Swoole\Coroutine\Http2\Request类的对象作为参数
      * @return int | false
      */
-    public function send($request)
+    public function send(Object $request): ?int
     {
+    
     }
 
     /**
@@ -137,6 +142,7 @@ class Client
      */
     public function recv()
     {
+        return new object();
     }
 
     /**
@@ -148,8 +154,9 @@ class Client
      * @param bool $end_stream 是否关闭流
      * @return 
      */
-    public function write($stream_id, $data, $end_stream)
+    public function write(int $stream_id, $data, bool $end_stream)
     {
+    
     }
 
     /**
@@ -160,6 +167,7 @@ class Client
      */
     public function close()
     {
+    
     }
 
 }

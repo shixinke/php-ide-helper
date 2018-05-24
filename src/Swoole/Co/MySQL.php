@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -82,6 +82,7 @@ class MySQL
      */
     public function __construct()
     {
+    
     }
 
     /**
@@ -92,6 +93,7 @@ class MySQL
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -109,6 +111,7 @@ class MySQL
      */
     public function connect(Array $server_config)
     {
+    
     }
 
     /**
@@ -119,8 +122,9 @@ class MySQL
      * @param double $timeout 超时时间，超时的话会断开MySQL连接，0表示不设置超时时间
      * @return array|boolean
      */
-    public function query($sql, $timeout)
+    public function query(string $sql, double $timeout): ?array
     {
+    
     }
 
     /**
@@ -131,6 +135,7 @@ class MySQL
      */
     public function recv()
     {
+    
     }
 
     /**
@@ -141,6 +146,7 @@ class MySQL
      */
     public function begin()
     {
+    
     }
 
     /**
@@ -151,6 +157,7 @@ class MySQL
      */
     public function commit()
     {
+    
     }
 
     /**
@@ -161,6 +168,7 @@ class MySQL
      */
     public function rollback()
     {
+    
     }
 
     /**
@@ -170,8 +178,9 @@ class MySQL
      * @param boolean $defer 为true时，表明该Client要延迟收包，为false时，表明该Client非延迟收包，默认值为true
      * @return boolean
      */
-    public function setDefer($defer)
+    public function setDefer(boolean $defer): boolean
     {
+    
     }
 
     /**
@@ -180,8 +189,9 @@ class MySQL
      * @example 
      * @return boolean
      */
-    public function getDefer()
+    public function getDefer(): boolean
     {
+    
     }
 
     /**
@@ -192,6 +202,7 @@ class MySQL
      */
     public function close()
     {
+    
     }
 
     /**
@@ -202,6 +213,7 @@ class MySQL
      */
     public function __sleep()
     {
+    
     }
 
     /**
@@ -212,6 +224,7 @@ class MySQL
      */
     public function __wakeup()
     {
+    
     }
 
 }

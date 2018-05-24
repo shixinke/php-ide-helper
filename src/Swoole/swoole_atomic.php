@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -17,8 +17,9 @@ class swoole_atomic
      * @param int $value 初始值
      * @return 
      */
-    public function __construct($value)
+    public function __construct(int $value)
     {
+    
     }
 
     /**
@@ -28,8 +29,9 @@ class swoole_atomic
      * @param int $add_value 要增加的数值，默认为1,必须为正整数
      * @return 
      */
-    public function add($add_value)
+    public function add(int $add_value)
     {
+    
     }
 
     /**
@@ -39,8 +41,9 @@ class swoole_atomic
      * @param int $sub_value 要减少的数值，默认为1
      * @return 
      */
-    public function sub($sub_value)
+    public function sub(int $sub_value)
     {
+    
     }
 
     /**
@@ -51,6 +54,7 @@ class swoole_atomic
      */
     public function get()
     {
+    
     }
 
     /**
@@ -60,8 +64,9 @@ class swoole_atomic
      * @param int $value 指定要设置的目标数值
      * @return 
      */
-    public function set($value)
+    public function set(int $value)
     {
+    
     }
 
     /**
@@ -71,8 +76,9 @@ class swoole_atomic
      * @param float $timeout 指定超时时间，默认为-1，表示永不超时，会持续等待直到有其他进程唤醒;超时返回false，错误码为EAGAIN，可使用swoole_errno函数获取;成功返回true，表示有其他进程通过wakeup成功唤醒了当前的锁;使用wait/wakeup特性时，原子计数的值只能为0或1，否则会导致无法正常使用;当然原子计数的值为1时，表示不需要进入等待状态，资源当前就是可用。wait函数会立即返回true
      * @return 
      */
-    public function wait($timeout)
+    public function wait(float $timeout)
     {
+    
     }
 
     /**
@@ -82,8 +88,9 @@ class swoole_atomic
      * @param int $count 计数(当前原子计数如果为0时，表示没有进程正在wait，wakeup会立即返回true;当前原子计数如果为1时，表示当前有进程正在wait，wakeup会唤醒等待的进程，并返回true;如果同时有多个进程处于wait状态，$n参数可以控制唤醒的进程数量;被唤醒的进程返回后，会将原子计数设置为0，这时可以再次调用wakeup唤醒其他正在wait的进程)
      * @return 
      */
-    public function wakeup($count)
+    public function wakeup(int $count)
     {
+    
     }
 
     /**
@@ -94,8 +101,9 @@ class swoole_atomic
      * @param int $new_value 用于设置的新值
      * @return 
      */
-    public function cmpset($cmp_value, $new_value)
+    public function cmpset(int $cmp_value, int $new_value)
     {
+    
     }
 
     /**
@@ -106,6 +114,7 @@ class swoole_atomic
      */
     public function __sleep()
     {
+    
     }
 
     /**
@@ -116,6 +125,7 @@ class swoole_atomic
      */
     public function __wakeup()
     {
+    
     }
 
 }

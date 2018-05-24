@@ -1,15 +1,15 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
 *内存表行
 */
 namespace Swoole\Table;
-class Row
+class Row implements \ArrayAccess
 {
     /**
      * @var string $key 
@@ -32,8 +32,9 @@ class Row
      * @param int $offset 偏移量
      * @return 
      */
-    public function offsetExists($offset)
+    public function offsetExists(int $offset)
     {
+    
     }
 
     /**
@@ -43,8 +44,9 @@ class Row
      * @param int $offset 偏移量
      * @return 
      */
-    public function offsetGet($offset)
+    public function offsetGet(int $offset)
     {
+    
     }
 
     /**
@@ -55,8 +57,9 @@ class Row
      * @param mixed $value 需要设置的值
      * @return 
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet(int $offset, $value)
     {
+    
     }
 
     /**
@@ -66,8 +69,9 @@ class Row
      * @param int $offset 偏移量
      * @return 
      */
-    public function offsetUnset($offset)
+    public function offsetUnset(int $offset)
     {
+    
     }
 
     /**
@@ -78,6 +82,7 @@ class Row
      */
     public function __destruct()
     {
+    
     }
 
 }

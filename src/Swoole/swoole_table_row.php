@@ -1,14 +1,14 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
 *内存表行
 */
-class swoole_table_row
+class swoole_table_row implements ArrayAccess
 {
     /**
      * @var string $key 
@@ -31,8 +31,9 @@ class swoole_table_row
      * @param int $offset 偏移量
      * @return 
      */
-    public function offsetExists($offset)
+    public function offsetExists(int $offset)
     {
+    
     }
 
     /**
@@ -42,8 +43,9 @@ class swoole_table_row
      * @param int $offset 偏移量
      * @return 
      */
-    public function offsetGet($offset)
+    public function offsetGet(int $offset)
     {
+    
     }
 
     /**
@@ -54,8 +56,9 @@ class swoole_table_row
      * @param mixed $value 需要设置的值
      * @return 
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet(int $offset, $value)
     {
+    
     }
 
     /**
@@ -65,8 +68,9 @@ class swoole_table_row
      * @param int $offset 偏移量
      * @return 
      */
-    public function offsetUnset($offset)
+    public function offsetUnset(int $offset)
     {
+    
     }
 
     /**
@@ -77,6 +81,7 @@ class swoole_table_row
      */
     public function __destruct()
     {
+    
     }
 
 }

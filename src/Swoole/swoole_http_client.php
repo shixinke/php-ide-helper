@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -64,7 +64,7 @@ class swoole_http_client
      * 请求头
      * @access public
      */
-    public $requestHeaders;
+    public $requestHeaders    =    array();
 
     /**
      * @var string $requestBody 
@@ -78,14 +78,14 @@ class swoole_http_client
      * 上传的文件
      * @access public
      */
-    public $uploadFiles;
+    public $uploadFiles    =    array();
 
     /**
      * @var array $set_cookie_headers 
      * 设置请求头中的cookie
      * @access public
      */
-    public $set_cookie_headers;
+    public $set_cookie_headers    =    array();
 
     /**
      * @var string $downloadFile 
@@ -99,14 +99,14 @@ class swoole_http_client
      * 请求响应头
      * @access public
      */
-    public $headers;
+    public $headers    =    array();
 
     /**
      * @var array $cookies 
      * 请求响应cookie
      * @access public
      */
-    public $cookies;
+    public $cookies    =    array();
 
     /**
      * @var string $body 
@@ -152,8 +152,9 @@ class swoole_http_client
      * @param boolean $ssl 是否开启TLS/SSL隧道加密，https网站必须设置为true
      * @return 
      */
-    public function __construct($host, $port, $ssl)
+    public function __construct(string $host, int $port, boolean $ssl)
     {
+    
     }
 
     /**
@@ -164,6 +165,7 @@ class swoole_http_client
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -175,6 +177,7 @@ class swoole_http_client
      */
     public function set(Array $settings)
     {
+    
     }
 
     /**
@@ -184,8 +187,9 @@ class swoole_http_client
      * @param string $method 请求方式
      * @return 
      */
-    public function setMethod($method)
+    public function setMethod(string $method)
     {
+    
     }
 
     /**
@@ -197,6 +201,7 @@ class swoole_http_client
      */
     public function setHeaders(Array $headers)
     {
+    
     }
 
     /**
@@ -208,6 +213,7 @@ class swoole_http_client
      */
     public function setCookies(Array $cookies)
     {
+    
     }
 
     /**
@@ -217,8 +223,9 @@ class swoole_http_client
      * @param string $data 请求体内容
      * @return 
      */
-    public function setData($data)
+    public function setData(string $data)
     {
+    
     }
 
     /**
@@ -233,8 +240,9 @@ class swoole_http_client
      * @param int $length 发送数据的尺寸，默认为整个文件的尺寸
      * @return 
      */
-    public function addFile($path, $name, $type, $filename, $offset, $length)
+    public function addFile(string $path, string $name, string $type, string $filename, int $offset, int $length)
     {
+    
     }
 
     /**
@@ -245,8 +253,9 @@ class swoole_http_client
      * @param callable $callback 回调函数
      * @return 
      */
-    public function execute($path, Callable $callback)
+    public function execute(string $path, Callable $callback)
     {
+    
     }
 
     /**
@@ -258,8 +267,9 @@ class swoole_http_client
      * @param boolean $finish 发送成功后是否结束
      * @return 
      */
-    public function push($data, $opcode, $finish)
+    public function push(string $data, int $opcode, boolean $finish)
     {
+    
     }
 
     /**
@@ -270,8 +280,9 @@ class swoole_http_client
      * @param callable $callback 请求成功后的回调函数
      * @return 
      */
-    public function get($path, Callable $callback)
+    public function get(string $path, Callable $callback)
     {
+    
     }
 
     /**
@@ -283,8 +294,9 @@ class swoole_http_client
      * @param callable $callback 请求成功后的回调
      * @return 
      */
-    public function post($path, $data, Callable $callback)
+    public function post(string $path, $data, Callable $callback)
     {
+    
     }
 
     /**
@@ -295,8 +307,9 @@ class swoole_http_client
      * @param callable $callback 成功或失败后回调函数
      * @return 
      */
-    public function upgrade($path, Callable $callback)
+    public function upgrade(string $path, Callable $callback)
     {
+    
     }
 
     /**
@@ -309,8 +322,9 @@ class swoole_http_client
      * @param int $offset 为0时若文件已存在，底层会自动清空此文件
      * @return 
      */
-    public function download($path, $file, Callable $callback, $offset)
+    public function download(string $path, string $file, Callable $callback, int $offset)
     {
+    
     }
 
     /**
@@ -319,8 +333,9 @@ class swoole_http_client
      * @example 
      * @return boolean
      */
-    public function isConnected()
+    public function isConnected(): boolean
     {
+    
     }
 
     /**
@@ -331,6 +346,7 @@ class swoole_http_client
      */
     public function close()
     {
+    
     }
 
     /**
@@ -341,8 +357,9 @@ class swoole_http_client
      * @param callable $callback 事件对应的回调函数
      * @return 
      */
-    public function on($event_name, Callable $callback)
+    public function on(string $event_name, Callable $callback)
     {
+    
     }
 
 }

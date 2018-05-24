@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -20,8 +20,9 @@ class swoole_event
      * @param int $events 事件类型的掩码，可选择关闭/开启可读可写事件，如SWOOLE_EVENT_READ，SWOOLE_EVENT_WRITE，或者SWOOLE_EVENT_READ | SWOOLE_EVENT_WRITE
      * @return 
      */
-    public static  function add($fd, Callable $read_callback, Callable $write_callback, $events)
+    public static  function add(int $fd, Callable $read_callback, Callable $write_callback, int $events)
     {
+    
     }
 
     /**
@@ -31,8 +32,9 @@ class swoole_event
      * @param int $fd 连接句柄
      * @return 
      */
-    public static  function del($fd)
+    public static  function del(int $fd)
     {
+    
     }
 
     /**
@@ -45,8 +47,9 @@ class swoole_event
      * @param int $events 可关闭/开启，可写（SW_EVENT_READ）和可读（SW_EVENT_WRITE）事件的监听
      * @return 
      */
-    public static  function set($fd, Callable $read_callback, Callable $write_callback, $events)
+    public static  function set(int $fd, Callable $read_callback, Callable $write_callback, int $events)
     {
+    
     }
 
     /**
@@ -57,6 +60,7 @@ class swoole_event
      */
     public static  function exit()
     {
+    
     }
 
     /**
@@ -67,8 +71,9 @@ class swoole_event
      * @param string $data 写入的数据
      * @return 
      */
-    public static  function write($fd, $data)
+    public static  function write(int $fd, string $data)
     {
+    
     }
 
     /**
@@ -79,6 +84,7 @@ class swoole_event
      */
     public static  function wait()
     {
+    
     }
 
     /**
@@ -90,6 +96,7 @@ class swoole_event
      */
     public static  function defer(Callable $callback)
     {
+    
     }
 
     /**
@@ -101,6 +108,7 @@ class swoole_event
      */
     public static  function cycle(Callable $callback)
     {
+    
     }
 
 }

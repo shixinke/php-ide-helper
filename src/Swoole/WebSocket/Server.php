@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -170,7 +170,7 @@ class Server extends \Swoole\Http\Server
      * 当监听多端口时的端口列表
      * @access public
      */
-    public $ports;
+    public $ports    =    array();
 
     /**
      * @var int $master_pid 
@@ -226,7 +226,7 @@ class Server extends \Swoole\Http\Server
      * 通过swoole_server:set()设置的参数会保存到setting属性上
      * @access public
      */
-    public $setting;
+    public $setting    =    array();
 
     /**
      * 
@@ -236,8 +236,9 @@ class Server extends \Swoole\Http\Server
      * @param callable $callback 事件对应的回调函数
      * @return 
      */
-    public function on($event_name, Callable $callback)
+    public function on(string $event_name, Callable $callback)
     {
+    
     }
 
     /**
@@ -250,8 +251,9 @@ class Server extends \Swoole\Http\Server
      * @param boolean $finish 帧是否完成
      * @return 
      */
-    public function push($fd, $data, $opcode, $finish)
+    public function push(int $fd, string $data, int $opcode, boolean $finish)
     {
+    
     }
 
     /**
@@ -261,8 +263,9 @@ class Server extends \Swoole\Http\Server
      * @param int $fd 连接句柄
      * @return 
      */
-    public function exist($fd)
+    public function exist(int $fd)
     {
+    
     }
 
     /**
@@ -275,8 +278,9 @@ class Server extends \Swoole\Http\Server
      * @param boolean $mask 是否设置掩码
      * @return 
      */
-    public static  function pack($data, $opcode, $finish, $mask)
+    public static  function pack(string $data, int $opcode, boolean $finish, boolean $mask)
     {
+    
     }
 
     /**
@@ -286,8 +290,9 @@ class Server extends \Swoole\Http\Server
      * @param string $data 解包的数据
      * @return 
      */
-    public static  function unpack($data)
+    public static  function unpack(string $data)
     {
+    
     }
 
     /**
@@ -298,6 +303,7 @@ class Server extends \Swoole\Http\Server
      */
     public function start()
     {
+    
     }
 
     /**
@@ -308,6 +314,7 @@ class Server extends \Swoole\Http\Server
      */
     public function __sleep()
     {
+    
     }
 
     /**
@@ -318,6 +325,7 @@ class Server extends \Swoole\Http\Server
      */
     public function __wakeup()
     {
+    
     }
 
     /**
@@ -330,8 +338,9 @@ class Server extends \Swoole\Http\Server
      * @param int $sock_type socket类型
      * @return 
      */
-    public function __construct($host, $port, $mode, $sock_type)
+    public function __construct(string $host, int $port, int $mode, int $sock_type)
     {
+    
     }
 
     /**
@@ -342,6 +351,7 @@ class Server extends \Swoole\Http\Server
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -353,8 +363,9 @@ class Server extends \Swoole\Http\Server
      * @param int $sock_type socket类型
      * @return 
      */
-    public function listen($host, $port, $sock_type)
+    public function listen(string $host, int $port, int $sock_type)
     {
+    
     }
 
     /**
@@ -366,8 +377,9 @@ class Server extends \Swoole\Http\Server
      * @param int $sock_type socket类型
      * @return 
      */
-    public function addlistener($host, $port, $sock_type)
+    public function addlistener(string $host, int $port, int $sock_type)
     {
+    
     }
 
     /**
@@ -379,6 +391,7 @@ class Server extends \Swoole\Http\Server
      */
     public function set(Array $settings)
     {
+    
     }
 
     /**
@@ -390,8 +403,9 @@ class Server extends \Swoole\Http\Server
      * @param int $reactor_id UDP服务器使用$fd保存客户端IP，$extraData保存server_fd和port
      * @return 
      */
-    public function send($fd, $send_data, $reactor_id)
+    public function send(int $fd, string $send_data, int $reactor_id)
     {
+    
     }
 
     /**
@@ -404,8 +418,9 @@ class Server extends \Swoole\Http\Server
      * @param int $server_socket 服务器可能会同时监听多个UDP端口，此参数可以指定使用哪个端口发送数据包
      * @return 
      */
-    public function sendto($ip, $port, $send_data, $server_socket)
+    public function sendto(string $ip, int $port, string $send_data, int $server_socket)
     {
+    
     }
 
     /**
@@ -416,8 +431,9 @@ class Server extends \Swoole\Http\Server
      * @param string $send_data 发送的数据
      * @return 
      */
-    public function sendwait($conn_fd, $send_data)
+    public function sendwait(int $conn_fd, string $send_data)
     {
+    
     }
 
     /**
@@ -428,8 +444,9 @@ class Server extends \Swoole\Http\Server
      * @param boolean $is_protected 设置的状态，true表示保护状态，false表示不保护
      * @return 
      */
-    public function protect($fd, $is_protected)
+    public function protect(int $fd, boolean $is_protected)
     {
+    
     }
 
     /**
@@ -442,8 +459,9 @@ class Server extends \Swoole\Http\Server
      * @param int $length 指定发送的长度，默认为文件尺寸
      * @return 
      */
-    public function sendfile($conn_fd, $filename, $offset, $length)
+    public function sendfile(int $conn_fd, string $filename, int $offset, int $length)
     {
+    
     }
 
     /**
@@ -454,8 +472,9 @@ class Server extends \Swoole\Http\Server
      * @param boolean $reset 设置为true会强制关闭连接，丢弃发送队列中的数据
      * @return 
      */
-    public function close($fd, $reset)
+    public function close(int $fd, boolean $reset)
     {
+    
     }
 
     /**
@@ -465,8 +484,9 @@ class Server extends \Swoole\Http\Server
      * @param int $fd 连接句柄
      * @return 
      */
-    public function confirm($fd)
+    public function confirm(int $fd)
     {
+    
     }
 
     /**
@@ -476,8 +496,9 @@ class Server extends \Swoole\Http\Server
      * @param int $fd 连接句柄
      * @return 
      */
-    public function pause($fd)
+    public function pause(int $fd)
     {
+    
     }
 
     /**
@@ -487,8 +508,9 @@ class Server extends \Swoole\Http\Server
      * @param int $fd 连接句柄
      * @return 
      */
-    public function resume($fd)
+    public function resume(int $fd)
     {
+    
     }
 
     /**
@@ -500,8 +522,9 @@ class Server extends \Swoole\Http\Server
      * @param callable $finish_callback 完成后的回调函数
      * @return 
      */
-    public function task($data, $worker_id, Callable $finish_callback)
+    public function task($data, int $worker_id, Callable $finish_callback)
     {
+    
     }
 
     /**
@@ -513,8 +536,9 @@ class Server extends \Swoole\Http\Server
      * @param int $worker_id 可以制定要给投递给哪个task进程，传入ID即可
      * @return 
      */
-    public function taskwait($data, $timeout, $worker_id)
+    public function taskwait($data, float $timeout, int $worker_id)
     {
+    
     }
 
     /**
@@ -525,8 +549,9 @@ class Server extends \Swoole\Http\Server
      * @param double $timeout 超时时间
      * @return 
      */
-    public function taskWaitMulti(Array $tasks, $timeout)
+    public function taskWaitMulti(Array $tasks, double $timeout)
     {
+    
     }
 
     /**
@@ -537,8 +562,9 @@ class Server extends \Swoole\Http\Server
      * @param double $timeout 超时时间
      * @return array
      */
-    public function taskCo(Array $tasks, $timeout)
+    public function taskCo(Array $tasks, double $timeout): array
     {
+    
     }
 
     /**
@@ -548,8 +574,9 @@ class Server extends \Swoole\Http\Server
      * @param string $data 要传递的数据
      * @return 
      */
-    public function finish($data)
+    public function finish(string $data)
     {
+    
     }
 
     /**
@@ -558,8 +585,9 @@ class Server extends \Swoole\Http\Server
      * @example 
      * @return boolean
      */
-    public function reload()
+    public function reload(): boolean
     {
+    
     }
 
     /**
@@ -570,6 +598,7 @@ class Server extends \Swoole\Http\Server
      */
     public function shutdown()
     {
+    
     }
 
     /**
@@ -579,8 +608,9 @@ class Server extends \Swoole\Http\Server
      * @param int $worker_id 进程ID
      * @return 
      */
-    public function stop($worker_id)
+    public function stop(int $worker_id)
     {
+    
     }
 
     /**
@@ -593,6 +623,7 @@ class Server extends \Swoole\Http\Server
      */
     public function getLastError()
     {
+    
     }
 
     /**
@@ -602,8 +633,9 @@ class Server extends \Swoole\Http\Server
      * @param boolean $reactor_id 是否关闭超时的连接，默认为true
      * @return 
      */
-    public function heartbeat($reactor_id)
+    public function heartbeat(boolean $reactor_id)
     {
+    
     }
 
     /**
@@ -614,8 +646,9 @@ class Server extends \Swoole\Http\Server
      * @param int $reactor_id reactor线程id
      * @return from_id
      */
-    public function connection_info($fd, $reactor_id)
+    public function connection_info($fd, int $reactor_id): from_id
     {
+    
     }
 
     /**
@@ -626,8 +659,9 @@ class Server extends \Swoole\Http\Server
      * @param int $find_count 每页取多少条
      * @return 
      */
-    public function connection_list($start_fd, $find_count)
+    public function connection_list(int $start_fd, int $find_count)
     {
+    
     }
 
     /**
@@ -638,8 +672,9 @@ class Server extends \Swoole\Http\Server
      * @param int $reactor_id reactor线程id
      * @return 
      */
-    public function getClientInfo($fd, $reactor_id)
+    public function getClientInfo($fd, int $reactor_id)
     {
+    
     }
 
     /**
@@ -650,8 +685,9 @@ class Server extends \Swoole\Http\Server
      * @param int $find_count 每页取多少条
      * @return 
      */
-    public function getClientList($start_fd, $find_count)
+    public function getClientList(int $start_fd, int $find_count)
     {
+    
     }
 
     /**
@@ -663,8 +699,9 @@ class Server extends \Swoole\Http\Server
      * @param array $param 给回调函数传入的参数
      * @return 
      */
-    public function after($ms, Callable $callback, Array $param)
+    public function after(int $ms, Callable $callback, Array $param)
     {
+    
     }
 
     /**
@@ -675,8 +712,9 @@ class Server extends \Swoole\Http\Server
      * @param callable $callback 回调函数
      * @return 
      */
-    public function tick($ms, Callable $callback)
+    public function tick(int $ms, Callable $callback)
     {
+    
     }
 
     /**
@@ -686,8 +724,9 @@ class Server extends \Swoole\Http\Server
      * @param int $timer_id 定时器ID
      * @return 
      */
-    public function clearTimer($timer_id)
+    public function clearTimer(int $timer_id)
     {
+    
     }
 
     /**
@@ -699,6 +738,7 @@ class Server extends \Swoole\Http\Server
      */
     public function defer(Callable $callback)
     {
+    
     }
 
     /**
@@ -709,8 +749,9 @@ class Server extends \Swoole\Http\Server
      * @param string $data 发送的消息
      * @return 
      */
-    public function sendMessage($dst_worker_id, $data)
+    public function sendMessage(int $dst_worker_id, string $data)
     {
+    
     }
 
     /**
@@ -720,8 +761,9 @@ class Server extends \Swoole\Http\Server
      * @param Swoole\Process $process 进程对象
      * @return 
      */
-    public function addProcess($process)
+    public function addProcess(Swoole\Process $process)
     {
+    
     }
 
     /**
@@ -733,6 +775,7 @@ class Server extends \Swoole\Http\Server
      */
     public function stats()
     {
+    
     }
 
     /**
@@ -743,8 +786,9 @@ class Server extends \Swoole\Http\Server
      * @param int $uid 用户定义的ID
      * @return 
      */
-    public function bind($fd, $uid)
+    public function bind(int $fd, int $uid)
     {
+    
     }
 
 }

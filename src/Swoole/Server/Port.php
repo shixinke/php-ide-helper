@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -114,14 +114,14 @@ class Port
      * 通过swoole_server:set()设置的参数会保存到setting属性上
      * @access public
      */
-    public $setting;
+    public $setting    =    array();
 
     /**
      * @var array $connections 
      * 所有连接对象
      * @access public
      */
-    public $connections;
+    public $connections    =    array();
 
     /**
      * 
@@ -131,6 +131,7 @@ class Port
      */
     private function __construct()
     {
+    
     }
 
     /**
@@ -141,6 +142,7 @@ class Port
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -152,6 +154,7 @@ class Port
      */
     public function set(Array $settings)
     {
+    
     }
 
     /**
@@ -162,8 +165,9 @@ class Port
      * @param callable $callback 事件对应的回调函数
      * @return 
      */
-    public function on($event_name, Callable $callback)
+    public function on(string $event_name, Callable $callback)
     {
+    
     }
 
     /**
@@ -174,6 +178,7 @@ class Port
      */
     public function __sleep()
     {
+    
     }
 
     /**
@@ -184,6 +189,7 @@ class Port
      */
     public function __wakeup()
     {
+    
     }
 
 }

@@ -6,9 +6,9 @@
 */
 
 /**
-*swoole mysql 协程 异常类
+*socket异常
 */
-namespace Swoole\Coroutine\MySQL;
+namespace Swoole\Coroutine\Socket;
 class Exception extends \Exception implements Throwable
 {
     /**

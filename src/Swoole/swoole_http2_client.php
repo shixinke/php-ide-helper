@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -92,7 +92,7 @@ class swoole_http2_client extends swoole_client
      * 配置选项
      * @access public
      */
-    public $setting;
+    public $setting    =    array();
 
     /**
      * @var callable $onConnect 
@@ -148,14 +148,14 @@ class swoole_http2_client extends swoole_client
      * 请求头
      * @access public
      */
-    public $requestHeaders;
+    public $requestHeaders    =    array();
 
     /**
      * @var array $cookies 
      * 请求响应的cookie
      * @access public
      */
-    public $cookies;
+    public $cookies    =    array();
 
     /**
      * 
@@ -166,8 +166,9 @@ class swoole_http2_client extends swoole_client
      * @param boolean $ssl 是否开启TLS/SSL隧道加密，https网站必须设置为true
      * @return 
      */
-    public function __construct($host, $port, $ssl)
+    public function __construct(string $host, int $port, boolean $ssl)
     {
+    
     }
 
     /**
@@ -178,6 +179,7 @@ class swoole_http2_client extends swoole_client
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -189,6 +191,7 @@ class swoole_http2_client extends swoole_client
      */
     public function setHeaders(Array $headers)
     {
+    
     }
 
     /**
@@ -200,6 +203,7 @@ class swoole_http2_client extends swoole_client
      */
     public function setCookies(Array $cookies)
     {
+    
     }
 
     /**
@@ -210,8 +214,9 @@ class swoole_http2_client extends swoole_client
      * @param callable $callback 请求成功后的回调函数
      * @return 
      */
-    public function get($path, Callable $callback)
+    public function get(string $path, Callable $callback)
     {
+    
     }
 
     /**
@@ -223,8 +228,9 @@ class swoole_http2_client extends swoole_client
      * @param callable $callback 请求成功后的回调
      * @return 
      */
-    public function post($path, $data, Callable $callback)
+    public function post(string $path, $data, Callable $callback)
     {
+    
     }
 
     /**
@@ -236,6 +242,7 @@ class swoole_http2_client extends swoole_client
      */
     public function onConnect(Callable $callback)
     {
+    
     }
 
     /**
@@ -247,6 +254,7 @@ class swoole_http2_client extends swoole_client
      */
     public function onError(Callable $callback)
     {
+    
     }
 
     /**
@@ -258,6 +266,7 @@ class swoole_http2_client extends swoole_client
      */
     public function onReceive(Callable $callback)
     {
+    
     }
 
     /**
@@ -269,6 +278,7 @@ class swoole_http2_client extends swoole_client
      */
     public function onClose(Callable $callback)
     {
+    
     }
 
     /**
@@ -280,6 +290,7 @@ class swoole_http2_client extends swoole_client
      */
     public function openStream(Callable $callback)
     {
+    
     }
 
     /**
@@ -291,8 +302,9 @@ class swoole_http2_client extends swoole_client
      * @param boolean $finish 发送成功后是否结束
      * @return 
      */
-    public function push($data, $opcode, $finish)
+    public function push(string $data, int $opcode, boolean $finish)
     {
+    
     }
 
     /**
@@ -304,6 +316,7 @@ class swoole_http2_client extends swoole_client
      */
     public function closeStream(Callable $callback)
     {
+    
     }
 
     /**
@@ -315,6 +328,7 @@ class swoole_http2_client extends swoole_client
      */
     public function set(Array $settings)
     {
+    
     }
 
     /**
@@ -327,8 +341,9 @@ class swoole_http2_client extends swoole_client
      * @param int $sock_flag 在UDP类型时表示是否启用udp_connect 设定此选项后将绑定$host与$port，此UDP将会丢弃非指定host/port的数据包;
      * @return 
      */
-    public function connect($host, $port, $timeout, $sock_flag)
+    public function connect(string $host, int $port, float $timeout, int $sock_flag)
     {
+    
     }
 
     /**
@@ -339,8 +354,9 @@ class swoole_http2_client extends swoole_client
      * @param boolean $flag 是否等待所有数据到达后返回
      * @return string
      */
-    public function recv($size, $flag)
+    public function recv(int $size, boolean $flag): string
     {
+    
     }
 
     /**
@@ -351,8 +367,9 @@ class swoole_http2_client extends swoole_client
      * @param boolean $flag 是否等待所有数据到达后返回
      * @return 
      */
-    public function send($data, $flag)
+    public function send(string $data, boolean $flag)
     {
+    
     }
 
     /**
@@ -362,8 +379,9 @@ class swoole_http2_client extends swoole_client
      * @param int $dst_socket 目标文件描述符
      * @return 
      */
-    public function pipe($dst_socket)
+    public function pipe(int $dst_socket)
     {
+    
     }
 
     /**
@@ -375,8 +393,9 @@ class swoole_http2_client extends swoole_client
      * @param int $length 发送数据的尺寸，默认为整个文件的尺寸
      * @return boolean
      */
-    public function sendfile($filename, $offset, $length)
+    public function sendfile(string $filename, int $offset, int $length): boolean
     {
+    
     }
 
     /**
@@ -388,8 +407,9 @@ class swoole_http2_client extends swoole_client
      * @param string $data 要发送的数据内容，不得超过64K
      * @return boolean
      */
-    public function sendto($ip, $port, $data)
+    public function sendto(string $ip, int $port, string $data): boolean
     {
+    
     }
 
     /**
@@ -400,6 +420,7 @@ class swoole_http2_client extends swoole_client
      */
     public function sleep()
     {
+    
     }
 
     /**
@@ -410,6 +431,7 @@ class swoole_http2_client extends swoole_client
      */
     public function wakeup()
     {
+    
     }
 
     /**
@@ -420,6 +442,7 @@ class swoole_http2_client extends swoole_client
      */
     public function pause()
     {
+    
     }
 
     /**
@@ -430,6 +453,7 @@ class swoole_http2_client extends swoole_client
      */
     public function resume()
     {
+    
     }
 
     /**
@@ -441,6 +465,7 @@ class swoole_http2_client extends swoole_client
      */
     public function enableSSL(Callable $callback)
     {
+    
     }
 
     /**
@@ -449,8 +474,9 @@ class swoole_http2_client extends swoole_client
      * @example 
      * @return string | bool
      */
-    public function getPeerCert()
+    public function getPeerCert(): ?string
     {
+    
     }
 
     /**
@@ -461,6 +487,7 @@ class swoole_http2_client extends swoole_client
      */
     public function verifyPeerCert()
     {
+    
     }
 
     /**
@@ -469,8 +496,9 @@ class swoole_http2_client extends swoole_client
      * @example 
      * @return boolean
      */
-    public function isConnected()
+    public function isConnected(): boolean
     {
+    
     }
 
     /**
@@ -481,6 +509,7 @@ class swoole_http2_client extends swoole_client
      */
     public function getsockname()
     {
+    
     }
 
     /**
@@ -491,6 +520,7 @@ class swoole_http2_client extends swoole_client
      */
     public function getpeername()
     {
+    
     }
 
     /**
@@ -500,8 +530,9 @@ class swoole_http2_client extends swoole_client
      * @param boolean $force 表示强制关闭连接，可用于关闭SWOOLE_KEEP长连接
      * @return 
      */
-    public function close($force)
+    public function close(boolean $force)
     {
+    
     }
 
     /**
@@ -512,8 +543,9 @@ class swoole_http2_client extends swoole_client
      * @param callable $callback 事件对应的回调函数
      * @return 
      */
-    public function on($event_name, Callable $callback)
+    public function on(string $event_name, Callable $callback)
     {
+    
     }
 
 }

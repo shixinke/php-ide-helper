@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -31,8 +31,9 @@ class swoole_buffer
      * @param int $size 指定了缓冲区内存的初始尺寸。当申请的内存容量不够时swoole底层会自动扩容
      * @return 
      */
-    public function __construct($size)
+    public function __construct(int $size)
     {
+    
     }
 
     /**
@@ -43,6 +44,7 @@ class swoole_buffer
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -53,6 +55,7 @@ class swoole_buffer
      */
     public function __toString()
     {
+    
     }
 
     /**
@@ -64,8 +67,9 @@ class swoole_buffer
      * @param boolean $seek 表示从缓冲区的头部将此数据移除
      * @return string
      */
-    public function substr($offset, $length, $seek)
+    public function substr(int $offset, int $length, boolean $seek): string
     {
+    
     }
 
     /**
@@ -76,8 +80,9 @@ class swoole_buffer
      * @param string $data 写入的数据
      * @return 
      */
-    public function write($offset, $data)
+    public function write(int $offset, string $data)
     {
+    
     }
 
     /**
@@ -88,8 +93,9 @@ class swoole_buffer
      * @param int $length 要读取的数据长度
      * @return 
      */
-    public function read($offset, $length)
+    public function read(int $offset, int $length)
     {
+    
     }
 
     /**
@@ -99,8 +105,9 @@ class swoole_buffer
      * @param string $data 要写入的数据，支持二进制内容
      * @return int
      */
-    public function append($data)
+    public function append(string $data): int
     {
+    
     }
 
     /**
@@ -110,8 +117,9 @@ class swoole_buffer
      * @param int $size 指定新的缓冲区尺寸，必须大于当前的尺寸
      * @return 
      */
-    public function expand($size)
+    public function expand(int $size)
     {
+    
     }
 
     /**
@@ -122,6 +130,7 @@ class swoole_buffer
      */
     public function recycle()
     {
+    
     }
 
     /**
@@ -132,6 +141,7 @@ class swoole_buffer
      */
     public function clear()
     {
+    
     }
 
     /**
@@ -142,6 +152,7 @@ class swoole_buffer
      */
     public function __sleep()
     {
+    
     }
 
     /**
@@ -152,6 +163,7 @@ class swoole_buffer
      */
     public function __wakeup()
     {
+    
     }
 
 }

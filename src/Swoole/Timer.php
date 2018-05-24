@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -20,8 +20,9 @@ class Timer
      * @param mixed $param 用户参数, 该参数会被传递到$callback_function中. 如果有多个参数可以使用数组形式. 也可以使用匿名函数的use语法传递参数到回调函数中
      * @return 
      */
-    public static  function tick($ms, Callable $callback, $param)
+    public static  function tick(int $ms, Callable $callback, $param)
     {
+    
     }
 
     /**
@@ -32,8 +33,9 @@ class Timer
      * @param callable $callback 回调函数
      * @return 
      */
-    public static  function after($ms, Callable $callback)
+    public static  function after(int $ms, Callable $callback)
     {
+    
     }
 
     /**
@@ -43,8 +45,9 @@ class Timer
      * @param int $timer_id 定时器ID
      * @return 
      */
-    public static  function exists($timer_id)
+    public static  function exists(int $timer_id)
     {
+    
     }
 
     /**
@@ -54,8 +57,9 @@ class Timer
      * @param int $timer_id 定时器ID
      * @return 
      */
-    public static  function clear($timer_id)
+    public static  function clear(int $timer_id)
     {
+    
     }
 
 }

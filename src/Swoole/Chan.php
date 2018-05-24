@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -12,8 +12,8 @@
 class Chan
 {
     /**
-     * @var unknown $capacity 
-     * 
+     * @var int $capacity 
+     * 通道容量
      * @access public
      */
     public $capacity    =    0;
@@ -25,8 +25,9 @@ class Chan
      * @param int $size 通道占用的内存的尺寸，单位为字节。最小值为64K，最大值没有限制
      * @return 
      */
-    public function __construct($size)
+    public function __construct(int $size)
     {
+    
     }
 
     /**
@@ -37,6 +38,7 @@ class Chan
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -46,8 +48,9 @@ class Chan
      * @param mixed $data 可以为任意PHP变量，当$data是非字符串类型时底层会自动进行串化($data的尺寸超过8K时会启用临时文件存储数据;$data必须为非空变量，如空字符串、空数组、0、null、false)
      * @return boolean
      */
-    public function push($data)
+    public function push($data): boolean
     {
+    
     }
 
     /**
@@ -58,6 +61,7 @@ class Chan
      */
     public function pop()
     {
+    
     }
 
     /**
@@ -66,8 +70,9 @@ class Chan
      * @example 
      * @return boolean
      */
-    public function isEmpty()
+    public function isEmpty(): boolean
     {
+    
     }
 
     /**
@@ -76,8 +81,9 @@ class Chan
      * @example 
      * @return boolean
      */
-    public function isFull()
+    public function isFull(): boolean
     {
+    
     }
 
     /**
@@ -88,6 +94,7 @@ class Chan
      */
     public function close()
     {
+    
     }
 
     /**
@@ -96,8 +103,9 @@ class Chan
      * @example 
      * @return array
      */
-    public function stats()
+    public function stats(): array
     {
+    
     }
 
     /**
@@ -106,8 +114,9 @@ class Chan
      * @example 
      * @return int
      */
-    public function length()
+    public function length(): int
     {
+    
     }
 
     /**
@@ -119,8 +128,9 @@ class Chan
      * @param int $timeout 超时时间
      * @return array
      */
-    public static  function select(Array $read_list, Array $write_list, $timeout)
+    public static  function select(Array $read_list, Array $write_list, int $timeout): array
     {
+    
     }
 
 }

@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -19,22 +19,22 @@ class Client
     public $errCode    =    0;
 
     /**
-     * @var unknown $sock 
-     * 
+     * @var int $sock 
+     * socket连接符
      * @access public
      */
     public $sock    =    0;
 
     /**
-     * @var unknown $reuse 
-     * 
+     * @var bool $reuse 
+     * 此连接是新创建的还是复用已存在的
      * @access public
      */
-    public $reuse    =    '';
+    public $reuse    =    false;
 
     /**
-     * @var unknown $reuseCount 
-     * 
+     * @var int $reuseCount 
+     * 连接复用次数
      * @access public
      */
     public $reuseCount    =    0;
@@ -47,18 +47,18 @@ class Client
     public $type    =    0;
 
     /**
-     * @var unknown $setting 
-     * 
+     * @var array $setting 
+     * 配置选项
      * @access public
      */
-    public $setting;
+    public $setting    =    array();
 
     /**
-     * @var unknown $connected 
-     * 
+     * @var bool $connected 
+     * 是否已连接
      * @access public
      */
-    public $connected    =    '';
+    public $connected    =    false;
 
     /**
      * @var int $statusCode 
@@ -93,7 +93,7 @@ class Client
      * 请求头
      * @access public
      */
-    public $requestHeaders;
+    public $requestHeaders    =    array();
 
     /**
      * @var string $requestBody 
@@ -107,21 +107,21 @@ class Client
      * 上传的文件
      * @access public
      */
-    public $uploadFiles;
+    public $uploadFiles    =    array();
 
     /**
      * @var array $headers 
      * 请求响应头
      * @access public
      */
-    public $headers;
+    public $headers    =    array();
 
     /**
      * @var array $cookies 
      * 请求响应cookie
      * @access public
      */
-    public $cookies;
+    public $cookies    =    array();
 
     /**
      * @var string $body 
@@ -138,6 +138,7 @@ class Client
      */
     public function __construct()
     {
+    
     }
 
     /**
@@ -148,6 +149,7 @@ class Client
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -158,6 +160,7 @@ class Client
      */
     public function set()
     {
+    
     }
 
     /**
@@ -168,6 +171,7 @@ class Client
      */
     public function setMethod()
     {
+    
     }
 
     /**
@@ -178,6 +182,7 @@ class Client
      */
     public function setHeaders()
     {
+    
     }
 
     /**
@@ -188,6 +193,7 @@ class Client
      */
     public function setCookies()
     {
+    
     }
 
     /**
@@ -198,6 +204,7 @@ class Client
      */
     public function setData()
     {
+    
     }
 
     /**
@@ -208,6 +215,7 @@ class Client
      */
     public function execute()
     {
+    
     }
 
     /**
@@ -218,6 +226,7 @@ class Client
      */
     public function get()
     {
+    
     }
 
     /**
@@ -228,6 +237,7 @@ class Client
      */
     public function post()
     {
+    
     }
 
     /**
@@ -238,6 +248,7 @@ class Client
      */
     public function addFile()
     {
+    
     }
 
     /**
@@ -246,8 +257,9 @@ class Client
      * @example 
      * @return boolean
      */
-    public function isConnected()
+    public function isConnected(): boolean
     {
+    
     }
 
     /**
@@ -258,6 +270,7 @@ class Client
      */
     public function close()
     {
+    
     }
 
     /**
@@ -266,8 +279,9 @@ class Client
      * @example 
      * @return boolean
      */
-    public function setDefer()
+    public function setDefer(): boolean
     {
+    
     }
 
     /**
@@ -276,8 +290,9 @@ class Client
      * @example 
      * @return boolean
      */
-    public function getDefer()
+    public function getDefer(): boolean
     {
+    
     }
 
     /**
@@ -286,8 +301,9 @@ class Client
      * @example 
      * @return string
      */
-    public function recv()
+    public function recv(): string
     {
+    
     }
 
     /**
@@ -298,6 +314,7 @@ class Client
      */
     public function __sleep()
     {
+    
     }
 
     /**
@@ -308,6 +325,7 @@ class Client
      */
     public function __wakeup()
     {
+    
     }
 
 }

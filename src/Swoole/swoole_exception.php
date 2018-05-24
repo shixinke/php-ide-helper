@@ -1,14 +1,14 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
 *swoole 异常类
 */
-class swoole_exception extends Exception
+class swoole_exception extends Exception implements Throwable
 {
     /**
      * @var string $message 
@@ -46,6 +46,7 @@ class swoole_exception extends Exception
      */
     private final  function __clone()
     {
+    
     }
 
     /**
@@ -57,8 +58,9 @@ class swoole_exception extends Exception
      * @param Throwable $previous 异常链中的前一个异常
      * @return 
      */
-    public function __construct($message, $code, $previous)
+    public function __construct(string $message, int $code, Throwable $previous)
     {
+    
     }
 
     /**
@@ -69,6 +71,7 @@ class swoole_exception extends Exception
      */
     public function __wakeup()
     {
+    
     }
 
     /**
@@ -77,8 +80,9 @@ class swoole_exception extends Exception
      * @example 
      * @return string
      */
-    public final  function getMessage()
+    public final  function getMessage(): string
     {
+    
     }
 
     /**
@@ -87,8 +91,9 @@ class swoole_exception extends Exception
      * @example 
      * @return int
      */
-    public final  function getCode()
+    public final  function getCode(): int
     {
+    
     }
 
     /**
@@ -97,8 +102,9 @@ class swoole_exception extends Exception
      * @example 
      * @return string
      */
-    public final  function getFile()
+    public final  function getFile(): string
     {
+    
     }
 
     /**
@@ -107,8 +113,9 @@ class swoole_exception extends Exception
      * @example 
      * @return int
      */
-    public final  function getLine()
+    public final  function getLine(): int
     {
+    
     }
 
     /**
@@ -117,8 +124,9 @@ class swoole_exception extends Exception
      * @example 
      * @return array
      */
-    public final  function getTrace()
+    public final  function getTrace(): array
     {
+    
     }
 
     /**
@@ -129,6 +137,7 @@ class swoole_exception extends Exception
      */
     public final  function getPrevious()
     {
+        return new Exception();
     }
 
     /**
@@ -137,8 +146,9 @@ class swoole_exception extends Exception
      * @example 
      * @return string
      */
-    public final  function getTraceAsString()
+    public final  function getTraceAsString(): string
     {
+    
     }
 
     /**
@@ -149,6 +159,7 @@ class swoole_exception extends Exception
      */
     public function __toString()
     {
+    
     }
 
 }

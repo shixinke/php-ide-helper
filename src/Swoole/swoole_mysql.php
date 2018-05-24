@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -45,7 +45,7 @@ class swoole_mysql
      * 连接信息，保存的是传递给构造函数的数组
      * @access public
      */
-    public $serverInfo;
+    public $serverInfo    =    array();
 
     /**
      * @var int $sock 
@@ -125,6 +125,7 @@ class swoole_mysql
      */
     public function __construct()
     {
+    
     }
 
     /**
@@ -135,6 +136,7 @@ class swoole_mysql
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -154,6 +156,7 @@ class swoole_mysql
      */
     public function connect(Array $server_config, Callable $callback)
     {
+    
     }
 
     /**
@@ -165,6 +168,7 @@ class swoole_mysql
      */
     public function begin(Callable $callback)
     {
+    
     }
 
     /**
@@ -176,6 +180,7 @@ class swoole_mysql
      */
     public function commit(Callable $callback)
     {
+    
     }
 
     /**
@@ -187,6 +192,7 @@ class swoole_mysql
      */
     public function rollback(Callable $callback)
     {
+    
     }
 
     /**
@@ -201,8 +207,9 @@ class swoole_mysql
      * @param callable $callback 执行成功后会回调此函数
      * @return 
      */
-    public function query($sql, Callable $callback)
+    public function query(string $sql, Callable $callback)
     {
+    
     }
 
     /**
@@ -213,6 +220,7 @@ class swoole_mysql
      */
     public function close()
     {
+    
     }
 
     /**
@@ -221,8 +229,9 @@ class swoole_mysql
      * @example 
      * @return int
      */
-    public function getState()
+    public function getState(): int
     {
+    
     }
 
     /**
@@ -233,8 +242,9 @@ class swoole_mysql
      * @param callable $callback 连接关闭时回调此函数
      * @return 
      */
-    public function on($event_name, Callable $callback)
+    public function on(String $event_name, Callable $callback)
     {
+    
     }
 
 }

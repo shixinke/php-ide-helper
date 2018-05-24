@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -18,8 +18,9 @@ class RingQueue
      * @param int $len 队列长度
      * @return 
      */
-    public function __construct($len)
+    public function __construct(int $len)
     {
+    
     }
 
     /**
@@ -30,6 +31,7 @@ class RingQueue
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -41,6 +43,7 @@ class RingQueue
      */
     public function push($data)
     {
+    
     }
 
     /**
@@ -51,6 +54,7 @@ class RingQueue
      */
     public function pop()
     {
+    
     }
 
     /**
@@ -61,6 +65,7 @@ class RingQueue
      */
     public function full()
     {
+    
     }
 
 }

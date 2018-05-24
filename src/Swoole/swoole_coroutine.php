@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -17,8 +17,9 @@ class swoole_coroutine
      * @param callable $func 协程执行的代码
      * @return bool
      */
-    public static  function create(Callable $func)
+    public static  function create(Callable $func): bool
     {
+    
     }
 
     /**
@@ -30,6 +31,7 @@ class swoole_coroutine
      */
     public static  function set(Array $options)
     {
+    
     }
 
     /**
@@ -38,8 +40,9 @@ class swoole_coroutine
      * @example 
      * @return int
      */
-    public static  function cli_wait()
+    public static  function cli_wait(): int
     {
+    
     }
 
     /**
@@ -49,8 +52,9 @@ class swoole_coroutine
      * @param string $uid 要挂起协程的ID
      * @return 
      */
-    public static  function suspend($uid)
+    public static  function suspend(string $uid)
     {
+    
     }
 
     /**
@@ -60,8 +64,9 @@ class swoole_coroutine
      * @param string $uid 为要恢复的协程ID，在协程内可以使用getuid获取到协程的ID
      * @return 
      */
-    public static  function resume($uid)
+    public static  function resume(string $uid)
     {
+    
     }
 
     /**
@@ -70,8 +75,9 @@ class swoole_coroutine
      * @example 
      * @return int
      */
-    public static  function getuid()
+    public static  function getuid(): int
     {
+    
     }
 
     /**
@@ -81,8 +87,9 @@ class swoole_coroutine
      * @param float $seconds 为睡眠的时间，单位为秒，支持浮点型，最小精度为毫秒
      * @return 
      */
-    public static  function sleep($seconds)
+    public static  function sleep(float $seconds)
     {
+    
     }
 
     /**
@@ -92,8 +99,9 @@ class swoole_coroutine
      * @param resource $handle 文件句柄(文件流)
      * @return 
      */
-    public static  function fgets($handle)
+    public static  function fgets(resource $handle)
     {
+    
     }
 
     /**
@@ -104,8 +112,9 @@ class swoole_coroutine
      * @param int $length 读取的长度
      * @return 
      */
-    public static  function fread($handle, $length)
+    public static  function fread(resource $handle, int $length)
     {
+    
     }
 
     /**
@@ -115,8 +124,9 @@ class swoole_coroutine
      * @param string $filename 文件名称
      * @return 
      */
-    public static  function readFile($filename)
+    public static  function readFile(string $filename)
     {
+    
     }
 
     /**
@@ -128,8 +138,9 @@ class swoole_coroutine
      * @param int $length 写入的数据长度
      * @return 
      */
-    public static  function fwrite($handle, $string, $length)
+    public static  function fwrite(resource $handle, string $string, int $length)
     {
+    
     }
 
     /**
@@ -141,8 +152,9 @@ class swoole_coroutine
      * @param int $flags 为写入的选项，可以使用FILE_APPEND表示追加到文件末尾，默认会清空当前文件内容
      * @return bool
      */
-    public static  function writeFile($filename, $content, $flags)
+    public static  function writeFile(string $filename, string $content, int $flags): bool
     {
+    
     }
 
     /**
@@ -153,8 +165,9 @@ class swoole_coroutine
      * @param int $family 使用的协议族
      * @return 
      */
-    public static  function gethostbyname($domain_name, $family)
+    public static  function gethostbyname(string $domain_name, int $family)
     {
+    
     }
 
     /**
@@ -168,8 +181,9 @@ class swoole_coroutine
      * @param string $service 服务
      * @return array | bool
      */
-    public static  function getaddrinfo($hostname, $family, $socktype, $protocol, $service)
+    public static  function getaddrinfo(string $hostname, int $family, int $socktype, int $protocol, string $service): ?array
     {
+    
     }
 
     /**
@@ -182,6 +196,7 @@ class swoole_coroutine
      */
     public static  function call_user_func(Callable $func, $parameters)
     {
+    
     }
 
     /**
@@ -194,6 +209,7 @@ class swoole_coroutine
      */
     public static  function call_user_func_array(Callable $func, Array $parameters)
     {
+    
     }
 
     /**
@@ -203,8 +219,9 @@ class swoole_coroutine
      * @param string $cmd 要执行的shell指令
      * @return array
      */
-    public static  function exec($cmd)
+    public static  function exec(string $cmd): array
     {
+    
     }
 
 }

@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -22,30 +22,31 @@ class swoole_http_response
      * 请求头（每个key都是小写）
      * @access public
      */
-    public $header;
+    public $header    =    array();
 
     /**
      * @var array $cookie 
      * 请求中的cookie数据
      * @access public
      */
-    public $cookie;
+    public $cookie    =    array();
 
     /**
-     * @var unknown $trailer 
-     * 
+     * @var array $trailer 
+     * 以块（chunked）传输编码消息里的尾部（trailer）里用到的头域
      * @access public
      */
-    public $trailer;
+    public $trailer    =    array();
 
     /**
      * 
-     *
+     *初始化头部
      * @example 
      * @return 
      */
     public function initHeader()
     {
+    
     }
 
     /**
@@ -61,8 +62,9 @@ class swoole_http_response
      * @param boolean $httponly 是否只是http
      * @return 
      */
-    public function cookie($name, $value, $expires, $path, $domain, $secure, $httponly)
+    public function cookie(string $name, string $value, int $expires, string $path, string $domain, boolean $secure, boolean $httponly)
     {
+    
     }
 
     /**
@@ -78,8 +80,9 @@ class swoole_http_response
      * @param boolean $httponly 是否只是http
      * @return 
      */
-    public function rawcookie($name, $value, $expires, $path, $domain, $secure, $httponly)
+    public function rawcookie(string $name, string $value, int $expires, string $path, string $domain, boolean $secure, boolean $httponly)
     {
+    
     }
 
     /**
@@ -89,8 +92,9 @@ class swoole_http_response
      * @param int $http_code 状态码
      * @return 
      */
-    public function status($http_code)
+    public function status(int $http_code)
     {
+    
     }
 
     /**
@@ -100,8 +104,9 @@ class swoole_http_response
      * @param int $compress_level 压缩等级
      * @return 
      */
-    public function gzip($compress_level)
+    public function gzip(int $compress_level)
     {
+    
     }
 
     /**
@@ -113,21 +118,23 @@ class swoole_http_response
      * @param boolean $ucwords 首字母是否大写
      * @return 
      */
-    public function header($key, $value, $ucwords)
+    public function header(string $key, string $value, boolean $ucwords)
     {
+    
     }
 
     /**
      * 
-     *
+     *设置头域值
      * @example 
-     * @param  mixed $key 
-     * @param  mixed $value 
-     * @param  mixed $ucwords 
+     * @param string $key 头域键
+     * @param mixed $value 头域值
+     * @param bool $ucwords 键名是否大写
      * @return 
      */
-    public function trailer($key, $value, $ucwords)
+    public function trailer(string $key, $value, bool $ucwords)
     {
+    
     }
 
     /**
@@ -137,8 +144,9 @@ class swoole_http_response
      * @param string $content 输出的内容
      * @return 
      */
-    public function write($content)
+    public function write(string $content)
     {
+    
     }
 
     /**
@@ -148,8 +156,9 @@ class swoole_http_response
      * @param string $content 输出的内容
      * @return 
      */
-    public function end($content)
+    public function end(string $content)
     {
+    
     }
 
     /**
@@ -161,8 +170,9 @@ class swoole_http_response
      * @param int $length 长度
      * @return 
      */
-    public function sendfile($filename, $offset, $length)
+    public function sendfile(string $filename, int $offset, int $length)
     {
+    
     }
 
     /**
@@ -173,6 +183,7 @@ class swoole_http_response
      */
     public function __sleep()
     {
+    
     }
 
     /**
@@ -183,6 +194,7 @@ class swoole_http_response
      */
     public function __wakeup()
     {
+    
     }
 
     /**
@@ -193,6 +205,7 @@ class swoole_http_response
      */
     public function __destruct()
     {
+    
     }
 
 }

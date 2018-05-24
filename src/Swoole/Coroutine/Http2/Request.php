@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -23,21 +23,21 @@ class Request
      * 请求头
      * @access public
      */
-    public $headers;
+    public $headers    =    array();
 
     /**
      * @var array $data 
      * 请求数据
      * @access public
      */
-    public $data;
+    public $data    =    array();
 
     /**
-     * @var unknown $pipeline 
-     * 
+     * @var bool $pipeline 
+     * 是否分段发送数据帧
      * @access public
      */
-    public $pipeline    =    '';
+    public $pipeline    =    false;
 
     /**
      * @var array $files 
@@ -45,7 +45,7 @@ class Request
      * name 浏览器上传时传入的文件名称
      * @access public
      */
-    public $files;
+    public $files    =    array();
 
 }
 

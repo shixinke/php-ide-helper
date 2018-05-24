@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -36,6 +36,13 @@ class swoole_lock
     const SPINLOCK    =    5;
 
     /**
+     * @var unknown $errCode 
+     * 
+     * @access public
+     */
+    public $errCode    =    0;
+
+    /**
      * 
      *创建锁
      * @example 
@@ -43,8 +50,9 @@ class swoole_lock
      * @param string $filename 当类型为SWOOLE_FILELOCK时必须传入，指定文件锁的路径
      * @return 
      */
-    public function __construct($type, $filename)
+    public function __construct(int $type, string $filename)
     {
+    
     }
 
     /**
@@ -55,6 +63,7 @@ class swoole_lock
      */
     public function __destruct()
     {
+    
     }
 
     /**
@@ -65,6 +74,7 @@ class swoole_lock
      */
     public function lock()
     {
+    
     }
 
     /**
@@ -74,8 +84,9 @@ class swoole_lock
      * @param float $timeout 超时时间
      * @return 
      */
-    public function lockwait($timeout)
+    public function lockwait(float $timeout)
     {
+    
     }
 
     /**
@@ -86,6 +97,7 @@ class swoole_lock
      */
     public function trylock()
     {
+    
     }
 
     /**
@@ -96,6 +108,7 @@ class swoole_lock
      */
     public function lock_read()
     {
+    
     }
 
     /**
@@ -106,6 +119,7 @@ class swoole_lock
      */
     public function trylock_read()
     {
+    
     }
 
     /**
@@ -116,6 +130,7 @@ class swoole_lock
      */
     public function unlock()
     {
+    
     }
 
 }

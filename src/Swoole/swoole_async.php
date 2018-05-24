@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.1.3版本)
+* Swoole自动补全类(基于最新的2.2.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/04/25
+* @modified 2018/05/24
 */
 
 /**
@@ -20,8 +20,9 @@ class swoole_async
      * @param int $offset 读入每次的偏移量
      * @return boolean
      */
-    public static  function read($filename, Callable $callback, $chunk_size, $offset)
+    public static  function read(string $filename, Callable $callback, int $chunk_size = 8192, int $offset = 0): boolean
     {
+    
     }
 
     /**
@@ -34,8 +35,9 @@ class swoole_async
      * @param callable $callback 写操作完成后的回调函数
      * @return 
      */
-    public static  function write($filename, $content, $offset, Callable $callback)
+    public static  function write(string $filename, string $content, int $offset, Callable $callback)
     {
+    
     }
 
     /**
@@ -46,8 +48,9 @@ class swoole_async
      * @param callable $callback 读文件完成后的回调函数
      * @return 
      */
-    public static  function readFile($filename, Callable $callback)
+    public static  function readFile(string $filename, Callable $callback)
     {
+    
     }
 
     /**
@@ -60,8 +63,9 @@ class swoole_async
      * @param int $flags 参数4为写入的选项，可以使用FILE_APPEND表示追加到文件末尾
      * @return 
      */
-    public static  function writeFile($filename, $content, Callable $callback, $flags)
+    public static  function writeFile(string $filename, string $content, Callable $callback, int $flags)
     {
+    
     }
 
     /**
@@ -72,8 +76,9 @@ class swoole_async
      * @param callable $callback 解析完成后的回调函数
      * @return 
      */
-    public static  function dnsLookup($hostname, Callable $callback)
+    public static  function dnsLookup(string $hostname, Callable $callback)
     {
+    
     }
 
     /**
@@ -83,8 +88,9 @@ class swoole_async
      * @param string $domain_name 解析的域名
      * @return 
      */
-    public static  function dnsLookupCoro($domain_name)
+    public static  function dnsLookupCoro(string $domain_name)
     {
+    
     }
 
     /**
@@ -104,6 +110,7 @@ class swoole_async
      */
     public static  function set(Array $settings)
     {
+    
     }
 
     /**
@@ -114,8 +121,9 @@ class swoole_async
      * @param callable $callback 命令执行完毕子进程退出后会回调指定的$callback函数，回调函数接收2个参数，第一个参数为命令执行后的屏幕输出内容$result，第二个参数为进程退出的状态信息$status
      * @return 
      */
-    public static  function exec($command, Callable $callback)
+    public static  function exec(string $command, Callable $callback)
     {
+    
     }
 
 }
