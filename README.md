@@ -23,7 +23,7 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 6、swoole扩展(支持swoole 2.2)
 
-7、SeasLog(1.7.6)
+7、SeasLog(1.8.5)
 
 8、MsgPack(beta)
 
