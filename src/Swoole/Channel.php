@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.2.0版本)
+* Swoole自动补全类(基于最新的4.0.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/05/24
+* @modified 2018/06/14
 */
 
 /**
@@ -42,6 +42,17 @@ class Channel
      * @return boolean
      */
     public function push($data): boolean
+    {
+    
+    }
+
+    /**
+     * 
+     *观察数据
+     * @example 
+     * @return 
+     */
+    public function peek()
     {
     
     }

@@ -1,14 +1,14 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.2.0版本)
+* Swoole自动补全类(基于最新的4.0.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/05/24
+* @modified 2018/06/14
 */
 
 /**
 *个基于共享内存和锁实现的超高性能，并发数据结构。用于解决多进程/多线程数据共享和同步加锁问题
 */
-class swoole_table implements ArrayAccess, Iterator, Traversable, Countable
+class swoole_table implements ArrayAccess, Iterator, Countable
 {
     /**     
     *整型

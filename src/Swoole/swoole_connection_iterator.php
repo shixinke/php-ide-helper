@@ -1,14 +1,14 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.2.0版本)
+* Swoole自动补全类(基于最新的4.0.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/05/24
+* @modified 2018/06/14
 */
 
 /**
 *
 */
-class swoole_connection_iterator implements Iterator, Traversable, Countable, ArrayAccess
+class swoole_connection_iterator implements Iterator, Countable, ArrayAccess
 {
     /**
      * 

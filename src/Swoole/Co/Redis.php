@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.2.0版本)
+* Swoole自动补全类(基于最新的4.0.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/05/24
+* @modified 2018/06/14
 */
 
 /**
@@ -177,9 +177,9 @@ class Redis
      * @param string $key 键名
      * @param int $offset 开始位置
      * @param boolean|int $value 新值
-     * @return int:
+     * @return int
      */
-    public function setBit(string $key, int $offset, int $value): int:
+    public function setBit(string $key, int $offset, int $value): int
     {
     
     }
@@ -331,9 +331,9 @@ class Redis
      * @param string $key 键名
      * @param string $field 字段名
      * @param string $value 字段值
-     * @return long
+     * @return int
      */
-    public function hSet(string $key, string $field, string $value): long
+    public function hSet(string $key, string $field, string $value): int
     {
     
     }
@@ -622,9 +622,9 @@ class Redis
      *返回列表的长度
      * @example 
      * @param string|...|array $key 键名
-     * @return long | bool
+     * @return int | bool
      */
-    public function lSize(string $key): ?long
+    public function lSize(string $key): ?int
     {
     
     }
@@ -634,9 +634,9 @@ class Redis
      *返回列表的长度
      * @example 
      * @param string|...|array $key 键名
-     * @return long | bool
+     * @return int | bool
      */
-    public function lLen(string $key): ?long
+    public function lLen(string $key): ?int
     {
     
     }
@@ -646,9 +646,9 @@ class Redis
      *返回集合的元素个数
      * @example 
      * @param string $key 键名
-     * @return long
+     * @return int
      */
-    public function sSize(string $key): long
+    public function sSize(string $key): int
     {
     
     }
@@ -658,9 +658,9 @@ class Redis
      *返回集合的元素个数
      * @example 
      * @param string $key 键名
-     * @return long
+     * @return int
      */
-    public function scard(string $key): long
+    public function scard(string $key): int
     {
     
     }
@@ -772,9 +772,9 @@ class Redis
      *移除指定键的有效期，让它永久有效
      * @example $redis->persist('key');
      * @param string $key 键名
-     * @return bool:
+     * @return bool
      */
-    public function persist(string $key): bool:
+    public function persist(string $key): bool
     {
     
     }
@@ -784,9 +784,9 @@ class Redis
      *返回指定键的有效时间(秒)
      * @example $redis->ttl('key');
      * @param string $key 键名
-     * @return long
+     * @return int
      */
-    public function ttl(string $key): long
+    public function ttl(string $key): int
     {
     
     }
@@ -796,9 +796,9 @@ class Redis
      *返回指定键的有效时间(毫秒)
      * @example $redis->pttl('key');
      * @param string $key 键名
-     * @return long
+     * @return int
      */
-    public function pttl(string $key): long
+    public function pttl(string $key): int
     {
     
     }
@@ -1108,9 +1108,9 @@ class Redis
      *设置连接的认证密码
      * @example $redis->auth('foobared');
      * @param string $password 认证密码
-     * @return bool:
+     * @return bool
      */
-    public function auth(string $password): bool:
+    public function auth(string $password): bool
     {
     
     }
@@ -1284,9 +1284,9 @@ class Redis
      * 
      * @param string $key 设置的缓存键
      * @param string $value 设置的缓存值
-     * @return bool:
+     * @return bool
      */
-    public function setNx(string $key, string $value): bool:
+    public function setNx(string $key, string $value): bool
     {
     
     }
@@ -1605,9 +1605,9 @@ class Redis
      * @param string $key 集合键名
      * @param double $start 开始排序值
      * @param double $end 结束排序值
-     * @return long
+     * @return int
      */
-    public function zDeleteRangeByScore(string $key, double $start, double $end): long
+    public function zDeleteRangeByScore(string $key, double $start, double $end): int
     {
     
     }
@@ -1619,9 +1619,9 @@ class Redis
      * @param string $key 集合键名
      * @param double $start 开始排序值
      * @param double $end 结束排序值
-     * @return long
+     * @return int
      */
-    public function zRemRangeByScore(string $key, double $start, double $end): long
+    public function zRemRangeByScore(string $key, double $start, double $end): int
     {
     
     }
@@ -1659,12 +1659,12 @@ class Redis
      * $redis->zRange('key1', 0, -1, true); // array('val0' => 0, 'val2' => 2, 'val10' => 10)
      * </pre>
      * @param string $key 集合键名
-     * @param long $start 索引开始值
-     * @param long $end 索引结束值
+     * @param int $start 索引开始值
+     * @param int $end 索引结束值
      * @param boolean $withScores 是否返回成员的排序值
      * @return array
      */
-    public function zRange(string $key, long $start, long $end, boolean $withScores): array
+    public function zRange(string $key, int $start, int $end, boolean $withScores): array
     {
     
     }
@@ -1682,12 +1682,12 @@ class Redis
      * $redis->zRevRange('key', 0, -1, true); // array('val10' => 10, 'val2' => 2, 'val0' => 0)
      * </pre>
      * @param string $key 集合键名
-     * @param long $start 索引开始值
-     * @param long $end 索引结束值
+     * @param int $start 索引开始值
+     * @param int $end 索引结束值
      * @param boolean $withScores 是否返回成员的排序值
      * @return array
      */
-    public function zRevRange(string $key, long $start, long $end, boolean $withScores): array
+    public function zRevRange(string $key, int $start, int $end, boolean $withScores): array
     {
     
     }
@@ -1707,12 +1707,12 @@ class Redis
      * $redis->zRangeByScore('key', 0, 3, array('withscores' => TRUE, 'limit' => array(1, 1));  // array('val2' => 2)
      * </pre>
      * @param string $key 集合键名
-     * @param long $start 索引开始值
-     * @param long $end 索引结束值
+     * @param int $start 索引开始值
+     * @param int $end 索引结束值
      * @param array $options 附加选项(可以是：withscores => TRUE, and limit => array($offset, $count))
      * @return array
      */
-    public function zRangeByScore(string $key, long $start, long $end, Array $options): array
+    public function zRangeByScore(string $key, int $start, int $end, Array $options): array
     {
     
     }
@@ -1732,12 +1732,12 @@ class Redis
      * $redis->zRangeByScore('key', 0, 3, array('withscores' => TRUE, 'limit' => array(1, 1));  // array('val2' => 2)
      * </pre>
      * @param string $key 集合键名
-     * @param long $start 索引开始值
-     * @param long $end 索引结束值
+     * @param int $start 索引开始值
+     * @param int $end 索引结束值
      * @param array $options 附加选项(可以是：withscores => TRUE, and limit => array($offset, $count))
      * @return array
      */
-    public function zRevRangeByScore(string $key, long $start, long $end, Array $options): array
+    public function zRevRangeByScore(string $key, int $start, int $end, Array $options): array
     {
     
     }
@@ -1755,13 +1755,13 @@ class Redis
      * $redis->zRangeByLex('key', '-', '[c'); // array('b', 'c')
      * </pre>
      * @param string $key 集合键名
-     * @param long $min 最小的字母
-     * @param long $max 最大的字母
-     * @param long $offset 索引开始值
-     * @param long $limit 成员数
+     * @param int $min 最小的字母
+     * @param int $max 最大的字母
+     * @param int $offset 索引开始值
+     * @param int $limit 成员数
      * @return array
      */
-    public function zRangeByLex(string $key, long $min, long $max, long $offset, long $limit): array
+    public function zRangeByLex(string $key, int $min, int $max, int $offset, int $limit): array
     {
     
     }
@@ -1771,13 +1771,13 @@ class Redis
      *按字母字典的顺序返回成员（倒序排序）
      * @example 
      * @param string $key 集合键名
-     * @param long $min 最小的字母
-     * @param long $max 最大的字母
-     * @param long $offset 索引开始值
-     * @param long $limit 成员数
+     * @param int $min 最小的字母
+     * @param int $max 最大的字母
+     * @param int $offset 索引开始值
+     * @param int $limit 成员数
      * @return 
      */
-    public function zRevRangeByLex(string $key, long $min, long $max, long $offset, long $limit)
+    public function zRevRangeByLex(string $key, int $min, int $max, int $offset, int $limit)
     {
     
     }
@@ -2128,9 +2128,9 @@ class Redis
      * </pre>
      * @param string $key 键名
      * @param int $expireTime 到期时间
-     * @return bool:
+     * @return bool
      */
-    public function expireAt(string $key, int $expireTime): bool:
+    public function expireAt(string $key, int $expireTime): bool
     {
     
     }
@@ -2148,9 +2148,9 @@ class Redis
      * </pre>
      * @param string $key 键名
      * @param int $expireTime 到期时间
-     * @return bool:
+     * @return bool
      */
-    public function pexpireAt(string $key, int $expireTime): bool:
+    public function pexpireAt(string $key, int $expireTime): bool
     {
     
     }
@@ -2206,9 +2206,9 @@ class Redis
      * @param string $key 键名
      * @param int $start 开始位置
      * @param int $end 结束位置
-     * @return string:
+     * @return string
      */
-    public function getRange(string $key, int $start, int $end): string:
+    public function getRange(string $key, int $start, int $end): string
     {
     
     }
@@ -2276,9 +2276,9 @@ class Redis
      * @param string $key 键名
      * @param string $value 元素值
      * @param int $count 删除的个数
-     * @return long | bool
+     * @return int | bool
      */
-    public function lRem(string $key, string $value, int $count): ?long
+    public function lRem(string $key, string $value, int $count): ?int
     {
     
     }
@@ -2290,9 +2290,9 @@ class Redis
      * @param string $key 键名
      * @param string $value 元素值
      * @param int $count 删除的个数
-     * @return long | bool
+     * @return int | bool
      */
-    public function lRemove(string $key, string $value, int $count): ?long
+    public function lRemove(string $key, string $value, int $count): ?int
     {
     
     }
@@ -2394,9 +2394,9 @@ class Redis
      *统计字符串的位数
      * @example 
      * @param string $key 键名
-     * @return long
+     * @return int
      */
-    public function bitCount(string $key): long
+    public function bitCount(string $key): int
     {
     
     }
@@ -2410,9 +2410,9 @@ class Redis
      * @param string $key1 键名1
      * @param string $key2 键名2
      * @param string|... $keyN 键名N
-     * @return long
+     * @return int
      */
-    public function bitOp(string $operation, string $dstKey, string $key1, string $key2, string $keyN): long
+    public function bitOp(string $operation, string $dstKey, string $key1, string $key2, string $keyN): int
     {
     
     }
@@ -2512,9 +2512,9 @@ class Redis
      * @param string $key1 键名1
      * @param string $key2 键名2
      * @param string|... $keyN 键名n
-     * @return int:
+     * @return int
      */
-    public function sDiffStore(string $dstKey, string $key1, string $key2, string $keyN): int:
+    public function sDiffStore(string $dstKey, string $key1, string $key2, string $keyN): int
     {
     
     }
@@ -2660,9 +2660,9 @@ class Redis
      * @example 
      * @param string $key 键名
      * @param string|... $member 成员
-     * @return long
+     * @return int
      */
-    public function sRemove(string $key, string $member): long
+    public function sRemove(string $key, string $member): int
     {
     
     }
@@ -2673,9 +2673,9 @@ class Redis
      * @example 
      * @param string $key 键名
      * @param string|... $member 成员
-     * @return long
+     * @return int
      */
-    public function srem(string $key, string $member): long
+    public function srem(string $key, string $member): int
     {
     
     }

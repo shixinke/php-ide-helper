@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.2.0版本)
+* Swoole自动补全类(基于最新的4.0.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/05/24
+* @modified 2018/06/14
 */
 
 /**
@@ -209,7 +209,7 @@ define('SWOOLE_EVENT_WRITE', 1024);
 /**
 swoole 版本号
 */
-define('SWOOLE_VERSION', '2.0.10');
+define('SWOOLE_VERSION', '4.0.0');
 /**
 内存分配失败错误
 */
@@ -644,7 +644,7 @@ define('UNSERIALIZE_OBJECT_TO_STDCLASS', 2);
 function swoole_version(): string
 {
 
-        }
+}
 
 /**
 * 
@@ -656,7 +656,7 @@ function swoole_version(): string
 function swoole_cpu_num(): int
 {
 
-        }
+}
 
 /**
 * 
@@ -668,7 +668,7 @@ function swoole_cpu_num(): int
 function swoole_last_error(): int
 {
 
-        }
+}
 
 /**
 * 
@@ -684,7 +684,7 @@ function swoole_last_error(): int
 function swoole_event_add(int $fd, Callable $read_callback, Callable $write_callback, int $events): boolean
 {
 
-        }
+}
 
 /**
 * 
@@ -700,7 +700,7 @@ function swoole_event_add(int $fd, Callable $read_callback, Callable $write_call
 function swoole_event_set(int $fd, Callable $read_callback, Callable $write_callback, int $events): boolean
 {
 
-        }
+}
 
 /**
 * 
@@ -713,7 +713,7 @@ function swoole_event_set(int $fd, Callable $read_callback, Callable $write_call
 function swoole_event_del(int $fd): boolean
 {
 
-        }
+}
 
 /**
 * 
@@ -725,7 +725,7 @@ function swoole_event_del(int $fd): boolean
 function swoole_event_exit()
 {
 
-        }
+}
 
 /**
 * 
@@ -737,7 +737,7 @@ function swoole_event_exit()
 function swoole_event_wait()
 {
 
-        }
+}
 
 /**
 * 
@@ -751,7 +751,7 @@ function swoole_event_wait()
 function swoole_event_write(int $fd, string $data)
 {
 
-        }
+}
 
 /**
 * 
@@ -764,7 +764,7 @@ function swoole_event_write(int $fd, string $data)
 function swoole_event_defer(Callable $callback)
 {
 
-        }
+}
 
 /**
 * 
@@ -777,7 +777,7 @@ function swoole_event_defer(Callable $callback)
 function swoole_event_cycle(Callable $callback): boolean
 {
 
-        }
+}
 
 /**
 * 
@@ -789,7 +789,7 @@ function swoole_event_cycle(Callable $callback): boolean
 function swoole_event_dispatch()
 {
 
-        }
+}
 
 /**
 * 
@@ -803,7 +803,7 @@ function swoole_event_dispatch()
 function swoole_event_isset(int $fd, int $events)
 {
 
-        }
+}
 
 /**
 * 
@@ -818,7 +818,7 @@ function swoole_event_isset(int $fd, int $events)
 function swoole_timer_after(int $ms, Callable $callback, $param): int
 {
 
-        }
+}
 
 /**
 * 
@@ -832,7 +832,7 @@ function swoole_timer_after(int $ms, Callable $callback, $param): int
 function swoole_timer_tick(int $ms, Callable $callback): int
 {
 
-        }
+}
 
 /**
 * 
@@ -845,7 +845,7 @@ function swoole_timer_tick(int $ms, Callable $callback): int
 function swoole_timer_exists(int $timer_id): bool
 {
 
-        }
+}
 
 /**
 * 
@@ -858,7 +858,7 @@ function swoole_timer_exists(int $timer_id): bool
 function swoole_timer_clear(int $timer_id): bool
 {
 
-        }
+}
 
 /**
 * 
@@ -879,7 +879,7 @@ function swoole_timer_clear(int $timer_id): bool
 function swoole_async_set(Array $settings)
 {
 
-        }
+}
 
 /**
 * 
@@ -898,7 +898,7 @@ function swoole_async_set(Array $settings)
 function swoole_async_read(string $filename, Callable $callback, int $chunk_size, int $offset): bool
 {
 
-        }
+}
 
 /**
 * 
@@ -914,7 +914,7 @@ function swoole_async_read(string $filename, Callable $callback, int $chunk_size
 function swoole_async_write(string $filename, string $content, int $offset, Callable $callback)
 {
 
-        }
+}
 
 /**
 * 
@@ -930,7 +930,7 @@ function swoole_async_write(string $filename, string $content, int $offset, Call
 function swoole_async_readfile(string $filename, Callable $callback)
 {
 
-        }
+}
 
 /**
 * 
@@ -946,7 +946,7 @@ function swoole_async_readfile(string $filename, Callable $callback)
 function swoole_async_writefile(string $filename, string $content, Callable $callback, int $flags)
 {
 
-        }
+}
 
 /**
 * 
@@ -963,7 +963,7 @@ function swoole_async_writefile(string $filename, string $content, Callable $cal
 function swoole_async_dns_lookup(string $hostname, Callable $callback)
 {
 
-        }
+}
 
 /**
 * 
@@ -976,7 +976,7 @@ function swoole_async_dns_lookup(string $hostname, Callable $callback)
 function swoole_async_dns_lookup_coro(string $domain_name): ?string
 {
 
-        }
+}
 
 /**
 * 
@@ -989,7 +989,7 @@ function swoole_async_dns_lookup_coro(string $domain_name): ?string
 function swoole_coroutine_create(Callable $func)
 {
 
-        }
+}
 
 /**
 * 
@@ -1002,7 +1002,7 @@ function swoole_coroutine_create(Callable $func)
 function swoole_coroutine_exec(string $command)
 {
 
-        }
+}
 
 /**
 * 
@@ -1015,7 +1015,7 @@ function swoole_coroutine_exec(string $command)
 function go(callable $func)
 {
 
-        }
+}
 
 /**
 * 
@@ -1031,7 +1031,7 @@ function go(callable $func)
 function swoole_client_select(Array $read_array, Array $write_array, Array $error_array, float $timeout): int
 {
 
-        }
+}
 
 /**
 * 
@@ -1047,7 +1047,7 @@ function swoole_client_select(Array $read_array, Array $write_array, Array $erro
 function swoole_select(Array $read_array, Array $write_array, Array $error_array, float $timeout)
 {
 
-        }
+}
 
 /**
 * 
@@ -1060,7 +1060,7 @@ function swoole_select(Array $read_array, Array $write_array, Array $error_array
 function swoole_set_process_name(string $process_name)
 {
 
-        }
+}
 
 /**
 * 
@@ -1072,7 +1072,7 @@ function swoole_set_process_name(string $process_name)
 function swoole_get_local_ip(): array
 {
 
-        }
+}
 
 /**
 * 
@@ -1084,7 +1084,7 @@ function swoole_get_local_ip(): array
 function swoole_get_local_mac(): array
 {
 
-        }
+}
 
 /**
 * 
@@ -1097,7 +1097,7 @@ function swoole_get_local_mac(): array
 function swoole_strerror(int $errno): string
 {
 
-        }
+}
 
 /**
 * 
@@ -1109,7 +1109,7 @@ function swoole_strerror(int $errno): string
 function swoole_errno(): int
 {
 
-        }
+}
 
 /**
 * 
@@ -1123,5 +1123,17 @@ function swoole_errno(): int
 function swoole_hashcode(string $data, int $type)
 {
 
-        }
+}
+
+/**
+* 
+*请求状态是否为用户自定义关闭操作的开始阶段
+* @example 
+* 
+* @return bool
+*/
+function swoole_call_user_shutdown_begin(): bool
+{
+
+}
 

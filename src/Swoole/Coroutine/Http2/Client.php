@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的2.2.0版本)
+* Swoole自动补全类(基于最新的4.0.0版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/05/24
+* @modified 2018/06/14
 */
 
 /**
@@ -138,11 +138,11 @@ class Client
      * 
      *接受请求，调用此方法时会yield让出协程控制权，服务器返回响应内容后resume当前协程(成功后返回 Http2\Response 对象)
      * @example 
-     * @return object
+     * @return 
      */
     public function recv()
     {
-        return new object();
+         return new \Swoole\Http2\Response();
     }
 
     /**
