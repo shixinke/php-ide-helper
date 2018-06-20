@@ -1,12 +1,12 @@
 <?php
 /**
-* Redis自动补全类(基于最新的3.0.0版本)
+* Redis自动补全类(基于最新的4.1.0RC1版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/28
+* @modified 2018/06/20
 */
 
 /**
-*与key相关的redis数组
+*与key相关的redis数组(也有人翻译为redis阵列)
 */
 class RedisArray
 {
@@ -19,6 +19,7 @@ class RedisArray
      */
     public function __construct(Array $hosts)
     {
+    
     }
 
     /**
@@ -29,8 +30,9 @@ class RedisArray
      * @param mixed $arguments 参数
      * @return 
      */
-    public function __call($function_name, $arguments)
+    public function __call(string $function_name, $arguments)
     {
+    
     }
 
     /**
@@ -39,8 +41,9 @@ class RedisArray
      * @example 
      * @return array
      */
-    public function _hosts()
+    public function _hosts(): array
     {
+    
     }
 
     /**
@@ -50,8 +53,9 @@ class RedisArray
      * @param string $key 键名
      * @return string
      */
-    public function _target($key)
+    public function _target(string $key): string
     {
+    
     }
 
     /**
@@ -61,8 +65,9 @@ class RedisArray
      * @param string $host 主机
      * @return 
      */
-    public function _instance($host)
+    public function _instance(string $host)
     {
+    
     }
 
     /**
@@ -71,18 +76,20 @@ class RedisArray
      * @example 
      * @return string
      */
-    public function _function()
+    public function _function(): string
     {
+    
     }
 
     /**
      * 
-     *
+     *键分布函数名
      * @example 
-     * @return 
+     * @return string
      */
-    public function _distributor()
+    public function _distributor(): string
     {
+    
     }
 
     /**
@@ -93,6 +100,7 @@ class RedisArray
      */
     public function _rehash()
     {
+    
     }
 
     /**
@@ -109,8 +117,9 @@ class RedisArray
      * @param int $dbIndex 数据库编号
      * @return bool
      */
-    public function select($dbIndex)
+    public function select(int $dbIndex): bool
     {
+    
     }
 
     /**
@@ -125,8 +134,9 @@ class RedisArray
      * </pre>
      * @return array
      */
-    public function info()
+    public function info(): array
     {
+    
     }
 
     /**
@@ -135,8 +145,9 @@ class RedisArray
      * @example 
      * @return string
      */
-    public function ping()
+    public function ping(): string
     {
+    
     }
 
     /**
@@ -145,8 +156,9 @@ class RedisArray
      * @example $redis->flushDB();
      * @return bool
      */
-    public function flushDB()
+    public function flushDB(): bool
     {
+    
     }
 
     /**
@@ -155,8 +167,9 @@ class RedisArray
      * @example $redis->flushAll();
      * @return bool
      */
-    public function flushAll()
+    public function flushAll(): bool
     {
+    
     }
 
     /**
@@ -185,6 +198,7 @@ class RedisArray
      */
     public function mget(Array $keys)
     {
+    
     }
 
     /**
@@ -202,8 +216,9 @@ class RedisArray
      * @param array $values 要设置的键值对
      * @return bool
      */
-    public function mset(Array $values)
+    public function mset(Array $values): bool
     {
+    
     }
 
     /**
@@ -214,8 +229,9 @@ class RedisArray
      * @param array|string $keys 键名
      * @return int
      */
-    public function del($keys)
+    public function del(array $keys): int
     {
+    
     }
 
     /**
@@ -227,8 +243,9 @@ class RedisArray
      * @param string $optionName 选项名
      * @return int
      */
-    public function getOption($optionName)
+    public function getOption(string $optionName): int
     {
+    
     }
 
     /**
@@ -243,10 +260,11 @@ class RedisArray
      * </pre>
      * @param string $optionName 选项名
      * @param string $optionValue 选项值
-     * @return bool:
+     * @return bool
      */
-    public function setOption($optionName, $optionValue)
+    public function setOption(string $optionName, string $optionValue): bool
     {
+    
     }
 
     /**
@@ -258,8 +276,9 @@ class RedisArray
      * @param string $pattern 匹配模式
      * @return array
      */
-    public function keys($pattern)
+    public function keys(string $pattern): array
     {
+    
     }
 
     /**
@@ -268,8 +287,9 @@ class RedisArray
      * @example $redis->save();
      * @return boolean
      */
-    public function save()
+    public function save(): boolean
     {
+    
     }
 
     /**
@@ -280,6 +300,7 @@ class RedisArray
      */
     public function bgSave()
     {
+    
     }
 
     /**
@@ -303,6 +324,7 @@ class RedisArray
      */
     public function multi()
     {
+    
     }
 
     /**
@@ -313,6 +335,7 @@ class RedisArray
      */
     public function discard()
     {
+    
     }
 
     /**
@@ -323,6 +346,7 @@ class RedisArray
      */
     public function exec()
     {
+    
     }
 
     /**
@@ -332,8 +356,9 @@ class RedisArray
      * @param string|array $keys 键名
      * @return 
      */
-    public function unwatch($keys)
+    public function unwatch(string $keys)
     {
+    
     }
 
     /**
@@ -344,8 +369,9 @@ class RedisArray
      * @param array|string $keys 键名
      * @return int
      */
-    public function delete($keys)
+    public function delete(array $keys): int
     {
+    
     }
 
     /**
@@ -362,8 +388,9 @@ class RedisArray
      * @param array $keys 键名数组
      * @return array
      */
-    public function getMultiple(Array $keys)
+    public function getMultiple(Array $keys): array
     {
+    
     }
 
 }

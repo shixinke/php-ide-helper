@@ -1,8 +1,8 @@
 <?php
 /**
-* Redis自动补全类(基于最新的3.0.0版本)
+* Redis自动补全类(基于最新的4.1.0RC1版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2017/12/28
+* @modified 2018/06/20
 */
 
 /**
@@ -66,6 +66,16 @@ class RedisCluster
     const OPT_READ_TIMEOUT    =    3;
 
     /**     
+    *
+    */
+    const OPT_TCP_KEEPALIVE    =    6;
+
+    /**     
+    *
+    */
+    const OPT_COMPRESSION    =    7;
+
+    /**     
     *不实行序列化
     */
     const SERIALIZER_NONE    =    0;
@@ -74,6 +84,11 @@ class RedisCluster
     *PHP序列化
     */
     const SERIALIZER_PHP    =    1;
+
+    /**     
+    *
+    */
+    const COMPRESSION_NONE    =    0;
 
     /**     
     *扫描选项
@@ -111,6 +126,11 @@ class RedisCluster
     const FAILOVER_DISTRIBUTE    =    2;
 
     /**     
+    *
+    */
+    const FAILOVER_DISTRIBUTE_SLAVES    =    3;
+
+    /**     
     *后面位置
     */
     const AFTER    =    'after';
@@ -131,8 +151,9 @@ class RedisCluster
      * @param boolean $persistent 与每个节点持久化连接
      * @return 
      */
-    public function __construct($name, Array $config, $timeout, $read_timeout, $persistent)
+    public function __construct(string $name, Array $config, float $timeout, float $read_timeout, bool $persistent)
     {
+    
     }
 
     /**
@@ -143,6 +164,7 @@ class RedisCluster
      */
     public function close()
     {
+    
     }
 
     /**
@@ -151,8 +173,9 @@ class RedisCluster
      * @example $redis->get('key');
      * @return string|bool
      */
-    public function get()
+    public function get(): ?string
     {
+    
     }
 
     /**
@@ -172,8 +195,9 @@ class RedisCluster
      * @param int|array $options 附加项，可以是超时时间或者一个选项数组
      * @return bool
      */
-    public function set($key, $value, $options)
+    public function set(string $key, string $value, int $options): bool
     {
+    
     }
 
     /**
@@ -202,6 +226,7 @@ class RedisCluster
      */
     public function mget(Array $keys)
     {
+    
     }
 
     /**
@@ -219,8 +244,9 @@ class RedisCluster
      * @param array $values 要设置的键值对
      * @return bool
      */
-    public function mset(Array $values)
+    public function mset(Array $values): bool
     {
+    
     }
 
     /**
@@ -238,8 +264,9 @@ class RedisCluster
      * @param array $values 要设置的键值对
      * @return bool
      */
-    public function msetnx(Array $values)
+    public function msetnx(Array $values): bool
     {
+    
     }
 
     /**
@@ -250,8 +277,9 @@ class RedisCluster
      * @param array|string $keys 键名
      * @return int
      */
-    public function del($keys)
+    public function del(array $keys): int
     {
+    
     }
 
     /**
@@ -263,8 +291,9 @@ class RedisCluster
      * @param int $ttl 有效期
      * @return bool
      */
-    public function setex($key, $value, $ttl)
+    public function setex(string $key, string $value, int $ttl): bool
     {
+    
     }
 
     /**
@@ -276,8 +305,9 @@ class RedisCluster
      * @param int $ttl 有效期(毫秒为单位)
      * @return 
      */
-    public function psetex($key, $value, $ttl)
+    public function psetex(string $key, string $value, int $ttl)
     {
+    
     }
 
     /**
@@ -288,10 +318,11 @@ class RedisCluster
      * 
      * @param string $key 设置的缓存键
      * @param string $value 设置的缓存值
-     * @return bool:
+     * @return bool
      */
-    public function setnx($key, $value)
+    public function setnx(string $key, string $value): bool
     {
+    
     }
 
     /**
@@ -307,8 +338,9 @@ class RedisCluster
      * @param string $value 设置的缓存值
      * @return string
      */
-    public function getset($key, $value)
+    public function getset(string $key, string $value): string
     {
+    
     }
 
     /**
@@ -323,8 +355,9 @@ class RedisCluster
      * @param string $key 键名
      * @return bool
      */
-    public function exists($key)
+    public function exists(string $key): bool
     {
+    
     }
 
     /**
@@ -336,8 +369,9 @@ class RedisCluster
      * @param string $pattern 匹配模式
      * @return array
      */
-    public function keys($pattern)
+    public function keys(string $pattern): array
     {
+    
     }
 
     /**
@@ -347,8 +381,9 @@ class RedisCluster
      * @param string $key 键名
      * @return int
      */
-    public function type($key)
+    public function type(string $key): int
     {
+    
     }
 
     /**
@@ -364,8 +399,9 @@ class RedisCluster
      * @param string $key 键名
      * @return string
      */
-    public function lPop($key)
+    public function lPop(string $key): string
     {
+    
     }
 
     /**
@@ -381,8 +417,9 @@ class RedisCluster
      * @param string $key 键名
      * @return string
      */
-    public function rPop($key)
+    public function rPop(string $key): string
     {
+    
     }
 
     /**
@@ -402,8 +439,9 @@ class RedisCluster
      * @param string $value 新值
      * @return boolean
      */
-    public function lset($key, $index, $value)
+    public function lset(string $key, int $index, string $value): boolean
     {
+    
     }
 
     /**
@@ -421,8 +459,9 @@ class RedisCluster
      * @param int $count 删除个数
      * @return string | bool
      */
-    public function spop($key, $count)
+    public function spop(string $key, int $count): ?string
     {
+    
     }
 
     /**
@@ -444,8 +483,9 @@ class RedisCluster
      * @param string $value 元素值
      * @return int
      */
-    public function lPush($key, $value)
+    public function lPush(string $key, string $value): int
     {
+    
     }
 
     /**
@@ -467,8 +507,9 @@ class RedisCluster
      * @param string $value 元素值
      * @return int
      */
-    public function rPush($key, $value)
+    public function rPush(string $key, string $value): int
     {
+    
     }
 
     /**
@@ -499,8 +540,9 @@ class RedisCluster
      * @param int $timeout 超时时间
      * @return array
      */
-    public function blPop($key, $timeout)
+    public function blPop(string $key, int $timeout): array
     {
+    
     }
 
     /**
@@ -531,8 +573,9 @@ class RedisCluster
      * @param int $timeout 超时时间
      * @return array
      */
-    public function brPop($key, $timeout)
+    public function brPop(string $key, int $timeout): array
     {
+    
     }
 
     /**
@@ -551,8 +594,9 @@ class RedisCluster
      * @param string $value 元素值
      * @return int
      */
-    public function lPushx($key, $value)
+    public function lPushx(string $key, string $value): int
     {
+    
     }
 
     /**
@@ -571,8 +615,9 @@ class RedisCluster
      * @param string $value 元素值
      * @return int
      */
-    public function rPushx($key, $value)
+    public function rPushx(string $key, string $value): int
     {
+    
     }
 
     /**
@@ -597,8 +642,9 @@ class RedisCluster
      * @param string $value 新值
      * @return int
      */
-    public function linsert($key, $position, $element, $value)
+    public function linsert(string $key, string $position, string $element, string $value): int
     {
+    
     }
 
     /**
@@ -609,8 +655,9 @@ class RedisCluster
      * @param int $index 索引值
      * @return string | boolean
      */
-    public function lindex($key, $index)
+    public function lindex(string $key, int $index): ?string
     {
+    
     }
 
     /**
@@ -622,8 +669,9 @@ class RedisCluster
      * @param int $count 删除的个数
      * @return long | bool
      */
-    public function lrem($key, $value, $count)
+    public function lrem(string $key, string $value, int $count): ?long
     {
+    
     }
 
     /**
@@ -660,8 +708,9 @@ class RedisCluster
      * @param string $dstKey 要插入元素的队列的键名
      * @return string
      */
-    public function rpoplpush($srcKey, $dstKey)
+    public function rpoplpush(string $srcKey, string $dstKey): string
     {
+    
     }
 
     /**
@@ -672,8 +721,9 @@ class RedisCluster
      * @param string $dstKey 要插入元素的队列的键名
      * @return string
      */
-    public function brpoplpush($srcKey, $dstKey)
+    public function brpoplpush(string $srcKey, string $dstKey): string
     {
+    
     }
 
     /**
@@ -683,8 +733,9 @@ class RedisCluster
      * @param string|...|array $key 键名
      * @return long | bool
      */
-    public function llen($key)
+    public function llen(string $key): ?long
     {
+    
     }
 
     /**
@@ -694,8 +745,9 @@ class RedisCluster
      * @param string $key 键名
      * @return long
      */
-    public function scard($key)
+    public function scard(string $key): long
     {
+    
     }
 
     /**
@@ -722,8 +774,9 @@ class RedisCluster
      * @param string $key 键名
      * @return array
      */
-    public function smembers($key)
+    public function smembers(string $key): array
     {
+    
     }
 
     /**
@@ -734,8 +787,9 @@ class RedisCluster
      * @param string $member 成员值
      * @return boolean
      */
-    public function sismember($key, $member)
+    public function sismember(string $key, string $member): boolean
     {
+    
     }
 
     /**
@@ -750,8 +804,9 @@ class RedisCluster
      * @param string $value 元素值
      * @return int
      */
-    public function sAdd($key, $value)
+    public function sAdd(string $key, string $value): int
     {
+    
     }
 
     /**
@@ -762,8 +817,9 @@ class RedisCluster
      * @param array $value 元素值
      * @return 
      */
-    public function sAddArray($key, Array $value)
+    public function sAddArray(string $key, Array $value)
     {
+    
     }
 
     /**
@@ -774,8 +830,9 @@ class RedisCluster
      * @param string|... $member 成员
      * @return long
      */
-    public function srem($key, $member)
+    public function srem(string $key, string $member): long
     {
+    
     }
 
     /**
@@ -806,8 +863,9 @@ class RedisCluster
      * @param string|... $key2 键名2
      * @return array
      */
-    public function sUnion($key1, $key2)
+    public function sUnion(string $key1, string $key2): array
     {
+    
     }
 
     /**
@@ -842,8 +900,9 @@ class RedisCluster
      * @param string|... $keyN 键名n
      * @return int
      */
-    public function sUnionStore($dstKey, $key1, $key2, $keyN)
+    public function sUnionStore(string $dstKey, string $key1, string $key2, string $keyN): int
     {
+    
     }
 
     /**
@@ -871,8 +930,9 @@ class RedisCluster
      * @param string $key2 键名2
      * @return array | boolean
      */
-    public function sInter($key1, $key2)
+    public function sInter(string $key1, string $key2): ?array
     {
+    
     }
 
     /**
@@ -905,8 +965,9 @@ class RedisCluster
      * @param string|... $keyN 键名n
      * @return int
      */
-    public function sInterStore($dstKey, $key1, $key2, $keyN)
+    public function sInterStore(string $dstKey, string $key1, string $key2, string $keyN): int
     {
+    
     }
 
     /**
@@ -933,8 +994,9 @@ class RedisCluster
      * @param string|... $key2 键名2
      * @return array
      */
-    public function sDiff($key1, $key2)
+    public function sDiff(string $key1, string $key2): array
     {
+    
     }
 
     /**
@@ -963,10 +1025,11 @@ class RedisCluster
      * @param string $key1 键名1
      * @param string $key2 键名2
      * @param string|... $keyN 键名n
-     * @return int:
+     * @return int
      */
-    public function sDiffStore($dstKey, $key1, $key2, $keyN)
+    public function sDiffStore(string $dstKey, string $key1, string $key2, string $keyN): int
     {
+    
     }
 
     /**
@@ -988,8 +1051,9 @@ class RedisCluster
      * @param string $key 键名
      * @return string | bool
      */
-    public function srandmember($key)
+    public function srandmember(string $key): ?string
     {
+    
     }
 
     /**
@@ -1003,8 +1067,9 @@ class RedisCluster
      * @param string $key 键名
      * @return int
      */
-    public function strlen($key)
+    public function strlen(string $key): int
     {
+    
     }
 
     /**
@@ -1012,10 +1077,11 @@ class RedisCluster
      *移除指定键的有效期，让它永久有效
      * @example $redis->persist('key');
      * @param string $key 键名
-     * @return bool:
+     * @return bool
      */
-    public function persist($key)
+    public function persist(string $key): bool
     {
+    
     }
 
     /**
@@ -1025,8 +1091,9 @@ class RedisCluster
      * @param string $key 键名
      * @return long
      */
-    public function ttl($key)
+    public function ttl(string $key): long
     {
+    
     }
 
     /**
@@ -1036,8 +1103,9 @@ class RedisCluster
      * @param string $key 键名
      * @return long
      */
-    public function pttl($key)
+    public function pttl(string $key): long
     {
+    
     }
 
     /**
@@ -1053,8 +1121,9 @@ class RedisCluster
      * @param string $key 集合键名
      * @return int
      */
-    public function zcard($key)
+    public function zcard(string $key): int
     {
+    
     }
 
     /**
@@ -1072,8 +1141,9 @@ class RedisCluster
      * @param double $end 结束排序值
      * @return int
      */
-    public function zcount($key, $start, $end)
+    public function zcount(string $key, double $start, double $end): int
     {
+    
     }
 
     /**
@@ -1085,8 +1155,9 @@ class RedisCluster
      * @param double $end 结束排序值
      * @return long
      */
-    public function zremrangebyscore($key, $start, $end)
+    public function zremrangebyscore(string $key, double $start, double $end): long
     {
+    
     }
 
     /**
@@ -1101,8 +1172,9 @@ class RedisCluster
      * @param string $member 成员值
      * @return double
      */
-    public function zscore($key, $member)
+    public function zscore(string $key, string $member): double
     {
+    
     }
 
     /**
@@ -1126,8 +1198,9 @@ class RedisCluster
      * @param string $value 元素值
      * @return int
      */
-    public function zadd($key, $score, $value)
+    public function zadd(string $key, double $score, string $value): int
     {
+    
     }
 
     /**
@@ -1145,8 +1218,9 @@ class RedisCluster
      * @param string $member 成员
      * @return float
      */
-    public function zincrby($key, $step, $member)
+    public function zincrby(string $key, double $step, string $member): float
     {
+    
     }
 
     /**
@@ -1157,8 +1231,9 @@ class RedisCluster
      * @param string $field 字段名
      * @return string
      */
-    public function hGet($key, $field)
+    public function hGet(string $key, string $field): string
     {
+    
     }
 
     /**
@@ -1177,8 +1252,9 @@ class RedisCluster
      * @param string $value 字段值
      * @return long
      */
-    public function hSet($key, $field, $value)
+    public function hSet(string $key, string $field, string $value): long
     {
+    
     }
 
     /**
@@ -1196,8 +1272,9 @@ class RedisCluster
      * @param string $value 字段值
      * @return bool
      */
-    public function hSetNx($key, $field, $value)
+    public function hSetNx(string $key, string $field, string $value): bool
     {
+    
     }
 
     /**
@@ -1225,8 +1302,9 @@ class RedisCluster
      * @param string|array $fields 字段名
      * @return int
      */
-    public function hDel($key, $fields)
+    public function hDel(string $key, string $fields): int
     {
+    
     }
 
     /**
@@ -1242,8 +1320,9 @@ class RedisCluster
      * @param string $key 键名
      * @return int
      */
-    public function hLen($key)
+    public function hLen(string $key): int
     {
+    
     }
 
     /**
@@ -1273,8 +1352,9 @@ class RedisCluster
      * @param string $key 键名
      * @return array
      */
-    public function hKeys($key)
+    public function hKeys(string $key): array
     {
+    
     }
 
     /**
@@ -1304,8 +1384,9 @@ class RedisCluster
      * @param string $key 键名
      * @return array
      */
-    public function hVals($key)
+    public function hVals(string $key): array
     {
+    
     }
 
     /**
@@ -1335,8 +1416,9 @@ class RedisCluster
      * @param string $key 键名
      * @return array
      */
-    public function hGetAll($key)
+    public function hGetAll(string $key): array
     {
+    
     }
 
     /**
@@ -1352,8 +1434,9 @@ class RedisCluster
      * @param string $field 字段名
      * @return bool
      */
-    public function hExists($key, $field)
+    public function hExists(string $key, string $field): bool
     {
+    
     }
 
     /**
@@ -1370,8 +1453,9 @@ class RedisCluster
      * @param int $step 自增步长
      * @return int
      */
-    public function hIncrBy($key, $field, $step)
+    public function hIncrBy(string $key, string $field, int $step): int
     {
+    
     }
 
     /**
@@ -1398,8 +1482,9 @@ class RedisCluster
      * @param double $step 自增步长
      * @return 
      */
-    public function hIncrByFloat($key, $field, $step)
+    public function hIncrByFloat(string $key, string $field, double $step)
     {
+    
     }
 
     /**
@@ -1415,8 +1500,9 @@ class RedisCluster
      * @param array $fields 字段键值对
      * @return boolean
      */
-    public function hMset($key, Array $fields)
+    public function hMset(string $key, Array $fields): boolean
     {
+    
     }
 
     /**
@@ -1427,8 +1513,9 @@ class RedisCluster
      * @param array $fields 字段名列表
      * @return array
      */
-    public function hMget($key, Array $fields)
+    public function hMget(string $key, Array $fields): array
     {
+    
     }
 
     /**
@@ -1442,8 +1529,9 @@ class RedisCluster
      * @param string $key 键名
      * @return string
      */
-    public function dump($key)
+    public function dump(string $key): string
     {
+    
     }
 
     /**
@@ -1463,8 +1551,9 @@ class RedisCluster
      * @param string $member 成员值
      * @return int
      */
-    public function zRank($key, $member)
+    public function zRank(string $key, string $member): int
     {
+    
     }
 
     /**
@@ -1475,8 +1564,9 @@ class RedisCluster
      * @param string $member 成员值
      * @return int
      */
-    public function zRevRank($key, $member)
+    public function zRevRank(string $key, string $member): int
     {
+    
     }
 
     /**
@@ -1492,8 +1582,9 @@ class RedisCluster
      * @param string $key 键名
      * @return int
      */
-    public function incr($key)
+    public function incr(string $key): int
     {
+    
     }
 
     /**
@@ -1511,8 +1602,9 @@ class RedisCluster
      * @param int $step 自增步长
      * @return int
      */
-    public function incrBy($key, $step)
+    public function incrBy(string $key, int $step): int
     {
+    
     }
 
     /**
@@ -1531,8 +1623,9 @@ class RedisCluster
      * @param float $step 自增步长
      * @return float
      */
-    public function incrByFloat($key, $step)
+    public function incrByFloat(string $key, float $step): float
     {
+    
     }
 
     /**
@@ -1547,8 +1640,9 @@ class RedisCluster
      * @param string $key 键名
      * @return int
      */
-    public function decr($key)
+    public function decr(string $key): int
     {
+    
     }
 
     /**
@@ -1565,8 +1659,9 @@ class RedisCluster
      * @param float $step 自减步长
      * @return int
      */
-    public function decrBy($key, $step)
+    public function decrBy(string $key, float $step): int
     {
+    
     }
 
     /**
@@ -1577,8 +1672,9 @@ class RedisCluster
      * @param int $ttl 有效期(秒数)
      * @return boolean
      */
-    public function expire($key, $ttl)
+    public function expire(string $key, int $ttl): boolean
     {
+    
     }
 
     /**
@@ -1594,10 +1690,11 @@ class RedisCluster
      * </pre>
      * @param string $key 键名
      * @param int $expireTime 到期时间
-     * @return bool:
+     * @return bool
      */
-    public function expireAt($key, $expireTime)
+    public function expireAt(string $key, int $expireTime): bool
     {
+    
     }
 
     /**
@@ -1608,8 +1705,9 @@ class RedisCluster
      * @param int $ttl 有效期(毫秒数)
      * @return boolean
      */
-    public function pexpire($key, $ttl)
+    public function pexpire(string $key, int $ttl): boolean
     {
+    
     }
 
     /**
@@ -1625,10 +1723,11 @@ class RedisCluster
      * </pre>
      * @param string $key 键名
      * @param int $expireTime 到期时间
-     * @return bool:
+     * @return bool
      */
-    public function pexpireAt($key, $expireTime)
+    public function pexpireAt(string $key, int $expireTime): bool
     {
+    
     }
 
     /**
@@ -1644,8 +1743,9 @@ class RedisCluster
      * @param string $value 追加的值
      * @return int
      */
-    public function append($key, $value)
+    public function append(string $key, string $value): int
     {
+    
     }
 
     /**
@@ -1661,8 +1761,9 @@ class RedisCluster
      * @param int $offset 所在位置
      * @return int
      */
-    public function getBit($key, $offset)
+    public function getBit(string $key, int $offset): int
     {
+    
     }
 
     /**
@@ -1678,10 +1779,11 @@ class RedisCluster
      * @param string $key 键名
      * @param int $offset 开始位置
      * @param boolean|int $value 新值
-     * @return int:
+     * @return int
      */
-    public function setBit($key, $offset, $value)
+    public function setBit(string $key, int $offset, int $value): int
     {
+    
     }
 
     /**
@@ -1695,8 +1797,9 @@ class RedisCluster
      * @param string|... $keyN 键名N
      * @return long
      */
-    public function bitop($operation, $dstKey, $key1, $key2, $keyN)
+    public function bitop(string $operation, string $dstKey, string $key1, string $key2, string $keyN): long
     {
+    
     }
 
     /**
@@ -1706,8 +1809,9 @@ class RedisCluster
      * @param string $key 键名
      * @return long
      */
-    public function bitcount($key)
+    public function bitcount(string $key): long
     {
+    
     }
 
     /**
@@ -1727,10 +1831,11 @@ class RedisCluster
      * @param int $bit 位值
      * @param int $start 开始位置
      * @param int $end 结束位置
-     * @return function
+     * @return callable
      */
-    public function bitpos($key, $bit, $start, $end)
+    public function bitpos(string $key, int $bit, int $start, int $end): callable
     {
+    
     }
 
     /**
@@ -1741,8 +1846,9 @@ class RedisCluster
      * @param int $index 索引值
      * @return string | boolean
      */
-    public function lget($key, $index)
+    public function lget(string $key, int $index): ?string
     {
+    
     }
 
     /**
@@ -1757,10 +1863,11 @@ class RedisCluster
      * @param string $key 键名
      * @param int $start 开始位置
      * @param int $end 结束位置
-     * @return string:
+     * @return string
      */
-    public function getrange($key, $start, $end)
+    public function getrange(string $key, int $start, int $end): string
     {
+    
     }
 
     /**
@@ -1772,8 +1879,9 @@ class RedisCluster
      * @param int $end 结束索引
      * @return array | boolean
      */
-    public function ltrim($key, $start, $end)
+    public function ltrim(string $key, int $start, int $end): ?array
     {
+    
     }
 
     /**
@@ -1785,8 +1893,9 @@ class RedisCluster
      * @param int $end 索引结束值
      * @return array
      */
-    public function lrange($key, $start, $end)
+    public function lrange(string $key, int $start, int $end): array
     {
+    
     }
 
     /**
@@ -1805,8 +1914,9 @@ class RedisCluster
      * @param double $end 结束排序值
      * @return int
      */
-    public function zremrangebyrank($key, $start, $end)
+    public function zremrangebyrank(string $key, double $start, double $end): int
     {
+    
     }
 
     /**
@@ -1817,8 +1927,9 @@ class RedisCluster
      * @param string $message 消息
      * @return int
      */
-    public function publish($channel, $message)
+    public function publish(string $channel, string $message): int
     {
+    
     }
 
     /**
@@ -1829,8 +1940,9 @@ class RedisCluster
      * @param string $dstKey 新键名
      * @return boolean
      */
-    public function rename($srcKey, $dstKey)
+    public function rename(string $srcKey, string $dstKey): boolean
     {
+    
     }
 
     /**
@@ -1841,8 +1953,9 @@ class RedisCluster
      * @param string $dstKey 新键名
      * @return boolean
      */
-    public function renamenx($srcKey, $dstKey)
+    public function renamenx(string $srcKey, string $dstKey): boolean
     {
+    
     }
 
     /**
@@ -1853,8 +1966,9 @@ class RedisCluster
      * @param string|array|... $element 元素
      * @return 
      */
-    public function pfadd($key, $element)
+    public function pfadd(string $key, string $element)
     {
+    
     }
 
     /**
@@ -1864,8 +1978,9 @@ class RedisCluster
      * @param string|array $keys 键名
      * @return 
      */
-    public function pfcount($keys)
+    public function pfcount(string $keys)
     {
+    
     }
 
     /**
@@ -1876,8 +1991,9 @@ class RedisCluster
      * @param string|array $sourceKeys 源键名
      * @return 
      */
-    public function pfmerge($dstKey, $sourceKeys)
+    public function pfmerge(string $dstKey, string $sourceKeys)
     {
+    
     }
 
     /**
@@ -1894,8 +2010,9 @@ class RedisCluster
      * @param string $value 被替换的子串的值
      * @return string
      */
-    public function setrange($key, $offset, $value)
+    public function setrange(string $key, int $offset, string $value): string
     {
+    
     }
 
     /**
@@ -1912,8 +2029,9 @@ class RedisCluster
      * @param string $value dump导出的二进制数据
      * @return 
      */
-    public function restore($key, $ttl, $value)
+    public function restore(string $key, int $ttl, string $value)
     {
+    
     }
 
     /**
@@ -1934,8 +2052,9 @@ class RedisCluster
      * @param string $member 成员
      * @return bool
      */
-    public function smove($srcKey, $dstKey, $member)
+    public function smove(string $srcKey, string $dstKey, string $member): bool
     {
+    
     }
 
     /**
@@ -1956,8 +2075,9 @@ class RedisCluster
      * @param boolean $withScores 是否返回成员的排序值
      * @return array
      */
-    public function zRange($key, $start, $end, $withScores)
+    public function zRange(string $key, int $start, int $end, bool $withScores): array
     {
+    
     }
 
     /**
@@ -1978,8 +2098,9 @@ class RedisCluster
      * @param boolean $withScores 是否返回成员的排序值
      * @return array
      */
-    public function zRevRange($key, $start, $end, $withScores)
+    public function zRevRange(string $key, int $start, int $end, bool $withScores): array
     {
+    
     }
 
     /**
@@ -2002,8 +2123,9 @@ class RedisCluster
      * @param array $options 附加选项(可以是：withscores => TRUE, and limit => array($offset, $count))
      * @return array
      */
-    public function zRangeByScore($key, $start, $end, Array $options)
+    public function zRangeByScore(string $key, int $start, int $end, Array $options): array
     {
+    
     }
 
     /**
@@ -2026,8 +2148,9 @@ class RedisCluster
      * @param array $options 附加选项(可以是：withscores => TRUE, and limit => array($offset, $count))
      * @return array
      */
-    public function zRevRangeByScore($key, $start, $end, Array $options)
+    public function zRevRangeByScore(string $key, int $start, int $end, Array $options): array
     {
+    
     }
 
     /**
@@ -2049,8 +2172,9 @@ class RedisCluster
      * @param long $limit 成员数
      * @return array
      */
-    public function zRangeByLex($key, $min, $max, $offset, $limit)
+    public function zRangeByLex(string $key, int $min, int $max, int $offset, int $limit): array
     {
+    
     }
 
     /**
@@ -2064,8 +2188,9 @@ class RedisCluster
      * @param long $limit 成员数
      * @return 
      */
-    public function zRevRangeByLex($key, $min, $max, $offset, $limit)
+    public function zRevRangeByLex(string $key, int $min, int $max, int $offset, int $limit)
     {
+    
     }
 
     /**
@@ -2077,8 +2202,9 @@ class RedisCluster
      * @param long $max 最大的字母
      * @return int
      */
-    public function zlexcount($key, $min, $max)
+    public function zlexcount(string $key, int $min, int $max): int
     {
+    
     }
 
     /**
@@ -2090,8 +2216,9 @@ class RedisCluster
      * @param long $max 最大的字母
      * @return long
      */
-    public function zremrangebylex($key, $min, $max)
+    public function zremrangebylex(string $key, int $min, int $max): long
     {
+    
     }
 
     /**
@@ -2120,8 +2247,9 @@ class RedisCluster
      * @param string $aggregateFunction 合并使用的函数(SUM, MIN, 或 MAX)
      * @return int
      */
-    public function zunionstore($dstKey, Array $zsetKeys, Array $zsetKeysWeight, $aggregateFunction)
+    public function zunionstore(string $dstKey, Array $zsetKeys, Array $zsetKeysWeight, string $aggregateFunction): int
     {
+    
     }
 
     /**
@@ -2153,8 +2281,9 @@ class RedisCluster
      * @param string $aggregateFunction 合并使用的函数(SUM, MIN, 或 MAX)
      * @return int
      */
-    public function zinterstore($dstKey, Array $zsetKeys, Array $zsetKeysWeight, $aggregateFunction)
+    public function zinterstore(string $dstKey, Array $zsetKeys, Array $zsetKeysWeight, string $aggregateFunction): int
     {
+    
     }
 
     /**
@@ -2165,8 +2294,9 @@ class RedisCluster
      * @param string $member 成员值
      * @return int
      */
-    public function zrem($key, $member)
+    public function zrem(string $key, string $member): int
     {
+    
     }
 
     /**
@@ -2188,8 +2318,9 @@ class RedisCluster
      * @param array $options 排序参数,如：array('sort' => 'desc')
      * @return An
      */
-    public function sort($key, Array $options)
+    public function sort(string $key, Array $options): An
     {
+    
     }
 
     /**
@@ -2205,8 +2336,9 @@ class RedisCluster
      * @param string $key 键名
      * @return string
      */
-    public function object($info, $key)
+    public function object(string $info, string $key): string
     {
+    
     }
 
     /**
@@ -2234,8 +2366,9 @@ class RedisCluster
      * @param mixed $value 返回值
      * @return mixed
      */
-    public function subscribe(Array $channels, $callback, $value)
+    public function subscribe(Array $channels, string $callback, $value)
     {
+    
     }
 
     /**
@@ -2254,8 +2387,9 @@ class RedisCluster
      * @param mixed $value 返回值
      * @return 
      */
-    public function psubscribe(Array $patterns, $callback, $value)
+    public function psubscribe(Array $patterns, string $callback, $value)
     {
+    
     }
 
     /**
@@ -2267,6 +2401,7 @@ class RedisCluster
      */
     public function unsubscribe(Array $channels)
     {
+    
     }
 
     /**
@@ -2278,6 +2413,7 @@ class RedisCluster
      */
     public function punsubscribe(Array $patterns)
     {
+    
     }
 
     /**
@@ -2289,8 +2425,9 @@ class RedisCluster
      * @param int $num_keys 应该进入KEYS数组的参数个数
      * @return mixed
      */
-    public function eval($script, Array $args, $num_keys)
+    public function eval(string $script, Array $args, int $num_keys)
     {
+    
     }
 
     /**
@@ -2304,8 +2441,9 @@ class RedisCluster
      * @param int $num_keys 应该进入KEYS数组的参数个数
      * @return 
      */
-    public function evalsha($script_sha, Array $args, $num_keys)
+    public function evalsha(string $script_sha, Array $args, int $num_keys)
     {
+    
     }
 
     /**
@@ -2325,8 +2463,9 @@ class RedisCluster
      * @param int $i_count 每次迭代的长度
      * @return array
      */
-    public function scan($i_iterator, $str_pattern, $i_count)
+    public function scan(Long $i_iterator, string $str_pattern, int $i_count): array
     {
+    
     }
 
     /**
@@ -2339,8 +2478,9 @@ class RedisCluster
      * @param int $i_count 每次迭代的长度
      * @return 
      */
-    public function hscan($str_key, $i_iterator, $str_pattern, $i_count)
+    public function hscan(string $str_key, Long $i_iterator, string $str_pattern, int $i_count)
     {
+    
     }
 
     /**
@@ -2353,8 +2493,9 @@ class RedisCluster
      * @param int $i_count 每次迭代的长度
      * @return 
      */
-    public function zscan($str_key, $i_iterator, $str_pattern, $i_count)
+    public function zscan(string $str_key, Long $i_iterator, string $str_pattern, int $i_count)
     {
+    
     }
 
     /**
@@ -2367,8 +2508,9 @@ class RedisCluster
      * @param int $i_count 每次迭代的长度
      * @return 
      */
-    public function sscan($str_key, $i_iterator, $str_pattern, $i_count)
+    public function sscan(string $str_key, Long $i_iterator, string $str_pattern, int $i_count)
     {
+    
     }
 
     /**
@@ -2377,8 +2519,9 @@ class RedisCluster
      * @example $redis->getMode();
      * @return int
      */
-    public function getmode()
+    public function getmode(): int
     {
+    
     }
 
     /**
@@ -2392,8 +2535,9 @@ class RedisCluster
      * </pre>
      * @return string
      */
-    public function getLastError()
+    public function getLastError(): string
     {
+    
     }
 
     /**
@@ -2411,8 +2555,9 @@ class RedisCluster
      * </pre>
      * @return bool
      */
-    public function clearLastError()
+    public function clearLastError(): bool
     {
+    
     }
 
     /**
@@ -2424,8 +2569,9 @@ class RedisCluster
      * @param string $optionName 选项名
      * @return int
      */
-    public function getOption($optionName)
+    public function getOption(string $optionName): int
     {
+    
     }
 
     /**
@@ -2440,10 +2586,11 @@ class RedisCluster
      * </pre>
      * @param string $optionName 选项名
      * @param string $optionValue 选项值
-     * @return bool:
+     * @return bool
      */
-    public function setOption($optionName, $optionValue)
+    public function setOption(string $optionName, string $optionValue): bool
     {
+    
     }
 
     /**
@@ -2457,8 +2604,9 @@ class RedisCluster
      * @param string $prefix 前缀
      * @return string
      */
-    public function _prefix($prefix)
+    public function _prefix(string $prefix): string
     {
+    
     }
 
     /**
@@ -2476,8 +2624,9 @@ class RedisCluster
      * @param string $value 被序列化的值
      * @return 
      */
-    public function _serialize($value)
+    public function _serialize(string $value)
     {
+    
     }
 
     /**
@@ -2491,8 +2640,9 @@ class RedisCluster
      * @param string $value 被反序列化的值
      * @return 
      */
-    public function _unserialize($value)
+    public function _unserialize(string $value)
     {
+    
     }
 
     /**
@@ -2503,8 +2653,9 @@ class RedisCluster
      * }
      * @return array
      */
-    public function _masters()
+    public function _masters(): array
     {
+    
     }
 
     /**
@@ -2513,8 +2664,9 @@ class RedisCluster
      * @example 
      * @return string|NULL
      */
-    public function _redir()
+    public function _redir(): ?string
     {
+    
     }
 
     /**
@@ -2538,6 +2690,7 @@ class RedisCluster
      */
     public function multi()
     {
+    
     }
 
     /**
@@ -2548,6 +2701,7 @@ class RedisCluster
      */
     public function discard()
     {
+    
     }
 
     /**
@@ -2558,6 +2712,7 @@ class RedisCluster
      */
     public function exec()
     {
+    
     }
 
     /**
@@ -2575,8 +2730,9 @@ class RedisCluster
      * @param string|array $keys 键名
      * @return 
      */
-    public function watch($keys)
+    public function watch(string $keys)
     {
+    
     }
 
     /**
@@ -2586,8 +2742,9 @@ class RedisCluster
      * @param string|array $keys 键名
      * @return 
      */
-    public function unwatch($keys)
+    public function unwatch(string $keys)
     {
+    
     }
 
     /**
@@ -2596,8 +2753,9 @@ class RedisCluster
      * @example $redis->save();
      * @return boolean
      */
-    public function save()
+    public function save(): boolean
     {
+    
     }
 
     /**
@@ -2608,6 +2766,7 @@ class RedisCluster
      */
     public function bgSave()
     {
+    
     }
 
     /**
@@ -2616,8 +2775,9 @@ class RedisCluster
      * @example $redis->flushDB();
      * @return bool
      */
-    public function flushdb()
+    public function flushdb(): bool
     {
+    
     }
 
     /**
@@ -2626,8 +2786,9 @@ class RedisCluster
      * @example $redis->flushAll();
      * @return bool
      */
-    public function flushall()
+    public function flushall(): bool
     {
+    
     }
 
     /**
@@ -2640,8 +2801,9 @@ class RedisCluster
      * </pre>
      * @return int
      */
-    public function dbsize()
+    public function dbsize(): int
     {
+    
     }
 
     /**
@@ -2650,8 +2812,9 @@ class RedisCluster
      * @example $redis->bgrewriteaof();
      * @return bool
      */
-    public function bgrewriteaof()
+    public function bgrewriteaof(): bool
     {
+    
     }
 
     /**
@@ -2660,8 +2823,9 @@ class RedisCluster
      * @example $redis->lastSave();
      * @return int
      */
-    public function lastsave()
+    public function lastsave(): int
     {
+    
     }
 
     /**
@@ -2676,8 +2840,9 @@ class RedisCluster
      * </pre>
      * @return array
      */
-    public function info()
+    public function info(): array
     {
+    
     }
 
     /**
@@ -2686,8 +2851,9 @@ class RedisCluster
      * @example 
      * @return string
      */
-    public function role()
+    public function role(): string
     {
+    
     }
 
     /**
@@ -2703,8 +2869,9 @@ class RedisCluster
      * </pre>
      * @return int
      */
-    public function time()
+    public function time(): int
     {
+    
     }
 
     /**
@@ -2717,8 +2884,9 @@ class RedisCluster
      * </pre>
      * @return string
      */
-    public function randomkey()
+    public function randomkey(): string
     {
+    
     }
 
     /**
@@ -2727,8 +2895,9 @@ class RedisCluster
      * @example 
      * @return string
      */
-    public function ping()
+    public function ping(): string
     {
+    
     }
 
     /**
@@ -2738,8 +2907,9 @@ class RedisCluster
      * @param string $str 发送的字符串
      * @return string
      */
-    public function echo($str)
+    public function echo(string $str): string
     {
+    
     }
 
     /**
@@ -2748,8 +2918,9 @@ class RedisCluster
      * @example 
      * @return array
      */
-    public function command()
+    public function command(): array
     {
+    
     }
 
     /**
@@ -2760,8 +2931,9 @@ class RedisCluster
      * @param string|array $args 参数
      * @return 
      */
-    public function rawcommand($command, $args)
+    public function rawcommand(string $command, string $args)
     {
+    
     }
 
     /**
@@ -2771,8 +2943,9 @@ class RedisCluster
      * @param string $args 参数(目前只支持slots)
      * @return array
      */
-    public function cluster($args)
+    public function cluster(string $args): array
     {
+    
     }
 
     /**
@@ -2787,8 +2960,9 @@ CLIENT KILL [ip:port]
      * @param string $args 参数
      * @return 
      */
-    public function client($command, $args)
+    public function client(string $command, string $args)
     {
+    
     }
 
     /**
@@ -2804,8 +2978,9 @@ CLIENT KILL [ip:port]
      * @param string $value 配置值
      * @return array
      */
-    public function config($operation, $key, $value)
+    public function config(string $operation, string $key, string $value): array
     {
+    
     }
 
     /**
@@ -2822,8 +2997,9 @@ CLIENT KILL [ip:port]
      * @param string|array $args 参数
      * @return array|int
      */
-    public function pubsub($subcommand, $args)
+    public function pubsub(string $subcommand, string $args): ?array
     {
+    
     }
 
     /**
@@ -2844,8 +3020,9 @@ CLIENT KILL [ip:port]
      * @param string|... $script 脚本
      * @return 
      */
-    public function script($command, $script)
+    public function script(string $command, string $script)
     {
+    
     }
 
     /**
@@ -2856,8 +3033,9 @@ CLIENT KILL [ip:port]
      * @param int $length 获取条目数
      * @return 
      */
-    public function slowlog($command, $length)
+    public function slowlog(string $command, int $length)
     {
+    
     }
 
 }
