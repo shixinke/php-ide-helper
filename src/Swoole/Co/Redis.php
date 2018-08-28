@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -102,7 +102,7 @@ class Redis
      * @param boolean $defer bool值，为true时，表明该Client要延迟收包，为false时，表明该Client非延迟收包，默认值为true
      * @return 
      */
-    public function setDefer(boolean $defer)
+    public function setDefer(bool $defer)
     {
     
     }
@@ -126,7 +126,7 @@ class Redis
      * @param boolean $flag 是否等待所有数据到达后返回
      * @return string
      */
-    public function recv(int $size, boolean $flag): string
+    public function recv(int $size, bool $flag): string
     {
     
     }
@@ -1664,7 +1664,7 @@ class Redis
      * @param boolean $withScores 是否返回成员的排序值
      * @return array
      */
-    public function zRange(string $key, int $start, int $end, boolean $withScores): array
+    public function zRange(string $key, int $start, int $end, bool $withScores): array
     {
     
     }
@@ -1687,7 +1687,7 @@ class Redis
      * @param boolean $withScores 是否返回成员的排序值
      * @return array
      */
-    public function zRevRange(string $key, int $start, int $end, boolean $withScores): array
+    public function zRevRange(string $key, int $start, int $end, bool $withScores): array
     {
     
     }

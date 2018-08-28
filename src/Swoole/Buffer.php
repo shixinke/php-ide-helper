@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -68,7 +68,7 @@ class Buffer
      * @param boolean $seek 表示从缓冲区的头部将此数据移除
      * @return string
      */
-    public function substr(int $offset, int $length, boolean $seek): string
+    public function substr(int $offset, int $length, bool $seek): string
     {
     
     }

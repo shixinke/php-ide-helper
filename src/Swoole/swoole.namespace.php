@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -209,7 +209,7 @@ define('SWOOLE_EVENT_WRITE', 1024);
 /**
 swoole 版本号
 */
-define('SWOOLE_VERSION', '4.0.0');
+define('SWOOLE_VERSION', '4.1.0');
 /**
 内存分配失败错误
 */
@@ -622,6 +622,98 @@ define('WEBSOCKET_STATUS_FRAME', 3);
 websocket活动连接状态
 */
 define('WEBSOCKET_STATUS_ACTIVE', 3);
+/**
+HTTP2的DATA帧(传送与流关联的任意长度可变的八位字节序列)
+*/
+define('SWOOLE_HTTP2_TYPE_DATA', 0);
+/**
+HTTP2的HEADERS帧(用于打开一个流，并且还携带一个头块段)
+*/
+define('SWOOLE_HTTP2_TYPE_HEADERS', 1);
+/**
+HTTP2的PRIORITY帧(指定了流发送者建议的优先级)
+*/
+define('SWOOLE_HTTP2_TYPE_PRIORITY', 2);
+/**
+HTTP2的RST_STREAM帧(允许立即终止一个流)
+*/
+define('SWOOLE_HTTP2_TYPE_RST_STREAM', 3);
+/**
+HTTP2的SETTINGS帧(传达影响端点通信方式的配置参数)
+*/
+define('SWOOLE_HTTP2_TYPE_SETTINGS', 4);
+/**
+HTTP2的PUSH_PROMISE帧(用于在发送者打算启动的流之前通知对端)
+*/
+define('SWOOLE_HTTP2_TYPE_PUSH_PROMISE', 5);
+/**
+HTTP2的PING帧(用于测量来自发送方的最小往返时间，以及确定空闲连接是否仍然有效)
+*/
+define('SWOOLE_HTTP2_TYPE_PING', 6);
+/**
+HTTP2的GOWAY帧(用于启动连接关闭或发出严重错误状态信号)
+*/
+define('SWOOLE_HTTP2_TYPE_GOAWAY', 7);
+/**
+HTTP2的WINDOW_UPDATE帧(用于实现流量控制)
+*/
+define('SWOOLE_HTTP2_TYPE_WINDOW_UPDATE', 8);
+/**
+HTTP2的CONTINUATION帧(用于继续一系列头块分片)
+*/
+define('SWOOLE_HTTP2_TYPE_CONTINUATION', 9);
+/**
+HTTP2没有错误(关联的条件不是错误的结果。例如，GOAWAY帧可以包含此错误码，表明优雅地关闭连接)
+*/
+define('SWOOLE_HTTP2_ERROR_NO_ERROR', 0);
+/**
+HTTP2协议错误(端点检测到的没有特别指定的协议错误。适用于无法提供更加具体的错误码的情况)
+*/
+define('SWOOLE_HTTP2_ERROR_PROTOCOL_ERROR', 1);
+/**
+HTTP2内部错误(端点遇到的意外的内部错误)
+*/
+define('SWOOLE_HTTP2_ERROR_INTERNAL_ERROR', 2);
+/**
+HTTP2流量控制错误
+*/
+define('SWOOLE_HTTP2_ERROR_FLOW_CONTROL_ERROR', 3);
+/**
+HTTP2设置超时错误
+*/
+define('SWOOLE_HTTP2_ERROR_SETTINGS_TIMEOUT', 4);
+/**
+HTTP2流关闭错误
+*/
+define('SWOOLE_HTTP2_ERROR_STREAM_CLOSED', 5);
+/**
+HTTP2帧大小错误
+*/
+define('SWOOLE_HTTP2_ERROR_FRAME_SIZE_ERROR', 6);
+/**
+HTTP2帧被拒绝错误
+*/
+define('SWOOLE_HTTP2_ERROR_REFUSED_STREAM', 7);
+/**
+HTTP2连接取消错误
+*/
+define('SWOOLE_HTTP2_ERROR_CANCEL', 8);
+/**
+HTTP2压缩错误
+*/
+define('SWOOLE_HTTP2_ERROR_COMPRESSION_ERROR', 9);
+/**
+HTTP2连接错误
+*/
+define('SWOOLE_HTTP2_ERROR_CONNECT_ERROR', 10);
+/**
+HTTP2超负载错误(端点检测到远端表现出有可能产生过大负载的行为)
+*/
+define('SWOOLE_HTTP2_ERROR_ENHANCE_YOUR_CALM', 11);
+/**
+HTTP2安全性错误(底层传输存在不满足最低安全需求的属性)
+*/
+define('SWOOLE_HTTP2_ERROR_INADEQUATE_SECURITY', 12);
 /**
 是否开启对异步任务数据进行序列化功能
 */

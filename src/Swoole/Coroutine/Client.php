@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -46,32 +46,11 @@ class Client
     public $sock    =    0;
 
     /**
-     * @var bool $reuse 
-     * 此连接是新创建的还是复用已存在的
-     * @access public
-     */
-    public $reuse    =    false;
-
-    /**
-     * @var int $reuseCount 
-     * 复用次数
-     * @access public
-     */
-    public $reuseCount    =    0;
-
-    /**
      * @var int $type 
      * socket 类型
      * @access public
      */
     public $type    =    0;
-
-    /**
-     * @var int $id 
-     * 连接标识ID
-     * @access public
-     */
-    public $id;
 
     /**
      * @var array $setting 
@@ -155,7 +134,7 @@ class Client
      * @param boolean $flag 是否立即返回
      * @return 
      */
-    public function send(string $data, boolean $flag)
+    public function send(string $data, bool $flag)
     {
     
     }

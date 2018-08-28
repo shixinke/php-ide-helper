@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -86,7 +86,7 @@ class swoole_process
      * @param boolean $pipe_type 是否创建管道，启用$redirect_stdin_stdout后，此选项将忽略用户参数，强制为true。如果子进程内没有进程间通信，可以设置为 false
      * @return 
      */
-    public function __construct(Callable $callback, boolean $redirect_stdin_and_stdout, boolean $pipe_type)
+    public function __construct(Callable $callback, bool $redirect_stdin_and_stdout, bool $pipe_type)
     {
     
     }
@@ -109,7 +109,7 @@ class swoole_process
      * @param boolean $blocking 指定是否阻塞等待，默认为阻塞
      * @return 
      */
-    public static  function wait(boolean $blocking)
+    public static  function wait(bool $blocking)
     {
     
     }
@@ -160,7 +160,7 @@ class swoole_process
      * @param boolean $noclose 为true表示不要关闭标准输入输出文件描述符
      * @return 
      */
-    public static  function daemon(boolean $nochdir, boolean $noclose)
+    public static  function daemon(bool $nochdir, bool $noclose)
     {
     
     }

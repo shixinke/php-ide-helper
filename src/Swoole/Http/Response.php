@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -63,7 +63,7 @@ class Response
      * @param boolean $httponly 是否只是http
      * @return 
      */
-    public function cookie(string $name, string $value, int $expires, string $path, string $domain, boolean $secure, boolean $httponly)
+    public function cookie(string $name, string $value, int $expires, string $path, string $domain, bool $secure, bool $httponly)
     {
     
     }
@@ -81,7 +81,7 @@ class Response
      * @param boolean $httponly 是否只是http
      * @return 
      */
-    public function rawcookie(string $name, string $value, int $expires, string $path, string $domain, boolean $secure, boolean $httponly)
+    public function rawcookie(string $name, string $value, int $expires, string $path, string $domain, bool $secure, bool $httponly)
     {
     
     }
@@ -119,7 +119,7 @@ class Response
      * @param boolean $ucwords 首字母是否大写
      * @return 
      */
-    public function header(string $key, string $value, boolean $ucwords)
+    public function header(string $key, string $value, bool $ucwords)
     {
     
     }

@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -11,6 +11,13 @@
 namespace Swoole\Http2;
 class Response
 {
+    /**
+     * @var int $streamId 
+     * 数据流ID
+     * @access public
+     */
+    public $streamId    =    0;
+
     /**
      * @var int $errCode 
      * 错误码
@@ -26,18 +33,39 @@ class Response
     public $statusCode    =    0;
 
     /**
-     * @var string $body 
-     * 响应体内容
+     * @var bool $pipeline 
+     * 
      * @access public
      */
-    public $body;
+    public $pipeline    =    false;
 
     /**
-     * @var int $streamId 
-     * 数据流ID
+     * @var unknown $headers 
+     * 
      * @access public
      */
-    public $streamId;
+    public $headers;
+
+    /**
+     * @var unknown $set_cookie_headers 
+     * 
+     * @access public
+     */
+    public $set_cookie_headers;
+
+    /**
+     * @var unknown $cookies 
+     * 
+     * @access public
+     */
+    public $cookies;
+
+    /**
+     * @var unknown $data 
+     * 
+     * @access public
+     */
+    public $data;
 
 }
 

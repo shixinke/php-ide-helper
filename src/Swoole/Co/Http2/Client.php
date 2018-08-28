@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -19,25 +19,18 @@ class Client
     public $errCode    =    0;
 
     /**
+     * @var int $errMsg 
+     * 
+     * @access public
+     */
+    public $errMsg    =    0;
+
+    /**
      * @var int $sock 
      * 此socket的文件描述符
      * @access public
      */
     public $sock    =    0;
-
-    /**
-     * @var boolean $reuse 
-     * 表示此连接是新创建的还是复用已存在的
-     * @access public
-     */
-    public $reuse    =    '';
-
-    /**
-     * @var int $reuseCount 
-     * 表示此连接复用次数
-     * @access public
-     */
-    public $reuseCount    =    0;
 
     /**
      * @var int $type 

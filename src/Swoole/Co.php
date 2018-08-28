@@ -1,13 +1,14 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
 *swoole内置协程(协程可以理解为纯用户态的线程，其通过协作而不是抢占来进行切换。相对于进程或者线程，协程所有的操作都可以在用户态完成，创建和切换的消耗更低。Swoole可以为每一个请求创建对应的协程，根据IO的状态来合理的调度协程)
 */
+
 class Co
 {
     /**
@@ -188,38 +189,41 @@ class Co
 
     /**
      * 
-     *协程版反射调用函数
-     * @example 
-     * @param callable $func 调用函数
-     * @param mixed $parameters 调用函数的参数(可空变量)
-     * @return 
-     */
-    public static  function call_user_func(Callable $func, $parameters)
-    {
-    
-    }
-
-    /**
-     * 
-     *协程版反射调用函数
-     * @example 
-     * @param callable $func 调用函数
-     * @param array $parameters 调用函数的参数列表
-     * @return 
-     */
-    public static  function call_user_func_array(Callable $func, Array $parameters)
-    {
-    
-    }
-
-    /**
-     * 
      *执行一条shell指令。底层自动进行协程调度
      * @example 
      * @param string $cmd 要执行的shell指令
      * @return array
      */
     public static  function exec(string $cmd): array
+    {
+    
+    }
+
+    /**
+     * 
+     *遍历当前进程内的所有协程
+     * @example $coros = Coroutine::listCoroutines();
+     * foreach($coros as $cid)
+     * {
+     *     var_dump(Coroutine::getBackTrace($cid));
+     * }
+     * @return \Swoole\Coroutine\Iterator
+     */
+    public static  function listCoroutines()
+    {
+    
+    }
+
+    /**
+     * 
+     *将域名解析为IP，基于同步的线程池模拟实现。底层自动进行协程调度
+     * @example 
+     * @param int $cid 协程的ID，默认为当前协程
+     * @param int $options 设置选项(DEBUG_BACKTRACE_PROVIDE_OBJECT: 是否填充object的索引;DEBUG_BACKTRACE_IGNORE_ARGS: 是否忽略args的索引，包括所有的 function/method 的参数，能够节省内存开销)
+     * @param int $limit 限制返回堆栈帧的数量
+     * @return array|bool
+     */
+    public static  function getBackTrace(int $cid, int $options, int $limit): ?array
     {
     
     }

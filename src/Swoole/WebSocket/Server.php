@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -251,7 +251,7 @@ class Server extends \Swoole\Http\Server
      * @param boolean $finish 帧是否完成
      * @return 
      */
-    public function push(int $fd, string $data, int $opcode, boolean $finish)
+    public function push(int $fd, string $data, int $opcode, bool $finish)
     {
     
     }
@@ -278,7 +278,7 @@ class Server extends \Swoole\Http\Server
      * @param boolean $mask 是否设置掩码
      * @return 
      */
-    public static  function pack(string $data, int $opcode, boolean $finish, boolean $mask)
+    public static  function pack(string $data, int $opcode, bool $finish, bool $mask)
     {
     
     }
@@ -444,7 +444,7 @@ class Server extends \Swoole\Http\Server
      * @param boolean $is_protected 设置的状态，true表示保护状态，false表示不保护
      * @return 
      */
-    public function protect(int $fd, boolean $is_protected)
+    public function protect(int $fd, bool $is_protected)
     {
     
     }
@@ -472,7 +472,7 @@ class Server extends \Swoole\Http\Server
      * @param boolean $reset 设置为true会强制关闭连接，丢弃发送队列中的数据
      * @return 
      */
-    public function close(int $fd, boolean $reset)
+    public function close(int $fd, bool $reset)
     {
     
     }
@@ -633,7 +633,7 @@ class Server extends \Swoole\Http\Server
      * @param boolean $reactor_id 是否关闭超时的连接，默认为true
      * @return 
      */
-    public function heartbeat(boolean $reactor_id)
+    public function heartbeat(bool $reactor_id)
     {
     
     }

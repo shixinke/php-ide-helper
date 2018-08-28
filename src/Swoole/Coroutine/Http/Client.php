@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -24,20 +24,6 @@ class Client
      * @access public
      */
     public $sock    =    0;
-
-    /**
-     * @var bool $reuse 
-     * 此连接是新创建的还是复用已存在的
-     * @access public
-     */
-    public $reuse    =    false;
-
-    /**
-     * @var int $reuseCount 
-     * 连接复用次数
-     * @access public
-     */
-    public $reuseCount    =    0;
 
     /**
      * @var int $type 
@@ -110,11 +96,25 @@ class Client
     public $uploadFiles    =    array();
 
     /**
+     * @var unknown $downloadFile 
+     * 
+     * @access public
+     */
+    public $downloadFile;
+
+    /**
      * @var array $headers 
      * 请求响应头
      * @access public
      */
     public $headers    =    array();
+
+    /**
+     * @var unknown $set_cookie_headers 
+     * 
+     * @access public
+     */
+    public $set_cookie_headers;
 
     /**
      * @var array $cookies 

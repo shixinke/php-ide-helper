@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -166,7 +166,7 @@ class swoole_http2_client extends swoole_client
      * @param boolean $ssl 是否开启TLS/SSL隧道加密，https网站必须设置为true
      * @return 
      */
-    public function __construct(string $host, int $port, boolean $ssl)
+    public function __construct(string $host, int $port, bool $ssl)
     {
     
     }
@@ -302,7 +302,7 @@ class swoole_http2_client extends swoole_client
      * @param boolean $finish 发送成功后是否结束
      * @return 
      */
-    public function push(string $data, int $opcode, boolean $finish)
+    public function push(string $data, int $opcode, bool $finish)
     {
     
     }
@@ -354,7 +354,7 @@ class swoole_http2_client extends swoole_client
      * @param boolean $flag 是否等待所有数据到达后返回
      * @return string
      */
-    public function recv(int $size, boolean $flag): string
+    public function recv(int $size, bool $flag): string
     {
     
     }
@@ -367,7 +367,7 @@ class swoole_http2_client extends swoole_client
      * @param boolean $flag 是否等待所有数据到达后返回
      * @return 
      */
-    public function send(string $data, boolean $flag)
+    public function send(string $data, bool $flag)
     {
     
     }
@@ -530,7 +530,7 @@ class swoole_http2_client extends swoole_client
      * @param boolean $force 表示强制关闭连接，可用于关闭SWOOLE_KEEP长连接
      * @return 
      */
-    public function close(boolean $force)
+    public function close(bool $force)
     {
     
     }

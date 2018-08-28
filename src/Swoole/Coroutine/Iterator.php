@@ -6,9 +6,10 @@
 */
 
 /**
-*连接迭代器
+*协程版迭代器
 */
-class swoole_connection_iterator implements Iterator, ArrayAccess, Countable
+namespace Swoole\Coroutine;
+class Iterator implements \Iterator,\Countable
 {
     /**
      * 
@@ -78,49 +79,11 @@ class swoole_connection_iterator implements Iterator, ArrayAccess, Countable
 
     /**
      * 
-     *检查一个偏移位置是否存在
+     *析构函数
      * @example 
-     * @param int $fd 连接句柄
      * @return 
      */
-    public function offsetExists(int $fd)
-    {
-    
-    }
-
-    /**
-     * 
-     *取一个偏移位置的值
-     * @example 
-     * @param int $fd 连接句柄
-     * @return 
-     */
-    public function offsetGet(int $fd)
-    {
-    
-    }
-
-    /**
-     * 
-     *设置一个偏移位置的值(来自ArrayAccess接口)
-     * @example 
-     * @param int $fd 连接句柄
-     * @param mixed $value 需要设置的值
-     * @return 
-     */
-    public function offsetSet(int $fd, $value)
-    {
-    
-    }
-
-    /**
-     * 
-     *复位一个偏移位置的值
-     * @example 
-     * @param int $fd 连接句柄
-     * @return 
-     */
-    public function offsetUnset(int $fd)
+    public function __destruct()
     {
     
     }

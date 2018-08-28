@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.0.0版本)
+* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/14
+* @modified 2018/08/28
 */
 
 /**
@@ -151,7 +151,7 @@ class swoole_client
      * @param boolean $async 表示同步阻塞还是异步非阻塞，默认为同步阻塞
      * @return 
      */
-    public function __construct(int $type, boolean $async)
+    public function __construct(int $type, bool $async)
     {
     
     }
@@ -202,7 +202,7 @@ class swoole_client
      * @param boolean $flag 是否等待所有数据到达后返回
      * @return string
      */
-    public function recv(int $size, boolean $flag): string
+    public function recv(int $size, bool $flag): string
     {
     
     }
@@ -215,7 +215,7 @@ class swoole_client
      * @param boolean $flag 是否等待所有数据到达后返回
      * @return 
      */
-    public function send(string $data, boolean $flag)
+    public function send(string $data, bool $flag)
     {
     
     }
@@ -378,7 +378,7 @@ class swoole_client
      * @param boolean $force 表示强制关闭连接，可用于关闭SWOOLE_KEEP长连接
      * @return 
      */
-    public function close(boolean $force)
+    public function close(bool $force)
     {
     
     }
