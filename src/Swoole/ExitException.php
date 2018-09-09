@@ -6,10 +6,10 @@
 */
 
 /**
-*swoole 异常类
+*swoole的退出协程异常
 */
 namespace Swoole;
-class Exception extends \Exception implements \Throwable
+class ExitException extends \Exception implements \Throwable
 {
     /**
      * @var string $message 
@@ -38,6 +38,30 @@ class Exception extends \Exception implements \Throwable
      * @access protected
      */
     protected $line;
+
+    /**
+     * 
+     *获取exit退出时所处的环境信息掩码, 目前有以下掩码:
+     *SWOOLE_EXIT_IN_COROUTINE //协程中退出
+     *SWOOLE_EXIT_IN_SERVER //服务中退出
+     * @example 
+     * @return int
+     */
+    public function getFlags(): int
+    {
+    
+    }
+
+    /**
+     * 
+     *获取exit($status)退出时的传入的status参数, 支持任意的变量类型
+     * @example 
+     * @return int
+     */
+    public function getStatus(): int
+    {
+    
+    }
 
     /**
      * 

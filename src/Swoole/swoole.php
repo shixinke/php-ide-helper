@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
+* Swoole自动补全类(基于最新的4.1.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/08/28
+* @modified 2018/09/09
 */
 
 /**
@@ -10,6 +10,9 @@
 */
 /**
  * php.ini配置选项: 
+
+ * 
+ * swoole.enable_coroutine=On
 
  * swoole异步IO线程数
  * swoole.aio_thread_num=2
@@ -567,6 +570,14 @@ define('SW_PGSQL_NUM', 2);
 */
 define('SW_PGSQL_BOTH', 3);
 /**
+
+*/
+define('SWOOLE_EXIT_IN_COROUTINE', 2);
+/**
+
+*/
+define('SWOOLE_EXIT_IN_SERVER', 4);
+/**
 使用类似于Node.js的线程池同步阻塞模拟异步
 */
 define('SWOOLE_AIO_BASE', 0);
@@ -595,18 +606,6 @@ swoole自旋锁
 */
 define('SWOOLE_SPINLOCK', 5);
 /**
-UTF-8文本字符数据(websocket数据帧类型)
-*/
-define('WEBSOCKET_OPCODE_TEXT', 1);
-/**
-二进制数据(websocket数据帧类型)
-*/
-define('WEBSOCKET_OPCODE_BINARY', 2);
-/**
-ping数据(websocket数据帧类型)
-*/
-define('WEBSOCKET_OPCODE_PING', 9);
-/**
 连接进入等待握手
 */
 define('WEBSOCKET_STATUS_CONNECTION', 1);
@@ -622,6 +621,82 @@ define('WEBSOCKET_STATUS_FRAME', 3);
 websocket活动连接状态
 */
 define('WEBSOCKET_STATUS_ACTIVE', 3);
+/**
+
+*/
+define('WEBSOCKET_STATUS_CLOSING', 4);
+/**
+
+*/
+define('WEBSOCKET_OPCODE_CONTINUATION', 0);
+/**
+UTF-8文本字符数据(websocket数据帧类型)
+*/
+define('WEBSOCKET_OPCODE_TEXT', 1);
+/**
+二进制数据(websocket数据帧类型)
+*/
+define('WEBSOCKET_OPCODE_BINARY', 2);
+/**
+
+*/
+define('WEBSOCKET_OPCODE_CLOSE', 8);
+/**
+ping数据(websocket数据帧类型)
+*/
+define('WEBSOCKET_OPCODE_PING', 9);
+/**
+
+*/
+define('WEBSOCKET_OPCODE_PONG', 10);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_NORMAL', 1000);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_GOING_AWAY', 1001);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_PROTOCOL_ERROR', 1002);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_DATA_ERROR', 1003);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_STATUS_ERROR', 1005);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_ABNORMAL', 1006);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_MESSAGE_ERROR', 1007);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_POLICY_ERROR', 1008);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_MESSAGE_TOO_BIG', 1009);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_EXTENSION_MISSING', 1010);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_SERVER_ERROR', 1011);
+/**
+
+*/
+define('WEBSOCKET_CLOSE_TLS', 1015);
 /**
 HTTP2的DATA帧(传送与流关联的任意长度可变的八位字节序列)
 */

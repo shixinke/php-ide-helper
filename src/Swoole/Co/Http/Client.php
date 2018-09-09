@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
+* Swoole自动补全类(基于最新的4.1.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/08/28
+* @modified 2018/09/09
 */
 
 /**
@@ -96,8 +96,8 @@ class Client
     public $uploadFiles    =    array();
 
     /**
-     * @var unknown $downloadFile 
-     * 
+     * @var string $downloadFile 
+     * 指定下载内容写入的文件路径
      * @access public
      */
     public $downloadFile;
@@ -110,11 +110,11 @@ class Client
     public $headers    =    array();
 
     /**
-     * @var unknown $set_cookie_headers 
-     * 
+     * @var array $set_cookie_headers 
+     * 服务器端返回的原始COOKIE信息，包括了domain和path项
      * @access public
      */
-    public $set_cookie_headers;
+    public $set_cookie_headers    =    array();
 
     /**
      * @var array $cookies 

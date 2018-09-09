@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
+* Swoole自动补全类(基于最新的4.1.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/08/28
+* @modified 2018/09/09
 */
 
 /**
@@ -33,11 +33,11 @@ class Request
     public $headers    =    array();
 
     /**
-     * @var unknown $cookies 
-     * 
+     * @var array $cookies 
+     * 请求中的cookie数组
      * @access public
      */
-    public $cookies;
+    public $cookies    =    array();
 
     /**
      * @var array $data 

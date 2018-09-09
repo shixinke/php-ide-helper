@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.0-beta.2版本)
+* Swoole自动补全类(基于最新的4.1.2版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/08/28
+* @modified 2018/09/09
 */
 
 /**
@@ -40,29 +40,29 @@ class Response
     public $pipeline    =    false;
 
     /**
-     * @var unknown $headers 
-     * 
+     * @var array $headers 
+     * 响应头
      * @access public
      */
-    public $headers;
+    public $headers    =    array();
 
     /**
-     * @var unknown $set_cookie_headers 
-     * 
+     * @var array $set_cookie_headers 
+     * 服务器端返回的原始COOKIE信息，包括了domain和path项
      * @access public
      */
-    public $set_cookie_headers;
+    public $set_cookie_headers    =    array();
 
     /**
-     * @var unknown $cookies 
-     * 
+     * @var array $cookies 
+     * 服务器设置的COOKIE信息
      * @access public
      */
-    public $cookies;
+    public $cookies    =    array();
 
     /**
-     * @var unknown $data 
-     * 
+     * @var string $data 
+     * 服务器发送的响应包体
      * @access public
      */
     public $data;
