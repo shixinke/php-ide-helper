@@ -1,4 +1,4 @@
-# phpstorm-for-php-framework
+# php-ide-helper
 
 php framework and php extension Auto Compelete for phpstorm
 
