@@ -21,7 +21,7 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 
 5、phpRedis(包括RedisCluster,支持phpredis 4.1.0RC1)
 
-6、swoole扩展(支持swoole 4.1.2)
+6、swoole扩展(支持swoole 4.2.9)
 
 7、SeasLog(1.8.5)
 
@@ -32,6 +32,23 @@ Yaf、Yar、Yac、Yaconf、Redis、Swoole等框架或C扩展之PhpStrom代码自
 10、FastDFS(FastDFS 1.00)
 
 ## 使用说明
+
+#### 一.支持composer的项目通过composer安装
+
+##### 1.在项目的composer配置文件composer.json中的require-dev段添加以下内容
+```
+"require-dev": {
+    "shixinke/php-ide-helper":"dev-master"
+}
+```
+
+##### 2.通过composer install安装包
+
+```
+composer install
+```
+
+#### 二.不支持composer的项目安装
 
 1、下载源文件并解压，将src文件夹下面的内容放到任意一个位置(我习惯将它放到我的phpstorm安装路径下的plugins\php\lib下面，然后建立一个vendor文件夹，如C:\Program Files (x86)\JetBrains\PhpStorm 9.0.2\plugins\php\lib\vendor)
 

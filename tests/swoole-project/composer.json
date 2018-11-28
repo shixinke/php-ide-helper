@@ -1,0 +1,15 @@
+{
+    "name": "shixinke/swoole-demo",
+    "authors": [
+        {
+            "name": "shixinke",
+            "email": "ishixinke@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev":{
+        "shixinke/php-ide-helper":"dev-master"
+    }
+}
