@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.2版本)
+* Swoole自动补全类(基于最新的4.2.9版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/09/09
+* @modified 2018/11/28
 */
 
 /**
@@ -97,51 +97,51 @@ class swoole_client
     /**
      * @var callable $onConnect 
      * 连接的回调函数
-     * @access public
+     * @access private
      */
-    public $onConnect;
+    private $onConnect;
 
     /**
      * @var callable $onError 
      * 发生错误时的回调函数
-     * @access public
+     * @access private
      */
-    public $onError;
+    private $onError;
 
     /**
      * @var callable $onReceive 
      * 客户端收到来自于服务器端的数据时会回调此函数
-     * @access public
+     * @access private
      */
-    public $onReceive;
+    private $onReceive;
 
     /**
      * @var callable $onClose 
      * 连接被关闭时回调此函数
-     * @access public
+     * @access private
      */
-    public $onClose;
+    private $onClose;
 
     /**
      * @var callable $onBufferFull 
      * 当缓存区达到最高水位时触发此事件
-     * @access public
+     * @access private
      */
-    public $onBufferFull;
+    private $onBufferFull;
 
     /**
      * @var callable $onBufferEmpty 
      * 当缓存区低于最低水位线时触发此事件
-     * @access public
+     * @access private
      */
-    public $onBufferEmpty;
+    private $onBufferEmpty;
 
     /**
      * @var callable $onSSLReady 
      * 当SSL连接就绪时的回调函数
-     * @access public
+     * @access private
      */
-    public $onSSLReady;
+    private $onSSLReady;
 
     /**
      * 

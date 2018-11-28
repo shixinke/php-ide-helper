@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.2版本)
+* Swoole自动补全类(基于最新的4.2.9版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/09/09
+* @modified 2018/11/28
 */
 
 /**
@@ -17,13 +17,6 @@ class Client
      * @access public
      */
     public $errCode    =    0;
-
-    /**
-     * @var int $sock 
-     * socket连接符
-     * @access public
-     */
-    public $sock    =    0;
 
     /**
      * @var int $type 
@@ -47,18 +40,11 @@ class Client
     public $connected    =    false;
 
     /**
-     * @var int $statusCode 
-     * 状态码
-     * @access public
-     */
-    public $statusCode    =    0;
-
-    /**
      * @var string $host 
      * 请求的服务器地址
      * @access public
      */
-    public $host;
+    public $host    =    '';
 
     /**
      * @var int $port 
@@ -103,6 +89,20 @@ class Client
     public $downloadFile;
 
     /**
+     * @var int $downloadOffset 
+     * 
+     * @access public
+     */
+    public $downloadOffset    =    0;
+
+    /**
+     * @var int $statusCode 
+     * 状态码
+     * @access public
+     */
+    public $statusCode    =    0;
+
+    /**
      * @var array $headers 
      * 请求响应头
      * @access public
@@ -128,7 +128,7 @@ class Client
      * 请求响应后服务器端返回的内容
      * @access public
      */
-    public $body;
+    public $body    =    '';
 
     /**
      * 

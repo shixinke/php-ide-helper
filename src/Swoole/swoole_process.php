@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.2版本)
+* Swoole自动补全类(基于最新的4.2.9版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/09/09
+* @modified 2018/11/28
 */
 
 /**
@@ -36,7 +36,7 @@ class swoole_process
     const PIPE_WRITE    =    4;
 
     /**
-     * @var unknown $pipe 
+     * @var int $pipe 
      * 进程管道
      * @access public
      */

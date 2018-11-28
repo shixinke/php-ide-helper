@@ -1,14 +1,13 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.2版本)
+* Swoole自动补全类(基于最新的4.2.9版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/09/09
+* @modified 2018/11/28
 */
 
 /**
 *swoole内置协程(协程可以理解为纯用户态的线程，其通过协作而不是抢占来进行切换。相对于进程或者线程，协程所有的操作都可以在用户态完成，创建和切换的消耗更低。Swoole可以为每一个请求创建对应的协程，根据IO的状态来合理的调度协程)
 */
-
 class Co
 {
     /**
@@ -54,6 +53,17 @@ class Co
      * @return 
      */
     public static  function suspend(string $uid)
+    {
+    
+    }
+
+    /**
+     * 
+     *让出当前协程的执行权(必须与Coroutine::resume()方法成对使用。该协程yield以后，必须由其他外部协程resume，否则将会造成协程泄漏，被挂起的协程永远不会执行)
+     * @example 
+     * @return 
+     */
+    public static  function yield()
     {
     
     }
@@ -201,6 +211,31 @@ class Co
 
     /**
      * 
+     *获取协程状态,返回数组包含：coroutine_num： 当前运行的协程数量;coroutine_peak_num： 当前运行的协程数量的峰值
+     * @example 
+     * @return array
+     */
+    public static  function stats(): array
+    {
+    
+    }
+
+    /**
+     * 
+     *获取文件系统信息
+     * @example go(function() {
+     *     var_dump(co::statvfs('/'));
+     * });
+     * @param string $path 文件系统挂载的目录，如/，可以使用df和mount -l命令获取
+     * @return array | false
+     */
+    public static  function statvfs(string $path): ?array
+    {
+    
+    }
+
+    /**
+     * 
      *遍历当前进程内的所有协程
      * @example $coros = Coroutine::listCoroutines();
      * foreach($coros as $cid)
@@ -209,7 +244,7 @@ class Co
      * }
      * @return \Swoole\Coroutine\Iterator
      */
-    public static  function listCoroutines()
+    public static  function listCoroutines(): \Swoole\Coroutine\Iterator
     {
     
     }
@@ -224,6 +259,18 @@ class Co
      * @return array|bool
      */
     public static  function getBackTrace(int $cid, int $options, int $limit): ?array
+    {
+    
+    }
+
+    /**
+     * 
+     *延迟执行函数，用于资源的释放, 会在协程关闭之前(即协程函数执行完毕时)进行调用, 就算抛出了异常, 已注册的defer也会被执行
+     * @example 
+     * @param Callable $callabck 延迟执行的函数
+     * @return 
+     */
+    public static  function defer(Callable $callabck)
     {
     
     }

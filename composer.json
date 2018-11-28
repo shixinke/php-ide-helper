@@ -1,0 +1,21 @@
+{
+    "name": "shixinke/php-ide-helper",
+    "description": "a tool that provides auto-completion for php frameworks and extensions",
+    "type": "library",
+    "keywords": [
+        "php",
+        "ide-helper",
+        "phpstorm-helper",
+        "swoole-ide-helper"
+    ],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "shixinke",
+            "email": "ishixinke@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    }
+}

@@ -1,15 +1,15 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.2版本)
+* Swoole自动补全类(基于最新的4.2.9版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/09/09
+* @modified 2018/11/28
 */
 
 /**
 *swoole的退出协程异常
 */
 namespace Swoole;
-class ExitException extends \Exception implements \Throwable
+class ExitException extends \Exception implements Throwable
 {
     /**
      * @var string $message 

@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.2版本)
+* Swoole自动补全类(基于最新的4.2.9版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/09/09
+* @modified 2018/11/28
 */
 
 /**
@@ -23,13 +23,6 @@ class swoole_http_client
      * @access public
      */
     public $errCode    =    0;
-
-    /**
-     * @var int $sock 
-     * socket的文件描述符
-     * @access public
-     */
-    public $sock    =    0;
 
     /**
      * @var int $statusCode 

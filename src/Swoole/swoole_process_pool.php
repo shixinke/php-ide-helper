@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.2版本)
+* Swoole自动补全类(基于最新的4.2.9版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/09/09
+* @modified 2018/11/28
 */
 
 /**
@@ -93,6 +93,22 @@ class swoole_process_pool
      * @return bool
      */
     public function start(): bool
+    {
+    
+    }
+
+    /**
+     * 
+     *获取当前工作进程对象
+     * @example $workerNum = 10;
+     * $pool = new Swoole\Process\Pool($workerNum);
+     * $pool->on("WorkerStart", function ($pool, $workerId) {
+     * $process = $pool->getProcess();
+     * $process->exec("/bin/sh", ["ls", '-l']);
+     * });
+     * @return \Swoole\Process
+     */
+    public function getProcess(): \Swoole\Process
     {
     
     }

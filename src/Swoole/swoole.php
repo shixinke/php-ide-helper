@@ -1,8 +1,8 @@
 <?php
 /**
-* Swoole自动补全类(基于最新的4.1.2版本)
+* Swoole自动补全类(基于最新的4.2.9版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/09/09
+* @modified 2018/11/28
 */
 
 /**
@@ -11,7 +11,7 @@
 /**
  * php.ini配置选项: 
 
- * 
+ * 是否开启协程模式
  * swoole.enable_coroutine=On
 
  * swoole异步IO线程数
@@ -37,10 +37,6 @@
 Base模式，传统的异步非阻塞模式，如果回调函数中有阻塞操作会导致server退化为同步模式
 */
 define('SWOOLE_BASE', 4);
-/**
-线程模式(已废弃)，多线程Worker模式。Reactor线程来处理网络事件轮询，读取数据。得到的请求交给worker线程去处理
-*/
-define('SWOOLE_THREAD', 2);
 /**
 进程模式(默认)。提供完善的进程管理、内存保护机制
 */
@@ -234,6 +230,10 @@ define('SWOOLE_ERROR_NAME_TOO_LONG', 504);
 */
 define('SWOOLE_ERROR_INVALID_PARAMS', 505);
 /**
+队列已满错误
+*/
+define('SWOOLE_ERROR_QUEUE_FULL', 506);
+/**
 文件不存在错误
 */
 define('SWOOLE_ERROR_FILE_NOT_EXIST', 700);
@@ -253,6 +253,14 @@ define('SWOOLE_ERROR_DNSLOOKUP_DUPLICATE_REQUEST', 703);
 DNS查找失败错误
 */
 define('SWOOLE_ERROR_DNSLOOKUP_RESOLVE_FAILED', 704);
+/**
+错误的ipv6地址
+*/
+define('SWOOLE_ERROR_BAD_IPV6_ADDRESS', 705);
+/**
+未注册的信号错误
+*/
+define('SWOOLE_ERROR_UNREGISTERED_SIGNAL', 706);
 /**
 会话被服务端关闭错误
 */
@@ -326,6 +334,18 @@ define('SWOOLE_ERROR_TASK_PACKAGE_TOO_BIG', 2001);
 */
 define('SWOOLE_ERROR_TASK_DISPATCH_FAIL', 2002);
 /**
+http2流ID过大错误
+*/
+define('SWOOLE_ERROR_HTTP2_STREAM_ID_TOO_BIG', 3001);
+/**
+http2缺少header错误
+*/
+define('SWOOLE_ERROR_HTTP2_STREAM_NO_HEADER', 3002);
+/**
+http2流未找到错误
+*/
+define('SWOOLE_ERROR_HTTP2_STREAM_NOT_FOUND', 3003);
+/**
 异步IO请求类型错误
 */
 define('SWOOLE_ERROR_AIO_BAD_REQUEST', 4001);
@@ -334,13 +354,9 @@ define('SWOOLE_ERROR_AIO_BAD_REQUEST', 4001);
 */
 define('SWOOLE_ERROR_CLIENT_NO_CONNECTION', 5001);
 /**
-http2流ID过大错误
+socket被关闭错误
 */
-define('SWOOLE_ERROR_HTTP2_STREAM_ID_TOO_BIG', 3001);
-/**
-http2缺少header错误
-*/
-define('SWOOLE_ERROR_HTTP2_STREAM_NO_HEADER', 3002);
+define('SWOOLE_ERROR_SOCKET_CLOSED', 5002);
 /**
 不支持的socket版本错误
 */
@@ -414,9 +430,69 @@ define('SWOOLE_ERROR_SERVER_NO_IDLE_WORKER', 9007);
 */
 define('SWOOLE_ERROR_SERVER_ONLY_START_ONE', 9008);
 /**
+主进程发送数据错误
+*/
+define('SWOOLE_ERROR_SERVER_SEND_IN_MASTER', 9009);
+/**
+非法请求错误
+*/
+define('SWOOLE_ERROR_SERVER_INVALID_REQUEST', 9010);
+/**
 工作进程退出超时
 */
 define('SWOOLE_ERROR_SERVER_WORKER_EXIT_TIMEOUT', 9009);
+/**
+协程溢出错误
+*/
+define('SWOOLE_ERROR_CO_OUT_OF_COROUTINE', 10001);
+/**
+协程已经被绑定错误
+*/
+define('SWOOLE_ERROR_CO_HAS_BEEN_BOUND', 10002);
+/**
+自旋锁被两次解锁错误
+*/
+define('SWOOLE_ERROR_CO_MUTEX_DOUBLE_UNLOCK', 10003);
+/**
+块对象被锁定错误
+*/
+define('SWOOLE_ERROR_CO_BLOCK_OBJECT_LOCKED', 10004);
+/**
+块对象等待错误
+*/
+define('SWOOLE_ERROR_CO_BLOCK_OBJECT_WAITING', 10005);
+/**
+让出协程出错误
+*/
+define('SWOOLE_ERROR_CO_YIELD_FAILED', 10006);
+/**
+获取协程上下文出错
+*/
+define('SWOOLE_ERROR_CO_GETCONTEXT_FAILED', 10007);
+/**
+协程切换上下文出错
+*/
+define('SWOOLE_ERROR_CO_SWAPCONTEXT_FAILED', 10008);
+/**
+协程设置上下文出错
+*/
+define('SWOOLE_ERROR_CO_MAKECONTEXT_FAILED', 10009);
+/**
+IOCP初始化错误
+*/
+define('SWOOLE_ERROR_CO_IOCPINIT_FAILED', 10010);
+/**
+保护栈错误
+*/
+define('SWOOLE_ERROR_CO_PROTECT_STACK_FAILED', 10011);
+/**
+线程连接错误
+*/
+define('SWOOLE_ERROR_CO_STD_THREAD_LINK_ERROR', 10012);
+/**
+禁用多线程错误
+*/
+define('SWOOLE_ERROR_CO_DISABLED_MULTI_THREAD', 10013);
 /**
 服务端调试
 */
@@ -485,6 +561,14 @@ define('SWOOLE_TRACE_MYSQL_CLIENT', 131072);
 异步IO调试
 */
 define('SWOOLE_TRACE_AIO', 262144);
+/**
+SSL调试
+*/
+define('SWOOLE_TRACE_SSL', 524288);
+/**
+普通调试
+*/
+define('SWOOLE_TRACE_NORMAL', 1048576);
 /**
 所有的调试
 */
@@ -570,11 +654,39 @@ define('SW_PGSQL_NUM', 2);
 */
 define('SW_PGSQL_BOTH', 3);
 /**
-
+默认最大协程数量
+*/
+define('SWOOLE_DEFAULT_MAX_CORO_NUM', 3000);
+/**
+最大协程限制数
+*/
+define('SWOOLE_MAX_CORO_NUM_LIMIT', 9223372036854775807);
+/**
+协程嵌套深度
+*/
+define('SWOOLE_MAX_CORO_NESTING_LEVEL', 128);
+/**
+协程初始化
+*/
+define('SWOOLE_CORO_INIT', 0);
+/**
+协程等待中
+*/
+define('SWOOLE_CORO_WAITING', 1);
+/**
+协程运行中
+*/
+define('SWOOLE_CORO_RUNNING', 2);
+/**
+协程结束
+*/
+define('SWOOLE_CORO_END', 3);
+/**
+在协程中退出
 */
 define('SWOOLE_EXIT_IN_COROUTINE', 2);
 /**
-
+从服务器中退出
 */
 define('SWOOLE_EXIT_IN_SERVER', 4);
 /**
@@ -585,6 +697,46 @@ define('SWOOLE_AIO_BASE', 0);
 Linux异步IO
 */
 define('SWOOLE_AIO_LINUX', 1);
+/**
+文件钩子
+*/
+define('SWOOLE_HOOK_FILE', 2);
+/**
+SLEEP钩子
+*/
+define('SWOOLE_HOOK_SLEEP', 4);
+/**
+TCP钩子
+*/
+define('SWOOLE_HOOK_TCP', 8);
+/**
+UDP钩子
+*/
+define('SWOOLE_HOOK_UDP', 16);
+/**
+UNIX钩子
+*/
+define('SWOOLE_HOOK_UNIX', 32);
+/**
+UDG钩子
+*/
+define('SWOOLE_HOOK_UDG', 64);
+/**
+SSL钩子
+*/
+define('SWOOLE_HOOK_SSL', 128);
+/**
+TLS钩子
+*/
+define('SWOOLE_HOOK_TLS', 256);
+/**
+阻塞函数钩子
+*/
+define('SWOOLE_HOOK_BLOCKING_FUNCTION', 512);
+/**
+所有钩子
+*/
+define('SWOOLE_HOOK_ALL', 2147483647);
 /**
 swoole文件锁
 */
@@ -622,11 +774,11 @@ websocket活动连接状态
 */
 define('WEBSOCKET_STATUS_ACTIVE', 3);
 /**
-
+websocket关闭状态
 */
 define('WEBSOCKET_STATUS_CLOSING', 4);
 /**
-
+websocket继续操作码
 */
 define('WEBSOCKET_OPCODE_CONTINUATION', 0);
 /**
@@ -638,7 +790,7 @@ define('WEBSOCKET_OPCODE_TEXT', 1);
 */
 define('WEBSOCKET_OPCODE_BINARY', 2);
 /**
-
+websocket关闭操作码
 */
 define('WEBSOCKET_OPCODE_CLOSE', 8);
 /**
@@ -646,57 +798,69 @@ ping数据(websocket数据帧类型)
 */
 define('WEBSOCKET_OPCODE_PING', 9);
 /**
-
+websocket的PONG响应操作码
 */
 define('WEBSOCKET_OPCODE_PONG', 10);
 /**
-
+websocket正常关闭
 */
 define('WEBSOCKET_CLOSE_NORMAL', 1000);
 /**
-
+websocket因连接断开关闭
 */
 define('WEBSOCKET_CLOSE_GOING_AWAY', 1001);
 /**
-
+websocket因协议错误关闭
 */
 define('WEBSOCKET_CLOSE_PROTOCOL_ERROR', 1002);
 /**
-
+websocket因数据错误关闭
 */
 define('WEBSOCKET_CLOSE_DATA_ERROR', 1003);
 /**
-
+websocket因为状态错误关闭
 */
 define('WEBSOCKET_CLOSE_STATUS_ERROR', 1005);
 /**
-
+websocket非正常关闭
 */
 define('WEBSOCKET_CLOSE_ABNORMAL', 1006);
 /**
-
+websocket因消息错误被关闭
 */
 define('WEBSOCKET_CLOSE_MESSAGE_ERROR', 1007);
 /**
-
+websocket因为权限问题被关闭错误
 */
 define('WEBSOCKET_CLOSE_POLICY_ERROR', 1008);
 /**
-
+websocket因消息太大而被关闭
 */
 define('WEBSOCKET_CLOSE_MESSAGE_TOO_BIG', 1009);
 /**
-
+websocket因为扩展名丢失被关闭
 */
 define('WEBSOCKET_CLOSE_EXTENSION_MISSING', 1010);
 /**
-
+websocket服务端关闭错误
 */
 define('WEBSOCKET_CLOSE_SERVER_ERROR', 1011);
 /**
-
+websocket　LTS连接关闭
 */
 define('WEBSOCKET_CLOSE_TLS', 1015);
+/**
+通道正常状态
+*/
+define('SWOOLE_CHANNEL_OK', 0);
+/**
+通道超时状态
+*/
+define('SWOOLE_CHANNEL_TIMEOUT', -1);
+/**
+通道被关闭状态
+*/
+define('SWOOLE_CHANNEL_CLOSED', -2);
 /**
 HTTP2的DATA帧(传送与流关联的任意长度可变的八位字节序列)
 */
@@ -1173,6 +1337,19 @@ function swoole_coroutine_exec(string $command)
 
 /**
 * 
+*通过协程延迟执行某个函数
+* @example 
+* 
+* @param Callable $callback:延迟执行的函数 
+* @return 
+*/
+function swoole_coroutine_defer(Callable $callback)
+{
+
+}
+
+/**
+* 
 *开启一个协程
 * @example 
 * 
@@ -1180,6 +1357,19 @@ function swoole_coroutine_exec(string $command)
 * @return 
 */
 function go(callable $func)
+{
+
+}
+
+/**
+* 
+*延迟执行某个函数
+* @example 
+* 
+* @param Callable $callback:延迟执行的函数 
+* @return 
+*/
+function defer(Callable $callback)
 {
 
 }
@@ -1285,9 +1475,22 @@ function swoole_errno(): int
 * 
 * @param string $data:指定的数据 
 * @param int $type:类型 
-* @return 
+* @return string
 */
-function swoole_hashcode(string $data, int $type)
+function swoole_hashcode(string $data, int $type): string
+{
+
+}
+
+/**
+* 
+*获取文件的MIME类型
+* @example 
+* 
+* @param string $filename:文件名 
+* @return string|null
+*/
+function swoole_get_mime_type(string $filename): ?string
 {
 
 }
