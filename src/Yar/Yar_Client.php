@@ -46,7 +46,7 @@ class Yar_Client
      * @param array $options 配置选项
      * @return 
      */
-    public final  function __construct(string $url, Array $options)
+    public final  function __construct(string $url, Array $options = [])
     {
     
     }
