@@ -34,7 +34,7 @@ class Yaconf
      * var_dump(Yaconf::get("foo"));
      * var_dump(Yaconf::get("foo.features.1"));
      * @param string $name 配置文件名称或配置项名称
-     * @return 
+     * @return string
      */
     public static  function get(string $name)
     {
@@ -46,7 +46,7 @@ class Yaconf
      *检查是否有某个配置项
      * @example Yaconf::has('foo.name')
      * @param string $name 配置文件名称或配置项名称
-     * @return 
+     * @return bool
      */
     public static  function has(string $name)
     {
