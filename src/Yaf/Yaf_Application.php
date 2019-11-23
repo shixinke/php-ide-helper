@@ -83,9 +83,9 @@ final class Yaf_Application
      *调用bootstrap
      * @example 
      * @param Yaf_Bootstrap_Abstract $bootstrap 引导类
-     * @return void
+     * @return Yaf_Application
      */
-    public function bootstrap(Yaf_Bootstrap_Abstract $bootstrap)
+    public function bootstrap(Yaf_Bootstrap_Abstract $bootstrap):Yaf_Application
     {
     
     }
