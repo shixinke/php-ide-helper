@@ -1,8 +1,8 @@
 <?php
 /**
-* Redis自动补全类(基于最新的4.1.0RC1版本)
+* Redis自动补全类(基于最新的5.1.1版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/20
+* @modified 2019/12/14
 */
 
 /**
@@ -41,6 +41,11 @@ class RedisCluster
     const REDIS_HASH    =    5;
 
     /**     
+    *
+    */
+    const REDIS_STREAM    =    6;
+
+    /**     
     *原子操作模式
     */
     const ATOMIC    =    0;
@@ -76,6 +81,16 @@ class RedisCluster
     const OPT_COMPRESSION    =    7;
 
     /**     
+    *
+    */
+    const OPT_REPLY_LITERAL    =    8;
+
+    /**     
+    *
+    */
+    const OPT_COMPRESSION_LEVEL    =    9;
+
+    /**     
     *不实行序列化
     */
     const SERIALIZER_NONE    =    0;
@@ -84,6 +99,11 @@ class RedisCluster
     *PHP序列化
     */
     const SERIALIZER_PHP    =    1;
+
+    /**     
+    *
+    */
+    const SERIALIZER_JSON    =    4;
 
     /**     
     *

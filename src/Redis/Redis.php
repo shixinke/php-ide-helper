@@ -1,8 +1,8 @@
 <?php
 /**
-* Redis自动补全类(基于最新的4.1.0RC1版本)
+* Redis自动补全类(基于最新的5.1.1版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/20
+* @modified 2019/12/14
 */
 
 /**
@@ -11,11 +11,17 @@
 /**
  * php.ini配置选项: 
 
+ * 键hash算法名称(如md5)
+ * redis.arrays.algorithm=
+
+ * 认证密码
+ * redis.arrays.auth=
+
  * 是否自动重新hash
- * redis.arrays.autorehash=
+ * redis.arrays.autorehash=0
 
  * redis数组连接超时时间设置(users=1)
- * redis.arrays.connecttimeout=
+ * redis.arrays.connecttimeout=0
 
  * redis键分布函数名称或分布方法
  * redis.arrays.distributor=
@@ -27,49 +33,64 @@
  * redis.arrays.hosts=
 
  * 设置哪些redis数组使用索引(如:users=1,friends=0)
- * redis.arrays.index=
+ * redis.arrays.index=0
 
  * 是否在需要操作某个Redis instance上的数据时，才建立连接
- * redis.arrays.lazyconnect=
+ * redis.arrays.lazyconnect=0
 
  * 可用的redis数组列表(多个使用,隔开,如:users,friends)
  * redis.arrays.names=
 
  * redis阵列是否启用长连接
- * redis.arrays.pconnect=
+ * redis.arrays.pconnect=0
 
  * 旧阵列(当一个新的节点添加到一个数组，phpredis需要知道它。节点的旧列表变成“previous”数组，节点的新列表作为主环)
  * redis.arrays.previous=
 
  * 阵列读数据超时时间
- * redis.arrays.readtimeout=
+ * redis.arrays.readtimeout=0
 
  * 指定当客户失去与服务器连接时重新连接的延迟的时间
- * redis.arrays.retryinterval=
+ * redis.arrays.retryinterval=0
+
+ * 是否启用一致性hash
+ * redis.arrays.consistent=0
+
+ * hash分区槽位数
+ * redis.clusters.cache_slots=0
+
+ * 集群密码
+ * redis.clusters.auth=
 
  * 集群是否为长连接
- * redis.clusters.persistent=
+ * redis.clusters.persistent=0
 
  * 设置集群的读数据超时时间(如:mycluster=10)
- * redis.clusters.read_timeout=
+ * redis.clusters.read_timeout=0
 
  * 设置集群对应的主机配置(如:mycluster[]=localhost:7000&test[]=localhost:7001   ;\n　在程序中使用:$obj_cluster = new RedisCluster('mycluster');)
  * redis.clusters.seeds=
 
  * 设置集群的连接超时时间(如:mycluster=5)
- * redis.clusters.timeout=
+ * redis.clusters.timeout=0
+
+ * 是否启用长连接池
+ * redis.pconnect.pooling_enabled=1
+
+ * 长连接最大连接数
+ * redis.pconnect.connection_limit=0
 
  * session是否启用锁
- * redis.session.locking_enabled=
+ * redis.session.locking_enabled=0
 
  * 设置用redis来存储session数据的锁有效时间
- * redis.session.lock_expire=
+ * redis.session.lock_expire=0
 
  * 设置用redis来存储session数据的锁重试次数
- * redis.session.lock_retries=
+ * redis.session.lock_retries=10
 
  * 设置用redis来存储session数据的锁等待时间
- * redis.session.lock_wait_time=
+ * redis.session.lock_wait_time=2000
 
 */
 class Redis
@@ -103,6 +124,11 @@ class Redis
     *字典类型
     */
     const REDIS_HASH    =    5;
+
+    /**     
+    *流类型
+    */
+    const REDIS_STREAM    =    6;
 
     /**     
     *管道模式
@@ -145,6 +171,16 @@ class Redis
     const OPT_COMPRESSION    =    7;
 
     /**     
+    *
+    */
+    const OPT_REPLY_LITERAL    =    8;
+
+    /**     
+    *压缩等级
+    */
+    const OPT_COMPRESSION_LEVEL    =    9;
+
+    /**     
     *不实行序列化
     */
     const SERIALIZER_NONE    =    0;
@@ -155,7 +191,12 @@ class Redis
     const SERIALIZER_PHP    =    1;
 
     /**     
-    *
+    *使用JSON序列化
+    */
+    const SERIALIZER_JSON    =    4;
+
+    /**     
+    *不用户压缩
     */
     const COMPRESSION_NONE    =    0;
 
@@ -323,12 +364,13 @@ class Redis
      * 
      *设置键值并设置有效期
      * @example $redis->setex('key', 3600, 'value');
+     * 
      * @param string $key 设置的缓存键
-     * @param string $value 设置的缓存值
      * @param int $ttl 有效期
+     * @param string $value 设置的缓存值
      * @return bool
      */
-    public function setex(string $key, string $value, int $ttl): bool
+    public function setex(string $key, int $ttl, string $value): bool
     {
     
     }
@@ -336,13 +378,14 @@ class Redis
     /**
      * 
      *设置键值并设置有效期(毫秒为单位)
-     * @example 
+     * @example $redis->pSetEx('key', 100, 'value')
+     * 
      * @param string $key 设置的缓存键
-     * @param string $value 设置的缓存值
      * @param int $ttl 有效期(毫秒为单位)
-     * @return 
+     * @param string $value 设置的缓存值
+     * @return bool
      */
-    public function psetex(string $key, string $value, int $ttl)
+    public function psetex(string $key, int $ttl, string $value): bool
     {
     
     }

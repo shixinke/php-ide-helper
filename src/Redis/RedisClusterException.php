@@ -1,8 +1,8 @@
 <?php
 /**
-* Redis自动补全类(基于最新的4.1.0RC1版本)
+* Redis自动补全类(基于最新的5.1.1版本)
 * @author shixinke(http://www.shixinke.com)
-* @modified 2018/06/20
+* @modified 2019/12/14
 */
 
 /**
